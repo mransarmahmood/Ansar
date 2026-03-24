@@ -1,0 +1,57 @@
+{
+  "hero": {
+    "badge": "Available for Global Engagements",
+    "headline": "Transforming Workplaces. Saving Lives. Powering the Future.",
+    "subheadline": "Senior HSE Consultant, Trainer, and AI & Digital Solutions Specialist — delivering safety excellence, regulatory compliance, and digital transformation across 40+ countries and every major industry.",
+    "cta_primary_text": "Book Free Consultation",
+    "cta_primary_url": "pages/book-consultation.html",
+    "cta_secondary_text": "Explore All Services",
+    "cta_secondary_url": "pages/services.html",
+    "credentials": [
+      "NEBOSH Certified",
+      "IOSH Member",
+      "40+ Countries",
+      "AI Specialist",
+      "ISO Lead Auditor"
+    ]
+  },
+  "stats": [
+    { "value": "25", "suffix": "+", "label": "Years of Global HSE Experience" },
+    { "value": "500", "suffix": "+", "label": "Projects Delivered Worldwide" },
+    { "value": "40", "suffix": "+", "label": "Countries Worked Across" },
+    { "value": "10000", "suffix": "+", "label": "Professionals Trained", "display": "10,000+" }
+  ],
+  "why_choose": [
+    {
+      "icon": "fa-globe",
+      "title": "Global Field Experience",
+      "text": "Deployed across 40+ countries in oil & gas, construction, manufacturing, and beyond. Real-world expertise, not just theory."
+    },
+    {
+      "icon": "fa-laptop-code",
+      "title": "Digital-First Approach",
+      "text": "The only HSE consultant who builds AI agents, Power BI dashboards, and SharePoint safety portals — bridging the gap between safety and technology."
+    },
+    {
+      "icon": "fa-certificate",
+      "title": "Certified Trainer & Coach",
+      "text": "NEBOSH and IOSH certified trainer with a 97%+ exam pass rate across ASP, CSP, CRSP, NEBOSH, IOSH, and ISO programs."
+    }
+  ],
+  "cta_banner": {
+    "headline": "Ready to Transform Your Safety Culture?",
+    "subtext": "Whether you need a compliance audit, a Power BI dashboard, AI-powered tools, or NEBOSH coaching — let's start with a free 30-minute consultation.",
+    "cta_primary_text": "Schedule Free Consultation",
+    "cta_primary_url": "pages/book-consultation.html",
+    "cta_secondary_text": "Send a Message",
+    "cta_secondary_url": "pages/contact.html"
+  },
+  "trust_bar": [
+    { "label": "NEBOSH", "icon": "fa-certificate" },
+    { "label": "IOSH", "icon": "fa-users" },
+    { "label": "ISO 45001", "icon": "fa-shield-alt" },
+    { "label": "Microsoft", "icon": "fa-microsoft" },
+    { "label": "Power BI", "icon": "fa-chart-bar" },
+    { "label": "AI Specialist", "icon": "fa-robot" }
+  ]
+}

@@ -1,0 +1,166 @@
+<?php
+require_once '../includes/cms-data.php';
+$books = cms_get('books');
+
+$cat_labels = [
+    'foundations'  => 'HSE Foundations',
+    'leadership'   => 'Safety Leadership',
+    'investigation'=> 'Incident Investigation',
+    'iso'          => 'ISO & Standards',
+    'digital'      => 'Digital & AI',
+    'exam'         => 'Exam Preparation',
+];
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HSE Books & Recommended Reading List | Ansar Mahmood</title>
+  <meta name="description" content="Curated HSE book recommendations by Ansar Mahmood. Essential reading for safety professionals covering ISO standards, safety leadership, incident investigation, AI in safety, and NEBOSH preparation." />
+  <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <link rel="stylesheet" href="../assets/css/pages.css" />
+  <link rel="stylesheet" href="../assets/css/animations.css" />
+  <style>
+    .book-grid { display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:28px; }
+    .book-card { background:#fff;border:1px solid var(--gray-200,#e5e7eb);border-radius:var(--radius-lg);overflow:hidden;transition:box-shadow .25s,transform .25s;display:flex;flex-direction:column; }
+    .book-card:hover { box-shadow:var(--shadow-lg);transform:translateY(-4px); }
+    .book-card__cover { height:180px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden; }
+    .book-spine { width:100px;height:148px;border-radius:4px 8px 8px 4px;display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:4px 4px 16px rgba(0,0,0,.25),inset -4px 0 8px rgba(0,0,0,.15);padding:12px 8px;text-align:center;position:relative; }
+    .book-spine::before { content:'';position:absolute;left:0;top:0;width:8px;height:100%;background:rgba(0,0,0,.15);border-radius:4px 0 0 4px; }
+    .book-spine i { font-size:1.8rem;color:rgba(255,255,255,.85);margin-bottom:8px; }
+    .book-spine .bs-title { font-size:.65rem;font-weight:700;color:#fff;line-height:1.3;word-break:break-word; }
+    .book-card__body { padding:24px;flex:1;display:flex;flex-direction:column; }
+    .book-card__cat { font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px; }
+    .book-card__title { font-size:1rem;font-weight:700;margin-bottom:4px;color:var(--text); }
+    .book-card__author { font-size:.83rem;color:var(--text-muted);margin-bottom:12px; }
+    .book-card__desc { font-size:.87rem;color:var(--text-muted);line-height:1.6;margin-bottom:16px;flex:1; }
+    .book-card__why { background:var(--navy-xlight,#e6f4ee);border-radius:var(--radius-sm);padding:10px 14px;font-size:.83rem;margin-bottom:16px; }
+    .book-card__why strong { color:var(--navy);display:block;margin-bottom:2px; }
+    .book-card__meta { display:flex;justify-content:space-between;align-items:center;font-size:.78rem;color:var(--text-muted); }
+    .book-stars { color:var(--gold); }
+    .book-level { display:inline-flex;align-items:center;gap:4px;padding:3px 10px;border-radius:100px;font-size:.72rem;font-weight:600; }
+    .level-beginner { background:#d1fae5;color:#065f46; }
+    .level-intermediate { background:#fef3c7;color:#92400e; }
+    .level-advanced { background:#fee2e2;color:#991b1b; }
+    .book-filters { display:flex;gap:8px;flex-wrap:wrap;margin-bottom:36px; }
+    .book-filter { padding:8px 18px;border-radius:100px;font-size:.85rem;font-weight:600;border:1.5px solid var(--gray-200,#e5e7eb);background:#fff;cursor:pointer;transition:all .2s; }
+    .book-filter.active,.book-filter:hover { background:var(--navy);border-color:var(--navy);color:#fff; }
+    .reading-banner { background:linear-gradient(135deg,var(--navy),var(--navy-light));border-radius:var(--radius-lg);padding:40px 48px;color:#fff;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap; }
+    @media(max-width:640px){ .reading-banner{flex-direction:column;text-align:center;} }
+  </style>
+</head>
+<body>
+<div class="preloader" id="preloader" aria-hidden="true"><div class="preloader__logo">Ansar<span>.</span>Mahmood</div><div class="preloader__bar"></div></div>
+<div id="site-header"></div>
+<main id="main-content">
+
+  <section class="page-hero">
+    <div class="page-hero__pattern" aria-hidden="true"></div>
+    <i class="page-hero__icon-bg fas fa-book-reader" aria-hidden="true"></i>
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="../index.html">Home</a><span class="breadcrumb__sep"><i class="fas fa-chevron-right"></i></span><span class="breadcrumb__current">HSE Books</span></nav>
+      <div class="page-hero__content">
+        <span class="eyebrow eyebrow--white">Curated by Ansar Mahmood</span>
+        <h1>HSE Books & Recommended Reading</h1>
+        <p>25+ years of experience condensed into an essential reading list. These books have shaped how I approach safety leadership, incident investigation, ISO implementation, and digital transformation in HSE.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-white">
+    <div class="container">
+
+      <!-- Intro note -->
+      <div class="reveal" style="background:var(--navy-xlight,#e6f4ee);border-radius:var(--radius-lg);padding:28px 32px;display:flex;gap:20px;align-items:flex-start;margin-bottom:48px;">
+        <div style="width:52px;height:52px;min-width:52px;background:var(--navy);border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;"><i class="fas fa-quote-left" style="color:var(--gold);font-size:1.2rem;"></i></div>
+        <div>
+          <h4 style="margin-bottom:6px;">A Note from Ansar</h4>
+          <p style="color:var(--text-muted);font-size:.93rem;margin:0;">Every book on this list has directly influenced my work in the field. I've read each one, applied the principles with real clients, and can vouch for their value. Whether you're starting your HSE career, preparing for NEBOSH, or leading an organisation's safety transformation — there's something here for every stage.</p>
+        </div>
+      </div>
+
+      <!-- Category Filters -->
+      <div class="book-filters">
+        <button class="book-filter active" onclick="filterBooks(this,'all')">All Books</button>
+        <button class="book-filter" onclick="filterBooks(this,'foundations')">HSE Foundations</button>
+        <button class="book-filter" onclick="filterBooks(this,'leadership')">Safety Leadership</button>
+        <button class="book-filter" onclick="filterBooks(this,'investigation')">Incident Investigation</button>
+        <button class="book-filter" onclick="filterBooks(this,'iso')">ISO & Standards</button>
+        <button class="book-filter" onclick="filterBooks(this,'digital')">Digital & AI</button>
+        <button class="book-filter" onclick="filterBooks(this,'exam')">Exam Prep</button>
+      </div>
+
+      <!-- Books Grid -->
+      <?php if (!empty($books)): ?>
+      <div class="book-grid">
+        <?php foreach ($books as $book):
+          $cat       = $book['category']   ?? 'foundations';
+          $color     = $book['color']      ?? '#0B1D36';
+          $rating    = (int)($book['rating']    ?? 5);
+          $diff      = $book['difficulty'] ?? 'Intermediate';
+          $diff_cls  = 'level-' . strtolower($diff);
+          $cat_lbl   = $cat_labels[$cat]   ?? ucfirst($cat);
+          $title_short = mb_strimwidth($book['title'] ?? '', 0, 28, '…');
+        ?>
+        <div class="book-card reveal" data-cat="<?= cms_e($cat) ?>">
+          <div class="book-card__cover" style="background:<?= cms_e($color) ?>;">
+            <div class="book-spine" style="background:<?= cms_e($color) ?>;">
+              <i class="fas fa-book"></i>
+              <div class="bs-title"><?= cms_e($title_short) ?></div>
+            </div>
+          </div>
+          <div class="book-card__body">
+            <div class="book-card__cat" style="color:var(--blue);"><?= cms_e($cat_lbl) ?></div>
+            <div class="book-card__title"><?= cms_e($book['title'] ?? '') ?></div>
+            <div class="book-card__author"><?= cms_e($book['author'] ?? '') ?> — <?= cms_e($book['year'] ?? '') ?></div>
+            <div class="book-card__desc"><?= cms_e($book['description'] ?? '') ?></div>
+            <?php if (!empty($book['recommendation'])): ?>
+            <div class="book-card__why"><strong>Why Ansar Recommends It</strong><?= cms_e($book['recommendation']) ?></div>
+            <?php endif; ?>
+            <div class="book-card__meta">
+              <div class="book-stars"><?= str_repeat('<i class="fas fa-star"></i>', min(5, max(1, $rating))) ?></div>
+              <span class="book-level <?= cms_e($diff_cls) ?>"><?= cms_e($diff) ?></span>
+            </div>
+          </div>
+        </div>
+        <?php endforeach; ?>
+      </div>
+      <?php else: ?>
+      <div style="text-align:center;padding:60px 0;color:var(--text-muted);">
+        <i class="fas fa-book" style="font-size:3rem;opacity:.3;display:block;margin-bottom:16px;"></i>
+        <p>Book recommendations coming soon.</p>
+      </div>
+      <?php endif; ?>
+
+      <!-- Reading Banner CTA -->
+      <div class="reading-banner reveal" style="margin-top:60px;">
+        <div>
+          <h3 style="color:#fff;margin-bottom:8px;">Want a Personalised Reading List?</h3>
+          <p style="color:rgba(255,255,255,.7);margin:0;max-width:500px;">Based on your role, experience level, and goals, Ansar can recommend the exact sequence of books and resources that will have the most impact on your career.</p>
+        </div>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;">
+          <a href="book-consultation.html" class="btn btn-gold"><i class="fas fa-calendar-check"></i> Book Free Consultation</a>
+          <a href="newsletter.html" class="btn btn-outline-white"><i class="fas fa-envelope"></i> Join Newsletter</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+<div id="site-footer"></div>
+<script src="../assets/js/layout.js"></script>
+<script src="../assets/js/main.js"></script>
+<script>
+function filterBooks(btn, cat) {
+  document.querySelectorAll('.book-filter').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.book-card').forEach(card => {
+    const cats = card.dataset.cat || '';
+    card.style.display = (cat === 'all' || cats.includes(cat)) ? '' : 'none';
+  });
+}
+</script>
+</body></html>

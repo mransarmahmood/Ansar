@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Free HSE Tools & Calculators — Risk, Incident Rate & Safety Metrics | Ansar Mahmood</title>
+  <meta name="description" content="Free online HSE tools: LTIFR/TRIFR calculators, risk matrix, noise exposure estimator, safety observation rate, and more. Practical tools for safety professionals." />
+  <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <link rel="stylesheet" href="../assets/css/pages.css" />
+  <link rel="stylesheet" href="../assets/css/animations.css" />
+  <style>
+    /* ── Tool Cards ── */
+    .tool-card { background:#fff;border:1px solid var(--gray-200,#e5e7eb);border-radius:var(--radius-lg);padding:32px;transition:box-shadow .25s,transform .25s; }
+    .tool-card:hover { box-shadow:var(--shadow-md);transform:translateY(-3px); }
+    .tool-card__header { display:flex;align-items:center;gap:14px;margin-bottom:20px; }
+    .tool-card__icon { width:52px;height:52px;border-radius:var(--radius-sm);background:var(--navy);display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0; }
+    .tool-card__label { font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--blue);margin-bottom:3px; }
+    .tool-card__title { font-size:1.05rem;font-weight:700;color:var(--text); }
+    /* Calc inputs */
+    .calc-row { display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px; }
+    .calc-field label { display:block;font-size:.8rem;font-weight:600;color:var(--text-muted);margin-bottom:5px; }
+    .calc-field input,.calc-field select { width:100%;padding:10px 12px;border:1.5px solid var(--gray-200,#e5e7eb);border-radius:var(--radius-sm);font-size:.92rem;font-family:var(--font-body);transition:border-color .2s; }
+    .calc-field input:focus,.calc-field select:focus { outline:none;border-color:var(--blue); }
+    .calc-result { background:var(--navy);border-radius:var(--radius-sm);padding:16px 20px;display:flex;justify-content:space-between;align-items:center;margin-top:4px; }
+    .calc-result__label { font-size:.8rem;color:rgba(255,255,255,.6); }
+    .calc-result__value { font-size:1.6rem;font-weight:800;color:var(--gold); }
+    .calc-result__unit  { font-size:.75rem;color:rgba(255,255,255,.4);margin-top:2px; }
+    /* Risk Matrix */
+    .risk-matrix { display:grid;grid-template-columns:repeat(5,1fr);gap:4px;margin-top:16px; }
+    .risk-cell { aspect-ratio:1;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;cursor:pointer;transition:transform .15s;border:2px solid transparent; }
+    .risk-cell:hover { transform:scale(1.08); }
+    .risk-cell.selected { border-color:#fff !important;transform:scale(1.1); }
+    .risk-low  { background:#22c55e; color:#fff; }
+    .risk-med  { background:#f59e0b; color:#fff; }
+    .risk-high { background:#f97316; color:#fff; }
+    .risk-crit { background:#ef4444; color:#fff; }
+    .risk-axis { display:flex;justify-content:space-between;font-size:.72rem;color:var(--text-muted);margin-top:6px; }
+    /* Noise tool */
+    .noise-bar-wrap { height:12px;border-radius:100px;background:var(--gray-100,#f3f4f6);overflow:hidden;margin:10px 0 4px; }
+    .noise-bar { height:100%;border-radius:100px;transition:width .5s,background .5s; }
+    /* checklist */
+    .cl-item { display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-bottom:1px solid var(--gray-100,#f3f4f6); }
+    .cl-item:last-child { border-bottom:none; }
+    .cl-item input[type=checkbox] { width:18px;height:18px;min-width:18px;margin-top:2px;cursor:pointer;accent-color:var(--blue); }
+    .cl-item label { font-size:.9rem;cursor:pointer; }
+    /* Section tabs */
+    .tool-tabs { display:flex;gap:8px;flex-wrap:wrap;margin-bottom:36px; }
+    .tool-tab { padding:8px 20px;border-radius:100px;font-size:.85rem;font-weight:600;cursor:pointer;border:1.5px solid var(--gray-200,#e5e7eb);background:#fff;transition:all .2s; }
+    .tool-tab.active,.tool-tab:hover { background:var(--navy);border-color:var(--navy);color:#fff; }
+    .tools-grid { display:grid;grid-template-columns:repeat(auto-fit,minmax(360px,1fr));gap:28px; }
+    @media(max-width:600px){ .calc-row{grid-template-columns:1fr;} .tools-grid{grid-template-columns:1fr;} }
+  </style>
+</head>
+<body>
+<div class="preloader" id="preloader" aria-hidden="true"><div class="preloader__logo">Ansar<span>.</span>Mahmood</div><div class="preloader__bar"></div></div>
+<div id="site-header"></div>
+<main id="main-content">
+
+  <section class="page-hero">
+    <div class="page-hero__pattern" aria-hidden="true"></div>
+    <i class="page-hero__icon-bg fas fa-tools" aria-hidden="true"></i>
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="../index.html">Home</a><span class="breadcrumb__sep"><i class="fas fa-chevron-right"></i></span><span class="breadcrumb__current">Free Tools</span></nav>
+      <div class="page-hero__content">
+        <span class="eyebrow eyebrow--white">100% Free Online</span>
+        <h1>HSE Tools & Calculators</h1>
+        <p>Practical, browser-based safety tools built for professionals. Calculate incident rates, assess risk, estimate noise exposure, generate checklists — no software or login required.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-white">
+    <div class="container">
+
+      <!-- Filter Tabs -->
+      <div class="tool-tabs">
+        <button class="tool-tab active">All Tools</button>
+        <button class="tool-tab">Calculators</button>
+        <button class="tool-tab">Risk Tools</button>
+        <button class="tool-tab">Checklists</button>
+      </div>
+
+      <div class="tools-grid">
+
+        <!-- 1. LTIFR Calculator -->
+        <div class="tool-card reveal" id="ltifr-tool">
+          <div class="tool-card__header">
+            <div class="tool-card__icon"><i class="fas fa-calculator" style="color:var(--gold);"></i></div>
+            <div><div class="tool-card__label">Calculator</div><div class="tool-card__title">LTIFR — Lost Time Injury Frequency Rate</div></div>
+          </div>
+          <p style="font-size:.88rem;color:var(--text-muted);margin-bottom:16px;">Calculate your Lost Time Injury Frequency Rate per million hours worked.</p>
+          <div class="calc-row">
+            <div class="calc-field"><label>Lost Time Injuries (LTIs)</label><input type="number" id="lti-count" placeholder="e.g. 3" min="0" oninput="calcLTIFR()"></div>
+            <div class="calc-field"><label>Man Hours Worked</label><input type="number" id="lti-hours" placeholder="e.g. 500000" min="1" oninput="calcLTIFR()"></div>
+          </div>
+          <div class="calc-field" style="margin-bottom:16px;">
+            <label>Multiplier</label>
+            <select id="lti-mult" onchange="calcLTIFR()">
+              <option value="1000000">1,000,000 (standard)</option>
+              <option value="200000">200,000 (US OSHA)</option>
+              <option value="100000">100,000</option>
+            </select>
+          </div>
+          <div class="calc-result">
+            <div>
+              <div class="calc-result__label">LTIFR Result</div>
+              <div class="calc-result__unit">per selected multiplier hours</div>
+            </div>
+            <div style="text-align:right;">
+              <div class="calc-result__value" id="ltifr-result">—</div>
+            </div>
+          </div>
+          <p style="font-size:.77rem;color:var(--text-muted);margin-top:10px;margin-bottom:0;"><strong>Formula:</strong> (LTIs × Multiplier) ÷ Man Hours Worked</p>
+        </div>
+
+        <!-- 2. TRIFR Calculator -->
+        <div class="tool-card reveal" id="trifr-tool">
+          <div class="tool-card__header">
+            <div class="tool-card__icon"><i class="fas fa-chart-line" style="color:var(--blue);"></i></div>
+            <div><div class="tool-card__label">Calculator</div><div class="tool-card__title">TRIFR — Total Recordable Injury Frequency Rate</div></div>
+          </div>
+          <p style="font-size:.88rem;color:var(--text-muted);margin-bottom:16px;">Includes all recordable injuries: LTIs, restricted work cases, and medical treatment cases.</p>
+          <div class="calc-row">
+            <div class="calc-field"><label>LTIs (Lost Time Injuries)</label><input type="number" id="tri-lti" placeholder="0" min="0" oninput="calcTRIFR()"></div>
+            <div class="calc-field"><label>RWC (Restricted Work Cases)</label><input type="number" id="tri-rwc" placeholder="0" min="0" oninput="calcTRIFR()"></div>
+          </div>
+          <div class="calc-row">
+            <div class="calc-field"><label>MTC (Medical Treatment Cases)</label><input type="number" id="tri-mtc" placeholder="0" min="0" oninput="calcTRIFR()"></div>
+            <div class="calc-field"><label>Man Hours Worked</label><input type="number" id="tri-hours" placeholder="e.g. 500000" min="1" oninput="calcTRIFR()"></div>
+          </div>
+          <div class="calc-result">
+            <div>
+              <div class="calc-result__label">TRIFR Result</div>
+              <div class="calc-result__unit">per 1,000,000 hours worked</div>
+            </div>
+            <div style="text-align:right;">
+              <div class="calc-result__value" id="trifr-result">—</div>
+            </div>
+          </div>
+          <p style="font-size:.77rem;color:var(--text-muted);margin-top:10px;margin-bottom:0;"><strong>Formula:</strong> ((LTI + RWC + MTC) × 1,000,000) ÷ Hours</p>
+        </div>
+
+        <!-- 3. Risk Rating Calculator -->
+        <div class="tool-card reveal" id="risk-tool">
+          <div class="tool-card__header">
+            <div class="tool-card__icon"><i class="fas fa-exclamation-triangle" style="color:var(--gold);"></i></div>
+            <div><div class="tool-card__label">Risk Tool</div><div class="tool-card__title">Risk Rating Calculator (Likelihood × Severity)</div></div>
+          </div>
+          <p style="font-size:.88rem;color:var(--text-muted);margin-bottom:16px;">Standard 5×5 risk matrix. Select likelihood and severity to calculate your risk score and rating.</p>
+          <div class="calc-row">
+            <div class="calc-field">
+              <label>Likelihood (1–5)</label>
+              <select id="risk-likelihood" onchange="calcRisk()">
+                <option value="">Select</option>
+                <option value="1">1 — Rare</option>
+                <option value="2">2 — Unlikely</option>
+                <option value="3">3 — Possible</option>
+                <option value="4">4 — Likely</option>
+                <option value="5">5 — Almost Certain</option>
+              </select>
+            </div>
+            <div class="calc-field">
+              <label>Severity / Consequence (1–5)</label>
+              <select id="risk-severity" onchange="calcRisk()">
+                <option value="">Select</option>
+                <option value="1">1 — Negligible</option>
+                <option value="2">2 — Minor</option>
+                <option value="3">3 — Moderate</option>
+                <option value="4">4 — Major</option>
+                <option value="5">5 — Catastrophic</option>
+              </select>
+            </div>
+          </div>
+          <div class="calc-result" id="risk-result-bar">
+            <div>
+              <div class="calc-result__label">Risk Score</div>
+              <div class="calc-result__unit" id="risk-rating-label">Select both values</div>
+            </div>
+            <div style="text-align:right;">
+              <div class="calc-result__value" id="risk-score">—</div>
+            </div>
+          </div>
+          <div style="margin-top:14px;padding:12px 16px;border-radius:var(--radius-sm);font-size:.85rem;font-weight:600;display:none;text-align:center;" id="risk-action-box"></div>
+        </div>
+
+        <!-- 4. Safety Observation Rate -->
+        <div class="tool-card reveal">
+          <div class="tool-card__header">
+            <div class="tool-card__icon"><i class="fas fa-eye" style="color:var(--blue);"></i></div>
+            <div><div class="tool-card__label">Calculator</div><div class="tool-card__title">Safety Observation Rate (SOR)</div></div>
+          </div>
+          <p style="font-size:.88rem;color:var(--text-muted);margin-bottom:16px;">Measure the frequency of safety observations per worker per period to benchmark your safety culture engagement.</p>
+          <div class="calc-row">
+            <div class="calc-field"><label>Total Observations Made</label><input type="number" id="sor-obs" placeholder="e.g. 120" min="0" oninput="calcSOR()"></div>
+            <div class="calc-field"><label>Number of Workers</label><input type="number" id="sor-workers" placeholder="e.g. 60" min="1" oninput="calcSOR()"></div>
+          </div>
+          <div class="calc-field" style="margin-bottom:16px;">
+            <label>Period</label>
+            <select id="sor-period" onchange="calcSOR()">
+              <option value="1">Monthly</option>
+              <option value="3">Quarterly</option>
+              <option value="12">Annual</option>
+            </select>
+          </div>
+          <div class="calc-result">
+            <div>
+              <div class="calc-result__label">Observations per Worker per Month</div>
+            </div>
+            <div style="text-align:right;">
+              <div class="calc-result__value" id="sor-result">—</div>
+            </div>
+          </div>
+          <p style="font-size:.77rem;color:var(--text-muted);margin-top:10px;margin-bottom:0;"><strong>Target:</strong> Minimum 2–4 observations per worker per month for an engaged culture.</p>
+        </div>
+
+        <!-- 5. Noise Exposure Estimator -->
+        <div class="tool-card reveal">
+          <div class="tool-card__header">
+            <div class="tool-card__icon"><i class="fas fa-volume-up" style="color:var(--gold);"></i></div>
+            <div><div class="tool-card__label">Risk Tool</div><div class="tool-card__title">Daily Noise Exposure Estimator (LEP,d)</div></div>
+          </div>
+          <p style="font-size:.88rem;color:var(--text-muted);margin-bottom:16px;">Estimate daily personal noise exposure. Action level: 80 dB(A). Limit: 85 dB(A) — per Control of Noise at Work Regulations.</p>
+          <div class="calc-row">
+            <div class="calc-field"><label>Noise Level (dB(A))</label><input type="number" id="noise-level" placeholder="e.g. 88" min="70" max="140" oninput="calcNoise()"></div>
+            <div class="calc-field"><label>Exposure Duration (hours/day)</label><input type="number" id="noise-hours" placeholder="e.g. 4" min="0.5" max="24" step="0.5" oninput="calcNoise()"></div>
+          </div>
+          <div style="margin-bottom:16px;">
+            <div style="font-size:.8rem;font-weight:600;color:var(--text-muted);margin-bottom:6px;">Daily Dose Used</div>
+            <div class="noise-bar-wrap"><div class="noise-bar" id="noise-bar" style="width:0%;background:var(--blue);"></div></div>
+            <div style="display:flex;justify-content:space-between;font-size:.72rem;color:var(--text-muted);"><span>0%</span><span>Action Level</span><span>Limit</span><span>100%+</span></div>
+          </div>
+          <div class="calc-result">
+            <div>
+              <div class="calc-result__label">Daily Dose</div>
+              <div class="calc-result__unit" id="noise-label">Enter values above</div>
+            </div>
+            <div style="text-align:right;">
+              <div class="calc-result__value" id="noise-result">—</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. Working at Height Checklist -->
+        <div class="tool-card reveal">
+          <div class="tool-card__header">
+            <div class="tool-card__icon"><i class="fas fa-hard-hat" style="color:var(--blue);"></i></div>
+            <div><div class="tool-card__label">Checklist</div><div class="tool-card__title">Working at Height Pre-Task Checklist</div></div>
+          </div>
+          <p style="font-size:.88rem;color:var(--text-muted);margin-bottom:16px;">Interactive pre-task checklist for working at height activities. Tick off each item before work begins.</p>
+          <div id="wah-checklist">
+            <div class="cl-item"><input type="checkbox" id="wah1" onchange="updateCL('wah')"><label for="wah1">Risk assessment completed and communicated to all workers</label></div>
+            <div class="cl-item"><input type="checkbox" id="wah2" onchange="updateCL('wah')"><label for="wah2">Competent persons identified and briefed</label></div>
+            <div class="cl-item"><input type="checkbox" id="wah3" onchange="updateCL('wah')"><label for="wah3">Permit to Work issued and signed (if required)</label></div>
+            <div class="cl-item"><input type="checkbox" id="wah4" onchange="updateCL('wah')"><label for="wah4">Edge protection or fall arrest system in place and inspected</label></div>
+            <div class="cl-item"><input type="checkbox" id="wah5" onchange="updateCL('wah')"><label for="wah5">Personal Protective Equipment (harness, hard hat) inspected and worn</label></div>
+            <div class="cl-item"><input type="checkbox" id="wah6" onchange="updateCL('wah')"><label for="wah6">Weather conditions assessed — no work in high winds / lightning</label></div>
+            <div class="cl-item"><input type="checkbox" id="wah7" onchange="updateCL('wah')"><label for="wah7">Emergency rescue plan in place and rescue equipment available</label></div>
+            <div class="cl-item"><input type="checkbox" id="wah8" onchange="updateCL('wah')"><label for="wah8">Exclusion zone established below work area</label></div>
+          </div>
+          <div style="margin-top:16px;padding:10px 16px;border-radius:var(--radius-sm);background:var(--navy-xlight,#e6f4ee);display:flex;justify-content:space-between;align-items:center;">
+            <span style="font-size:.85rem;font-weight:600;">Completion</span>
+            <span style="font-weight:700;color:var(--blue);" id="wah-progress">0 / 8</span>
+          </div>
+          <div style="margin-top:12px;display:flex;gap:10px;">
+            <button class="btn btn-outline-navy btn-sm" onclick="resetCL('wah',8)"><i class="fas fa-redo"></i> Reset</button>
+            <button class="btn btn-gold btn-sm" onclick="printChecklist()"><i class="fas fa-print"></i> Print Checklist</button>
+          </div>
+        </div>
+
+        <!-- 7. Incident Rate Comparison -->
+        <div class="tool-card reveal">
+          <div class="tool-card__header">
+            <div class="tool-card__icon"><i class="fas fa-balance-scale" style="color:var(--gold);"></i></div>
+            <div><div class="tool-card__label">Benchmarking</div><div class="tool-card__title">LTIFR Industry Benchmark Comparison</div></div>
+          </div>
+          <p style="font-size:.88rem;color:var(--text-muted);margin-bottom:16px;">Enter your LTIFR and compare against published industry benchmarks to see where your organisation stands.</p>
+          <div class="calc-row">
+            <div class="calc-field"><label>Your LTIFR</label><input type="number" id="bench-ltifr" placeholder="e.g. 2.5" step="0.1" min="0" oninput="calcBench()"></div>
+            <div class="calc-field">
+              <label>Industry Sector</label>
+              <select id="bench-sector" onchange="calcBench()">
+                <option value="">Select industry</option>
+                <option value="0.5">Oil & Gas (0.5 avg)</option>
+                <option value="1.2">Construction (1.2 avg)</option>
+                <option value="0.8">Manufacturing (0.8 avg)</option>
+                <option value="0.3">Utilities (0.3 avg)</option>
+                <option value="2.1">Transport & Logistics (2.1 avg)</option>
+                <option value="0.6">Mining (0.6 avg)</option>
+                <option value="0.9">Healthcare (0.9 avg)</option>
+              </select>
+            </div>
+          </div>
+          <div id="bench-result" style="display:none;">
+            <div class="calc-result" style="margin-bottom:12px;">
+              <div>
+                <div class="calc-result__label">Your Performance vs Industry Avg</div>
+                <div class="calc-result__unit" id="bench-label">—</div>
+              </div>
+              <div style="text-align:right;"><div class="calc-result__value" id="bench-pct">—</div></div>
+            </div>
+            <div id="bench-msg" style="padding:12px 16px;border-radius:var(--radius-sm);font-size:.85rem;font-weight:500;"></div>
+          </div>
+        </div>
+
+        <!-- 8. Confined Space Entry Checklist -->
+        <div class="tool-card reveal">
+          <div class="tool-card__header">
+            <div class="tool-card__icon"><i class="fas fa-door-open" style="color:var(--blue);"></i></div>
+            <div><div class="tool-card__label">Checklist</div><div class="tool-card__title">Confined Space Entry Checklist</div></div>
+          </div>
+          <p style="font-size:.88rem;color:var(--text-muted);margin-bottom:16px;">Essential pre-entry checks for confined space operations. All items must be confirmed before entry is permitted.</p>
+          <div id="cse-checklist">
+            <div class="cl-item"><input type="checkbox" id="cse1" onchange="updateCL('cse')"><label for="cse1">Entry Permit issued by competent authority and displayed</label></div>
+            <div class="cl-item"><input type="checkbox" id="cse2" onchange="updateCL('cse')"><label for="cse2">Atmosphere tested: O₂ 19.5–23.5%, LEL &lt;10%, toxic gases &lt; OEL</label></div>
+            <div class="cl-item"><input type="checkbox" id="cse3" onchange="updateCL('cse')"><label for="cse3">Continuous gas monitoring equipment in place and alarmed</label></div>
+            <div class="cl-item"><input type="checkbox" id="cse4" onchange="updateCL('cse')"><label for="cse4">Isolation confirmed: lock-out/tag-out applied to all energy sources</label></div>
+            <div class="cl-item"><input type="checkbox" id="cse5" onchange="updateCL('cse')"><label for="cse5">Standby person stationed at entry point with communication</label></div>
+            <div class="cl-item"><input type="checkbox" id="cse6" onchange="updateCL('cse')"><label for="cse6">Rescue equipment (tripod, winch, harness) available and tested</label></div>
+            <div class="cl-item"><input type="checkbox" id="cse7" onchange="updateCL('cse')"><label for="cse7">Entrant briefed on hazards, rescue plan, and emergency signals</label></div>
+            <div class="cl-item"><input type="checkbox" id="cse8" onchange="updateCL('cse')"><label for="cse8">Ventilation system operating and atmospheric conditions stable</label></div>
+            <div class="cl-item"><input type="checkbox" id="cse9" onchange="updateCL('cse')"><label for="cse9">PPE inspected: SCBA/SABA (if required), gloves, coveralls, boots</label></div>
+          </div>
+          <div style="margin-top:16px;padding:10px 16px;border-radius:var(--radius-sm);background:var(--navy-xlight,#e6f4ee);display:flex;justify-content:space-between;align-items:center;">
+            <span style="font-size:.85rem;font-weight:600;">Completion</span>
+            <span style="font-weight:700;color:var(--blue);" id="cse-progress">0 / 9</span>
+          </div>
+          <div style="margin-top:12px;display:flex;gap:10px;">
+            <button class="btn btn-outline-navy btn-sm" onclick="resetCL('cse',9)"><i class="fas fa-redo"></i> Reset</button>
+            <button class="btn btn-gold btn-sm" onclick="printChecklist()"><i class="fas fa-print"></i> Print</button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Download CTA -->
+      <div class="reveal" style="background:var(--navy);border-radius:var(--radius-lg);padding:48px;text-align:center;margin-top:60px;">
+        <i class="fas fa-file-download" style="font-size:2.5rem;color:var(--gold);margin-bottom:16px;display:block;"></i>
+        <h3 style="color:#fff;margin-bottom:8px;">Want Printable PDF Versions?</h3>
+        <p style="color:rgba(255,255,255,.7);margin-bottom:24px;max-width:520px;margin-left:auto;margin-right:auto;">Download our full suite of HSE checklists, templates, and calculators as PDF and Excel files — ready to use on-site.</p>
+        <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+          <a href="resources.html" class="btn btn-gold"><i class="fas fa-download"></i> Browse Free Resources</a>
+          <a href="book-consultation.html" class="btn btn-outline-white"><i class="fas fa-calendar-check"></i> Get Custom Tools</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+<div id="site-footer"></div>
+<script src="../assets/js/layout.js"></script>
+<script src="../assets/js/main.js"></script>
+<script>
+// ── Calculators JS ──
+function calcLTIFR() {
+  const lti = parseFloat(document.getElementById('lti-count').value) || 0;
+  const hrs = parseFloat(document.getElementById('lti-hours').value) || 0;
+  const mult = parseFloat(document.getElementById('lti-mult').value);
+  const el = document.getElementById('ltifr-result');
+  el.textContent = (hrs > 0) ? ((lti * mult) / hrs).toFixed(2) : '—';
+}
+function calcTRIFR() {
+  const lti = parseFloat(document.getElementById('tri-lti').value)||0;
+  const rwc = parseFloat(document.getElementById('tri-rwc').value)||0;
+  const mtc = parseFloat(document.getElementById('tri-mtc').value)||0;
+  const hrs = parseFloat(document.getElementById('tri-hours').value)||0;
+  document.getElementById('trifr-result').textContent = (hrs>0)?((lti+rwc+mtc)*1000000/hrs).toFixed(2):'—';
+}
+function calcRisk() {
+  const l = parseInt(document.getElementById('risk-likelihood').value)||0;
+  const s = parseInt(document.getElementById('risk-severity').value)||0;
+  if (!l||!s) { document.getElementById('risk-score').textContent='—'; return; }
+  const score = l*s;
+  const el = document.getElementById('risk-score');
+  const label = document.getElementById('risk-rating-label');
+  const box = document.getElementById('risk-action-box');
+  el.textContent = score;
+  box.style.display = 'block';
+  if (score<=4)      { label.textContent='LOW RISK'; box.style.background='#d1fae5'; box.style.color='#065f46'; box.textContent='✓ Low Risk — Monitor and review. Routine controls sufficient.'; }
+  else if (score<=9) { label.textContent='MEDIUM RISK'; box.style.background='#fef3c7'; box.style.color='#92400e'; box.textContent='⚠ Medium Risk — Implement additional controls. Monitor closely.'; }
+  else if (score<=16){ label.textContent='HIGH RISK'; box.style.background='#fee2e2'; box.style.color='#991b1b'; box.textContent='✕ High Risk — Stop work if required. Immediate corrective action needed.'; }
+  else               { label.textContent='CRITICAL RISK'; box.style.background='#7f1d1d'; box.style.color='#fff'; box.textContent='🚨 Critical Risk — Do NOT proceed. Immediate escalation and management review required.'; }
+}
+function calcSOR() {
+  const obs = parseFloat(document.getElementById('sor-obs').value)||0;
+  const w   = parseFloat(document.getElementById('sor-workers').value)||0;
+  const p   = parseFloat(document.getElementById('sor-period').value)||1;
+  document.getElementById('sor-result').textContent = (w>0)?((obs/w)/p).toFixed(2):'—';
+}
+function calcNoise() {
+  const dB = parseFloat(document.getElementById('noise-level').value)||0;
+  const h  = parseFloat(document.getElementById('noise-hours').value)||0;
+  if (!dB||!h) { document.getElementById('noise-result').textContent='—'; document.getElementById('noise-bar').style.width='0%'; return; }
+  // Dose% = (h / (8 * 10^((dB-90)/10))) * 100
+  const permissible = 8 * Math.pow(10,(dB-90)/10);
+  const dose = Math.min((h/permissible)*100, 200);
+  const bar = document.getElementById('noise-bar');
+  bar.style.width = Math.min(dose,100)+'%';
+  bar.style.background = dose>100?'#ef4444':dose>50?'#f59e0b':'#22c55e';
+  document.getElementById('noise-result').textContent = dose.toFixed(1)+'%';
+  document.getElementById('noise-label').textContent = dose>100?'⚠ EXCEEDS LIMIT — Immediate action required':dose>50?'Action Level — Hearing protection required':'Below Action Level';
+}
+function calcBench() {
+  const your = parseFloat(document.getElementById('bench-ltifr').value);
+  const avg  = parseFloat(document.getElementById('bench-sector').value);
+  const el = document.getElementById('bench-result');
+  if (!your||!avg) { el.style.display='none'; return; }
+  el.style.display='block';
+  const diff = ((your-avg)/avg*100).toFixed(1);
+  document.getElementById('bench-pct').textContent = (diff>0?'+':'')+diff+'%';
+  const label = document.getElementById('bench-label');
+  const msg   = document.getElementById('bench-msg');
+  if (your < avg) {
+    label.textContent = 'BETTER than industry average';
+    msg.style.background='#d1fae5'; msg.style.color='#065f46';
+    msg.textContent = '✓ Your LTIFR is '+Math.abs(diff)+'% below the industry average. Excellent performance — maintain your systems and share lessons learned.';
+  } else if (your == avg) {
+    label.textContent = 'AT industry average';
+    msg.style.background='#fef3c7'; msg.style.color='#92400e';
+    msg.textContent = '≈ Your performance matches the industry average. Opportunity to improve — review leading indicators and proactive safety activities.';
+  } else {
+    label.textContent = 'WORSE than industry average';
+    msg.style.background='#fee2e2'; msg.style.color='#991b1b';
+    msg.textContent = '✕ Your LTIFR is '+diff+'% above the industry average. Consider a formal HSE review or consultation to identify systemic root causes.';
+  }
+}
+function updateCL(prefix) {
+  const items = document.querySelectorAll('#'+prefix+'-checklist input[type=checkbox]');
+  const checked = [...items].filter(i=>i.checked).length;
+  document.getElementById(prefix+'-progress').textContent = checked+' / '+items.length;
+}
+function resetCL(prefix, count) {
+  for (let i=1;i<=count;i++) { const el=document.getElementById(prefix+i); if(el) el.checked=false; }
+  document.getElementById(prefix+'-progress').textContent = '0 / '+count;
+}
+function printChecklist() { window.print(); }
+</script>
+</body></html>

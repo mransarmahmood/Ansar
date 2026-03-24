@@ -1,0 +1,80 @@
+[
+  {
+    "id": "t_001",
+    "name": "Mohammed Al-Rashidi",
+    "role": "HSE Director",
+    "company": "Major Oil & Gas Operator — UAE",
+    "initials": "MR",
+    "quote": "Ansar transformed our entire HSE management approach. Within 8 months we achieved ISO 45001 certification, reduced our TRIFR by 67%, and our safety culture is unrecognisable from where we started. He doesn't just advise — he gets things done.",
+    "rating": 5,
+    "tags": "ISO 45001 · HSE Consulting",
+    "featured": true,
+    "order": 1,
+    "published": true
+  },
+  {
+    "id": "t_002",
+    "name": "Sarah Johnson",
+    "role": "Training Manager",
+    "company": "Infrastructure Contractor — UK",
+    "initials": "SJ",
+    "quote": "Our entire team passed NEBOSH IGC on the first attempt. Ansar's coaching is exceptional — structured, practical, and genuinely engaging. He knows how to make safety theory relevant to real-world practice. I cannot recommend him highly enough.",
+    "rating": 5,
+    "tags": "NEBOSH Coaching · Training",
+    "featured": true,
+    "order": 2,
+    "published": true
+  },
+  {
+    "id": "t_003",
+    "name": "David Whitmore",
+    "role": "Operations Director",
+    "company": "Construction Group — Australia",
+    "initials": "DW",
+    "quote": "The Power BI dashboards Ansar built changed how our board engages with safety. For the first time, executives can see live data across all 14 sites. The build was fast, professional, and exactly what we needed. It's now essential to our monthly reporting cycle.",
+    "rating": 5,
+    "tags": "Power BI · Digital Solutions",
+    "featured": true,
+    "order": 3,
+    "published": true
+  },
+  {
+    "id": "t_004",
+    "name": "Ahmed Patel",
+    "role": "Managing Director",
+    "company": "Manufacturing Facility — Saudi Arabia",
+    "initials": "AP",
+    "quote": "We needed triple ISO certification in under a year to secure a major client contract. Ansar delivered — on time, with zero non-conformances at Stage 2 audit. He built our entire IMS from scratch. Phenomenal expertise and work ethic.",
+    "rating": 5,
+    "tags": "ISO 45001 · ISO 14001 · ISO 9001",
+    "featured": false,
+    "order": 4,
+    "published": true
+  },
+  {
+    "id": "t_005",
+    "name": "Karen Lee",
+    "role": "Site Manager",
+    "company": "Manufacturing Plant — Singapore",
+    "initials": "KL",
+    "quote": "Ansar's incident investigation following our LTI was thorough, impartial, and delivered within 72 hours. His ICAM analysis identified systemic issues we hadn't recognised in 5 years of operations. The corrective actions he recommended have been transformative.",
+    "rating": 5,
+    "tags": "Incident Investigation · RCA",
+    "featured": false,
+    "order": 5,
+    "published": true
+  },
+  {
+    "id": "t_006",
+    "name": "Robert Krause",
+    "role": "Head of HSE",
+    "company": "Logistics Corporation — Germany",
+    "initials": "RK",
+    "quote": "The AI-powered incident analysis tool Ansar developed for us is genuinely impressive. It analysed 5 years of incident data in days, surfaced patterns we hadn't seen manually, and gave our safety team insights that changed how we prioritise prevention.",
+    "rating": 5,
+    "tags": "AI Solutions · Digital Transformation",
+    "featured": false,
+    "order": 6,
+    "published": true
+  }
+]

@@ -1,0 +1,106 @@
+[
+  {
+    "id": "faq_001",
+    "question": "What industries does Ansar Mahmood work with?",
+    "answer": "Ansar works across oil and gas, construction, manufacturing, healthcare, logistics, government, mining, utilities, aviation, and hospitality — across 40+ countries globally. His deep sector experience means he understands your specific hazards, regulatory environment, and operational pressures rather than applying generic safety advice.",
+    "category": "General",
+    "order": 1,
+    "published": true
+  },
+  {
+    "id": "faq_002",
+    "question": "Can Ansar work with clients outside the UK?",
+    "answer": "Yes. Ansar works globally — both remotely (virtual consulting, online coaching, remote digital projects) and in-person (on-site consulting, classroom training, project deployments). He has delivered engagements in 40+ countries across the Middle East, Southeast Asia, Africa, Europe, the Americas, and beyond.",
+    "category": "General",
+    "order": 2,
+    "published": true
+  },
+  {
+    "id": "faq_003",
+    "question": "How does the free consultation work?",
+    "answer": "The free 30-minute consultation is a no-obligation discovery call via video or phone. You share your current challenges and goals; Ansar gives initial insights and recommends the most appropriate service approach. There is no sales pressure — if there's a fit, we discuss next steps; if not, you'll still leave with useful perspective. Book via the calendar on the Book a Consultation page.",
+    "category": "General",
+    "order": 3,
+    "published": true
+  },
+  {
+    "id": "faq_004",
+    "question": "What engagement models are available?",
+    "answer": "Engagements range from standalone project work (a single audit, a specific training course, a dashboard build) to ongoing retainer arrangements (monthly advisory hours, fractional HSE leadership) to comprehensive corporate partner programs covering consulting, training, digital, and AI under a single contract. Full details on the Corporate Solutions page.",
+    "category": "General",
+    "order": 4,
+    "published": true
+  },
+  {
+    "id": "faq_005",
+    "question": "How quickly can ISO certification be achieved?",
+    "answer": "Timelines vary based on your organisation's current maturity, size, and number of standards. Typically: ISO 45001 from a low base takes 9–14 months; from a mature HSE system, 4–8 months. Integrated Management Systems (IMS) with ISO 45001 + 14001 + 9001 typically take 12–18 months. A free gap analysis will give you a realistic, costed implementation timeline specific to your situation.",
+    "category": "ISO Certification",
+    "order": 5,
+    "published": true
+  },
+  {
+    "id": "faq_006",
+    "question": "Do you help select a certification body?",
+    "answer": "Yes. Selecting the right certification body for your industry, geography, and client requirements is an important decision. Ansar provides guidance on accredited certification bodies, helps with the Stage 1 and Stage 2 audit preparation, and can liaise with the certification body during the audit process on your behalf.",
+    "category": "ISO Certification",
+    "order": 6,
+    "published": true
+  },
+  {
+    "id": "faq_007",
+    "question": "What happens after certification is achieved?",
+    "answer": "ISO certification requires ongoing surveillance audits (typically annual) and a full recertification audit every 3 years. Ansar provides post-certification maintenance support — keeping your management system current, managing internal audits, facilitating management reviews, and preparing you for surveillance audits so you maintain certification without surprises.",
+    "category": "ISO Certification",
+    "order": 7,
+    "published": true
+  },
+  {
+    "id": "faq_008",
+    "question": "What is the NEBOSH exam pass rate?",
+    "answer": "Ansar maintains a 97%+ first-attempt pass rate across all NEBOSH programs — significantly higher than the global average. This is achieved through structured coaching, regular mock assessments, personalised feedback, and a practical, exam-focused approach to learning that prioritises what examiners are looking for rather than rote memorisation.",
+    "category": "Training & Certification",
+    "order": 8,
+    "published": true
+  },
+  {
+    "id": "faq_009",
+    "question": "Can training be delivered to corporate groups?",
+    "answer": "Yes. Corporate group training is available for teams of 5 to 500+ across classroom, virtual, and blended formats. Courses can be customised to your organisation's sector, hazards, and specific requirements. Bespoke pricing is available for groups. Contact us for a training needs assessment and proposal.",
+    "category": "Training & Certification",
+    "order": 9,
+    "published": true
+  },
+  {
+    "id": "faq_010",
+    "question": "Is online / virtual training available?",
+    "answer": "Yes. All training programs — NEBOSH, IOSH, certification coaching, corporate training, and e-learning — are available fully online via live virtual sessions, on-demand e-learning, or blended combinations. Remote learners receive the same quality of support, resources, and interaction as in-person attendees.",
+    "category": "Training & Certification",
+    "order": 10,
+    "published": true
+  },
+  {
+    "id": "faq_011",
+    "question": "What Microsoft 365 subscription do we need for Power Apps / SharePoint?",
+    "answer": "Microsoft 365 Business Standard or above includes SharePoint, Teams, and basic Power Apps capability. Power BI Pro is required for sharing dashboards with others (approx. £8–10/user/month). Full Power Apps capabilities may require Power Apps per-user plans depending on complexity. Ansar can advise on the most cost-effective licensing approach for your requirements during the discovery call.",
+    "category": "Digital & AI Solutions",
+    "order": 11,
+    "published": true
+  },
+  {
+    "id": "faq_012",
+    "question": "How long does a Power BI dashboard project take?",
+    "answer": "A standard HSE dashboard with 3–5 report pages connecting to existing data sources typically takes 2–4 weeks from requirements workshop to delivery. Complex multi-source dashboards with custom data modelling may take 6–8 weeks. The timeline includes requirements, data modelling, design, testing, and user training.",
+    "category": "Digital & AI Solutions",
+    "order": 12,
+    "published": true
+  },
+  {
+    "id": "faq_013",
+    "question": "Do you provide post-project support and maintenance?",
+    "answer": "Yes. All digital and AI projects include an initial hypercare period (typically 2–4 weeks) with priority support. Ongoing maintenance plans are available — covering feature additions, data source changes, user access management, and technical troubleshooting — on monthly retainer or as-needed basis.",
+    "category": "Digital & AI Solutions",
+    "order": 13,
+    "published": true
+  }
+]
