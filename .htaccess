@@ -53,9 +53,10 @@ RewriteRule ^(.*)$ $1.html [L]
 # ── Custom Error Pages ──────────────────────────────────────────
 ErrorDocument 404 /index.html
 
-# ── Prevent hotlinking (allow localhost for dev) ─────────────────
-RewriteCond %{HTTP_REFERER} !^$
+# ── Prevent hotlinking (allow own domains + GitHub Pages) ────────
+RewriteCond %{HTTP_REFERER} !^$ [NC]
 RewriteCond %{HTTP_REFERER} !^https?://(www\.)?ansarmahmood\.com [NC]
+RewriteCond %{HTTP_REFERER} !^https?://mransarmahmood\.github\.io [NC]
 RewriteCond %{HTTP_REFERER} !^https?://localhost [NC]
 RewriteCond %{HTTP_REFERER} !^https?://127\.0\.0\.1 [NC]
 RewriteRule \.(jpg|jpeg|png|gif|svg|pdf)$ - [F,NC,L]
