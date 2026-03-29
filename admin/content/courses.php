@@ -63,6 +63,13 @@ admin_topbar('Courses', 'Manage the course calendar', [
 ?>
 <div class="page-body">
 
+  <div class="info-banner info-banner--gold">
+    <i class="fas fa-info-circle"></i>
+    <div>
+      <strong>Where this content appears:</strong> Courses are shown on the <a href="../../pages/course-calendar.html" target="_blank" style="color:inherit;text-decoration:underline;">Course Calendar page</a> as upcoming training cards with dates, pricing, and seat availability. Published courses with future dates are visible to visitors.
+    </div>
+  </div>
+
   <div class="card">
     <div class="card__header">
       <div class="card__title"><i class="fas fa-graduation-cap"></i> Courses (<?= count($items) ?>)</div>

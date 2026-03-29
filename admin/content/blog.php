@@ -60,6 +60,13 @@ admin_topbar('Blog Posts', 'Manage HSE insights and articles', [
 ?>
 <div class="page-body">
 
+  <div class="info-banner info-banner--blue">
+    <i class="fas fa-info-circle"></i>
+    <div>
+      <strong>Where this content appears:</strong> Blog posts are displayed on the <a href="../../pages/blog.html" target="_blank" style="color:inherit;text-decoration:underline;">Blog page</a> with category filter tabs. Featured posts appear first. Each post links to its article URL.
+    </div>
+  </div>
+
   <div class="card">
     <div class="card__header">
       <div class="card__title"><i class="fas fa-pen-nib"></i> Blog Posts (<?= count($items) ?>)</div>

@@ -44,6 +44,14 @@ admin_topbar('Services', 'Manage service listings shown across the site', [
 ]);
 ?>
 <div class="page-body">
+
+  <div class="info-banner info-banner--teal">
+    <i class="fas fa-info-circle"></i>
+    <div>
+      <strong>Where this content appears:</strong> Services are listed on the <a href="../../pages/services.html" target="_blank" style="color:inherit;text-decoration:underline;">Services page</a>. <strong>Featured</strong> services also appear on the homepage services grid. Each service links to its detail page.
+    </div>
+  </div>
+
   <div class="card">
     <div class="card__header"><div class="card__title"><i class="fas fa-hard-hat"></i> Services (<?= count($items) ?>) &nbsp;<span style="font-size:.8rem;color:var(--text-muted);font-weight:400;">⭐ = featured on homepage grid</span></div></div>
     <?php if (empty($items)): ?>

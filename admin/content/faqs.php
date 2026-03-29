@@ -50,6 +50,19 @@ admin_topbar('FAQs', 'Manage frequently asked questions', [
 ?>
 <div class="page-body">
 
+  <div class="info-banner info-banner--teal">
+    <i class="fas fa-info-circle"></i>
+    <div>
+      <strong>Where this content appears:</strong> FAQs are displayed on the <a href="../../pages/faqs.html" target="_blank" style="color:inherit;text-decoration:underline;">FAQs page</a> grouped by category in an accordion layout. Published FAQs are visible to visitors; drafts are hidden.
+    </div>
+  </div>
+
+  <div class="quick-stats" style="margin-bottom:20px;">
+    <div class="quick-stat"><div class="quick-stat__value"><?= count($items) ?></div><div class="quick-stat__label">Total FAQs</div></div>
+    <div class="quick-stat"><div class="quick-stat__value"><?= count(array_filter($items, fn($i) => !empty($i['published']))) ?></div><div class="quick-stat__label">Published</div></div>
+    <div class="quick-stat"><div class="quick-stat__value"><?= count($categories) ?></div><div class="quick-stat__label">Categories</div></div>
+  </div>
+
   <div class="card">
     <div class="card__header">
       <div class="card__title"><i class="fas fa-question-circle"></i> FAQs (<?= count($items) ?>)</div>

@@ -1,0 +1,8 @@
+# Admin directory — override root rules
+Options -Indexes
+
+# Do NOT process .html as PHP here (admin uses .php only)
+RemoveType .html .htm
+
+# Stop root rewrite rules from applying inside admin
+RewriteEngine Off

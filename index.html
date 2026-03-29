@@ -3,6 +3,11 @@ require_once 'includes/cms-data.php';
 $hp_data      = cms_get_homepage();
 $hp_stats     = $hp_data['stats']    ?? [];
 $featured_t   = cms_get_featured_testimonials();
+$hp_services  = cms_get_featured_services();
+$hp_industries= cms_get_featured_industries();
+$hp_svc_sec   = $hp_data['services_section']  ?? [];
+$hp_ind_sec   = $hp_data['industries_section'] ?? [];
+$hp_solutions = $hp_data['featured_solutions'] ?? [];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -133,10 +138,10 @@ $featured_t   = cms_get_featured_testimonials();
           <!-- Floating availability badge -->
           <div class="hero__pro-badge"><i class="fas fa-globe"></i> 40+ Countries</div>
 
-          <!-- Avatar ring with AM monogram -->
+          <!-- Avatar ring with profile photo -->
           <div class="hero__avatar-wrap">
             <div class="hero__avatar-ring">
-              <div class="hero__avatar-monogram">AM</div>
+              <img src="assets/images/Ansar (17).jpeg" alt="Ansar Mahmood — Senior HSE Consultant" style="width:100%;height:100%;object-fit:cover;object-position:top center;border-radius:50%;">
             </div>
             <!-- Orbiting credential badges -->
             <div class="hero__orbit-badge hero__orbit-badge--1">
@@ -333,14 +338,32 @@ $featured_t   = cms_get_featured_testimonials();
   <section class="section section-white" id="services" aria-labelledby="services-heading">
     <div class="container">
       <div class="section-header">
-        <span class="eyebrow">8 Service Areas · One Expert</span>
-        <h2 id="services-heading">Everything Your Organisation Needs — Under One Roof</h2>
-        <p>From field-proven HSE consulting and certification coaching to AI-powered analytics and custom digital platforms — Ansar Mahmood delivers where other consultants stop. One advisor. Full-spectrum capability.</p>
+        <span class="eyebrow"><?= cms_e($hp_svc_sec['eyebrow'] ?? '8 Service Areas · One Expert') ?></span>
+        <h2 id="services-heading"><?= cms_e($hp_svc_sec['headline'] ?? 'Everything Your Organisation Needs — Under One Roof') ?></h2>
+        <p><?= cms_e($hp_svc_sec['description'] ?? '') ?></p>
       </div>
 
       <div class="grid grid-4" style="gap:22px;">
 
-        <!-- Card 1: Consulting -->
+      <?php if (!empty($hp_services)): foreach ($hp_services as $svc):
+        $svc_url = $svc['url'] ?? '#';
+        // Ensure relative path from root
+        if (strpos($svc_url, 'pages/') !== 0 && strpos($svc_url, 'http') !== 0) $svc_url = 'pages/' . $svc_url;
+      ?>
+        <a href="<?= cms_e($svc_url) ?>" class="service-card reveal" style="text-decoration:none;color:inherit;">
+          <div class="service-card__top">
+            <div class="service-card__icon"><i class="fas <?= cms_e($svc['icon'] ?? 'fa-cog') ?>"></i></div>
+            <span class="service-card__tag"><?= cms_e($svc['tag'] ?? '') ?></span>
+            <h3 class="service-card__title"><?= cms_e($svc['title'] ?? '') ?></h3>
+            <p class="service-card__desc"><?= cms_e($svc['description'] ?? '') ?></p>
+          </div>
+          <div class="service-card__foot">
+            <span class="service-card__link">Explore <i class="fas fa-arrow-right"></i></span>
+            <span class="service-card__arr"><i class="fas fa-chevron-right"></i></span>
+          </div>
+        </a>
+      <?php endforeach; else: ?>
+        <!-- Fallback: Card 1: Consulting -->
         <a href="pages/consulting.html" class="service-card reveal" style="text-decoration:none;color:inherit;">
           <div class="service-card__top">
             <div class="service-card__icon"><i class="fas fa-shield-alt"></i></div>
@@ -451,6 +474,7 @@ $featured_t   = cms_get_featured_testimonials();
             <span class="service-card__arr" style="color:var(--navy);border-color:var(--navy-xlight);"><i class="fas fa-chevron-right"></i></span>
           </div>
         </a>
+      <?php endif; ?>
 
       </div>
 
@@ -542,52 +566,19 @@ $featured_t   = cms_get_featured_testimonials();
   <section class="section section-white" id="industries" aria-labelledby="industries-heading">
     <div class="container">
       <div class="section-header">
-        <span class="eyebrow">Industries Served</span>
-        <h2 id="industries-heading">Deep Expertise Across Every Major Sector</h2>
-        <p>With 25+ years of field deployment across 40+ countries, Ansar Mahmood brings sector-specific knowledge to every engagement.</p>
+        <span class="eyebrow"><?= cms_e($hp_ind_sec['eyebrow'] ?? 'Industries Served') ?></span>
+        <h2 id="industries-heading"><?= cms_e($hp_ind_sec['headline'] ?? 'Deep Expertise Across Every Major Sector') ?></h2>
+        <p><?= cms_e($hp_ind_sec['description'] ?? 'With 25+ years of field deployment across 40+ countries, Ansar Mahmood brings sector-specific knowledge to every engagement.') ?></p>
       </div>
 
       <div class="grid grid-4" style="gap:20px;grid-template-columns:repeat(4,1fr)">
+        <?php foreach ($hp_industries as $ind): ?>
         <div class="industry-card reveal">
-          <div class="industry-card__icon"><i class="fas fa-oil-can"></i></div>
-          <div class="industry-card__name">Oil &amp; Gas</div>
-          <div class="industry-card__tag">Upstream · Midstream · Downstream</div>
+          <div class="industry-card__icon"><i class="fas <?= cms_e($ind['icon'] ?? 'fa-industry') ?>"></i></div>
+          <div class="industry-card__name"><?= cms_e($ind['name'] ?? '') ?></div>
+          <div class="industry-card__tag"><?= cms_e($ind['tag'] ?? '') ?></div>
         </div>
-        <div class="industry-card reveal">
-          <div class="industry-card__icon"><i class="fas fa-hard-hat"></i></div>
-          <div class="industry-card__name">Construction</div>
-          <div class="industry-card__tag">Civil · Building · Infrastructure</div>
-        </div>
-        <div class="industry-card reveal">
-          <div class="industry-card__icon"><i class="fas fa-industry"></i></div>
-          <div class="industry-card__name">Manufacturing</div>
-          <div class="industry-card__tag">Heavy · Light · Process</div>
-        </div>
-        <div class="industry-card reveal">
-          <div class="industry-card__icon"><i class="fas fa-hospital"></i></div>
-          <div class="industry-card__name">Healthcare</div>
-          <div class="industry-card__tag">Hospitals · Clinics · Labs</div>
-        </div>
-        <div class="industry-card reveal">
-          <div class="industry-card__icon"><i class="fas fa-truck"></i></div>
-          <div class="industry-card__name">Logistics</div>
-          <div class="industry-card__tag">Transport · Warehousing · Fleet</div>
-        </div>
-        <div class="industry-card reveal">
-          <div class="industry-card__icon"><i class="fas fa-landmark"></i></div>
-          <div class="industry-card__name">Government</div>
-          <div class="industry-card__tag">Public Sector · Municipalities</div>
-        </div>
-        <div class="industry-card reveal">
-          <div class="industry-card__icon"><i class="fas fa-bolt"></i></div>
-          <div class="industry-card__name">Energy &amp; Utilities</div>
-          <div class="industry-card__tag">Power · Water · Renewables</div>
-        </div>
-        <div class="industry-card reveal">
-          <div class="industry-card__icon"><i class="fas fa-gem"></i></div>
-          <div class="industry-card__name">Mining</div>
-          <div class="industry-card__tag">Extraction · Processing · Refining</div>
-        </div>
+        <?php endforeach; ?>
       </div>
 
       <div style="text-align:center;margin-top:40px;">
@@ -606,53 +597,36 @@ $featured_t   = cms_get_featured_testimonials();
         <h2 id="solutions-heading">Proven Solutions for Every Challenge</h2>
       </div>
 
-      <!-- Block 1: Consulting -->
-      <div class="solution-block" style="margin-bottom:72px;">
-        <div class="solution-visual reveal reveal--left">
-          <div class="solution-visual__label">Expert Advisory</div>
-          <i class="fas fa-shield-alt" style="font-size:8rem;color:var(--gold);opacity:.4;"></i>
-          <div class="solution-visual__icon" aria-hidden="true"><i class="fas fa-map-marked-alt"></i></div>
+      <?php foreach ($hp_solutions as $si => $sol):
+        $is_reverse = $si % 2 !== 0;
+      ?>
+      <div class="solution-block<?= $is_reverse ? ' solution-block--reverse' : '' ?>" style="<?= $si < count($hp_solutions) - 1 ? 'margin-bottom:72px;' : '' ?>">
+        <div class="solution-visual reveal <?= $is_reverse ? 'reveal--right' : 'reveal--left' ?>">
+          <div class="solution-visual__label"><?= cms_e($sol['label'] ?? '') ?></div>
+          <i class="fas <?= cms_e($sol['icon'] ?? 'fa-cog') ?>" style="font-size:8rem;color:var(--gold);opacity:.4;"></i>
         </div>
-        <div class="solution-content reveal reveal--right">
-          <span class="eyebrow">HSE Consulting &amp; Advisory</span>
-          <h3>From Compliance to Culture — Strategic Safety That Actually Works</h3>
-          <p>Ansar Mahmood brings 25+ years of frontline HSE experience to your boardroom. Whether you need a regulatory compliance audit, a safety culture transformation program, or a complete HSE management system built from scratch — the approach is always strategic, practical, and results-focused.</p>
+        <div class="solution-content reveal <?= $is_reverse ? 'reveal--left' : 'reveal--right' ?>">
+          <span class="eyebrow"><?= cms_e($sol['eyebrow'] ?? '') ?></span>
+          <h3><?= cms_e($sol['headline'] ?? '') ?></h3>
+          <p><?= cms_e($sol['description'] ?? '') ?></p>
+          <?php if (!empty($sol['features'])): ?>
           <div class="solution-features">
-            <div class="solution-feature"><i class="fas fa-check-circle"></i>Risk Assessment &amp; HAZOP / HAZID facilitation</div>
-            <div class="solution-feature"><i class="fas fa-check-circle"></i>Regulatory compliance audit and gap analysis</div>
-            <div class="solution-feature"><i class="fas fa-check-circle"></i>Safety culture transformation and behavioral programs</div>
-            <div class="solution-feature"><i class="fas fa-check-circle"></i>Emergency response planning and BCP development</div>
+            <?php foreach ($sol['features'] as $feat): ?>
+            <div class="solution-feature"><i class="fas fa-check-circle"></i><?= cms_e($feat) ?></div>
+            <?php endforeach; ?>
           </div>
+          <?php endif; ?>
           <div style="display:flex;gap:14px;flex-wrap:wrap;">
-            <a href="pages/consulting.html" class="btn btn-primary btn-lg">Explore Consulting</a>
-            <a href="pages/book-consultation.html" class="btn btn-outline-navy btn-lg">Book a Call</a>
+            <?php if (!empty($sol['cta_primary_text'])): ?>
+            <a href="<?= cms_e($sol['cta_primary_url'] ?? '#') ?>" class="btn btn-primary btn-lg"><?= cms_e($sol['cta_primary_text']) ?></a>
+            <?php endif; ?>
+            <?php if (!empty($sol['cta_secondary_text'])): ?>
+            <a href="<?= cms_e($sol['cta_secondary_url'] ?? '#') ?>" class="btn btn-outline-navy btn-lg"><?= cms_e($sol['cta_secondary_text']) ?></a>
+            <?php endif; ?>
           </div>
         </div>
       </div>
-
-      <!-- Block 2: AI (reversed) -->
-      <div class="solution-block solution-block--reverse">
-        <div class="solution-visual reveal reveal--right">
-          <div class="solution-visual__label">AI-Powered</div>
-          <i class="fas fa-robot" style="font-size:8rem;color:var(--blue-light);opacity:.4;"></i>
-          <div class="solution-visual__icon" aria-hidden="true"><i class="fas fa-brain"></i></div>
-        </div>
-        <div class="solution-content reveal reveal--left">
-          <span class="eyebrow">AI &amp; Digital Solutions</span>
-          <h3>The Future of Safety Is Intelligent — Let AI Work for You</h3>
-          <p>Ansar deploys custom AI agents, predictive analytics models, and Power BI dashboards that give your HSE team the intelligence to prevent incidents before they happen. No generic software — these are purpose-built tools designed specifically for your operations.</p>
-          <div class="solution-features">
-            <div class="solution-feature"><i class="fas fa-check-circle"></i>AI HSE document review and compliance assistant</div>
-            <div class="solution-feature"><i class="fas fa-check-circle"></i>Power BI real-time safety KPI dashboards</div>
-            <div class="solution-feature"><i class="fas fa-check-circle"></i>SharePoint HSE portals and document management</div>
-            <div class="solution-feature"><i class="fas fa-check-circle"></i>Custom safety apps and digital inspection tools</div>
-          </div>
-          <div style="display:flex;gap:14px;flex-wrap:wrap;">
-            <a href="pages/ai-solutions.html" class="btn btn-primary btn-lg">Explore AI Solutions</a>
-            <a href="pages/powerbi-dashboards.html" class="btn btn-outline-navy btn-lg">View Dashboards</a>
-          </div>
-        </div>
-      </div>
+      <?php endforeach; ?>
     </div>
   </section>
 
@@ -768,7 +742,95 @@ $featured_t   = cms_get_featured_testimonials();
     </div>
   </section>
 
-  <!-- ── 10. FINAL CTA BANNER ──────────────────────────────── -->
+  <!-- ── 10. PROJECT SHOWCASE ─────────────────────────────── -->
+  <section class="section section-white" id="projects" aria-labelledby="projects-heading">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="eyebrow">Real Projects. Real Impact.</span>
+        <h2 id="projects-heading">A Track Record Built on the Ground</h2>
+        <p>From oil & gas mega-sites to international conferences — every engagement is backed by hands-on expertise and measurable results.</p>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-bottom:48px;">
+
+        <!-- Project card 1 — Red Sea Global milestone -->
+        <div class="reveal" style="border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-md);background:#fff;border:1px solid var(--gray-200);transition:transform .3s,box-shadow .3s;" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='var(--shadow-xl)'" onmouseout="this.style.transform='';this.style.boxShadow='var(--shadow-md)'">
+          <div style="position:relative;height:220px;overflow:hidden;">
+            <img src="assets/images/Ansar (8).jpeg" alt="Red Sea Global — 1 Million LTI-Free Man-Hours Milestone" style="width:100%;height:100%;object-fit:cover;object-position:center;">
+            <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(10,22,40,.75) 0%,transparent 50%);"></div>
+            <span style="position:absolute;top:14px;left:14px;background:var(--gold);color:#fff;font-size:.72rem;font-weight:700;padding:4px 12px;border-radius:100px;text-transform:uppercase;letter-spacing:.07em;">Construction</span>
+          </div>
+          <div style="padding:20px 24px;">
+            <h4 style="font-size:1rem;margin-bottom:8px;color:var(--navy);">1 Million LTI-Free Man-Hours</h4>
+            <p style="font-size:.87rem;color:var(--text-muted);margin-bottom:14px;">Red Sea Global mega-project — led HSE advisory to achieve a landmark safety milestone with zero lost-time injuries across a complex multi-contractor site.</p>
+            <div style="display:flex;gap:16px;">
+              <div style="text-align:center;"><div style="font-size:1.3rem;font-weight:800;color:var(--gold);">1M+</div><div style="font-size:.72rem;color:var(--text-muted);">Safe Man-Hours</div></div>
+              <div style="text-align:center;"><div style="font-size:1.3rem;font-weight:800;color:var(--blue);">0</div><div style="font-size:.72rem;color:var(--text-muted);">LTI Incidents</div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project card 2 — Field HSE consulting -->
+        <div class="reveal" style="border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-md);background:#fff;border:1px solid var(--gray-200);transition:transform .3s,box-shadow .3s;" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='var(--shadow-xl)'" onmouseout="this.style.transform='';this.style.boxShadow='var(--shadow-md)'">
+          <div style="position:relative;height:220px;overflow:hidden;">
+            <img src="assets/images/Ansar (4).jpeg" alt="Ansar Mahmood — On-site HSE Consulting" style="width:100%;height:100%;object-fit:cover;object-position:top;">
+            <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(10,22,40,.75) 0%,transparent 50%);"></div>
+            <span style="position:absolute;top:14px;left:14px;background:var(--blue);color:#fff;font-size:.72rem;font-weight:700;padding:4px 12px;border-radius:100px;text-transform:uppercase;letter-spacing:.07em;">HSE Consulting</span>
+          </div>
+          <div style="padding:20px 24px;">
+            <h4 style="font-size:1rem;margin-bottom:8px;color:var(--navy);">On-Site HSE Advisory</h4>
+            <p style="font-size:.87rem;color:var(--text-muted);margin-bottom:14px;">Hands-on field HSE leadership embedded within high-hazard operations — conducting audits, risk assessments, and safety culture interventions directly on-site.</p>
+            <div style="display:flex;gap:16px;">
+              <div style="text-align:center;"><div style="font-size:1.3rem;font-weight:800;color:var(--gold);">500+</div><div style="font-size:.72rem;color:var(--text-muted);">Projects</div></div>
+              <div style="text-align:center;"><div style="font-size:1.3rem;font-weight:800;color:var(--blue);">40+</div><div style="font-size:.72rem;color:var(--text-muted);">Countries</div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project card 3 — Training delivery -->
+        <div class="reveal" style="border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-md);background:#fff;border:1px solid var(--gray-200);transition:transform .3s,box-shadow .3s;" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='var(--shadow-xl)'" onmouseout="this.style.transform='';this.style.boxShadow='var(--shadow-md)'">
+          <div style="position:relative;height:220px;overflow:hidden;">
+            <img src="assets/images/Ansar (2).jpeg" alt="Ansar Mahmood delivering HSE training" style="width:100%;height:100%;object-fit:cover;object-position:top;">
+            <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(10,22,40,.75) 0%,transparent 50%);"></div>
+            <span style="position:absolute;top:14px;left:14px;background:var(--navy);color:#fff;font-size:.72rem;font-weight:700;padding:4px 12px;border-radius:100px;text-transform:uppercase;letter-spacing:.07em;">Training</span>
+          </div>
+          <div style="padding:20px 24px;">
+            <h4 style="font-size:1rem;margin-bottom:8px;color:var(--navy);">NEBOSH & Professional Certification Coaching</h4>
+            <p style="font-size:.87rem;color:var(--text-muted);margin-bottom:14px;">Delivering NEBOSH, IOSH, CSP, CRSP, and ISO Lead Auditor coaching to professionals globally — with a 97%+ first-attempt pass rate.</p>
+            <div style="display:flex;gap:16px;">
+              <div style="text-align:center;"><div style="font-size:1.3rem;font-weight:800;color:var(--gold);">97%+</div><div style="font-size:.72rem;color:var(--text-muted);">Pass Rate</div></div>
+              <div style="text-align:center;"><div style="font-size:1.3rem;font-weight:800;color:var(--blue);">10K+</div><div style="font-size:.72rem;color:var(--text-muted);">Trained</div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project card 4 — Speaking / thought leadership -->
+        <div class="reveal" style="border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-md);background:#fff;border:1px solid var(--gray-200);transition:transform .3s,box-shadow .3s;" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='var(--shadow-xl)'" onmouseout="this.style.transform='';this.style.boxShadow='var(--shadow-md)'">
+          <div style="position:relative;height:220px;overflow:hidden;">
+            <img src="assets/images/Ansar (10).jpeg" alt="Ansar Mahmood speaking at an international HSE conference" style="width:100%;height:100%;object-fit:cover;object-position:top;">
+            <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(10,22,40,.75) 0%,transparent 50%);"></div>
+            <span style="position:absolute;top:14px;left:14px;background:var(--gold);color:#fff;font-size:.72rem;font-weight:700;padding:4px 12px;border-radius:100px;text-transform:uppercase;letter-spacing:.07em;">Speaking</span>
+          </div>
+          <div style="padding:20px 24px;">
+            <h4 style="font-size:1rem;margin-bottom:8px;color:var(--navy);">International HSE Speaker & Advisor</h4>
+            <p style="font-size:.87rem;color:var(--text-muted);margin-bottom:14px;">Keynote speaker and workshop facilitator at international safety conferences — sharing expertise on digital HSE, AI integration, and safety leadership.</p>
+            <div style="display:flex;gap:16px;">
+              <div style="text-align:center;"><div style="font-size:1.3rem;font-weight:800;color:var(--gold);">25+</div><div style="font-size:.72rem;color:var(--text-muted);">Years Exp.</div></div>
+              <div style="text-align:center;"><div style="font-size:1.3rem;font-weight:800;color:var(--blue);">Global</div><div style="font-size:.72rem;color:var(--text-muted);">Reach</div></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div style="text-align:center;" class="reveal">
+        <a href="pages/case-studies.html" class="btn btn-primary btn-lg"><i class="fas fa-briefcase"></i> View All Case Studies</a>
+        <a href="pages/book-consultation.html" class="btn btn-gold btn-lg" style="margin-left:12px;"><i class="fas fa-calendar-check"></i> Start Your Project</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 11. FINAL CTA BANNER ──────────────────────────────── -->
   <section class="cta-banner section" aria-labelledby="cta-heading">
     <div class="container">
       <div class="cta-banner__content">

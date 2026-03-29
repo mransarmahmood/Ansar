@@ -3,7 +3,25 @@
     "allow": [
       "Bash(php --version)",
       "Bash(python3 -c \":*)",
-      "Bash(node -e \":*)"
+      "Bash(node -e \":*)",
+      "Read(//c/xampp/apache/logs/**)",
+      "Read(//c/xampp/php/logs/**)",
+      "Bash(php -l admin/includes/layout.php)",
+      "Bash(php -l admin/includes/config.php)",
+      "Bash(php -l includes/cms-data.php)",
+      "Bash(php -l admin/content/industries.php)",
+      "Bash(php -l admin/content/certifications.php)",
+      "Bash(for f:*)",
+      "Bash(do php:*)",
+      "Bash(grep -v \"^$\")",
+      "Bash(done)",
+      "Bash(do echo:*)",
+      "Bash(php -r \"echo json_decode\\(file_get_contents\\(''$f''\\)\\) ? ''valid'' : ''INVALID''; echo PHP_EOL;\")",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost/Ansar/admin/)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost/Ansar/admin/content/industries.php)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost/Ansar/admin/content/certifications.php)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost/Ansar/admin/content/corporate.php)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost/Ansar/admin/content/about.php)"
     ]
   }
 }

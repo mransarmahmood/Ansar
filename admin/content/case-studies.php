@@ -59,6 +59,14 @@ admin_topbar('Case Studies', 'Manage project results and success stories', [
 ]);
 ?>
 <div class="page-body">
+
+  <div class="info-banner info-banner--blue">
+    <i class="fas fa-info-circle"></i>
+    <div>
+      <strong>Where this content appears:</strong> Case studies are displayed on the <a href="../../pages/case-studies.html" target="_blank" style="color:inherit;text-decoration:underline;">Case Studies page</a> as project cards with metrics, industry tags, and category filters. They demonstrate real client success stories.
+    </div>
+  </div>
+
   <div class="card">
     <div class="card__header"><div class="card__title"><i class="fas fa-trophy"></i> Case Studies (<?= count($items) ?>)</div></div>
     <?php if (empty($items)): ?>

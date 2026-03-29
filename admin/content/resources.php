@@ -47,6 +47,14 @@ admin_topbar('Resources', 'Manage free downloads and guides', [
 ]);
 ?>
 <div class="page-body">
+
+  <div class="info-banner info-banner--teal">
+    <i class="fas fa-info-circle"></i>
+    <div>
+      <strong>Where this content appears:</strong> Resources are displayed on the <a href="../../pages/resources.html" target="_blank" style="color:inherit;text-decoration:underline;">Resources page</a> as downloadable cards with category filter tabs. Each resource links to its download URL.
+    </div>
+  </div>
+
   <div class="card">
     <div class="card__header">
       <div class="card__title"><i class="fas fa-download"></i> Resources (<?= count($items) ?>)</div>

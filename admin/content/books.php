@@ -46,6 +46,14 @@ admin_topbar('Books', 'Manage recommended HSE reading list', [
 ]);
 ?>
 <div class="page-body">
+
+  <div class="info-banner info-banner--gold">
+    <i class="fas fa-info-circle"></i>
+    <div>
+      <strong>Where this content appears:</strong> Books are shown on the <a href="../../pages/books.html" target="_blank" style="color:inherit;text-decoration:underline;">Recommended Reading page</a> as a curated bookshelf with category filters, difficulty badges, and star ratings.
+    </div>
+  </div>
+
   <div class="card">
     <div class="card__header"><div class="card__title"><i class="fas fa-book"></i> Books (<?= count($items) ?>)</div></div>
     <?php if (empty($items)): ?>

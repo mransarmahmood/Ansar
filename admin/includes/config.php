@@ -26,6 +26,11 @@ define('BOOKS_JSON',         CONTENT_DIR . 'books.json');
 define('CASE_STUDIES_JSON',  CONTENT_DIR . 'case-studies.json');
 define('HOMEPAGE_JSON',      CONTENT_DIR . 'homepage.json');
 define('SERVICES_JSON',      CONTENT_DIR . 'services.json');
+define('SERVICE_PAGES_JSON', CONTENT_DIR . 'service-pages.json');
+define('ABOUT_JSON',         CONTENT_DIR . 'about.json');
+define('INDUSTRIES_JSON',    CONTENT_DIR . 'industries.json');
+define('CERTIFICATIONS_JSON',CONTENT_DIR . 'certifications.json');
+define('CORPORATE_JSON',     CONTENT_DIR . 'corporate.json');
 
 // ── Ensure data directories exist ─────────────────────────────
 if (!is_dir(DATA_DIR))    mkdir(DATA_DIR,    0755, true);

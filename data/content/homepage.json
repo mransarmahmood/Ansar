@@ -53,5 +53,51 @@
     { "label": "Microsoft", "icon": "fa-microsoft" },
     { "label": "Power BI", "icon": "fa-chart-bar" },
     { "label": "AI Specialist", "icon": "fa-robot" }
+  ],
+  "services_section": {
+    "eyebrow": "8 Service Areas \u00b7 One Expert",
+    "headline": "Everything Your Organisation Needs \u2014 Under One Roof",
+    "description": "From field-proven HSE consulting and certification coaching to AI-powered analytics and custom digital platforms \u2014 Ansar Mahmood delivers where other consultants stop. One advisor. Full-spectrum capability."
+  },
+  "industries_section": {
+    "eyebrow": "Industries Served",
+    "headline": "Deep Expertise Across Every Major Sector",
+    "description": "With 25+ years of field deployment across 40+ countries, Ansar Mahmood brings sector-specific knowledge to every engagement."
+  },
+  "featured_solutions": [
+    {
+      "eyebrow": "HSE Consulting & Advisory",
+      "headline": "From Compliance to Culture \u2014 Strategic Safety That Actually Works",
+      "description": "Ansar Mahmood brings 25+ years of frontline HSE experience to your boardroom. Whether you need a regulatory compliance audit, a safety culture transformation program, or a complete HSE management system built from scratch \u2014 the approach is always strategic, practical, and results-focused.",
+      "features": [
+        "Risk Assessment & HAZOP / HAZID facilitation",
+        "Regulatory compliance audit and gap analysis",
+        "Safety culture transformation and behavioral programs",
+        "Emergency response planning and BCP development"
+      ],
+      "cta_primary_text": "Explore Consulting",
+      "cta_primary_url": "pages/consulting.html",
+      "cta_secondary_text": "Book a Call",
+      "cta_secondary_url": "pages/book-consultation.html",
+      "icon": "fa-shield-alt",
+      "label": "Expert Advisory"
+    },
+    {
+      "eyebrow": "AI & Digital Solutions",
+      "headline": "The Future of Safety Is Intelligent \u2014 Let AI Work for You",
+      "description": "Ansar deploys custom AI agents, predictive analytics models, and Power BI dashboards that give your HSE team the intelligence to prevent incidents before they happen. No generic software \u2014 these are purpose-built tools designed specifically for your operations.",
+      "features": [
+        "AI HSE document review and compliance assistant",
+        "Power BI real-time safety KPI dashboards",
+        "SharePoint HSE portals and document management",
+        "Custom safety apps and digital inspection tools"
+      ],
+      "cta_primary_text": "Explore AI Solutions",
+      "cta_primary_url": "pages/ai-solutions.html",
+      "cta_secondary_text": "Schedule Demo",
+      "cta_secondary_url": "pages/book-consultation.html",
+      "icon": "fa-robot",
+      "label": "AI Technology"
+    }
   ]
 }

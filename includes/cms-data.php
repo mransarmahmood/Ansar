@@ -104,3 +104,49 @@ function cms_e(string $str): string {
 function cms_stars(int $rating): string {
     return str_repeat('&#9733;', min(5, max(1, $rating)));
 }
+
+/**
+ * Get a specific service page's content by slug.
+ */
+function cms_get_service_page(string $slug): array {
+    $file = CMS_DATA_DIR . 'service-pages.json';
+    if (!file_exists($file)) return [];
+    $data = json_decode(file_get_contents($file), true);
+    return $data[$slug] ?? [];
+}
+
+/**
+ * Get about page content (single object).
+ */
+function cms_get_about(): array {
+    $file = CMS_DATA_DIR . 'about.json';
+    if (!file_exists($file)) return [];
+    return json_decode(file_get_contents($file), true) ?? [];
+}
+
+/**
+ * Get site settings (contact info, socials, etc.).
+ */
+function cms_get_settings(): array {
+    $file = dirname(CMS_DATA_DIR) . '/settings.json';
+    if (!file_exists($file)) return [];
+    return json_decode(file_get_contents($file), true) ?? [];
+}
+
+/**
+ * Get featured services (for homepage grid).
+ */
+function cms_get_featured_services(): array {
+    $all = cms_get('services');
+    $featured = array_filter($all, fn($s) => !empty($s['featured']));
+    return array_values($featured ?: $all);
+}
+
+/**
+ * Get featured industries (for homepage grid).
+ */
+function cms_get_featured_industries(): array {
+    $all = cms_get('industries');
+    $featured = array_filter($all, fn($i) => !empty($i['featured']));
+    return array_values($featured ?: $all);
+}

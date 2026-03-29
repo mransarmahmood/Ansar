@@ -57,6 +57,19 @@ admin_topbar('Testimonials', 'Manage client testimonials shown on the website', 
 ?>
 <div class="page-body">
 
+  <div class="info-banner info-banner--blue">
+    <i class="fas fa-info-circle"></i>
+    <div>
+      <strong>Where this content appears:</strong> Testimonials are shown on the <a href="../../pages/testimonials.html" target="_blank" style="color:inherit;text-decoration:underline;">Testimonials page</a> and <strong>featured</strong> items appear in the homepage auto-play slider. Mark items as "Featured" to include them on the homepage.
+    </div>
+  </div>
+
+  <div class="quick-stats" style="margin-bottom:20px;">
+    <div class="quick-stat"><div class="quick-stat__value"><?= count($items) ?></div><div class="quick-stat__label">Total</div></div>
+    <div class="quick-stat"><div class="quick-stat__value"><?= count(array_filter($items, fn($i) => !empty($i['featured']))) ?></div><div class="quick-stat__label">Featured</div></div>
+    <div class="quick-stat"><div class="quick-stat__value"><?= count(array_filter($items, fn($i) => !empty($i['published']))) ?></div><div class="quick-stat__label">Published</div></div>
+  </div>
+
   <div class="card">
     <div class="card__header">
       <div class="card__title"><i class="fas fa-quote-left"></i> Testimonials (<?= count($items) ?>)</div>

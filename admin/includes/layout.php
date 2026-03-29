@@ -10,6 +10,8 @@ function admin_head(string $title, string $page = ''): void {
     require_once __DIR__ . '/functions.php';
     $settings = get_settings();
     $flash    = get_flash();
+    $base     = strpos($page, '/') !== false ? '../' : '';
+    $GLOBALS['admin_base'] = $base;
     $counts   = [
         'leads'       => count_csv(LEADS_CSV),
         'bookings'    => count_csv(BOOKINGS_CSV),
@@ -24,7 +26,7 @@ function admin_head(string $title, string $page = ''): void {
   <title><?= htmlspecialchars($title) ?> — CMS</title>
   <meta name="robots" content="noindex, nofollow" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
-  <link rel="stylesheet" href="<?= strpos($page, '/') !== false ? '../' : '' ?>css/admin.css" />
+  <link rel="stylesheet" href="<?= $base ?>css/admin.css" />
 </head>
 <body>
 <div class="admin-layout">
@@ -42,13 +44,13 @@ function admin_head(string $title, string $page = ''): void {
     <div class="sidebar__section">
       <div class="sidebar__section-label">Overview</div>
       <ul class="sidebar__nav">
-        <li><a href="index.php" class="sidebar__link <?= nav_active('index') ?>"><i class="fas fa-home"></i> Dashboard</a></li>
+        <li><a href="<?= $base ?>index.php" class="sidebar__link <?= nav_active('index') ?>"><i class="fas fa-home"></i> Dashboard</a></li>
       </ul>
 
       <div class="sidebar__section-label" style="margin-top:18px;">Leads & Enquiries</div>
       <ul class="sidebar__nav">
         <li>
-          <a href="leads.php" class="sidebar__link <?= nav_active('leads') ?>">
+          <a href="<?= $base ?>leads.php" class="sidebar__link <?= nav_active('leads') ?>">
             <i class="fas fa-envelope"></i> Contact Leads
             <?php if ($counts['leads'] > 0): ?>
               <span class="sidebar__badge"><?= $counts['leads'] ?></span>
@@ -56,7 +58,7 @@ function admin_head(string $title, string $page = ''): void {
           </a>
         </li>
         <li>
-          <a href="bookings.php" class="sidebar__link <?= nav_active('bookings') ?>">
+          <a href="<?= $base ?>bookings.php" class="sidebar__link <?= nav_active('bookings') ?>">
             <i class="fas fa-calendar-check"></i> Booking Requests
             <?php if ($counts['bookings'] > 0): ?>
               <span class="sidebar__badge"><?= $counts['bookings'] ?></span>
@@ -64,7 +66,7 @@ function admin_head(string $title, string $page = ''): void {
           </a>
         </li>
         <li>
-          <a href="subscribers.php" class="sidebar__link <?= nav_active('subscribers') ?>">
+          <a href="<?= $base ?>subscribers.php" class="sidebar__link <?= nav_active('subscribers') ?>">
             <i class="fas fa-users"></i> Subscribers
             <?php if ($counts['subscribers'] > 0): ?>
               <span class="sidebar__badge"><?= $counts['subscribers'] ?></span>
@@ -75,22 +77,27 @@ function admin_head(string $title, string $page = ''): void {
 
       <div class="sidebar__section-label" style="margin-top:18px;">Content Management</div>
       <ul class="sidebar__nav">
-        <li><a href="content/home.php" class="sidebar__link <?= nav_active('home') ?>"><i class="fas fa-home"></i> Homepage</a></li>
-        <li><a href="content/testimonials.php" class="sidebar__link <?= nav_active('testimonials') ?>"><i class="fas fa-quote-left"></i> Testimonials</a></li>
-        <li><a href="content/blog.php" class="sidebar__link <?= nav_active('blog') ?>"><i class="fas fa-pen-nib"></i> Blog Posts</a></li>
-        <li><a href="content/faqs.php" class="sidebar__link <?= nav_active('faqs') ?>"><i class="fas fa-question-circle"></i> FAQs</a></li>
-        <li><a href="content/courses.php" class="sidebar__link <?= nav_active('courses') ?>"><i class="fas fa-graduation-cap"></i> Courses</a></li>
-        <li><a href="content/resources.php" class="sidebar__link <?= nav_active('resources') ?>"><i class="fas fa-download"></i> Resources</a></li>
-        <li><a href="content/books.php" class="sidebar__link <?= nav_active('books') ?>"><i class="fas fa-book"></i> Books</a></li>
-        <li><a href="content/case-studies.php" class="sidebar__link <?= nav_active('case-studies') ?>"><i class="fas fa-trophy"></i> Case Studies</a></li>
-        <li><a href="content/services.php" class="sidebar__link <?= nav_active('services') ?>"><i class="fas fa-hard-hat"></i> Services</a></li>
-        <li><a href="content/admissions.php" class="sidebar__link <?= nav_active('admissions') ?>"><i class="fas fa-user-graduate"></i> Admissions</a></li>
+        <li><a href="<?= $base ?>content/home.php" class="sidebar__link <?= nav_active('home') ?>"><i class="fas fa-home"></i> Homepage</a></li>
+        <li><a href="<?= $base ?>content/testimonials.php" class="sidebar__link <?= nav_active('testimonials') ?>"><i class="fas fa-quote-left"></i> Testimonials</a></li>
+        <li><a href="<?= $base ?>content/blog.php" class="sidebar__link <?= nav_active('blog') ?>"><i class="fas fa-pen-nib"></i> Blog Posts</a></li>
+        <li><a href="<?= $base ?>content/faqs.php" class="sidebar__link <?= nav_active('faqs') ?>"><i class="fas fa-question-circle"></i> FAQs</a></li>
+        <li><a href="<?= $base ?>content/courses.php" class="sidebar__link <?= nav_active('courses') ?>"><i class="fas fa-graduation-cap"></i> Courses</a></li>
+        <li><a href="<?= $base ?>content/resources.php" class="sidebar__link <?= nav_active('resources') ?>"><i class="fas fa-download"></i> Resources</a></li>
+        <li><a href="<?= $base ?>content/books.php" class="sidebar__link <?= nav_active('books') ?>"><i class="fas fa-book"></i> Books</a></li>
+        <li><a href="<?= $base ?>content/case-studies.php" class="sidebar__link <?= nav_active('case-studies') ?>"><i class="fas fa-trophy"></i> Case Studies</a></li>
+        <li><a href="<?= $base ?>content/services.php" class="sidebar__link <?= nav_active('services') ?>"><i class="fas fa-hard-hat"></i> Services</a></li>
+        <li><a href="<?= $base ?>content/service-pages.php" class="sidebar__link <?= nav_active('service-pages') ?>"><i class="fas fa-file-alt"></i> Service Pages</a></li>
+        <li><a href="<?= $base ?>content/about.php" class="sidebar__link <?= nav_active('about') ?>"><i class="fas fa-user-tie"></i> About Page</a></li>
+        <li><a href="<?= $base ?>content/industries.php" class="sidebar__link <?= nav_active('industries') ?>"><i class="fas fa-industry"></i> Industries</a></li>
+        <li><a href="<?= $base ?>content/certifications.php" class="sidebar__link <?= nav_active('certifications') ?>"><i class="fas fa-award"></i> Certifications</a></li>
+        <li><a href="<?= $base ?>content/corporate.php" class="sidebar__link <?= nav_active('corporate') ?>"><i class="fas fa-building"></i> Corporate Packages</a></li>
+        <li><a href="<?= $base ?>content/admissions.php" class="sidebar__link <?= nav_active('admissions') ?>"><i class="fas fa-user-graduate"></i> Admissions</a></li>
       </ul>
 
       <div class="sidebar__section-label" style="margin-top:18px;">Site</div>
       <ul class="sidebar__nav">
-        <li><a href="settings.php" class="sidebar__link <?= nav_active('settings') ?>"><i class="fas fa-cog"></i> Settings</a></li>
-        <li><a href="../index.html" target="_blank" class="sidebar__link"><i class="fas fa-external-link-alt"></i> View Website</a></li>
+        <li><a href="<?= $base ?>settings.php" class="sidebar__link <?= nav_active('settings') ?>"><i class="fas fa-cog"></i> Settings</a></li>
+        <li><a href="<?= $base ?>../index.html" target="_blank" class="sidebar__link"><i class="fas fa-external-link-alt"></i> View Website</a></li>
       </ul>
     </div>
 
@@ -101,7 +108,7 @@ function admin_head(string $title, string $page = ''): void {
           <div class="sidebar__user-name"><?= htmlspecialchars($admin_name) ?></div>
           <div class="sidebar__user-role">Administrator</div>
         </div>
-        <a href="logout.php" title="Sign out" style="margin-left:auto;color:rgba(255,255,255,.4);font-size:.85rem;">
+        <a href="<?= $base ?>logout.php" title="Sign out" style="margin-left:auto;color:rgba(255,255,255,.4);font-size:.85rem;">
           <i class="fas fa-sign-out-alt"></i>
         </a>
       </div>
@@ -130,10 +137,11 @@ function admin_topbar(string $title, string $subtitle = '', array $actions = [])
 }
 
 function admin_foot(): void {
+    $base = $GLOBALS['admin_base'] ?? '';
     ?>
   </div><!-- /main-content -->
 </div><!-- /admin-layout -->
-<script src="js/admin.js"></script>
+<script src="<?= $base ?>js/admin.js"></script>
 <script>
 // Show flash from PHP session
 if (window.__flash) {

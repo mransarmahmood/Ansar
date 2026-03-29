@@ -29,8 +29,9 @@ function is_logged_in(): bool {
 // ── Require login — redirect if not authenticated ─────────────
 function require_login(): void {
     if (!is_logged_in()) {
-        $redirect = urlencode($_SERVER['REQUEST_URI'] ?? '');
-        header('Location: ' . ADMIN_DIR . '../admin/login.php?redirect=' . $redirect);
+        $redirect  = urlencode($_SERVER['REQUEST_URI'] ?? '');
+        $admin_dir = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/');
+        header('Location: ' . $admin_dir . '/login.php?redirect=' . $redirect);
         exit;
     }
 }

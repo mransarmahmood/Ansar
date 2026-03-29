@@ -1,3 +1,4 @@
+<?php require_once '../includes/cms-data.php'; $sp = cms_get_service_page('safety-apps'); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,12 +20,13 @@
     <div class="container">
       <nav class="breadcrumb" aria-label="Breadcrumb"><a href="../index.html">Home</a><span class="breadcrumb__sep"><i class="fas fa-chevron-right"></i></span><a href="services.html">Services</a><span class="breadcrumb__sep"><i class="fas fa-chevron-right"></i></span><span class="breadcrumb__current">Safety Apps</span></nav>
       <div class="page-hero__content">
-        <span class="eyebrow eyebrow--white">Custom Development</span>
-        <h1>Custom Safety Apps & Software Solutions</h1>
-        <p>Purpose-built for your workflow, deployed on any device. From mobile inspection apps to full HSE management systems — developed using Power Apps, web technologies, and proven HSE domain expertise.</p>
+        <span class="eyebrow eyebrow--white"><?= cms_e($sp['hero_eyebrow'] ?? 'Custom Development') ?></span>
+        <h1><?= cms_e($sp['hero_headline'] ?? 'Custom Safety Apps & Software Solutions') ?></h1>
+        <p><?= cms_e($sp['hero_description'] ?? 'Purpose-built for your workflow, deployed on any device. From mobile inspection apps to full HSE management systems — developed using Power Apps, web technologies, and proven HSE domain expertise.') ?></p>
         <div class="page-hero__actions">
-          <a href="book-consultation.html" class="btn btn-gold btn-lg"><i class="fas fa-code"></i> Discuss Your App</a>
-          <a href="contact.html" class="btn btn-outline-white btn-lg">Request a Quote</a>
+          <?php $cta1 = $sp['hero_cta_primary'] ?? []; $cta2 = $sp['hero_cta_secondary'] ?? []; ?>
+          <a href="<?= cms_e($cta1['url'] ?? 'book-consultation.html') ?>" class="btn btn-gold btn-lg"><?php if (!empty($cta1['icon'])): ?><i class="<?= cms_e($cta1['icon']) ?>"></i> <?php endif; ?><?= cms_e($cta1['text'] ?? 'Discuss Your App') ?></a>
+          <a href="<?= cms_e($cta2['url'] ?? 'contact.html') ?>" class="btn btn-outline-white btn-lg"><?= cms_e($cta2['text'] ?? 'Request a Quote') ?></a>
         </div>
       </div>
     </div>

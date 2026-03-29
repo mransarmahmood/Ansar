@@ -1,3 +1,4 @@
+<?php require_once '../includes/cms-data.php'; $industries = cms_get('industries'); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,131 +42,21 @@
       <!-- Industry Cards -->
       <div class="grid grid-3" style="gap:24px;margin-bottom:60px;">
 
-        <div class="feature-card reveal" id="oil-gas">
-          <div class="feature-card__icon"><i class="fas fa-oil-can"></i></div>
-          <h4 class="feature-card__title">Oil & Gas</h4>
-          <p class="feature-card__desc">Upstream, midstream, and downstream operations across onshore and offshore facilities. Major hazard HSE management, process safety, PTW, SIMOPS, emergency response, and contractor management in some of the world's most challenging environments.</p>
-          <div style="margin-top:16px;padding-top:16px;border-top:1px solid var(--gray-100);">
-            <div style="font-size:.8rem;color:var(--gold);font-weight:600;letter-spacing:.05em;text-transform:uppercase;margin-bottom:8px;">Key services</div>
-            <div style="display:flex;flex-wrap:wrap;gap:6px;">
-              <span style="background:var(--gold-xlight);color:var(--gold-dark);padding:3px 10px;border-radius:var(--radius-full);font-size:.78rem;">Process Safety</span>
-              <span style="background:var(--gold-xlight);color:var(--gold-dark);padding:3px 10px;border-radius:var(--radius-full);font-size:.78rem;">HAZOP/HAZID</span>
-              <span style="background:var(--gold-xlight);color:var(--gold-dark);padding:3px 10px;border-radius:var(--radius-full);font-size:.78rem;">ISO 45001</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="feature-card reveal" id="construction">
-          <div class="feature-card__icon"><i class="fas fa-hard-hat"></i></div>
-          <h4 class="feature-card__title">Construction</h4>
-          <p class="feature-card__desc">Civil, structural, MEP, and major infrastructure projects. CDM compliance, site safety plans, subcontractor management, permit-to-work systems, and safety culture programs for project leadership teams across residential, commercial, and infrastructure.</p>
-          <div style="margin-top:16px;padding-top:16px;border-top:1px solid var(--gray-100);">
-            <div style="font-size:.8rem;color:var(--gold);font-weight:600;letter-spacing:.05em;text-transform:uppercase;margin-bottom:8px;">Key services</div>
-            <div style="display:flex;flex-wrap:wrap;gap:6px;">
-              <span style="background:var(--gold-xlight);color:var(--gold-dark);padding:3px 10px;border-radius:var(--radius-full);font-size:.78rem;">CDM</span>
-              <span style="background:var(--gold-xlight);color:var(--gold-dark);padding:3px 10px;border-radius:var(--radius-full);font-size:.78rem;">Site Audits</span>
-              <span style="background:var(--gold-xlight);color:var(--gold-dark);padding:3px 10px;border-radius:var(--radius-full);font-size:.78rem;">Safety Plans</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="feature-card reveal" id="manufacturing">
-          <div class="feature-card__icon"><i class="fas fa-industry"></i></div>
-          <h4 class="feature-card__title">Manufacturing</h4>
-          <p class="feature-card__desc">Process manufacturing, FMCG, automotive, chemical, and pharmaceutical plants. Machine guarding, COSHH, LOLER/PUWER compliance, ISO 45001 implementation, and comprehensive safety management system development for complex production environments.</p>
-          <div style="margin-top:16px;padding-top:16px;border-top:1px solid var(--gray-100);">
-            <div style="font-size:.8rem;color:var(--gold);font-weight:600;letter-spacing:.05em;text-transform:uppercase;margin-bottom:8px;">Key services</div>
-            <div style="display:flex;flex-wrap:wrap;gap:6px;">
-              <span style="background:var(--gold-xlight);color:var(--gold-dark);padding:3px 10px;border-radius:var(--radius-full);font-size:.78rem;">ISO 45001</span>
-              <span style="background:var(--gold-xlight);color:var(--gold-dark);padding:3px 10px;border-radius:var(--radius-full);font-size:.78rem;">COSHH</span>
-              <span style="background:var(--gold-xlight);color:var(--gold-dark);padding:3px 10px;border-radius:var(--radius-full);font-size:.78rem;">Risk Assessments</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="feature-card reveal" id="healthcare">
-          <div class="feature-card__icon"><i class="fas fa-hospital"></i></div>
-          <h4 class="feature-card__title">Healthcare</h4>
-          <p class="feature-card__desc">Hospitals, clinics, and healthcare facilities. Manual handling, infection control integration, lone worker safety, RIDDOR compliance, fire risk assessments, and CQC-aligned safety management systems for NHS trusts and private healthcare organisations.</p>
-          <div style="margin-top:16px;padding-top:16px;border-top:1px solid var(--gray-100);">
-            <div style="font-size:.8rem;color:var(--gold);font-weight:600;letter-spacing:.05em;text-transform:uppercase;margin-bottom:8px;">Key services</div>
-            <div style="display:flex;flex-wrap:wrap;gap:6px;">
-              <span style="background:var(--gold-xlight);color:var(--gold-dark);padding:3px 10px;border-radius:var(--radius-full);font-size:.78rem;">CQC Compliance</span>
-              <span style="background:var(--gold-xlight);color:var(--gold-dark);padding:3px 10px;border-radius:var(--radius-full);font-size:.78rem;">Manual Handling</span>
-              <span style="background:var(--gold-xlight);color:var(--gold-dark);padding:3px 10px;border-radius:var(--radius-full);font-size:.78rem;">Risk Assessments</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="feature-card reveal" id="logistics">
-          <div class="feature-card__icon"><i class="fas fa-truck"></i></div>
-          <h4 class="feature-card__title">Logistics & Transport</h4>
-          <p class="feature-card__desc">Road, rail, aviation, and maritime freight. Driver safety programs, fatigue management, dangerous goods (ADR/IATA), loading dock risk management, fleet safety, and HSQE management systems for complex multi-modal supply chains.</p>
-          <div style="margin-top:16px;padding-top:16px;border-top:1px solid var(--gray-100);">
-            <div style="font-size:.8rem;color:var(--gold);font-weight:600;letter-spacing:.05em;text-transform:uppercase;margin-bottom:8px;">Key services</div>
-            <div style="display:flex;flex-wrap:wrap;gap:6px;">
-              <span style="background:var(--gold-xlight);color:var(--gold-dark);padding:3px 10px;border-radius:var(--radius-full);font-size:.78rem;">ADR/IATA</span>
-              <span style="background:var(--gold-xlight);color:var(--gold-dark);padding:3px 10px;border-radius:var(--radius-full);font-size:.78rem;">Fleet Safety</span>
-              <span style="background:var(--gold-xlight);color:var(--gold-dark);padding:3px 10px;border-radius:var(--radius-full);font-size:.78rem;">Fatigue Mgmt</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="feature-card reveal" id="government">
-          <div class="feature-card__icon"><i class="fas fa-landmark"></i></div>
-          <h4 class="feature-card__title">Government & Public Sector</h4>
-          <p class="feature-card__desc">Local authorities, government agencies, utilities, and public infrastructure. Statutory compliance, asbestos management, workplace stress, public liability risk, procurement HSE standards, and regulatory reporting for accountability-driven organisations.</p>
-          <div style="margin-top:16px;padding-top:16px;border-top:1px solid var(--gray-100);">
-            <div style="font-size:.8rem;color:var(--gold);font-weight:600;letter-spacing:.05em;text-transform:uppercase;margin-bottom:8px;">Key services</div>
-            <div style="display:flex;flex-wrap:wrap;gap:6px;">
-              <span style="background:var(--gold-xlight);color:var(--gold-dark);padding:3px 10px;border-radius:var(--radius-full);font-size:.78rem;">Statutory Compliance</span>
-              <span style="background:var(--gold-xlight);color:var(--gold-dark);padding:3px 10px;border-radius:var(--radius-full);font-size:.78rem;">Asbestos</span>
-              <span style="background:var(--gold-xlight);color:var(--gold-dark);padding:3px 10px;border-radius:var(--radius-full);font-size:.78rem;">Procurement HSE</span>
-            </div>
-          </div>
-        </div>
-
+        <?php foreach ($industries as $ind): ?>
         <div class="feature-card reveal">
-          <div class="feature-card__icon"><i class="fas fa-bolt"></i></div>
-          <h4 class="feature-card__title">Utilities & Energy</h4>
-          <p class="feature-card__desc">Power generation, renewable energy, water utilities, and distribution networks. Electrical safety, confined space, working at height, environmental compliance, and ISO 45001/14001/50001 integrated management systems.</p>
+          <div class="feature-card__icon"><i class="fas <?= cms_e($ind['icon'] ?? 'fa-industry') ?>"></i></div>
+          <h4 class="feature-card__title"><?= cms_e($ind['name'] ?? '') ?></h4>
+          <p class="feature-card__desc"><?= cms_e($ind['description'] ?? '') ?></p>
           <div style="margin-top:16px;padding-top:16px;border-top:1px solid var(--gray-100);">
             <div style="font-size:.8rem;color:var(--gold);font-weight:600;letter-spacing:.05em;text-transform:uppercase;margin-bottom:8px;">Key services</div>
             <div style="display:flex;flex-wrap:wrap;gap:6px;">
-              <span style="background:var(--gold-xlight);color:var(--gold-dark);padding:3px 10px;border-radius:var(--radius-full);font-size:.78rem;">ISO 50001</span>
-              <span style="background:var(--gold-xlight);color:var(--gold-dark);padding:3px 10px;border-radius:var(--radius-full);font-size:.78rem;">Electrical Safety</span>
-              <span style="background:var(--gold-xlight);color:var(--gold-dark);padding:3px 10px;border-radius:var(--radius-full);font-size:.78rem;">Environmental</span>
+              <?php foreach (($ind['key_services'] ?? []) as $ks): ?>
+              <span style="background:var(--gold-xlight);color:var(--gold-dark);padding:3px 10px;border-radius:var(--radius-full);font-size:.78rem;"><?= cms_e($ks) ?></span>
+              <?php endforeach; ?>
             </div>
           </div>
         </div>
-
-        <div class="feature-card reveal">
-          <div class="feature-card__icon"><i class="fas fa-gem"></i></div>
-          <h4 class="feature-card__title">Mining & Extractives</h4>
-          <p class="feature-card__desc">Surface and underground mining operations. Major hazard risk management, ground control, ventilation, explosive safety, emergency response, and regulatory compliance across global jurisdictions from West Africa to Central Asia.</p>
-          <div style="margin-top:16px;padding-top:16px;border-top:1px solid var(--gray-100);">
-            <div style="font-size:.8rem;color:var(--gold);font-weight:600;letter-spacing:.05em;text-transform:uppercase;margin-bottom:8px;">Key services</div>
-            <div style="display:flex;flex-wrap:wrap;gap:6px;">
-              <span style="background:var(--gold-xlight);color:var(--gold-dark);padding:3px 10px;border-radius:var(--radius-full);font-size:.78rem;">Major Hazard</span>
-              <span style="background:var(--gold-xlight);color:var(--gold-dark);padding:3px 10px;border-radius:var(--radius-full);font-size:.78rem;">ERP</span>
-              <span style="background:var(--gold-xlight);color:var(--gold-dark);padding:3px 10px;border-radius:var(--radius-full);font-size:.78rem;">Compliance Audits</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="feature-card reveal">
-          <div class="feature-card__icon"><i class="fas fa-plane"></i></div>
-          <h4 class="feature-card__title">Aviation & Hospitality</h4>
-          <p class="feature-card__desc">Airport ground handling, MRO facilities, and hospitality environments. SMS (Safety Management Systems), IATA ISAGO, food safety integration, lone working, and security interface — safety cultures built around service excellence.</p>
-          <div style="margin-top:16px;padding-top:16px;border-top:1px solid var(--gray-100);">
-            <div style="font-size:.8rem;color:var(--gold);font-weight:600;letter-spacing:.05em;text-transform:uppercase;margin-bottom:8px;">Key services</div>
-            <div style="display:flex;flex-wrap:wrap;gap:6px;">
-              <span style="background:var(--gold-xlight);color:var(--gold-dark);padding:3px 10px;border-radius:var(--radius-full);font-size:.78rem;">SMS</span>
-              <span style="background:var(--gold-xlight);color:var(--gold-dark);padding:3px 10px;border-radius:var(--radius-full);font-size:.78rem;">IATA ISAGO</span>
-              <span style="background:var(--gold-xlight);color:var(--gold-dark);padding:3px 10px;border-radius:var(--radius-full);font-size:.78rem;">Risk Management</span>
-            </div>
-          </div>
-        </div>
+        <?php endforeach; ?>
 
       </div>
 
