@@ -57,8 +57,8 @@
   },
   {
     "id": "faq_008",
-    "question": "What is the NEBOSH exam pass rate?",
-    "answer": "Ansar maintains a 97%+ first-attempt pass rate across all NEBOSH programs — significantly higher than the global average. This is achieved through structured coaching, regular mock assessments, personalised feedback, and a practical, exam-focused approach to learning that prioritises what examiners are looking for rather than rote memorisation.",
+    "question": "What is the  exam pass rate?",
+    "answer": "Ansar maintains a 97%+ first-attempt pass rate across all  programs — significantly higher than the global average. This is achieved through structured coaching, regular mock assessments, personalised feedback, and a practical, exam-focused approach to learning that prioritises what examiners are looking for rather than rote memorisation.",
     "category": "Training & Certification",
     "order": 8,
     "published": true
@@ -74,7 +74,7 @@
   {
     "id": "faq_010",
     "question": "Is online / virtual training available?",
-    "answer": "Yes. All training programs — NEBOSH, IOSH, certification coaching, corporate training, and e-learning — are available fully online via live virtual sessions, on-demand e-learning, or blended combinations. Remote learners receive the same quality of support, resources, and interaction as in-person attendees.",
+    "answer": "Yes. All training programs — IOSH, certification coaching, corporate training, and e-learning — are available fully online via live virtual sessions, on-demand e-learning, or blended combinations. Remote learners receive the same quality of support, resources, and interaction as in-person attendees.",
     "category": "Training & Certification",
     "order": 10,
     "published": true

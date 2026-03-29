@@ -1,8 +1,8 @@
 [
   {
     "id": "crs_001",
-    "title": "NEBOSH International General Certificate (IGC)",
-    "type": "NEBOSH",
+    "title": " International General Certificate (IGC)",
+    "type": "Safety Certification",
     "type_slug": "nebosh",
     "start_date": "2026-03-17",
     "start_display": "17 Mar 2026",
@@ -89,8 +89,8 @@
   },
   {
     "id": "crs_005",
-    "title": "NEBOSH Oil & Gas Certificate",
-    "type": "NEBOSH",
+    "title": " Oil & Gas Certificate",
+    "type": "Safety Certification",
     "type_slug": "nebosh",
     "start_date": "2026-04-28",
     "start_display": "28 Apr 2026",
@@ -104,7 +104,7 @@
     "price": "$1,650",
     "seats_total": 10,
     "seats_available": 5,
-    "description": "Specialist NEBOSH qualification for those working in oil, gas, and petrochemical sectors. Covers process safety, major hazards, offshore and onshore operations, and sector-specific regulatory frameworks.",
+    "description": "Specialist  qualification for those working in oil, gas, and petrochemical sectors. Covers process safety, major hazards, offshore and onshore operations, and sector-specific regulatory frameworks.",
     "badge_color": "#1E6FD9",
     "order": 5,
     "published": true
@@ -133,8 +133,8 @@
   },
   {
     "id": "crs_007",
-    "title": "NEBOSH National Diploma in OSH",
-    "type": "NEBOSH",
+    "title": " National Diploma in OSH",
+    "type": "Safety Certification",
     "type_slug": "nebosh",
     "start_date": "2026-05-12",
     "start_display": "12 May 2026",
@@ -148,7 +148,7 @@
     "price": "$2,400",
     "seats_total": 8,
     "seats_available": 4,
-    "description": "The most advanced NEBOSH qualification — equivalent to a degree-level HSE award. Covers management of health and safety, workplace and work equipment hazards, and a 12,000-word applied project. For experienced safety professionals seeking senior roles.",
+    "description": "The most advanced  qualification — equivalent to a degree-level HSE award. Covers management of health and safety, workplace and work equipment hazards, and a 12,000-word applied project. For experienced safety professionals seeking senior roles.",
     "badge_color": "#1E6FD9",
     "order": 7,
     "published": true

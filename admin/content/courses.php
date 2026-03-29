@@ -133,9 +133,9 @@ admin_topbar('Courses', 'Manage the course calendar', [
         </div>
         <div class="form-group">
           <label class="form-label">Type</label>
-          <input type="text" name="type" id="f-type" class="form-control" placeholder="e.g. NEBOSH, IOSH, ISO Standards, AI & Digital" list="type-list">
+          <input type="text" name="type" id="f-type" class="form-control" placeholder="e.g. IOSH, ISO Standards, AI & Digital" list="type-list">
           <datalist id="type-list">
-            <option value="NEBOSH"><option value="IOSH"><option value="ISO Standards"><option value="AI & Digital">
+            <option value="Safety Certification"><option value="IOSH"><option value="ISO Standards"><option value="AI & Digital">
           </datalist>
         </div>
         <div class="form-group">

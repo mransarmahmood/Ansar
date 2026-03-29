@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Course Admission & Enrolment Form | Ansar Mahmood HSE Training</title>
-  <meta name="description" content="Apply online for NEBOSH, IOSH, ISO Lead Auditor, and AI in Safety courses. Complete the admission form to secure your place. Confirmation within 24 hours." />
+  <meta name="description" content="Apply online for IOSH, ISO Lead Auditor, and AI in Safety courses. Complete the admission form to secure your place. Confirmation within 24 hours." />
   <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
   <link rel="stylesheet" href="../assets/css/style.css" />
@@ -89,10 +89,10 @@
                   <label>Course <span class="req">*</span></label>
                   <select name="course" id="course-select" required onchange="updateCourseInfo()">
                     <option value="" disabled selected>— Select a Course —</option>
-                    <optgroup label="NEBOSH">
-                      <option value="NEBOSH International General Certificate (IGC)">NEBOSH International General Certificate (IGC)</option>
-                      <option value="NEBOSH International Diploma">NEBOSH International Diploma</option>
-                      <option value="NEBOSH Certificate in Fire Safety">NEBOSH Certificate in Fire Safety</option>
+                    <optgroup label="Safety Certification">
+                      <option value=" International General Certificate (IGC)"> International General Certificate (IGC)</option>
+                      <option value="International Safety Diploma">International Safety Diploma</option>
+                      <option value=" Certificate in Fire Safety"> Certificate in Fire Safety</option>
                     </optgroup>
                     <optgroup label="IOSH">
                       <option value="IOSH Managing Safely">IOSH Managing Safely</option>
@@ -263,7 +263,7 @@
                 <div class="field span-2">
                   <label>Existing HSE Qualifications</label>
                   <div class="check-group">
-                    <label class="check-item"><input type="checkbox" name="quals[]" value="NEBOSH IGC"><i class="fas fa-check"></i> <span>NEBOSH IGC</span></label>
+                    <label class="check-item"><input type="checkbox" name="quals[]" value=" IGC"><i class="fas fa-check"></i> <span> IGC</span></label>
                     <label class="check-item"><input type="checkbox" name="quals[]" value="IOSH MS"><i class="fas fa-check"></i> <span>IOSH Managing Safely</span></label>
                     <label class="check-item"><input type="checkbox" name="quals[]" value="ISO 45001 Internal"><i class="fas fa-check"></i> <span>ISO 45001 Internal Auditor</span></label>
                     <label class="check-item"><input type="checkbox" name="quals[]" value="OSHA 30"><i class="fas fa-check"></i> <span>OSHA 30-Hour</span></label>
@@ -437,9 +437,9 @@
 <script>
 // Course info snippets
 const courseInfo = {
-  'NEBOSH International General Certificate (IGC)': { duration:'10 weeks', fee:'From $1,200', cert:'NEBOSH IGC Certificate' },
-  'NEBOSH International Diploma':                   { duration:'6 months', fee:'From $2,200', cert:'NEBOSH International Diploma' },
-  'NEBOSH Certificate in Fire Safety':              { duration:'4 weeks', fee:'From $850', cert:'NEBOSH Fire Certificate' },
+  ' International General Certificate (IGC)': { duration:'10 weeks', fee:'From $1,200', cert:' IGC Certificate' },
+  'International Safety Diploma':                   { duration:'6 months', fee:'From $2,200', cert:'International Safety Diploma' },
+  ' Certificate in Fire Safety':              { duration:'4 weeks', fee:'From $850', cert:' Fire Certificate' },
   'IOSH Managing Safely':                           { duration:'4 days', fee:'From $650', cert:'IOSH Managing Safely Certificate' },
   'IOSH Working Safely':                            { duration:'1 day', fee:'From $250', cert:'IOSH Working Safely Certificate' },
   'ISO 45001:2018 Lead Auditor':                    { duration:'5 days', fee:'$950', cert:'IRCA Registered ISO 45001 LA' },

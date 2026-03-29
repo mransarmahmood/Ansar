@@ -37,13 +37,13 @@
   },
   {
     "id": "cs_003",
-    "title": "97% NEBOSH Pass Rate — Corporate Training Program",
+    "title": "97%  Pass Rate — Corporate Training Program",
     "headline": "97% First-Attempt Pass Rate",
     "industry": "Construction · Multiple Sites",
     "category": "training",
     "icon": "fa-graduation-cap",
     "icon_bg": "linear-gradient(135deg,#1A0E3A,#3D1A7A)",
-    "description": "A major construction group engaged Ansar to deliver NEBOSH IGC coaching for 84 safety managers across 6 countries. Programme included customised study materials, weekly coaching sessions, mock exams, and tailored feedback. Delivered fully online over 12 weeks.",
+    "description": "A major construction group engaged Ansar to deliver  IGC coaching for 84 safety managers across 6 countries. Programme included customised study materials, weekly coaching sessions, mock exams, and tailored feedback. Delivered fully online over 12 weeks.",
     "metrics": [
       { "value": "84", "label": "Delegates Trained", "color": "var(--gold)" },
       { "value": "97%", "label": "First-Attempt Pass", "color": "#16A34A" },

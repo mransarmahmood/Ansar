@@ -144,7 +144,7 @@
             <div class="mega-col mega-col--cta">
               <div class="mega-cta-card">
                 <h5>Enrol Today</h5>
-                <p>NEBOSH, IOSH, ISO Lead Auditor & AI courses — online & in-person.</p>
+                <p>IOSH, ISO Lead Auditor & AI courses — online & in-person.</p>
                 <a href="${base}pages/course-calendar.html" class="btn btn-gold btn-sm">
                   View Course Dates <i class="fas fa-arrow-right"></i>
                 </a>
@@ -301,7 +301,7 @@
             <div style="margin-top:28px;">
               <h5 style="margin-bottom:14px;">Certifications</h5>
               <div style="display:flex;flex-wrap:wrap;gap:8px;">
-                ${['NEBOSH','IOSH','ISO 45001','ISO 14001','OSHA','PMP'].map(c =>
+                ${['','IOSH','ISO 45001','ISO 14001','OSHA','PMP'].map(c =>
                   `<span style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.5);font-size:.72rem;font-weight:700;padding:4px 10px;border-radius:100px;white-space:nowrap;">${c}</span>`
                 ).join('')}
               </div>

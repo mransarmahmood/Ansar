@@ -8,7 +8,7 @@
     "cta_secondary_text": "Explore All Services",
     "cta_secondary_url": "pages/services.html",
     "credentials": [
-      "NEBOSH Certified",
+      "Internationally Certified",
       "IOSH Member",
       "40+ Countries",
       "AI Specialist",
@@ -35,19 +35,19 @@
     {
       "icon": "fa-certificate",
       "title": "Certified Trainer & Coach",
-      "text": "NEBOSH and IOSH certified trainer with a 97%+ exam pass rate across ASP, CSP, CRSP, NEBOSH, IOSH, and ISO programs."
+      "text": "Internationally certified trainer with a 97%+ exam pass rate across ASP, CSP, CRSP, IOSH, and ISO programs."
     }
   ],
   "cta_banner": {
     "headline": "Ready to Transform Your Safety Culture?",
-    "subtext": "Whether you need a compliance audit, a Power BI dashboard, AI-powered tools, or NEBOSH coaching — let's start with a free 30-minute consultation.",
+    "subtext": "Whether you need a compliance audit, a Power BI dashboard, AI-powered tools, or certification coaching — let's start with a free 30-minute consultation.",
     "cta_primary_text": "Schedule Free Consultation",
     "cta_primary_url": "pages/book-consultation.html",
     "cta_secondary_text": "Send a Message",
     "cta_secondary_url": "pages/contact.html"
   },
   "trust_bar": [
-    { "label": "NEBOSH", "icon": "fa-certificate" },
+    { "label": "Safety Certification", "icon": "fa-certificate" },
     { "label": "IOSH", "icon": "fa-users" },
     { "label": "ISO 45001", "icon": "fa-shield-alt" },
     { "label": "Microsoft", "icon": "fa-microsoft" },
