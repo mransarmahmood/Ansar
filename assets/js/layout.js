@@ -159,6 +159,7 @@
 
       <div class="nav-actions">
         <a href="${base}pages/contact.html" class="nav-link">Contact</a>
+        <a href="${base}exam-login.php" class="nav-link" style="font-size:.82rem;"><i class="fas fa-graduation-cap"></i> Exam Portal</a>
         <a href="${base}pages/book-consultation.html" class="btn btn-gold btn-sm">
           <i class="fas fa-calendar-check"></i> Book a Call
         </a>
@@ -218,6 +219,7 @@
       <a href="${base}pages/case-studies.html"         class="mobile-nav__link"><i class="fas fa-briefcase"></i>Case Studies</a>
       <a href="${base}pages/about.html"                class="mobile-nav__link"><i class="fas fa-user"></i>About Ansar</a>
       <a href="${base}pages/contact.html"              class="mobile-nav__link"><i class="fas fa-envelope"></i>Contact</a>
+      <a href="${base}exam-login.php"                class="mobile-nav__link"><i class="fas fa-graduation-cap"></i>Exam Portal</a>
     </div>
     <div class="mobile-nav__cta">
       <a href="${base}pages/book-consultation.html" class="btn btn-gold" style="width:100%;justify-content:center;">

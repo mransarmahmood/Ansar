@@ -69,6 +69,24 @@ function get_settings(): array {
     return json_decode(file_get_contents(SETTINGS_JSON), true);
 }
 
+// ── Exam DB connection ────────────────────────────────────────
+define('EXAM_DB_HOST', 'localhost');
+define('EXAM_DB_NAME', 'ansar_cms');
+define('EXAM_DB_USER', 'root');
+define('EXAM_DB_PASS', 'admin123');
+
+function exam_pdo(): PDO {
+    static $pdo = null;
+    if ($pdo === null) {
+        $pdo = new PDO(
+            'mysql:host=' . EXAM_DB_HOST . ';dbname=' . EXAM_DB_NAME . ';charset=utf8mb4',
+            EXAM_DB_USER, EXAM_DB_PASS,
+            [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION, PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC]
+        );
+    }
+    return $pdo;
+}
+
 // ── Session config ────────────────────────────────────────────
 define('SESSION_NAME',    'am_admin');
 define('SESSION_TIMEOUT', 3600); // 1 hour

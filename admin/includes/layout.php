@@ -94,6 +94,13 @@ function admin_head(string $title, string $page = ''): void {
         <li><a href="<?= $base ?>content/admissions.php" class="sidebar__link <?= nav_active('admissions') ?>"><i class="fas fa-user-graduate"></i> Admissions</a></li>
       </ul>
 
+      <div class="sidebar__section-label" style="margin-top:18px;">Exam Management</div>
+      <ul class="sidebar__nav">
+        <li><a href="<?= $base ?>content/exams.php" class="sidebar__link <?= nav_active('exams') ?>"><i class="fas fa-graduation-cap"></i> Exams</a></li>
+        <li><a href="<?= $base ?>content/exam-access.php" class="sidebar__link <?= nav_active('exam-access') ?>"><i class="fas fa-key"></i> Exam Access</a></li>
+        <li><a href="<?= $base ?>content/exam-subscribers.php" class="sidebar__link <?= nav_active('exam-subscribers') ?>"><i class="fas fa-user-graduate"></i> Exam Subscribers</a></li>
+      </ul>
+
       <div class="sidebar__section-label" style="margin-top:18px;">Site</div>
       <ul class="sidebar__nav">
         <li><a href="<?= $base ?>settings.php" class="sidebar__link <?= nav_active('settings') ?>"><i class="fas fa-cog"></i> Settings</a></li>
