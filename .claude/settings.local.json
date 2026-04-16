@@ -108,7 +108,21 @@
       "Bash(rm -rf .git)",
       "Bash(MSYS_NO_PATHCONV=1 cmd //c 'robocopy \"C:\\\\xampp\\\\htdocs\\\\ansar-next\" \"C:\\\\xampp\\\\htdocs\\\\Ansar\\\\ansar-next\" /E /XD node_modules .next out .git /NFL /NDL /NJH /NJS /NP')",
       "Bash([ -f \"C:/xampp/htdocs/Ansar/.gitignore\" ])",
-      "Bash(curl -s -o /dev/null -w \"HTTP: %{http_code}\\\\n\" http://localhost:3000/)"
+      "Bash(curl -s -o /dev/null -w \"HTTP: %{http_code}\\\\n\" http://localhost:3000/)",
+      "Bash(curl -s -o /dev/null -w \"HTTP: %{http_code}\\\\nSize: %{size_download}\\\\n\" https://ansarmahmood.org)",
+      "Bash(curl -s https://ansarmahmood.org)",
+      "Bash(curl -s https://ansarmahmood.org/ansar-next/ -o /dev/null -w \"ansar-next/: %{http_code}\\\\n\")",
+      "Bash(curl -s https://ansarmahmood.org/DEPLOY.md -o /dev/null -w \"DEPLOY.md: %{http_code}\\\\n\")",
+      "Bash(curl -s -o /dev/null -w \"about: %{http_code}, final: %{url_effective}\\\\n\" -L https://ansarmahmood.org/about)",
+      "Bash(curl -s -o /dev/null -w \"pages/about.html: %{http_code}\\\\n\" https://ansarmahmood.org/pages/about.html)",
+      "Bash(curl -s -o /dev/null -w \"services: %{http_code}\\\\n\" -L https://ansarmahmood.org/services)",
+      "Bash(curl -s -o /dev/null -w \"localhost HTML5 version: %{http_code} size %{size_download}\\\\n\" http://localhost/Ansar/)",
+      "Bash(curl -s -o /dev/null -w \"about fallback: %{http_code}\\\\n\" -L http://localhost/Ansar/about/)",
+      "Bash(curl -s -o /dev/null -w \"pages/about.html: %{http_code}\\\\n\" http://localhost/Ansar/pages/about.html)",
+      "Bash(curl -s -o /dev/null -w \"about: %{http_code}\\\\n\" http://localhost/Ansar/about/)",
+      "Bash(curl -s -o /dev/null -w \"services: %{http_code}\\\\n\" http://localhost/Ansar/services/)",
+      "Bash(curl -s -o /dev/null -w \"/_next/ file: %{http_code}\\\\n\" http://localhost/Ansar/_next/)",
+      "Bash(curl -s -o /dev/null -w \"admin/: %{http_code}\\\\n\" http://localhost/Ansar/admin/)"
     ]
   }
 }

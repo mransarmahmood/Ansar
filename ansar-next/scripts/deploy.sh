@@ -42,28 +42,17 @@ rm -rf \
   "${REPO_ROOT}/__next._index.txt" \
   "${REPO_ROOT}/__next._tree.txt" \
   "${REPO_ROOT}/index.txt"
-# Do NOT delete index.html yet — the PHP site still uses it.
-# When you flip the switch, uncomment:
-# rm -f "${REPO_ROOT}/index.html"
 
 # ── 2. Build ────────────────────────────────────────────────
 echo "→ Building Next.js static export…"
 cd "${REACT_DIR}"
 npm run build
 
-# ── 3. Copy out/* to repo root ──────────────────────────────
+# ── 3. Copy out/* to repo root (Stage 2 — full swap) ────────
+# The old PHP /pages/*.html files stay; .htaccess rewrites /about/ →
+# /pages/about.html for routes React hasn't built yet.
 echo "→ Copying ${REACT_DIR}/out/* to ${REPO_ROOT}/"
-# -a preserves structure; -T (no-target-directory) flattens
-# WARNING: once you flip the switch, this will overwrite the root index.html.
-# For NOW, we only copy the _next/ folder and auxiliary files — not index.html
-# — so the PHP site keeps working.
-
-# Stage 1 (safe): copy _next/ and the static route folders only.
-# Comment Stage 1 and uncomment Stage 2 when ready to go live with React.
-cp -r "${REACT_DIR}/out/_next" "${REPO_ROOT}/_next"
-
-# Stage 2 (full swap) — uncomment when all React pages exist:
-# cp -r "${REACT_DIR}/out/." "${REPO_ROOT}/"
+cp -r "${REACT_DIR}/out/." "${REPO_ROOT}/"
 
 echo
 echo "✓ Build complete."
