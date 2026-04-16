@@ -101,7 +101,10 @@
       "Bash(curl -s \"http://localhost:3000/_next/static/chunks/%5Broot-of-the-server%5D__0bjm77i._.css\")",
       "Bash(grep -oE \"navy[^;]{0,30};|022C22|064E3B|065F46\")",
       "Bash(curl -s -o /dev/null -w \"Dev: %{http_code}\\\\n\" http://localhost:3000/)",
-      "Bash(curl -s -o /dev/null -w \"ansar-1.jpeg: %{http_code}\\\\n\" http://localhost:3000/images/ansar-1.jpeg)"
+      "Bash(curl -s -o /dev/null -w \"ansar-1.jpeg: %{http_code}\\\\n\" http://localhost:3000/images/ansar-1.jpeg)",
+      "Bash([ -f theme.php ])",
+      "Bash([ -f includes/mailer.php ])",
+      "Bash([ -d lib/PHPMailer ])"
     ]
   }
 }
