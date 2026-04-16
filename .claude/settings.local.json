@@ -122,7 +122,14 @@
       "Bash(curl -s -o /dev/null -w \"about: %{http_code}\\\\n\" http://localhost/Ansar/about/)",
       "Bash(curl -s -o /dev/null -w \"services: %{http_code}\\\\n\" http://localhost/Ansar/services/)",
       "Bash(curl -s -o /dev/null -w \"/_next/ file: %{http_code}\\\\n\" http://localhost/Ansar/_next/)",
-      "Bash(curl -s -o /dev/null -w \"admin/: %{http_code}\\\\n\" http://localhost/Ansar/admin/)"
+      "Bash(curl -s -o /dev/null -w \"admin/: %{http_code}\\\\n\" http://localhost/Ansar/admin/)",
+      "Bash(curl -s https://ansarmahmood.org/)",
+      "Bash(curl -s -o /dev/null -w \"HTTP: %{http_code}, Size: %{size_download}\\\\n\" https://ansarmahmood.org/)",
+      "Bash(curl -s -o /dev/null -w \"/about/: %{http_code}\\\\n\" https://ansarmahmood.org/about/)",
+      "Bash(curl -s -o /dev/null -w \"/services/: %{http_code}\\\\n\" https://ansarmahmood.org/services/)",
+      "Bash(curl -s -o /dev/null -w \"/contact/: %{http_code}\\\\n\" https://ansarmahmood.org/contact/)",
+      "Bash(curl -s -o /dev/null -w \"/admin/: %{http_code}\\\\n\" https://ansarmahmood.org/admin/)",
+      "Bash(curl -s -o /dev/null -w \"/images/ansar-hero.png: %{http_code}\\\\n\" https://ansarmahmood.org/images/ansar-hero.png)"
     ]
   }
 }
