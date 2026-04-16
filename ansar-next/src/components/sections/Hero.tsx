@@ -205,17 +205,13 @@ export function Hero() {
                   }}
                 />
                 <Image
-                  src="/images/ansar-hero.png"
+                  src="/images/ansar-10.jpeg"
                   alt="Ansar Mahmood — Senior HSE Consultant"
                   fill
                   priority
                   sizes="430px"
                   className="relative object-cover object-top"
                   style={{ objectPosition: "50% 15%" }}
-                  onError={(e) => {
-                    const img = e.currentTarget as HTMLImageElement;
-                    if (img.src.endsWith("ansar-hero.png")) img.src = "/images/ansar-10.jpeg";
-                  }}
                 />
 
                 {/* Soft inner rim */}

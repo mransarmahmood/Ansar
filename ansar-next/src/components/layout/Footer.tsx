@@ -62,7 +62,7 @@ export function Footer() {
           {/* Brand column */}
           <div className="col-span-12 lg:col-span-4 space-y-6">
             <Image
-              src="/images/logo-white.png"
+              src="/images/logo-white.svg"
               alt="Ansar Mahmood"
               width={260}
               height={59}

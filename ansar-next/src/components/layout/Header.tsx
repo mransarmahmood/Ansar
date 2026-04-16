@@ -41,7 +41,7 @@ export function Header() {
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2 shrink-0" aria-label="Ansar Mahmood Home">
               <Image
-                src="/images/logo.png"
+                src="/images/logo.svg"
                 alt="Ansar Mahmood"
                 width={220}
                 height={50}

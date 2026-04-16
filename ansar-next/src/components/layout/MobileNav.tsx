@@ -55,7 +55,7 @@ export function MobileNav({ open, onClose }: MobileNavProps) {
             <div className="sticky top-0 bg-white border-b border-[var(--gray-200)] px-6 py-4 flex items-center justify-between">
               <Link href="/" onClick={onClose}>
                 <Image
-                  src="/images/logo.png"
+                  src="/images/logo.svg"
                   alt="Ansar Mahmood"
                   width={180}
                   height={41}
