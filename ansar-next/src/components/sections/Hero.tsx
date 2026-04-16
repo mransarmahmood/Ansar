@@ -380,10 +380,10 @@ export function Hero() {
                     Ansar Mahmood
                   </div>
                   <div className="text-[var(--gold-light)] text-[0.76rem] font-medium tracking-wide mt-1.5">
-                    Senior HSE Consultant · Trainer · AI Specialist
+                    Consultant · Trainer · Data Scientist · AI Integration Expert
                   </div>
                   <div className="mt-3 flex items-center justify-center gap-1.5 flex-wrap">
-                    {["IOSH", "ISO Lead Auditor", "AI Specialist"].map((c) => (
+                    {["CSP", "CRSP", "PMP", "CSM", "IDip NEBOSH"].map((c) => (
                       <span
                         key={c}
                         className="text-[0.62rem] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-full bg-white/8 border border-white/15 text-white/80"
