@@ -129,7 +129,20 @@
       "Bash(curl -s -o /dev/null -w \"/services/: %{http_code}\\\\n\" https://ansarmahmood.org/services/)",
       "Bash(curl -s -o /dev/null -w \"/contact/: %{http_code}\\\\n\" https://ansarmahmood.org/contact/)",
       "Bash(curl -s -o /dev/null -w \"/admin/: %{http_code}\\\\n\" https://ansarmahmood.org/admin/)",
-      "Bash(curl -s -o /dev/null -w \"/images/ansar-hero.png: %{http_code}\\\\n\" https://ansarmahmood.org/images/ansar-hero.png)"
+      "Bash(curl -s -o /dev/null -w \"/images/ansar-hero.png: %{http_code}\\\\n\" https://ansarmahmood.org/images/ansar-hero.png)",
+      "Bash(curl -s -I https://ansarmahmood.org/)",
+      "Bash(curl -s -o /dev/null -w \"HTTP: %{http_code}\\\\nAge: %header{age}\\\\n\" -H \"Cache-Control: no-cache\" -H \"Pragma: no-cache\" \"https://ansarmahmood.org/?t=$\\(date +%s\\)\")",
+      "Bash(curl -s -o /dev/null -w \"HTTP: %{http_code}\\\\n\" -H \"Cache-Control: no-cache\" \"https://ansarmahmood.org/test-broken-page-$\\(date +%s\\)\")",
+      "Bash(curl -s -H \"Cache-Control: no-cache\" \"https://ansarmahmood.org/?nocache=$\\(date +%s\\)\")",
+      "Bash(curl -s -o /dev/null -w \"fresh /: %{http_code}\\\\n\" \"https://ansarmahmood.org/?nocache=$\\(date +%s\\)\")",
+      "Bash(curl -s -o /dev/null -w \"fresh /admin/: %{http_code}\\\\n\" \"https://ansarmahmood.org/admin/?nocache=$\\(date +%s\\)\")",
+      "Bash(curl -s -o /dev/null -w \"fresh /about/: %{http_code}\\\\n\" \"https://ansarmahmood.org/about/?nocache=$\\(date +%s\\)\")",
+      "Bash(curl -s -o /dev/null -w \"fresh /forms/contact-handler.php: %{http_code}\\\\n\" \"https://ansarmahmood.org/forms/contact-handler.php?nocache=$\\(date +%s\\)\")",
+      "Bash(curl -s -o /dev/null -w \"logo.png:         %{http_code}\\\\n\" \"https://ansarmahmood.org/images/logo.png\")",
+      "Bash(curl -s -o /dev/null -w \"logo-white.png:   %{http_code}\\\\n\" \"https://ansarmahmood.org/images/logo-white.png\")",
+      "Bash(curl -s -o /dev/null -w \"ansar-1.jpeg:     %{http_code}\\\\n\" \"https://ansarmahmood.org/images/ansar-1.jpeg\")",
+      "Bash(curl -s -o /dev/null -w \"ansar-hero.png:   %{http_code}\\\\n\" \"https://ansarmahmood.org/images/ansar-hero.png\")",
+      "Bash(curl -sI \"https://ansarmahmood.org/images/logo.png\")"
     ]
   }
 }
