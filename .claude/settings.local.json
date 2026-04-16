@@ -142,7 +142,25 @@
       "Bash(curl -s -o /dev/null -w \"logo-white.png:   %{http_code}\\\\n\" \"https://ansarmahmood.org/images/logo-white.png\")",
       "Bash(curl -s -o /dev/null -w \"ansar-1.jpeg:     %{http_code}\\\\n\" \"https://ansarmahmood.org/images/ansar-1.jpeg\")",
       "Bash(curl -s -o /dev/null -w \"ansar-hero.png:   %{http_code}\\\\n\" \"https://ansarmahmood.org/images/ansar-hero.png\")",
-      "Bash(curl -sI \"https://ansarmahmood.org/images/logo.png\")"
+      "Bash(curl -sI \"https://ansarmahmood.org/images/logo.png\")",
+      "Bash(ls -la \"C:/xampp/htdocs/Ansar/ansar-next/public/images/logo\"*)",
+      "Bash(ls -la \"C:/xampp/htdocs/Ansar/assets/images/logo\"*)",
+      "Bash(mv logo.png logo.svg)",
+      "Bash(mv logo-white.png logo-white.svg)",
+      "Bash(ls -la logo*)",
+      "Bash(ls images/logo*)",
+      "Bash(rm logo.png logo-white.png)",
+      "Bash(ls logo*)",
+      "Bash(curl -s -o /dev/null -w 'logo.svg:       %{http_code}\\\\n' 'https://ansarmahmood.org/images/logo.svg?t=__TRACKED_VAR__')",
+      "Bash(curl -s -o /dev/null -w 'logo-white.svg: %{http_code}\\\\n' 'https://ansarmahmood.org/images/logo-white.svg?t=__TRACKED_VAR__')",
+      "Bash(curl -s -o /dev/null -w 'ansar-10.jpeg:  %{http_code}\\\\n' 'https://ansarmahmood.org/images/ansar-10.jpeg?t=__TRACKED_VAR__')",
+      "Bash(curl -s -o /dev/null -w 'homepage:       %{http_code}\\\\n' 'https://ansarmahmood.org/?t=__TRACKED_VAR__')",
+      "Bash(curl -s 'https://ansarmahmood.org/?t=__TRACKED_VAR__')",
+      "Bash(curl -s -o /dev/null -w 'logo.svg:       %{http_code}  content-type: %header{content-type}\\\\n' 'https://ansarmahmood.org/images/logo.svg?v=__TRACKED_VAR__')",
+      "Bash(curl -s -o /dev/null -w 'logo-white.svg: %{http_code}  content-type: %header{content-type}\\\\n' 'https://ansarmahmood.org/images/logo-white.svg?v=__TRACKED_VAR__')",
+      "Bash(curl -s -o /dev/null -w 'ansar-10.jpeg:  %{http_code}  content-type: %header{content-type}\\\\n' 'https://ansarmahmood.org/images/ansar-10.jpeg?v=__TRACKED_VAR__')",
+      "Bash(curl -s -o /dev/null -w 'ansar-2.jpeg:   %{http_code}  content-type: %header{content-type}\\\\n' 'https://ansarmahmood.org/images/ansar-2.jpeg?v=__TRACKED_VAR__')",
+      "Bash(curl -s -o /dev/null -w 'logo.png OLD:   %{http_code}  content-type: %header{content-type}\\\\n' 'https://ansarmahmood.org/images/logo.png?v=__TRACKED_VAR__')"
     ]
   }
 }
