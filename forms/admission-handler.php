@@ -115,7 +115,8 @@ if ($fp) {
 }
 
 // ── Notification Email ───────────────────────────────────────
-$to      = 'ansar@ansarmahmood.com';
+$to      = 'info@ansarmahmood.org';
+$cc      = 'mransarmahmood@gmail.com';
 $subject = "New Course Application: {$course} — {$first_name} {$last_name}";
 $body    = "A new course admission application has been received.\n\n";
 $body   .= "=== COURSE DETAILS ===\n";
@@ -146,11 +147,17 @@ $body   .= "Newsletter:      {$newsletter_opt}\n";
 $body   .= "IP:              " . ($_SERVER['REMOTE_ADDR'] ?? 'unknown') . "\n";
 $body   .= "Submitted:       " . date('Y-m-d H:i:s') . "\n";
 
-$headers = "From: admissions@ansarmahmood.com\r\n" .
-           "Reply-To: {$email}\r\n" .
-           "X-Mailer: PHP/" . PHP_VERSION;
+require_once dirname(__DIR__) . '/includes/mailer.php';
 
-@mail($to, $subject, $body, $headers);
+ansar_send_mail([
+    'to'        => $to,
+    'cc'        => $cc,
+    'subject'   => $subject,
+    'body'      => $body,
+    'reply_to'  => $email,
+    'from_name' => 'Ansar Mahmood Admissions',
+    'from_email'=> 'admissions@ansarmahmood.org',
+]);
 
 // ── Confirmation email to applicant ─────────────────────────
 $confSubject = "Your Course Application — {$course} | Ansar Mahmood";
@@ -162,13 +169,17 @@ $confBody   .= "1. Our team will review your application and eligibility\n";
 $confBody   .= "2. You will receive an enrolment offer with fee and payment details\n";
 $confBody   .= "3. Confirm your place by paying within 7 days of the offer\n";
 $confBody   .= "4. Receive your welcome pack and course materials 48 hours before the start date\n\n";
-$confBody   .= "If you have any questions, reply to this email or WhatsApp: +1 (234) 567-8900\n\n";
-$confBody   .= "Kind regards,\nAnsar Mahmood\nSenior HSE Consultant & Trainer\nansar@ansarmahmood.com\n";
+$confBody   .= "If you have any questions, reply to this email or WhatsApp: +92 333 928 4928\n\n";
+$confBody   .= "Kind regards,\nAnsar Mahmood\nSenior HSE Consultant & Trainer\ninfo@ansarmahmood.org | +92 333 928 4928\n";
 
-$confHeaders = "From: admissions@ansarmahmood.com\r\n" .
-               "X-Mailer: PHP/" . PHP_VERSION;
-
-@mail($email, $confSubject, $confBody, $confHeaders);
+ansar_send_mail([
+    'to'        => $email,
+    'subject'   => $confSubject,
+    'body'      => $confBody,
+    'reply_to'  => $to,
+    'from_name' => 'Ansar Mahmood Admissions',
+    'from_email'=> 'admissions@ansarmahmood.org',
+]);
 
 echo json_encode(['success' => true, 'message' => 'Application received.']);
 exit;

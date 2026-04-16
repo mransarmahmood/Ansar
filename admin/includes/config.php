@@ -49,13 +49,15 @@ if (!file_exists(ADMIN_JSON)) {
 // ── Create default site settings on first run ─────────────────
 if (!file_exists(SETTINGS_JSON)) {
     file_put_contents(SETTINGS_JSON, json_encode([
-        'site_name'  => 'Ansar Mahmood',
-        'email'      => 'ansar@ansarmahmood.com',
-        'phone'      => '+1 (234) 567-8900',
-        'whatsapp'   => '12345678900',
-        'linkedin'   => 'https://linkedin.com/in/ansarmahmood',
-        'calendly'   => '',
-        'ga_id'      => '',
+        'site_name'        => 'Ansar Mahmood',
+        'email'            => 'info@ansarmahmood.org',
+        'email_secondary'  => 'mransarmahmood@gmail.com',
+        'phone'            => '+92 333 928 4928',
+        'phone_secondary'  => '+966 53 485 2341',
+        'whatsapp'         => '923339284928',
+        'linkedin'         => 'https://linkedin.com/in/ansarmahmood',
+        'calendly'         => '',
+        'ga_id'            => '',
     ], JSON_PRETTY_PRINT));
 }
 

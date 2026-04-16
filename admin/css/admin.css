@@ -1,7 +1,6 @@
 /* ================================================================
-   ANSAR MAHMOOD — CMS Admin Panel Styles
-   Palette: Forest Green sidebar · Emerald accent · Gold highlights
-   Inspired by INSEAD premium institutional palette
+   ANSAR MAHMOOD — CMS Admin Panel Styles (Premium v2)
+   Palette: Deep Indigo · Sapphire · Premium Gold
    ================================================================ */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
@@ -9,36 +8,38 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --navy:       #002D2E;
-  --navy-mid:   #003D32;
-  --navy-light: #00694B;
-  --teal:       #009F6E;
-  --teal-dark:  #007A55;
-  --teal-light: #57AF80;
-  --teal-xlight:#E6F7EF;
-  --gold:       #C5A040;
-  --gold-light: #D4B855;
-  --gold-xlight:#FAF5E4;
+  --navy:       #0F172A;
+  --navy-mid:   #1E293B;
+  --navy-light: #334155;
+  --teal:       #10B981;
+  --teal-dark:  #059669;
+  --teal-light: #6EE7B7;
+  --teal-xlight:#D1FAE5;
+  --gold:       #10B981;
+  --gold-light: #34D399;
+  --gold-xlight:#D1FAE5;
   --white:      #ffffff;
-  --bg:         #F2F5F3;
+  --bg:         #F3F5FA;
   --surface:    #ffffff;
-  --border:     #E2EAE5;
-  --text:       #1C2629;
-  --text-muted: #686E71;
-  --text-light: #94A3B8;
+  --border:     #DCE2ED;
+  --text:       #111A33;
+  --text-muted: #5B6780;
+  --text-light: #94A0BA;
   --success:    #10B981;
   --warning:    #F59E0B;
   --danger:     #EF4444;
-  --info:       #009F6E;
-  --radius:     10px;
-  --radius-sm:  6px;
-  --radius-lg:  16px;
-  --shadow-sm:  0 1px 3px rgba(0,45,46,.08);
-  --shadow:     0 4px 16px rgba(0,45,46,.10);
-  --shadow-md:  0 8px 24px rgba(0,45,46,.13);
+  --info:       #10B981;
+  --radius:     12px;
+  --radius-sm:  8px;
+  --radius-lg:  18px;
+  --shadow-sm:  0 1px 3px rgba(15,23,42,.06);
+  --shadow:     0 6px 20px -8px rgba(15,23,42,.16);
+  --shadow-md:  0 14px 32px -14px rgba(15,23,42,.28);
   --sidebar-w:  260px;
   --header-h:   64px;
-  --transition: all .2s ease;
+  --transition: all .22s cubic-bezier(.22,.61,.36,1);
+  --grad-navy:      linear-gradient(180deg, #0F172A 0%, #1E293B 100%);
+  --grad-sapphire:  linear-gradient(135deg, #10B981 0%, #059669 100%);
 }
 
 html, body {
@@ -62,7 +63,7 @@ button { cursor: pointer; font-family: inherit; }
 
 /* ── Sidebar ─────────────────────────────────────────────────── */
 .sidebar {
-  background: var(--navy);
+  background: var(--grad-navy);
   position: fixed;
   top: 0; left: 0;
   width: var(--sidebar-w);
@@ -72,6 +73,14 @@ button { cursor: pointer; font-family: inherit; }
   flex-direction: column;
   z-index: 100;
   border-right: 1px solid rgba(255,255,255,.06);
+  box-shadow: 2px 0 24px -8px rgba(15,23,42,.25);
+}
+.sidebar::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top, rgba(16,185,129,.1), transparent 55%);
+  pointer-events: none;
 }
 
 .sidebar::-webkit-scrollbar { width: 4px; }
@@ -773,7 +782,7 @@ textarea.form-control { resize: vertical; min-height: 100px; }
   display: flex;
   align-items: center;
   gap: 10px;
-  background: linear-gradient(135deg, var(--navy) 0%, #003D32 100%);
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
   color: white;
 }
 
@@ -901,7 +910,7 @@ textarea.form-control { resize: vertical; min-height: 100px; }
 /* Section card color variants */
 .section-card--navy .section-card__num { background: var(--navy); }
 .section-card--gold .section-card__num { background: var(--gold); }
-.section-card--blue .section-card__num { background: #3B82F6; }
+.section-card--blue .section-card__num { background: #10B981; }
 .section-card--purple .section-card__num { background: #7C3AED; }
 .section-card--orange .section-card__num { background: #EA580C; }
 

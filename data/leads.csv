@@ -1,0 +1,3 @@
+name,email,phone,company,service,budget,message,submitted_at,ip
+"Test After Upgrade",test2@example.com,+923339284928,TestCo,"HSE Consulting",,"Verifying the form works with the new mailer helper and graceful fallback.","2026-04-16 19:34:51",::1
+"Theme Test",theme@example.com,,,,,"Testing that the theme prepend does not break JSON responses.","2026-04-16 19:50:09",::1

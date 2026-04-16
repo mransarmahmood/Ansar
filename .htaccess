@@ -3,6 +3,9 @@
 # ── Process .html files as PHP (for CMS content rendering) ────
 AddType application/x-httpd-php .html .htm
 
+# ── Auto-prepend theme injector (sets data-theme on <html>) ───
+php_value auto_prepend_file "C:/xampp/htdocs/Ansar/includes/theme-prepend.php"
+
 # ── Enable Rewrite Engine ──────────────────────────────────────
 Options -Indexes
 Options +FollowSymLinks
@@ -19,8 +22,10 @@ RewriteEngine On
 </IfModule>
 
 # ── Block direct access to sensitive directories ──────────────
-RewriteRule ^forms/.*$ - [F,L]
+# Block data/ entirely (contains CSV logs + settings.json)
 RewriteRule ^data/.*$  - [F,L]
+# forms/ handlers enforce POST + X-Requested-With themselves; we no longer
+# block the whole directory so AJAX submissions can reach them.
 
 # ── Gzip Compression ────────────────────────────────────────────
 <IfModule mod_deflate.c>

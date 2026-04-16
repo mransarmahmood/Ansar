@@ -17,8 +17,9 @@ if (!empty($_POST['website'])) {
     exit;
 }
 
-define('RECIPIENT_EMAIL', 'ansar@ansarmahmood.com');
-define('SENDER_FROM',     'noreply@ansarmahmood.com');
+define('RECIPIENT_EMAIL', 'info@ansarmahmood.org');
+define('RECIPIENT_CC',    'mransarmahmood@gmail.com');
+define('SENDER_FROM',     'noreply@ansarmahmood.org');
 
 function clean(string $input): string {
     return htmlspecialchars(strip_tags(trim($input)), ENT_QUOTES, 'UTF-8');
@@ -69,12 +70,17 @@ $body .= "Preferred time: " . ($preferred_time ?: 'Flexible') . "\n\n";
 $body .= "Additional notes:\n" . ($notes ?: 'None') . "\n\n";
 $body .= "---\nTime: " . date('Y-m-d H:i:s T') . "\n";
 
-$headers  = "From: {$name} <{$SENDER_FROM}>\r\n";
-$headers .= "Reply-To: {$email}\r\n";
-$headers .= "MIME-Version: 1.0\r\n";
-$headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
+require_once dirname(__DIR__) . '/includes/mailer.php';
 
-$sent = mail(RECIPIENT_EMAIL, "[Booking Request] {$name} — {$service}", $body, $headers);
+$sent = ansar_send_mail([
+    'to'        => RECIPIENT_EMAIL,
+    'cc'        => RECIPIENT_CC,
+    'subject'   => "[Booking Request] {$name} — {$service}",
+    'body'      => $body,
+    'reply_to'  => $email,
+    'from_name' => $name,
+    'from_email'=> SENDER_FROM,
+]);
 
 if ($sent) {
     $autoBody  = "Dear {$name},\n\n";
@@ -85,16 +91,22 @@ if ($sent) {
     $autoBody .= "Preferred time: " . ($preferred_time ?: 'Flexible') . "\n";
     $autoBody .= "Timezone: " . ($timezone ?: 'Not specified') . "\n\n";
     $autoBody .= "We look forward to speaking with you.\n\n";
-    $autoBody .= "Best regards,\nAnsar Mahmood\nansar@ansarmahmood.com\n";
+    $autoBody .= "Best regards,\nAnsar Mahmood\ninfo@ansarmahmood.org | +92 333 928 4928\n";
 
-    $autoHeaders  = "From: Ansar Mahmood <" . RECIPIENT_EMAIL . ">\r\n";
-    $autoHeaders .= "Reply-To: " . RECIPIENT_EMAIL . "\r\n";
-    $autoHeaders .= "Content-Type: text/plain; charset=UTF-8\r\n";
-
-    mail($email, 'Booking Confirmed — Ansar Mahmood', $autoBody, $autoHeaders);
+    ansar_send_mail([
+        'to'        => $email,
+        'subject'   => 'Booking Confirmed — Ansar Mahmood',
+        'body'      => $autoBody,
+        'reply_to'  => RECIPIENT_EMAIL,
+        'from_name' => 'Ansar Mahmood',
+        'from_email'=> RECIPIENT_EMAIL,
+    ]);
 }
 
+// Booking is already logged to CSV even if email fails.
 echo json_encode([
-    'success' => $sent,
-    'message' => $sent ? 'Booking request received.' : 'Failed to send. Please email us directly.'
+    'success' => true,
+    'message' => $sent
+        ? 'Booking request received. You will receive a confirmation email shortly.'
+        : 'Booking request received. Ansar will be in touch within 24 hours.'
 ]);
