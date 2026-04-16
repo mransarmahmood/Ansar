@@ -104,7 +104,11 @@
       "Bash(curl -s -o /dev/null -w \"ansar-1.jpeg: %{http_code}\\\\n\" http://localhost:3000/images/ansar-1.jpeg)",
       "Bash([ -f theme.php ])",
       "Bash([ -f includes/mailer.php ])",
-      "Bash([ -d lib/PHPMailer ])"
+      "Bash([ -d lib/PHPMailer ])",
+      "Bash(rm -rf .git)",
+      "Bash(MSYS_NO_PATHCONV=1 cmd //c 'robocopy \"C:\\\\xampp\\\\htdocs\\\\ansar-next\" \"C:\\\\xampp\\\\htdocs\\\\Ansar\\\\ansar-next\" /E /XD node_modules .next out .git /NFL /NDL /NJH /NJS /NP')",
+      "Bash([ -f \"C:/xampp/htdocs/Ansar/.gitignore\" ])",
+      "Bash(curl -s -o /dev/null -w \"HTTP: %{http_code}\\\\n\" http://localhost:3000/)"
     ]
   }
 }
