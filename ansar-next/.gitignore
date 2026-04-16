@@ -1,0 +1,37 @@
+# Dependencies (reinstall with `npm install`)
+node_modules/
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# Build outputs
+/.next/
+/out/
+/build
+*.tsbuildinfo
+
+# Production builds go to the repo ROOT (../_next, ../images, ../index.html)
+# and are gitignored there via the root-level .gitignore
+
+# Debug / logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Env
+.env*
+!.env.example
+
+# Editor
+.vscode/
+.idea/
+.DS_Store
+*.pem
+
+# Deploy
+deploy.log

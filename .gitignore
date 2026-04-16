@@ -1,0 +1,40 @@
+# ── Runtime / logs ────────────────────────────────────────────
+data/leads.csv
+data/bookings.csv
+data/subscribers.csv
+data/mail-errors.log
+data/admissions.csv
+
+# Keep settings.json tracked — site config changes should deploy.
+# Uncomment if you want per-env settings instead:
+# data/settings.json
+
+# ── React build outputs (when committed at repo root for deploy) ──
+# During migration we leave the PHP frontend live, so these are not yet
+# at the root. When we do flip the switch, these will exist at root and
+# should be COMMITTED (Hostinger serves them). Until then they don't exist,
+# so these lines are harmless.
+# /_next/
+# /out/
+
+# ── React project's own build artifacts ──────────────────────
+ansar-next/node_modules/
+ansar-next/.next/
+ansar-next/out/
+ansar-next/*.tsbuildinfo
+
+# ── OS / editor ──────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.vscode/
+.idea/
+
+# ── Environment secrets ──────────────────────────────────────
+.env
+.env.local
+.env.*.local
+
+# ── Claude harness local state ───────────────────────────────
+.claude/settings.local.json
