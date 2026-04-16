@@ -82,7 +82,26 @@
       "Bash(curl -s -H 'X-Requested-With: XMLHttpRequest' -X POST --data-urlencode 'name=Theme Test' --data-urlencode email=theme@example.com --data-urlencode 'message=Testing that the theme prepend does not break JSON responses.' http://localhost/Ansar/forms/contact-handler.php)",
       "Bash(cmd //c 'powershell -NoProfile -Command \"\\(Get-Content C:\\\\xampp\\\\htdocs\\\\Ansar\\\\data\\\\settings.json -Raw\\) -replace ''\\\\\"theme\\\\\":\\\\s*\\\\\"ocean\\\\\"'', ''\\\\\"theme\\\\\": \\\\\"slate\\\\\"'' | Set-Content C:\\\\xampp\\\\htdocs\\\\Ansar\\\\data\\\\settings.json -NoNewline\"')",
       "Bash(grep -cE \"#0B1429|#132046|#1E2F63|#08102A|#12182D|rgba\\\\\\(11, *20, *41\" \"C:/xampp/htdocs/Ansar/assets/css/\"*.css \"C:/xampp/htdocs/Ansar/admin/css/admin.css\")",
-      "Bash(python3 -)"
+      "Bash(python3 -)",
+      "Bash(\"C:/xampp83/php/php.exe\" -l \"C:/xampp/htdocs/Ansar/theme.php\")",
+      "Bash(curl -s -w \"HTTP:%{http_code}\\\\n\" http://localhost/Ansar/theme.php)",
+      "Bash(curl -s -o /dev/null -w \"Home: %{http_code} | Contact: %{http_code}\\\\n\" http://localhost/Ansar/)",
+      "Bash(npm --version)",
+      "Bash(git --version)",
+      "Bash(npx --yes create-next-app@latest AnsarNext --typescript --tailwind --eslint --app --src-dir --import-alias \"@/*\" --use-npm --no-turbopack --yes)",
+      "Bash(npx --yes create-next-app@latest ansar-next --typescript --tailwind --eslint --app --src-dir --import-alias \"@/*\" --use-npm --no-turbopack --yes)",
+      "Bash(npm install:*)",
+      "Bash(timeout 60 npm run build)",
+      "Bash(node -e \"const l = require\\('lucide-react'\\); console.log\\('Youtube:', typeof l.Youtube, 'Sitemap:', typeof l.Sitemap, 'Network:', typeof l.Network\\)\")",
+      "Bash(node -e \"const l = require\\('lucide-react'\\); const keys = Object.keys\\(l\\).filter\\(k => /^\\(Link|Twit|You|Face|Insta|What|Social\\)/i.test\\(k\\)\\); console.log\\(keys.join\\(' '\\)\\);\")",
+      "Bash(timeout 90 npm run build)",
+      "Bash(npm run:*)",
+      "Bash(curl -s -o /dev/null -w \"Next dev HTTP:%{http_code}\\\\n\" http://localhost:3000/)",
+      "Bash(curl -s http://localhost:3000/)",
+      "Bash(curl -s \"http://localhost:3000/_next/static/chunks/%5Broot-of-the-server%5D__0bjm77i._.css\")",
+      "Bash(grep -oE \"navy[^;]{0,30};|022C22|064E3B|065F46\")",
+      "Bash(curl -s -o /dev/null -w \"Dev: %{http_code}\\\\n\" http://localhost:3000/)",
+      "Bash(curl -s -o /dev/null -w \"ansar-1.jpeg: %{http_code}\\\\n\" http://localhost:3000/images/ansar-1.jpeg)"
     ]
   }
 }

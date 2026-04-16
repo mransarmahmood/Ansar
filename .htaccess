@@ -2,9 +2,8 @@
 
 # ── Process .html files as PHP (for CMS content rendering) ────
 AddType application/x-httpd-php .html .htm
-
-# ── Auto-prepend theme injector (sets data-theme on <html>) ───
-php_value auto_prepend_file "C:/xampp/htdocs/Ansar/includes/theme-prepend.php"
+# Theme injection is now handled by layout.js + /theme.php (no server
+# config required — works on any host including PHP-FPM / LiteSpeed).
 
 # ── Enable Rewrite Engine ──────────────────────────────────────
 Options -Indexes

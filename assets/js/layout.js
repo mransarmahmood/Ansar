@@ -15,6 +15,26 @@
                  path === '';
   const base = isRoot ? '' : '../';
 
+  // ── Theme application (FOUC-minimised) ─────────────────────
+  // Applies cached theme from localStorage instantly, then fetches
+  // /theme.php in the background to pick up any admin changes.
+  try {
+    var cachedTheme = localStorage.getItem('ansar_theme');
+    if (cachedTheme && /^[a-z0-9_-]+$/i.test(cachedTheme)) {
+      document.documentElement.setAttribute('data-theme', cachedTheme);
+    }
+    fetch(base + 'theme.php', { cache: 'no-store' })
+      .then(function (r) { return r.ok ? r.text() : ''; })
+      .then(function (t) {
+        t = (t || '').trim();
+        if (t && /^[a-z0-9_-]+$/.test(t) && t !== cachedTheme) {
+          document.documentElement.setAttribute('data-theme', t);
+          localStorage.setItem('ansar_theme', t);
+        }
+      })
+      .catch(function () {});
+  } catch (e) { /* ignore storage / fetch errors */ }
+
   // ── Contact details (update these) ─────────────────────────
   const EMAIL      = 'info@ansarmahmood.org';
   const EMAIL_ALT  = 'mransarmahmood@gmail.com';
