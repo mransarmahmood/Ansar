@@ -77,6 +77,7 @@ export const digitalNav: NavLink[] = [
 ];
 
 export const learningNav: NavLink[] = [
+  { href: "/exams/",              label: "Exam Prep",         icon: "ShieldCheck" },
   { href: "/course-calendar/",    label: "Course Calendar",   icon: "CalendarDays" },
   { href: "/course-admission/",   label: "Course Admission",  icon: "UserPlus" },
   { href: "/free-tools/",         label: "Free HSE Tools",    icon: "Wrench" },
