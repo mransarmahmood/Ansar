@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { site } from "@/lib/site";
 import { examSlugs } from "@/lib/exams";
+import { getAllPosts } from "@/lib/blog";
 
 export const dynamic = "force-static";
 
@@ -60,5 +61,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ]);
 
-  return [...staticPages, ...examPages];
+  // One entry per published blog post — lastModified = post date for freshness
+  const blogPages: MetadataRoute.Sitemap = getAllPosts().map((post) => ({
+    url: `${site.url}/blog/${post.slug}/`,
+    lastModified: post.date ? new Date(post.date) : now,
+    changeFrequency: "monthly",
+    priority: 0.7,
+  }));
+
+  return [...staticPages, ...examPages, ...blogPages];
 }

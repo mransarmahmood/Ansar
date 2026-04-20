@@ -13,6 +13,7 @@ import {
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { MobileNav } from "./MobileNav";
+import { ThemeToggle } from "./ThemeToggle";
 import { cn } from "@/lib/utils";
 
 export function Header() {
@@ -108,6 +109,7 @@ export function Header() {
                 <GraduationCap size={16} />
                 Exam Portal
               </Link>
+              <ThemeToggle />
               <Button asChild variant="gold" size="sm">
                 <Link href="/book-consultation/">
                   <CalendarCheck size={16} />

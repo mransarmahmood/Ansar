@@ -114,6 +114,17 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <head>
+        {/* ── Theme bootstrap (FOUC-free) ─────────────────────
+            Runs BEFORE any paint. Reads saved preference from
+            localStorage, falls back to the OS preference, and
+            sets data-theme on <html> so CSS custom properties
+            in globals.css invert on first render. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem('ansar-theme');if(t!=='light'&&t!=='dark')t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();`,
+          }}
+        />
+
         {/* ── Structured data ────────────────────────────────── */}
         <Script
           id="ld-person"
