@@ -88,10 +88,16 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    // Placeholders — swap with real tokens after claiming Search Console / Bing
-    // google: "YOUR_GOOGLE_VERIFICATION_TOKEN",
-    // yandex: "YOUR_YANDEX_TOKEN",
-    // other: { "msvalidate.01": "YOUR_BING_TOKEN" },
+    // When you get tokens from Google Search Console / Bing / Yandex,
+    // paste them in .env.production (then rebuild):
+    //   NEXT_PUBLIC_GSC_TOKEN=abc123…
+    //   NEXT_PUBLIC_BING_TOKEN=xyz789…
+    //   NEXT_PUBLIC_YANDEX_TOKEN=def456…
+    google: process.env.NEXT_PUBLIC_GSC_TOKEN,
+    yandex: process.env.NEXT_PUBLIC_YANDEX_TOKEN,
+    other: process.env.NEXT_PUBLIC_BING_TOKEN
+      ? { "msvalidate.01": process.env.NEXT_PUBLIC_BING_TOKEN }
+      : undefined,
   },
   category: "HSE Consulting",
 };
