@@ -40,7 +40,7 @@ export function Stats() {
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "radial-gradient(60% 40% at 80% 20%, rgba(16,185,129,.22), transparent 60%), radial-gradient(50% 50% at 10% 100%, rgba(201,163,77,.14), transparent 60%), linear-gradient(180deg, rgba(2,44,34,.55) 0%, rgba(2,44,34,.85) 100%)",
+            "radial-gradient(60% 40% at 80% 20%, rgba(43,165,191,.22), transparent 60%), radial-gradient(50% 50% at 10% 100%, rgba(201,163,77,.14), transparent 60%), linear-gradient(180deg, rgba(6,42,51,.55) 0%, rgba(6,42,51,.85) 100%)",
         }}
       />
 

@@ -42,7 +42,7 @@ export function Hero() {
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "radial-gradient(60% 50% at 100% 0%, rgba(16,185,129,.15), transparent 60%), radial-gradient(50% 50% at 0% 100%, rgba(201,163,77,.10), transparent 55%)",
+            "radial-gradient(60% 50% at 100% 0%, rgba(43,165,191,.15), transparent 60%), radial-gradient(50% 50% at 0% 100%, rgba(201,163,77,.10), transparent 55%)",
         }}
       />
 
@@ -144,7 +144,7 @@ export function Hero() {
                 className="absolute inset-0 pointer-events-none"
                 style={{
                   background:
-                    "radial-gradient(50% 50% at 50% 50%, rgba(16,185,129,.25) 0%, transparent 60%), radial-gradient(45% 45% at 35% 75%, rgba(201,163,77,.20) 0%, transparent 55%)",
+                    "radial-gradient(50% 50% at 50% 50%, rgba(43,165,191,.25) 0%, transparent 60%), radial-gradient(45% 45% at 35% 75%, rgba(201,163,77,.20) 0%, transparent 55%)",
                 }}
               />
 
@@ -181,7 +181,7 @@ export function Hero() {
                   cy="260"
                   r="256"
                   fill="none"
-                  stroke="rgba(16,185,129,0.18)"
+                  stroke="rgba(43,165,191,0.18)"
                   strokeWidth="1"
                   strokeDasharray="2 18"
                 />
@@ -190,7 +190,7 @@ export function Hero() {
                   const rad = (deg * Math.PI) / 180;
                   const cx = 260 + 256 * Math.cos(rad);
                   const cy = 260 + 256 * Math.sin(rad);
-                  return <circle key={deg} cx={cx} cy={cy} r="4" fill="rgba(16,185,129,0.6)" />;
+                  return <circle key={deg} cx={cx} cy={cy} r="4" fill="rgba(43,165,191,0.6)" />;
                 })}
               </motion.svg>
 
@@ -201,14 +201,14 @@ export function Hero() {
               />
 
               {/* ── The circular portrait ──────────────────────── */}
-              <div className="relative z-10 w-[430px] h-[430px] rounded-full overflow-hidden border-[3px] border-white/15 shadow-[0_30px_60px_-20px_rgba(0,0,0,0.55),0_0_80px_-10px_rgba(16,185,129,0.35)]">
+              <div className="relative z-10 w-[430px] h-[430px] rounded-full overflow-hidden border-[3px] border-white/15 shadow-[0_30px_60px_-20px_rgba(0,0,0,0.55),0_0_80px_-10px_rgba(43,165,191,0.35)]">
                 {/* Gradient mask under photo for richer blacks */}
                 <div
                   aria-hidden="true"
                   className="absolute inset-0 z-0"
                   style={{
                     background:
-                      "radial-gradient(circle at 50% 35%, rgba(16,185,129,.25) 0%, rgba(2,44,34,0.9) 70%)",
+                      "radial-gradient(circle at 50% 35%, rgba(43,165,191,.25) 0%, rgba(6,42,51,0.9) 70%)",
                   }}
                 />
                 <Image
@@ -226,7 +226,7 @@ export function Hero() {
                   aria-hidden="true"
                   className="absolute inset-0 rounded-full pointer-events-none"
                   style={{
-                    boxShadow: "inset 0 0 60px rgba(2,44,34,0.5)",
+                    boxShadow: "inset 0 0 60px rgba(6,42,51,0.5)",
                   }}
                 />
 
@@ -236,7 +236,7 @@ export function Hero() {
                   className="absolute inset-x-0 bottom-0 h-24 pointer-events-none"
                   style={{
                     background:
-                      "linear-gradient(to top, rgba(2,44,34,0.8), transparent)",
+                      "linear-gradient(to top, rgba(6,42,51,0.8), transparent)",
                   }}
                 />
               </div>

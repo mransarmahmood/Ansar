@@ -32,7 +32,7 @@ export function CallToAction() {
             className="absolute inset-0 pointer-events-none"
             style={{
               background:
-                "radial-gradient(50% 60% at 100% 0%, rgba(201,163,77,.20), transparent 60%), radial-gradient(50% 60% at 0% 100%, rgba(16,185,129,.16), transparent 60%)",
+                "radial-gradient(50% 60% at 100% 0%, rgba(201,163,77,.20), transparent 60%), radial-gradient(50% 60% at 0% 100%, rgba(43,165,191,.16), transparent 60%)",
             }}
           />
 

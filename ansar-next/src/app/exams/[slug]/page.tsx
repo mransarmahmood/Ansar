@@ -87,7 +87,7 @@ export default async function ExamDetailPage({ params }: PageProps) {
           className="absolute inset-0 pointer-events-none"
           style={{
             background:
-              "radial-gradient(60% 50% at 80% 0%, rgba(16,185,129,.18), transparent 60%), radial-gradient(50% 50% at 10% 100%, rgba(201,163,77,.14), transparent 55%)",
+              "radial-gradient(60% 50% at 80% 0%, rgba(43,165,191,.18), transparent 60%), radial-gradient(50% 50% at 10% 100%, rgba(201,163,77,.14), transparent 55%)",
           }}
         />
 
@@ -438,7 +438,7 @@ export default async function ExamDetailPage({ params }: PageProps) {
               className="absolute inset-0 pointer-events-none"
               style={{
                 background:
-                  "radial-gradient(50% 60% at 50% 0%, rgba(201,163,77,.24), transparent 60%), radial-gradient(50% 60% at 50% 100%, rgba(16,185,129,.18), transparent 60%)",
+                  "radial-gradient(50% 60% at 50% 0%, rgba(201,163,77,.24), transparent 60%), radial-gradient(50% 60% at 50% 100%, rgba(43,165,191,.18), transparent 60%)",
               }}
             />
             <div className="relative z-10">
