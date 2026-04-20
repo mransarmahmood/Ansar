@@ -191,55 +191,71 @@ function FeaturedCard({ service, index }: { service: Service; index: number }) {
     >
       <Link
         href={service.href}
-        className="group relative block bg-[var(--surface)] rounded-[2px] p-10 md:p-12 lg:p-14 overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:shadow-[var(--shadow-lg)]"
-        style={{ borderTop: "1px solid var(--gray-200)", borderBottom: "1px solid var(--gray-200)" }}
+        className="group relative block bg-[var(--surface)] p-10 md:p-14 lg:p-16 overflow-hidden transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1"
+        style={{
+          borderTop: "1px solid var(--gray-200)",
+          borderBottom: "1px solid var(--gray-200)",
+        }}
       >
         {/* Left accent stripe on hover */}
         <span
           aria-hidden="true"
-          className={`absolute left-0 top-0 bottom-0 w-[3px] origin-top scale-y-0 group-hover:scale-y-100 transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+          className={`absolute left-0 top-0 bottom-0 w-[2px] origin-top scale-y-0 group-hover:scale-y-100 transition-transform duration-[900ms] ease-[cubic-bezier(0.16,1,0.3,1)] ${
             isGold ? "bg-[var(--gold)]" : "bg-[var(--brand)]"
           }`}
         />
 
-        {/* Big number - top right, watermark */}
+        {/* Huge editorial number — bottom right watermark */}
         <span
           aria-hidden="true"
-          className="absolute top-6 right-8 font-display italic text-[5.5rem] leading-none select-none text-[var(--gray-200)] transition-colors duration-500 group-hover:text-[var(--gray-300)]"
+          className="absolute -bottom-8 -right-2 font-display italic font-light text-[10rem] md:text-[12rem] leading-[0.8] select-none text-[var(--gray-100)] transition-all duration-700 group-hover:-translate-x-2 group-hover:-translate-y-1"
+          style={{ fontVariationSettings: '"SOFT" 100, "opsz" 144' }}
         >
           {String(index + 1).padStart(2, "0")}
         </span>
 
         {/* Content */}
         <div className="relative max-w-[38ch]">
-          {/* Eyebrow */}
-          <div className="flex items-center gap-2.5 mb-6">
-            <Icon
-              size={16}
-              strokeWidth={1.75}
-              className={isGold ? "text-[var(--gold-dark)]" : "text-[var(--brand)]"}
-            />
+          {/* Eyebrow with icon + rule */}
+          <div className="flex items-center gap-3 mb-8">
+            <span
+              className={`inline-flex h-8 w-8 items-center justify-center rounded-full ${
+                isGold
+                  ? "bg-[var(--gold-xlight)] text-[var(--gold-dark)]"
+                  : "bg-[var(--brand-xlight)] text-[var(--brand)]"
+              }`}
+            >
+              <Icon size={14} strokeWidth={1.75} />
+            </span>
+            <span className="h-px w-6 bg-[var(--gray-300)]" />
             <span className="eyebrow">{service.tag}</span>
           </div>
 
-          {/* Title — serif */}
-          <h3 className="font-display text-[1.9rem] md:text-[2.2rem] leading-[1.04] tracking-[-0.02em] text-[var(--text)] mb-5 max-w-[20ch]">
+          {/* Title — serif, tighter */}
+          <h3 className="font-display font-normal text-[2rem] md:text-[2.4rem] leading-[1.02] tracking-[-0.025em] text-[var(--text)] mb-6 max-w-[20ch]">
             {service.title}
           </h3>
 
           {/* Body */}
-          <p className="text-[1.02rem] text-[var(--text-muted)] leading-[1.65] mb-10 max-w-[46ch]">
+          <p className="text-[1.02rem] md:text-[1.05rem] text-[var(--text-muted)] leading-[1.65] mb-12 max-w-[46ch] font-light">
             {service.body}
           </p>
 
-          {/* Read more — underline slides in */}
-          <div className="inline-flex items-center gap-2 text-[var(--text)] font-medium">
-            <span className="relative after:absolute after:left-0 after:-bottom-0.5 after:h-px after:w-full after:bg-current after:origin-left after:scale-x-0 group-hover:after:scale-x-100 after:transition-transform after:duration-500">
+          {/* Read more — gold-accented underline */}
+          <div className="inline-flex items-center gap-3 text-[var(--text)] font-medium">
+            <span
+              className={`relative after:absolute after:left-0 after:-bottom-0.5 after:h-px after:w-full after:origin-left after:scale-x-0 group-hover:after:scale-x-100 after:transition-transform after:duration-700 ${
+                isGold ? "after:bg-[var(--gold)]" : "after:bg-[var(--brand)]"
+              }`}
+            >
               Explore {service.tag.toLowerCase()}
             </span>
             <ArrowUpRight
-              size={15}
-              className="transition-all duration-500 group-hover:translate-x-1 group-hover:-translate-y-1"
+              size={16}
+              strokeWidth={1.75}
+              className={`transition-all duration-700 group-hover:translate-x-1.5 group-hover:-translate-y-1.5 ${
+                isGold ? "group-hover:text-[var(--gold-dark)]" : "group-hover:text-[var(--brand)]"
+              }`}
             />
           </div>
         </div>

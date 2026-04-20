@@ -24,6 +24,7 @@ import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { ExamCard } from "@/components/exams/ExamCard";
 import { site } from "@/lib/site";
+import { serviceSchema, faqSchema, breadcrumbSchema } from "@/lib/seo";
 
 const iconMap: Record<string, LucideIcon> = {
   ShieldCheck,
@@ -47,12 +48,32 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { slug } = await params;
   const exam = getExam(slug);
   if (!exam) return { title: "Exam not found" };
+
+  const geoKeywords = [
+    `${exam.name} exam prep`,
+    `${exam.name} coaching`,
+    `${exam.awardingBody} training Saudi Arabia`,
+    `${exam.awardingBody} certification GCC`,
+    `${exam.awardingBody} exam preparation Jeddah`,
+    `${exam.awardingBody} Pakistan`,
+    `Ansar Mahmood ${exam.awardingBody} coaching`,
+    "HSE certification coaching GCC",
+    "Pass guarantee exam prep",
+  ];
+
   return {
-    title: `${exam.name} — Exam Prep`,
-    description: exam.description,
+    title: `${exam.name} Exam Prep — ${exam.awardingBody} Coaching with Ansar Mahmood`,
+    description: `${exam.description} Live coaching, full-length mock exams, and 1-on-1 mentorship across Saudi Arabia, the GCC, and Pakistan.`,
+    keywords: geoKeywords,
+    alternates: {
+      canonical: `/exams/${exam.slug}/`,
+    },
     openGraph: {
-      title: `${exam.name} — Exam Prep by Ansar Mahmood`,
+      type: "article",
+      title: `${exam.name} Exam Prep — ${exam.awardingBody} Coaching`,
       description: exam.description,
+      url: `/exams/${exam.slug}/`,
+      images: ["/images/ansar-10.jpeg"],
     },
   };
 }
@@ -74,8 +95,60 @@ export default async function ExamDetailPage({ params }: PageProps) {
 
   const related = exams.filter((e) => e.slug !== exam.slug).slice(0, 3);
 
+  // ── Structured data for this exam ────────────────────────────
+  const schemaService = serviceSchema({
+    name: `${exam.name} Exam Prep Coaching`,
+    description: exam.description,
+    slug: `/exams/${exam.slug}/`,
+    category: `${exam.awardingBody} Certification Coaching`,
+  });
+
+  const schemaBreadcrumb = breadcrumbSchema([
+    { name: "Home",      url: "/" },
+    { name: "Exam Prep", url: "/exams/" },
+    { name: exam.name,   url: `/exams/${exam.slug}/` },
+  ]);
+
+  // Auto-generated FAQ from the exam details — AI engines cite these
+  const schemaFaq = faqSchema([
+    {
+      question: `What is the ${exam.name}?`,
+      answer: exam.description,
+    },
+    {
+      question: `Who should take the ${exam.name} credential?`,
+      answer: exam.who.join(" · "),
+    },
+    {
+      question: `What are the prerequisites for the ${exam.name} exam?`,
+      answer: exam.prerequisites.join(" · "),
+    },
+    {
+      question: `How long does Ansar Mahmood's ${exam.name} prep programme take, and what does it cost?`,
+      answer: `The ${exam.name} prep programme runs for ${exam.prepDurationWeeks} weeks, starting ${exam.prepPrice}. It includes live coaching, full-length mock exams, and unlimited 1-on-1 Q&A with Ansar Mahmood, a ${exam.awardingBody}-track certified senior HSE consultant.`,
+    },
+    {
+      question: `Is this ${exam.awardingBody} programme available in Saudi Arabia, the GCC, and Pakistan?`,
+      answer: `Yes. Ansar Mahmood delivers ${exam.name} prep online for candidates in Saudi Arabia (Riyadh, Jeddah, Dammam, NEOM), the UAE, Qatar, Kuwait, Pakistan, and 40+ countries worldwide.`,
+    },
+  ]);
+
   return (
     <>
+      {/* ── Structured data ─────────────────────────────────── */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaService) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaBreadcrumb) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaFaq) }}
+      />
+
       {/* ── Hero ────────────────────────────────────────────── */}
       <section
         className="relative text-white overflow-hidden"

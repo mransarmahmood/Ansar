@@ -1,31 +1,237 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://ansarmahmood.com/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://ansarmahmood.com/pages/about.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://ansarmahmood.com/pages/services.html</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://ansarmahmood.com/pages/consulting.html</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://ansarmahmood.com/pages/audits.html</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://ansarmahmood.com/pages/incident-investigation.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://ansarmahmood.com/pages/management-systems.html</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://ansarmahmood.com/pages/training.html</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://ansarmahmood.com/pages/certification-coaching.html</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://ansarmahmood.com/pages/corporate-solutions.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://ansarmahmood.com/pages/ai-solutions.html</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://ansarmahmood.com/pages/digital-solutions.html</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://ansarmahmood.com/pages/powerbi-dashboards.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://ansarmahmood.com/pages/sharepoint-solutions.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://ansarmahmood.com/pages/safety-apps.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://ansarmahmood.com/pages/industries.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://ansarmahmood.com/pages/case-studies.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://ansarmahmood.com/pages/testimonials.html</loc><changefreq>monthly</changefreq><priority>0.75</priority></url>
-  <url><loc>https://ansarmahmood.com/pages/course-calendar.html</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://ansarmahmood.com/pages/course-admission.html</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://ansarmahmood.com/pages/free-tools.html</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://ansarmahmood.com/pages/resources.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://ansarmahmood.com/pages/books.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://ansarmahmood.com/pages/newsletter.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://ansarmahmood.com/pages/blog.html</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://ansarmahmood.com/pages/faqs.html</loc><changefreq>monthly</changefreq><priority>0.75</priority></url>
-  <url><loc>https://ansarmahmood.com/pages/contact.html</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://ansarmahmood.com/pages/book-consultation.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+<url>
+<loc>https://ansarmahmood.org/</loc>
+<lastmod>2026-04-20T09:29:50.593Z</lastmod>
+<changefreq>weekly</changefreq>
+<priority>1</priority>
+</url>
+<url>
+<loc>https://ansarmahmood.org/exams/</loc>
+<lastmod>2026-04-20T09:29:50.593Z</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.9</priority>
+</url>
+<url>
+<loc>https://ansarmahmood.org/about/</loc>
+<lastmod>2026-04-20T09:29:50.593Z</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://ansarmahmood.org/services/</loc>
+<lastmod>2026-04-20T09:29:50.593Z</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.9</priority>
+</url>
+<url>
+<loc>https://ansarmahmood.org/consulting/</loc>
+<lastmod>2026-04-20T09:29:50.593Z</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.9</priority>
+</url>
+<url>
+<loc>https://ansarmahmood.org/audits/</loc>
+<lastmod>2026-04-20T09:29:50.593Z</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.9</priority>
+</url>
+<url>
+<loc>https://ansarmahmood.org/management-systems/</loc>
+<lastmod>2026-04-20T09:29:50.593Z</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.9</priority>
+</url>
+<url>
+<loc>https://ansarmahmood.org/incident-investigation/</loc>
+<lastmod>2026-04-20T09:29:50.593Z</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.9</priority>
+</url>
+<url>
+<loc>https://ansarmahmood.org/training/</loc>
+<lastmod>2026-04-20T09:29:50.593Z</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.9</priority>
+</url>
+<url>
+<loc>https://ansarmahmood.org/certification-coaching/</loc>
+<lastmod>2026-04-20T09:29:50.593Z</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.9</priority>
+</url>
+<url>
+<loc>https://ansarmahmood.org/corporate-solutions/</loc>
+<lastmod>2026-04-20T09:29:50.593Z</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://ansarmahmood.org/ai-solutions/</loc>
+<lastmod>2026-04-20T09:29:50.593Z</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.9</priority>
+</url>
+<url>
+<loc>https://ansarmahmood.org/digital-solutions/</loc>
+<lastmod>2026-04-20T09:29:50.593Z</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://ansarmahmood.org/powerbi-dashboards/</loc>
+<lastmod>2026-04-20T09:29:50.593Z</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://ansarmahmood.org/sharepoint-solutions/</loc>
+<lastmod>2026-04-20T09:29:50.593Z</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://ansarmahmood.org/safety-apps/</loc>
+<lastmod>2026-04-20T09:29:50.593Z</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://ansarmahmood.org/industries/</loc>
+<lastmod>2026-04-20T09:29:50.593Z</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://ansarmahmood.org/case-studies/</loc>
+<lastmod>2026-04-20T09:29:50.593Z</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://ansarmahmood.org/testimonials/</loc>
+<lastmod>2026-04-20T09:29:50.593Z</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.6</priority>
+</url>
+<url>
+<loc>https://ansarmahmood.org/blog/</loc>
+<lastmod>2026-04-20T09:29:50.593Z</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://ansarmahmood.org/resources/</loc>
+<lastmod>2026-04-20T09:29:50.593Z</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.6</priority>
+</url>
+<url>
+<loc>https://ansarmahmood.org/course-calendar/</loc>
+<lastmod>2026-04-20T09:29:50.593Z</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://ansarmahmood.org/course-admission/</loc>
+<lastmod>2026-04-20T09:29:50.593Z</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://ansarmahmood.org/book-consultation/</loc>
+<lastmod>2026-04-20T09:29:50.593Z</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.9</priority>
+</url>
+<url>
+<loc>https://ansarmahmood.org/contact/</loc>
+<lastmod>2026-04-20T09:29:50.593Z</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://ansarmahmood.org/faqs/</loc>
+<lastmod>2026-04-20T09:29:50.593Z</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.6</priority>
+</url>
+<url>
+<loc>https://ansarmahmood.org/newsletter/</loc>
+<lastmod>2026-04-20T09:29:50.593Z</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+<url>
+<loc>https://ansarmahmood.org/exams/csp/</loc>
+<lastmod>2026-04-20T09:29:50.593Z</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.9</priority>
+</url>
+<url>
+<loc>https://ansarmahmood.org/exams/csp/practice/</loc>
+<lastmod>2026-04-20T09:29:50.593Z</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://ansarmahmood.org/exams/crsp/</loc>
+<lastmod>2026-04-20T09:29:50.593Z</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.9</priority>
+</url>
+<url>
+<loc>https://ansarmahmood.org/exams/crsp/practice/</loc>
+<lastmod>2026-04-20T09:29:50.593Z</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://ansarmahmood.org/exams/idip-nebosh/</loc>
+<lastmod>2026-04-20T09:29:50.593Z</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.9</priority>
+</url>
+<url>
+<loc>https://ansarmahmood.org/exams/idip-nebosh/practice/</loc>
+<lastmod>2026-04-20T09:29:50.593Z</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://ansarmahmood.org/exams/iosh-ms/</loc>
+<lastmod>2026-04-20T09:29:50.593Z</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.9</priority>
+</url>
+<url>
+<loc>https://ansarmahmood.org/exams/iosh-ms/practice/</loc>
+<lastmod>2026-04-20T09:29:50.593Z</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://ansarmahmood.org/exams/pmp/</loc>
+<lastmod>2026-04-20T09:29:50.593Z</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.9</priority>
+</url>
+<url>
+<loc>https://ansarmahmood.org/exams/pmp/practice/</loc>
+<lastmod>2026-04-20T09:29:50.593Z</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://ansarmahmood.org/exams/csm/</loc>
+<lastmod>2026-04-20T09:29:50.593Z</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.9</priority>
+</url>
+<url>
+<loc>https://ansarmahmood.org/exams/csm/practice/</loc>
+<lastmod>2026-04-20T09:29:50.593Z</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
 </urlset>

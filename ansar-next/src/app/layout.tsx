@@ -1,22 +1,18 @@
 import type { Metadata } from "next";
 import { Fraunces, Inter, JetBrains_Mono } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import { TopBar } from "@/components/layout/TopBar";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { FloatingActions } from "@/components/layout/FloatingActions";
 import { site } from "@/lib/site";
+import { personSchema, organizationSchema, keywordBundles } from "@/lib/seo";
 
-/**
- * Editorial serif for hero, section headlines, big numbers.
- * Variable axes (wght 100-900, opsz 9-144, SOFT 50-100) let us tune
- * the look per role — light + tight-optical at display, heavier at body.
- */
+/** Editorial serif — hero, section headlines, big numbers */
 const display = Fraunces({
   variable: "--font-display",
   subsets: ["latin"],
-  // Variable font — weight is continuous 100-900 via font-weight CSS values.
-  // Extra axes give us softer curves (SOFT) and optical sizing (opsz).
   axes: ["SOFT", "opsz"],
   style: ["normal", "italic"],
   display: "swap",
@@ -30,7 +26,7 @@ const body = Inter({
   display: "swap",
 });
 
-/** Credentials, stats, data — monospace gives editorial rigour */
+/** Credentials, stats, data */
 const mono = JetBrains_Mono({
   variable: "--font-mono",
   subsets: ["latin"],
@@ -40,18 +36,64 @@ const mono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: `${site.name} | Senior HSE Consultant, Trainer & AI Specialist`,
-    template: `%s | ${site.name}`,
+    default:
+      "Ansar Mahmood | Senior HSE Consultant · AI Specialist · Saudi Arabia & GCC",
+    template: "%s | Ansar Mahmood",
   },
-  description: site.description,
+  description:
+    "Senior HSE consultant delivering ISO 45001 implementation, NEBOSH / IOSH training, CSP & CRSP exam coaching, and AI-powered safety solutions across Saudi Arabia, the GCC and 40+ countries. 25+ years of Vision 2030 giga-project experience — NEOM, Red Sea Global, Saudi Aramco.",
+  keywords: keywordBundles.home,
+  authors: [{ name: "Ansar Mahmood", url: site.url }],
+  creator: "Ansar Mahmood",
+  publisher: "Ansar Mahmood Consulting",
   metadataBase: new URL(site.url),
+  alternates: {
+    canonical: site.url,
+  },
   openGraph: {
     type: "website",
-    title: `${site.name} | Senior HSE Consultant & Digital Solutions Specialist`,
-    description: site.description,
+    locale: "en_US",
+    alternateLocale: ["ar_SA"],
+    title:
+      "Ansar Mahmood | Senior HSE Consultant & AI Specialist — Saudi Arabia & GCC",
+    description:
+      "25+ years of HSE leadership. ISO 45001, NEBOSH, CSP, CRSP coaching. AI-powered safety solutions for Vision 2030 giga-projects: NEOM, Red Sea Global, Saudi Aramco.",
     url: site.url,
     siteName: site.name,
+    images: [
+      {
+        url: "/images/ansar-10.jpeg",
+        width: 1200,
+        height: 630,
+        alt: "Ansar Mahmood — Senior HSE Consultant & AI Specialist",
+      },
+    ],
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Ansar Mahmood | Senior HSE Consultant · AI Specialist · GCC",
+    description:
+      "ISO 45001, NEBOSH, CSP, CRSP coaching + AI-powered safety solutions for Vision 2030 giga-projects.",
+    images: ["/images/ansar-10.jpeg"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  verification: {
+    // Placeholders — swap with real tokens after claiming Search Console / Bing
+    // google: "YOUR_GOOGLE_VERIFICATION_TOKEN",
+    // yandex: "YOUR_YANDEX_TOKEN",
+    // other: { "msvalidate.01": "YOUR_BING_TOKEN" },
+  },
+  category: "HSE Consulting",
 };
 
 export default function RootLayout({
@@ -65,6 +107,21 @@ export default function RootLayout({
       className={`${display.variable} ${body.variable} ${mono.variable}`}
       suppressHydrationWarning
     >
+      <head>
+        {/* ── Structured data ────────────────────────────────── */}
+        <Script
+          id="ld-person"
+          type="application/ld+json"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
+        />
+        <Script
+          id="ld-organization"
+          type="application/ld+json"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
+      </head>
       <body className="min-h-screen flex flex-col bg-[var(--page)] text-[var(--text)]">
         <TopBar />
         <Header />

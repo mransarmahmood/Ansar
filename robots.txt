@@ -1,7 +1,31 @@
-User-agent: *
+User-Agent: *
 Allow: /
 Disallow: /admin/
 Disallow: /forms/
 Disallow: /data/
+Disallow: /includes/
+Disallow: /lib/
+Disallow: /ansar-next/
+Disallow: /theme.php
+Disallow: /__next*
 
-Sitemap: https://ansarmahmood.com/sitemap.xml
+User-Agent: GPTBot
+Allow: /
+
+User-Agent: ChatGPT-User
+Allow: /
+
+User-Agent: PerplexityBot
+Allow: /
+
+User-Agent: ClaudeBot
+Allow: /
+
+User-Agent: Google-Extended
+Allow: /
+
+User-Agent: Bingbot
+Allow: /
+
+Host: https://ansarmahmood.org
+Sitemap: https://ansarmahmood.org/sitemap.xml
