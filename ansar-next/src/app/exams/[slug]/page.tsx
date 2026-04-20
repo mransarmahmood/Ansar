@@ -16,6 +16,7 @@ import {
   CalendarCheck,
   ArrowRight,
   ChevronRight,
+  Sparkles,
   type LucideIcon,
 } from "lucide-react";
 import { exams, examSlugs, getExam } from "@/lib/exams";
@@ -130,6 +131,12 @@ export default async function ExamDetailPage({ params }: PageProps) {
                       <ArrowRight size={16} />
                     </a>
                   </Button>
+                  <Button asChild variant="brand" size="lg">
+                    <Link href={`/exams/${exam.slug}/practice/`}>
+                      <Sparkles size={16} />
+                      Try free sample quiz
+                    </Link>
+                  </Button>
                   <Button asChild variant="outlineWhite" size="lg">
                     <Link href="/book-consultation/">
                       <CalendarCheck size={16} />
@@ -137,6 +144,13 @@ export default async function ExamDetailPage({ params }: PageProps) {
                     </Link>
                   </Button>
                 </div>
+
+                {/* Quick sample-quiz hint */}
+                <p className="mt-4 text-[0.82rem] text-white/55 max-w-xl">
+                  Not sure if this is right for you? Take our free
+                  {" "}<span className="font-semibold text-[var(--gold-light)]">{exam.sampleQuestions.length}-question sample quiz</span>{" "}
+                  ({exam.sampleDurationMinutes} min) to gauge your baseline.
+                </p>
               </div>
 
               {/* Right: stats summary card */}
