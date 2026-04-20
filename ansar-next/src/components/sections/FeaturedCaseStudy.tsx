@@ -57,7 +57,7 @@ export function FeaturedCaseStudy() {
                 </span>
                 <span className="font-mono tracking-[0.12em] uppercase bg-black/45 backdrop-blur-sm px-3 py-1.5 rounded-full flex items-center gap-1.5">
                   <MapPin size={11} strokeWidth={2} />
-                  Jeddah, KSA · 2025
+                  KSA · 2025
                 </span>
               </figcaption>
             </figure>
@@ -73,7 +73,7 @@ export function FeaturedCaseStudy() {
           >
             {/* Sector + date */}
             <div className="flex items-center gap-5 eyebrow mb-6">
-              <span>Giga-Project · Hospitality</span>
+              <span>Hospitality Giga-Project · Confidential</span>
               <span className="h-px w-6 bg-[var(--gray-300)]" />
               <span className="flex items-center gap-1.5">
                 <Calendar size={11} strokeWidth={2} />
@@ -81,14 +81,14 @@ export function FeaturedCaseStudy() {
               </span>
             </div>
 
-            {/* Title — serif display */}
-            <h3 className="font-display text-[2rem] md:text-[2.6rem] lg:text-[3rem] leading-[1.04] tracking-[-0.03em] text-[var(--text)] mb-8 max-w-[20ch]">
-              Taking a Red Sea mega-resort from{" "}
+            {/* Title — serif display, anonymised */}
+            <h3 className="font-display text-[2rem] md:text-[2.6rem] lg:text-[3rem] leading-[1.04] tracking-[-0.03em] text-[var(--text)] mb-8 max-w-[22ch]">
+              Taking a GCC hospitality giga-project from{" "}
               <span className="serif-italic text-[var(--brand)]">scratch</span>{" "}
               to ISO 45001 in eight months.
             </h3>
 
-            {/* Pull-quote */}
+            {/* Pull-quote — attribution withheld by client agreement */}
             <blockquote className="relative pl-6 mb-10 not-italic">
               <span
                 aria-hidden="true"
@@ -105,10 +105,12 @@ export function FeaturedCaseStudy() {
               </p>
               <footer className="mt-5 text-[0.88rem] text-[var(--text-light)]">
                 <span className="font-semibold text-[var(--text)]">
-                  Mohammad Al-Otaibi
+                  Group HSE Director
                 </span>
                 <span className="mx-1.5">·</span>
-                Group HSE Director
+                GCC Hospitality Giga-Project
+                <span className="mx-1.5">·</span>
+                <span className="font-mono text-[0.76rem]">name withheld</span>
               </footer>
             </blockquote>
 

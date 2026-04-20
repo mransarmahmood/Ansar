@@ -41,10 +41,10 @@ export function TrustedBy() {
           className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12"
         >
           <div>
-            <div className="eyebrow mb-3">§ Trusted by</div>
-            <h3 className="font-display text-[1.5rem] md:text-[1.8rem] leading-[1.1] tracking-[-0.02em] text-[var(--text)] max-w-[32ch]">
-              Partnering with operators delivering the most ambitious
-              infrastructure on the planet.
+            <div className="eyebrow mb-3">§ Where the work has landed</div>
+            <h3 className="font-display text-[1.5rem] md:text-[1.8rem] leading-[1.1] tracking-[-0.02em] text-[var(--text)] max-w-[38ch]">
+              Advising teams and training professionals from operators
+              delivering the most ambitious infrastructure on the planet.
             </h3>
           </div>
           <div className="flex items-center gap-2 eyebrow text-[var(--text-light)]">

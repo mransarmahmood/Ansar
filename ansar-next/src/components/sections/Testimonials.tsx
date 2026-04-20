@@ -89,7 +89,9 @@ export function Testimonials() {
                 <footer className="flex items-center gap-4 not-italic">
                   {/* Monogram circle — premium signature */}
                   <div className="relative h-14 w-14 shrink-0 rounded-full bg-[var(--brand)] text-white flex items-center justify-center font-display font-medium text-[1.1rem] tracking-tight">
-                    {initials(current.name)}
+                    {current.anonymous
+                      ? initialsFromTitle(current.title)
+                      : initials(current.name ?? "")}
                     <span
                       aria-hidden="true"
                       className="absolute inset-0 rounded-full ring-1 ring-[var(--brand)]/20 ring-offset-4 ring-offset-[var(--page)]"
@@ -98,14 +100,28 @@ export function Testimonials() {
 
                   <div>
                     <div className="text-[1rem] font-semibold text-[var(--text)] tracking-[-0.005em]">
-                      {current.name}
+                      {current.anonymous ? current.title : current.name}
                     </div>
                     <div className="text-[0.88rem] text-[var(--text-muted)] leading-snug">
-                      {current.title}
-                      <span className="mx-1.5 text-[var(--text-light)]">·</span>
-                      <span className="font-mono text-[0.78rem] tracking-[0.04em]">
-                        {current.company}
-                      </span>
+                      {current.anonymous ? (
+                        <>
+                          <span className="font-mono text-[0.78rem] tracking-[0.04em]">
+                            {current.company}
+                          </span>
+                          <span className="mx-1.5 text-[var(--text-light)]">·</span>
+                          <span className="font-mono text-[0.72rem] tracking-[0.08em] uppercase text-[var(--text-light)]">
+                            name withheld
+                          </span>
+                        </>
+                      ) : (
+                        <>
+                          {current.title}
+                          <span className="mx-1.5 text-[var(--text-light)]">·</span>
+                          <span className="font-mono text-[0.78rem] tracking-[0.04em]">
+                            {current.company}
+                          </span>
+                        </>
+                      )}
                     </div>
                   </div>
                 </footer>
@@ -173,4 +189,14 @@ function initials(name: string): string {
     .map((n) => n[0])
     .join("")
     .toUpperCase();
+}
+
+/**
+ * For anonymous testimonials: derive a 2-letter monogram from the job title.
+ * "Group HSE Director" → "GD", "Chief Digital Officer" → "CD", etc.
+ */
+function initialsFromTitle(title: string): string {
+  const words = title.split(/\s+/).filter(Boolean);
+  if (words.length === 1) return words[0].slice(0, 2).toUpperCase();
+  return (words[0][0] + words[words.length - 1][0]).toUpperCase();
 }
