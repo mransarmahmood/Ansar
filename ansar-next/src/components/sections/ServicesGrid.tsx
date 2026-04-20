@@ -103,7 +103,7 @@ const services: Service[] = [
 
 export function ServicesGrid() {
   return (
-    <section className="relative py-24 md:py-32 bg-[var(--gray-50)] overflow-hidden">
+    <section className="relative py-28 md:py-40 bg-[var(--surface-alt)] overflow-hidden">
       {/* Subtle decorative gradient blobs */}
       <div
         aria-hidden="true"

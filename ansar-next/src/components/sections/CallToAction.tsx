@@ -15,7 +15,7 @@ import { QuickContactForm } from "@/components/forms/QuickContactForm";
 
 export function CallToAction() {
   return (
-    <section className="py-20 md:py-28 bg-white">
+    <section className="py-28 md:py-40 bg-[var(--page)]">
       <Container>
         <motion.div
           initial={{ opacity: 0, y: 24 }}

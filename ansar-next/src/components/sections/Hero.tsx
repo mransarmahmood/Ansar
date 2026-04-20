@@ -5,29 +5,30 @@ import { motion } from "framer-motion";
 import {
   CalendarCheck,
   ArrowRight,
-  BadgeCheck,
-  Award,
-  ShieldCheck,
-  Bot,
-  Globe,
   ChevronDown,
 } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
-import { Chip } from "@/components/ui/Chip";
 
-const trustChips = [
-  { icon: BadgeCheck, label: "Internationally Certified", variant: "brand" as const },
-  { icon: Award,      label: "IOSH Member",               variant: "brand" as const },
-  { icon: ShieldCheck,label: "ISO Lead Auditor",          variant: "brand" as const },
-  { icon: Bot,        label: "AI Specialist",             variant: "gold"  as const },
-  { icon: Globe,      label: "40+ Countries",             variant: "default" as const },
+/**
+ * Credential strip — rendered in monospace under the hero CTAs.
+ * Editorial / gallery-style, not badges.
+ */
+const credentials = [
+  "CSP",
+  "CRSP",
+  "CMIOSH",
+  "PMP",
+  "NEBOSH IDip",
+  "ISO 45001 LA",
 ];
 
 const fadeUp = {
   initial: { opacity: 0, y: 24 },
   animate: { opacity: 1, y: 0 },
 };
+
+const EASE = [0.16, 1, 0.3, 1] as const; // editorial slow-out
 
 export function Hero() {
   return (
@@ -46,67 +47,51 @@ export function Hero() {
       />
 
       <Container className="relative z-10">
-        <div className="grid grid-cols-12 gap-10 min-h-[88vh] py-24 lg:py-32 items-center">
-          {/* LEFT: headline + chips + CTAs */}
+        <div className="grid grid-cols-12 gap-10 min-h-[92vh] py-28 lg:py-40 items-center">
+          {/* LEFT: editorial headline + CTAs + credential strip */}
           <div className="col-span-12 lg:col-span-7">
-            <motion.div {...fadeUp} transition={{ duration: 0.4 }}>
-              <Chip
-                variant="default"
-                icon={<span className="h-2 w-2 rounded-full bg-[var(--brand-bright)] animate-pulse" />}
-                className="mb-7"
-              >
-                AVAILABLE FOR GLOBAL ENGAGEMENTS
-              </Chip>
+            {/* Eyebrow — small monospaced label */}
+            <motion.div
+              {...fadeUp}
+              transition={{ duration: 0.5, delay: 0, ease: EASE }}
+              className="inline-flex items-center gap-3 mb-8"
+            >
+              <span className="relative flex h-1.5 w-1.5">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--brand-bright)] opacity-75" />
+                <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-[var(--brand-bright)]" />
+              </span>
+              <span className="font-mono text-[0.72rem] font-medium tracking-[0.15em] text-white/55 uppercase">
+                Senior HSE Consultant · AI Specialist
+              </span>
             </motion.div>
 
+            {/* Editorial headline — single punchy statement */}
             <motion.h1
               {...fadeUp}
-              transition={{ duration: 0.5, delay: 0.05 }}
-              className="text-white text-[2.4rem] md:text-[3.2rem] lg:text-[3.8rem] font-extrabold leading-[1.05] tracking-[-0.025em] mb-6"
+              transition={{ duration: 0.7, delay: 0.08, ease: EASE }}
+              className="text-white font-display font-normal text-[3.2rem] md:text-[4.6rem] lg:text-[5.4rem] leading-[0.98] tracking-[-0.035em] mb-7 max-w-[16ch]"
+              style={{ fontVariationSettings: '"SOFT" 30, "opsz" 144' }}
             >
-              Transforming Workplaces
-              <br />
-              <span className="text-gold-gradient">Saving Lives.</span>
-              <br />
-              Powering the Future.
+              Transforming workplaces.{" "}
+              <span className="serif-italic text-gold-gradient">Saving lives.</span>{" "}
+              Powering the future.
             </motion.h1>
 
+            {/* Sub-line — one tight paragraph, max 2 lines */}
             <motion.p
               {...fadeUp}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-lg text-white/75 leading-relaxed max-w-2xl mb-9"
+              transition={{ duration: 0.6, delay: 0.2, ease: EASE }}
+              className="text-[1.125rem] md:text-[1.25rem] text-white/75 leading-[1.55] max-w-[52ch] mb-10 font-light"
             >
-              Senior HSE Consultant · Trainer · Digital Transformation & AI
-              Solutions Specialist with{" "}
-              <span className="text-white font-semibold">
-                25+ years of global impact
-              </span>{" "}
-              across Oil &amp; Gas, Construction, Manufacturing, and beyond.
+              25 years of HSE leadership meets cutting-edge AI — helping
+              enterprises across 40+ countries build safer, smarter operations.
             </motion.p>
 
+            {/* Primary + ghost CTAs */}
             <motion.div
               {...fadeUp}
-              transition={{ duration: 0.5, delay: 0.15 }}
-              className="flex flex-wrap gap-2.5 mb-10"
-            >
-              {trustChips.map((chip, i) => (
-                <motion.div
-                  key={chip.label}
-                  initial={{ opacity: 0, y: 12 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.2 + i * 0.06, duration: 0.4 }}
-                >
-                  <Chip variant={chip.variant} icon={<chip.icon size={14} />}>
-                    {chip.label}
-                  </Chip>
-                </motion.div>
-              ))}
-            </motion.div>
-
-            <motion.div
-              {...fadeUp}
-              transition={{ duration: 0.5, delay: 0.22 }}
-              className="flex flex-wrap gap-4"
+              transition={{ duration: 0.5, delay: 0.32, ease: EASE }}
+              className="flex flex-wrap items-center gap-5 mb-14"
             >
               <Button asChild variant="gold" size="xl">
                 <Link href="/book-consultation/">
@@ -120,6 +105,28 @@ export function Hero() {
                   <ArrowRight size={18} />
                 </Link>
               </Button>
+            </motion.div>
+
+            {/* Credential strip — monospaced editorial line */}
+            <motion.div
+              {...fadeUp}
+              transition={{ duration: 0.5, delay: 0.44, ease: EASE }}
+              className="flex flex-wrap items-center gap-x-4 gap-y-2"
+            >
+              <span className="font-mono text-[0.68rem] tracking-[0.18em] text-white/40 uppercase mr-1">
+                Credentials ──
+              </span>
+              {credentials.map((c, i) => (
+                <span
+                  key={c}
+                  className="font-mono text-[0.78rem] tracking-[0.08em] text-white/80 uppercase"
+                >
+                  {c}
+                  {i < credentials.length - 1 && (
+                    <span className="ml-4 text-white/25 select-none">·</span>
+                  )}
+                </span>
+              ))}
             </motion.div>
           </div>
 

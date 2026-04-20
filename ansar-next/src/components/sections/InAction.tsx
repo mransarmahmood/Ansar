@@ -38,7 +38,7 @@ const shots = [
 
 export function InAction() {
   return (
-    <section className="py-24 md:py-32 bg-white relative overflow-hidden">
+    <section className="py-28 md:py-40 bg-[var(--surface)] relative overflow-hidden">
       <Container>
         <div className="max-w-3xl mb-16">
           <motion.div

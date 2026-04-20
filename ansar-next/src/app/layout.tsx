@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans, Inter } from "next/font/google";
+import { Fraunces, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { TopBar } from "@/components/layout/TopBar";
 import { Header } from "@/components/layout/Header";
@@ -7,17 +7,34 @@ import { Footer } from "@/components/layout/Footer";
 import { FloatingActions } from "@/components/layout/FloatingActions";
 import { site } from "@/lib/site";
 
-const heading = Plus_Jakarta_Sans({
-  variable: "--font-heading",
+/**
+ * Editorial serif for hero, section headlines, big numbers.
+ * Variable axes (wght 100-900, opsz 9-144, SOFT 50-100) let us tune
+ * the look per role — light + tight-optical at display, heavier at body.
+ */
+const display = Fraunces({
+  variable: "--font-display",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
+  // Variable font — weight is continuous 100-900 via font-weight CSS values.
+  // Extra axes give us softer curves (SOFT) and optical sizing (opsz).
+  axes: ["SOFT", "opsz"],
+  style: ["normal", "italic"],
   display: "swap",
 });
 
+/** Body + UI */
 const body = Inter({
   variable: "--font-body",
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
+  display: "swap",
+});
+
+/** Credentials, stats, data — monospace gives editorial rigour */
+const mono = JetBrains_Mono({
+  variable: "--font-mono",
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
   display: "swap",
 });
 
@@ -45,10 +62,10 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${heading.variable} ${body.variable}`}
+      className={`${display.variable} ${body.variable} ${mono.variable}`}
       suppressHydrationWarning
     >
-      <body className="min-h-screen flex flex-col bg-white text-[var(--text)]">
+      <body className="min-h-screen flex flex-col bg-[var(--page)] text-[var(--text)]">
         <TopBar />
         <Header />
         <main className="flex-1">{children}</main>

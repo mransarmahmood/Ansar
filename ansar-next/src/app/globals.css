@@ -1,26 +1,53 @@
 @import "tailwindcss";
 
 /* ================================================================
-   ANSAR MAHMOOD — Design Tokens
-   Palette: Charcoal Slate · Executive Emerald · Warm Ochre Gold
-   Fonts:   Plus Jakarta Sans (headings) · Inter (body)
+   ANSAR MAHMOOD — Design Tokens (v5 — Editorial Premium)
+   Palette:  Warm Off-white · Near-black · Deep Forest Emerald ·
+             Warm Ochre Gold · Refined editorial greys
+   Display:  Fraunces (variable serif)
+   Body:     Inter
+   Mono:     JetBrains Mono (credentials, data)
+   Spacing:  120px desktop / 80px mobile sections
    ================================================================ */
 
 :root {
-  /* Dark backgrounds — deep forest emerald (on-brand, premium) */
-  --navy:            #022C22;   /* Emerald 950 — near-black green */
-  --navy-mid:        #064E3B;   /* Emerald 900 */
-  --navy-light:      #065F46;   /* Emerald 800 */
-  --navy-xlight:     #ECFDF5;   /* Emerald 50 wash */
+  /* ── Surface ─────────────────────────────────────────────── */
+  --page:            #FAFAF7;   /* Warm off-white — page bg */
+  --surface:         #FFFFFF;   /* Cards / elevated panels */
+  --surface-alt:     #F5F4EF;   /* Alternating sections */
+  --white:           #FFFFFF;
 
-  /* Primary brand — restrained executive emerald */
+  /* ── Ink (text) ──────────────────────────────────────────── */
+  --text:            #0A0A0A;   /* Near-black, never pure */
+  --text-muted:      #4A4A4A;
+  --text-light:      #8A8A8A;
+
+  /* ── Warm editorial greys ────────────────────────────────── */
+  --gray-50:         #F5F4EF;
+  --gray-100:        #EEEDE7;
+  --gray-200:        #E8E8E3;   /* default border */
+  --gray-300:        #D4D3CD;
+  --gray-400:        #A8A7A1;
+  --gray-500:        #6D6C66;
+  --gray-600:        #4A4A4A;
+  --gray-700:        #2E2E2B;
+  --gray-800:        #1A1A18;
+  --gray-900:        #0A0A0A;
+
+  /* ── Dark backgrounds — deep forest emerald ──────────────── */
+  --navy:            #022C22;
+  --navy-mid:        #064E3B;
+  --navy-light:      #065F46;
+  --navy-xlight:     #ECFDF5;
+
+  /* ── Primary brand — executive emerald ──────────────────── */
   --brand:           #059669;
   --brand-dark:      #047857;
   --brand-light:     #6EE7B7;
   --brand-xlight:    #ECFDF5;
   --brand-bright:    #10B981;
 
-  /* Accent — warm ochre gold for premium moments */
+  /* ── Accent — warm ochre gold ───────────────────────────── */
   --gold:            #C9A34D;
   --gold-dark:       #A88230;
   --gold-light:      #E2C275;
@@ -29,28 +56,12 @@
   --mint:            #6EE7B7;
   --mint-soft:       #A7F3D0;
 
-  /* Neutrals */
-  --white:           #ffffff;
-  --gray-50:         #F8FAFC;
-  --gray-100:        #F1F5F9;
-  --gray-200:        #E2E8F0;
-  --gray-300:        #CBD5E1;
-  --gray-400:        #94A3B8;
-  --gray-500:        #64748B;
-  --gray-600:        #475569;
-  --gray-700:        #334155;
-  --gray-800:        #1E293B;
-  --gray-900:        #0F172A;
-  --text:            #0F172A;
-  --text-muted:      #475569;
-  --text-light:      #64748B;
+  /* ── Semantic ───────────────────────────────────────────── */
+  --success:         #15803D;
+  --warning:         #D97706;
+  --danger:          #DC2626;
 
-  /* Semantic */
-  --success:         #10B981;
-  --warning:         #F59E0B;
-  --danger:          #EF4444;
-
-  /* Gradients */
+  /* ── Gradients ──────────────────────────────────────────── */
   --grad-navy:       linear-gradient(135deg, #022C22 0%, #064E3B 55%, #065F46 100%);
   --grad-navy-soft:  linear-gradient(160deg, #022C22 0%, #064E3B 60%, #011B15 100%);
   --grad-brand:      linear-gradient(135deg, #10B981 0%, #047857 100%);
@@ -60,36 +71,50 @@
                      linear-gradient(160deg, #022C22 0%, #064E3B 45%, #011B15 100%);
   --grad-text-gold:  linear-gradient(135deg, #E2C275 0%, #C9A34D 55%, #A88230 100%);
 
-  /* Shadows — tinted with deep emerald to stay on-brand */
-  --shadow-xs:       0 1px 2px rgba(2,44,34,.05);
-  --shadow-sm:       0 2px 4px rgba(2,44,34,.05), 0 1px 2px rgba(2,44,34,.04);
-  --shadow:          0 4px 14px -6px rgba(2,44,34,.12), 0 2px 4px rgba(2,44,34,.05);
-  --shadow-md:       0 10px 28px -12px rgba(2,44,34,.16), 0 4px 8px rgba(2,44,34,.05);
-  --shadow-lg:       0 20px 42px -16px rgba(2,44,34,.20), 0 6px 14px rgba(2,44,34,.06);
-  --shadow-xl:       0 32px 64px -22px rgba(2,44,34,.25), 0 10px 20px rgba(2,44,34,.07);
+  /* ── Shadows — softer, neutral ──────────────────────────── */
+  --shadow-xs:       0 1px 2px rgba(10,10,10,.05);
+  --shadow-sm:       0 2px 4px rgba(10,10,10,.05), 0 1px 2px rgba(10,10,10,.04);
+  --shadow:          0 4px 14px -6px rgba(10,10,10,.10), 0 2px 4px rgba(10,10,10,.04);
+  --shadow-md:       0 10px 28px -12px rgba(10,10,10,.14), 0 4px 8px rgba(10,10,10,.04);
+  --shadow-lg:       0 20px 42px -16px rgba(10,10,10,.18), 0 6px 14px rgba(10,10,10,.05);
+  --shadow-xl:       0 32px 64px -22px rgba(10,10,10,.22), 0 10px 20px rgba(10,10,10,.06);
   --shadow-gold:     0 10px 24px -6px rgba(201,163,77,.40);
   --shadow-brand:    0 10px 24px -6px rgba(5,150,105,.32);
   --shadow-ring:     0 0 0 3px rgba(16,185,129,.16);
 
-  /* Motion */
+  /* ── Motion ─────────────────────────────────────────────── */
   --ease-out:        cubic-bezier(.22,.61,.36,1);
   --ease-smooth:     cubic-bezier(.4,0,.2,1);
   --ease-spring:     cubic-bezier(.34,1.56,.64,1);
+  --ease-editorial:  cubic-bezier(0.16, 1, 0.3, 1);   /* premium slow-out */
+
+  /* ── Spacing ────────────────────────────────────────────── */
+  --section-pad:     120px;
+  --section-pad-sm:  80px;
+  --section-pad-lg:  160px;
 }
 
-/* Tailwind v4 theme mapping — makes CSS vars available as Tailwind utilities */
+/* ── Tailwind v4 theme mapping ──────────────────────────────── */
 @theme inline {
+  /* Surfaces */
+  --color-page:         var(--page);
+  --color-surface:      var(--surface);
+  --color-surface-alt:  var(--surface-alt);
+
+  /* Dark family */
   --color-navy:         var(--navy);
   --color-navy-mid:     var(--navy-mid);
   --color-navy-light:   var(--navy-light);
   --color-navy-xlight:  var(--navy-xlight);
 
+  /* Brand (green) */
   --color-brand:        var(--brand);
   --color-brand-dark:   var(--brand-dark);
   --color-brand-light:  var(--brand-light);
   --color-brand-xlight: var(--brand-xlight);
   --color-brand-bright: var(--brand-bright);
 
+  /* Accent (gold) */
   --color-gold:         var(--gold);
   --color-gold-dark:    var(--gold-dark);
   --color-gold-light:   var(--gold-light);
@@ -97,12 +122,17 @@
 
   --color-mint:         var(--mint);
 
+  /* Ink */
   --color-ink:          var(--text);
   --color-ink-muted:    var(--text-muted);
   --color-ink-light:    var(--text-light);
 
-  --font-heading:       var(--font-heading);
+  /* Fonts */
   --font-sans:          var(--font-body);
+  --font-display:       var(--font-display);
+  --font-mono:          var(--font-mono);
+  /* Back-compat — some components may still reference --font-heading */
+  --font-heading:       var(--font-display);
 }
 
 /* ── Base styles ────────────────────────────────────────────── */
@@ -119,21 +149,51 @@ html {
 
 body {
   margin: 0;
-  background: var(--white);
+  background: var(--page);
   color: var(--text);
   font-family: var(--font-body), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  font-size: 16px;
+  font-size: 17px;
   line-height: 1.65;
+  font-feature-settings: "ss01", "cv11";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* All headings now default to Fraunces serif — tight optical sizing */
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-heading), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  font-weight: 700;
+  font-family: var(--font-display), Georgia, "Times New Roman", serif;
+  font-weight: 400;
   letter-spacing: -0.02em;
-  line-height: 1.15;
+  line-height: 1.08;
   color: var(--text);
+  font-variation-settings: "SOFT" 50, "opsz" 144;
+}
+
+/* Display-size headlines (hero h1, section h2) get tighter kerning + softer curves */
+.font-display,
+h1,
+.h-display {
+  font-family: var(--font-display), Georgia, serif;
+  letter-spacing: -0.03em;
+  font-variation-settings: "SOFT" 30, "opsz" 144;
+}
+
+h1 { line-height: 1.0;  }
+h2 { line-height: 1.04; }
+
+/* Italic in Fraunces has real character — use sparingly for emphasis */
+.serif-italic {
+  font-family: var(--font-display), Georgia, serif;
+  font-style: italic;
+  font-variation-settings: "SOFT" 100, "opsz" 144;
+}
+
+/* Mono — credentials, stats, data */
+.font-mono,
+code,
+kbd,
+samp {
+  font-family: var(--font-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
 }
 
 a {
@@ -146,7 +206,7 @@ img, svg {
   max-width: 100%;
 }
 
-/* Premium gold text gradient helper */
+/* Warm gold text gradient helper */
 .text-gold-gradient {
   background: var(--grad-text-gold);
   -webkit-background-clip: text;
@@ -156,12 +216,37 @@ img, svg {
   display: inline;
 }
 
-/* Subtle grid overlay for hero/dark sections */
+/* Subtle grid overlay for hero / dark sections */
 .grid-pattern {
   background-image:
     linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
   background-size: 60px 60px;
+}
+
+/* Subtle film-grain texture for hero (adds depth without noise) */
+.grain {
+  position: relative;
+  isolation: isolate;
+}
+.grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.025;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.95' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Editorial eyebrow label */
+.eyebrow {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
 }
 
 /* Reduced motion */
