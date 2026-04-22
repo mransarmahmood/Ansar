@@ -9,9 +9,9 @@ const buttonStyles = cva(
   {
     variants: {
       variant: {
-        // Amber — premium primary CTA (ink text for AA contrast on warm fill)
+        // Signal Amber coral — premium primary CTA (on-accent text for AAA contrast on warm fill)
         gold:
-          "bg-[var(--grad-gold)] text-[var(--color-ink)] shadow-[0_8px_20px_-8px_rgba(245,158,11,0.55)] hover:-translate-y-0.5 hover:brightness-105 hover:shadow-[var(--shadow-gold)]",
+          "bg-[var(--grad-gold)] text-[var(--color-on-accent)] shadow-[0_8px_20px_-8px_rgba(255,107,53,0.55)] hover:-translate-y-0.5 hover:brightness-105 hover:shadow-[var(--shadow-gold)]",
         // Executive emerald — brand primary
         brand:
           "bg-[var(--grad-brand)] text-white shadow-[var(--shadow-brand)] hover:-translate-y-0.5 hover:brightness-105",

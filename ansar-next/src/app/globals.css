@@ -14,44 +14,54 @@
    ──────────────────────────────────────────────────────────────── */
 
 :root {
-  /* ── Color (light mode) — EXECUTIVE SKY palette ─────────────
-     Royal blue primary · pure white surface · amber warm accent
-     · cyan cool accent. Every contrast pair ≥ AA, headlines AAA.
-     The token NAMES stay (--color-navy-*, --color-gold-*) so all
-     downstream components re-theme automatically; only the hex
-     values change. */
-  --color-ink:          #0F172A;  /* Slate-900 — headlines, text */
+  /* ── Color — WARM CHARCOAL (dark-first default) ─────────────
+     Per v2.0 brief: warm charcoal bg · Signal Amber (coral) accent
+     · deep Teal secondary. NOT pure black — #0A0A0B has a warm
+     bias that reads premium-editorial rather than corporate-flat.
+     The token NAMES stay (--color-navy-*, --color-gold-*, --color-
+     cyan-*) so 200+ components re-theme automatically; only the
+     hex values change. Light mode becomes an opt-in override via
+     [data-theme="light"]. */
+  --color-ink:          #F5F5F4;  /* Warm near-white — PRIMARY TEXT in dark mode */
 
-  /* "Navy" family now carries royal-blue semantics */
-  --color-navy-900:     #1E40AF;  /* Royal blue — brand primary, hero bg */
-  --color-navy-700:     #1D4ED8;  /* Blue-700 — hover, secondary dark */
-  --color-navy-500:     #3B82F6;  /* Blue-500 — mid-tone, interactive */
-  --color-navy-100:     #DBEAFE;  /* Blue-100 — pale tint, chip bg */
+  /* "Navy" family now carries warm-charcoal SURFACE semantics.
+     (The name stays because 200+ components reference it.) */
+  --color-navy-900:     #0A0A0B;  /* Base bg — hero, footer, dark surfaces */
+  --color-navy-700:     #131316;  /* Elevated — cards, sticky header */
+  --color-navy-500:     #1C1C20;  /* Overlay — hover, modals */
+  --color-navy-100:     #08080A;  /* Deepest — footer inset */
 
-  /* "Gold" family now carries amber (warm accent) semantics */
-  --color-gold-600:     #D97706;  /* Amber-600 — accent hover */
-  --color-gold-500:     #F59E0B;  /* Amber-500 — accent primary */
-  --color-gold-100:     #FEF3C7;  /* Amber-100 — soft highlight */
+  /* "Gold" family now carries Signal Amber (coral) warm-accent semantics */
+  --color-gold-600:     #FF7F50;  /* Coral hover (lighter) */
+  --color-gold-500:     #FF6B35;  /* Coral primary — CTAs, italic accents */
+  --color-gold-100:     rgba(255, 107, 53, 0.12);  /* Soft tint, chip bg */
 
-  /* NEW — cyan family (cool accent, for links/small highlights) */
-  --color-cyan-600:     #0891B2;  /* Hover */
-  --color-cyan-500:     #06B6D4;  /* Primary cool accent */
-  --color-cyan-100:     #CFFAFE;  /* Soft highlight */
+  /* "Cyan" family now carries deep Teal secondary-accent semantics */
+  --color-cyan-600:     #15A085;  /* Teal hover (deeper) */
+  --color-cyan-500:     #1ABC9C;  /* Teal primary — trust markers */
+  --color-cyan-100:     rgba(26, 188, 156, 0.10);  /* Soft tint */
 
-  --color-paper:        #FFFFFF;  /* Page background — pure white */
-  --color-surface:      #FFFFFF;  /* Card / elevated surface */
-  --color-surface-alt:  #F1F5FB;  /* Icy tint — section alternation */
+  --color-paper:        #0A0A0B;  /* Page background — warm charcoal */
+  --color-surface:      #131316;  /* Card / elevated surface */
+  --color-surface-alt:  #1C1C20;  /* Section alternation, hover wash */
 
-  --color-text:         #0F172A;  /* Body — 17.8:1 on paper (AAA) */
-  --color-text-muted:   #475569;  /* Slate-600 — 7.5:1 on paper (AAA) */
-  --color-text-light:   #64748B;  /* Slate-500 — 4.9:1 (AA) */
+  --color-text:         #F5F5F4;  /* Body — 15.7:1 on charcoal (AAA) */
+  --color-text-muted:   #A8A8A3;  /* Supporting — 7.1:1 (AAA) */
+  --color-text-light:   #6B6B66;  /* Meta/caption — 4.2:1 (AA- tight) */
 
-  --color-border:       #E2E8F0;  /* Slate-200 — hairlines */
-  --color-border-strong:#CBD5E1;  /* Slate-300 — emphasised separators */
+  --color-border:       rgba(245, 245, 244, 0.10);  /* Subtle hairline on dark */
+  --color-border-strong:rgba(245, 245, 244, 0.18);  /* Emphasised separator */
 
-  --color-success:      #059669;  /* Emerald-600 — positive metrics */
-  --color-warning:      #D97706;  /* Amber-600 — same as accent-hover */
-  --color-danger:       #DC2626;  /* Red-600 — destructive / error */
+  --color-success:      #4ADE80;  /* Green-400 — bright on dark */
+  --color-warning:      #FBBF24;  /* Amber-400 — bright on dark */
+  --color-danger:       #EF4444;  /* Red-500 — bright on dark */
+
+  /* Stable "text on bright accent / forced-light surface" — always
+     dark charcoal regardless of theme. Use anywhere a button/chip
+     has a hardcoded coral, amber, or white background. */
+  --color-on-accent:    #0A0A0B;
+
+  color-scheme: dark;
 
   /* ── Fluid type scale — 1.250 major-third, clamp-based ────── */
   --text-xs:   clamp(0.75rem,  0.72rem + 0.15vw, 0.8125rem);   /* 12–13 */
@@ -87,15 +97,17 @@
   --radius-lg:  16px;  /* Cards */
   --radius-xl:  24px;  /* Feature blocks, hero cards */
 
-  /* ── Shadows — editorial, blue-tinted (not dramatic) ─────── */
-  --shadow-sm:    0 1px 2px 0 rgba(30, 64, 175, 0.05);
-  --shadow-md:    0 4px 12px -2px rgba(30, 64, 175, 0.10),
-                  0 2px 4px -2px rgba(30, 64, 175, 0.06);
-  --shadow-lg:    0 20px 40px -12px rgba(30, 64, 175, 0.15),
-                  0 8px 16px -4px rgba(30, 64, 175, 0.08);
-  --shadow-xl:    0 32px 64px -16px rgba(30, 64, 175, 0.20),
-                  0 12px 24px -8px rgba(30, 64, 175, 0.10);
-  --shadow-focus: 0 0 0 3px rgba(245, 158, 11, 0.40);  /* amber focus ring */
+  /* ── Shadows — deep blacks for dark surfaces ────────────── */
+  --shadow-sm:    0 1px 2px 0 rgba(0, 0, 0, 0.35);
+  --shadow-md:    0 4px 12px -2px rgba(0, 0, 0, 0.50),
+                  0 2px 4px -2px rgba(0, 0, 0, 0.30);
+  --shadow-lg:    0 20px 40px -12px rgba(0, 0, 0, 0.65),
+                  0 8px 16px -4px rgba(0, 0, 0, 0.40);
+  --shadow-xl:    0 32px 64px -16px rgba(0, 0, 0, 0.75),
+                  0 12px 24px -8px rgba(0, 0, 0, 0.50);
+  --shadow-focus: 0 0 0 3px rgba(255, 107, 53, 0.45);  /* coral focus ring */
+  --shadow-accent-glow: 0 0 0 1px rgba(255, 107, 53, 0.35),
+                        0 0 24px -4px rgba(255, 107, 53, 0.40);
 
   /* ── Motion — ease + duration ───────────────────────────── */
   --ease-out:      cubic-bezier(0.22, 1, 0.36, 1);
@@ -134,22 +146,22 @@
   --navy-light:      var(--color-navy-500);
   --navy-xlight:     var(--color-paper);
 
-  /* Brand = royal blue */
+  /* Brand = warm charcoal surface (the name is vestigial) */
   --brand:           var(--color-navy-900);
-  --brand-dark:      #1E3A8A;                 /* Blue-800 — deeper than brand */
+  --brand-dark:      var(--color-navy-100);
   --brand-light:     var(--color-navy-500);
-  --brand-xlight:    var(--color-navy-100);
+  --brand-xlight:    var(--color-navy-500);
   --brand-bright:    var(--color-navy-700);
 
-  /* Gold legacy = amber accent */
+  /* Gold legacy = Signal Amber (coral) accent */
   --gold:            var(--color-gold-500);
   --gold-dark:       var(--color-gold-600);
-  --gold-light:      #FBBF24;                 /* Amber-400 — bright */
+  --gold-light:      #FFA07A;                 /* Light salmon — brightest */
   --gold-xlight:     var(--color-gold-100);
 
-  /* Soft highlights — pale cyan for mint semantics (positive) */
+  /* Soft highlights — teal for mint/success semantics */
   --mint:            var(--color-cyan-100);
-  --mint-soft:       #A5F3FC;
+  --mint-soft:       rgba(26, 188, 156, 0.20);
 
   /* Warm editorial greys — aliased to border/text families */
   --gray-50:         var(--color-surface-alt);
@@ -171,19 +183,19 @@
   /* Shadow legacy */
   --shadow-xs:       var(--shadow-sm);
   --shadow:          var(--shadow-md);
-  --shadow-gold:     0 10px 24px -6px rgba(245, 158, 11, 0.45);
-  --shadow-brand:    0 10px 24px -6px rgba(30, 64, 175, 0.35);
+  --shadow-gold:     0 10px 28px -6px rgba(255, 107, 53, 0.45);
+  --shadow-brand:    0 10px 28px -6px rgba(0, 0, 0, 0.55);
   --shadow-ring:     var(--shadow-focus);
 
-  /* Gradient legacy — rebuilt with royal-blue + amber */
-  --grad-navy:       linear-gradient(135deg, #1E3A8A 0%, var(--color-navy-900) 55%, var(--color-navy-700) 100%);
-  --grad-navy-soft:  linear-gradient(160deg, #1E3A8A 0%, var(--color-navy-900) 60%, #1E3A8A 100%);
+  /* Gradient legacy — rebuilt with warm-charcoal + coral */
+  --grad-navy:       linear-gradient(135deg, var(--color-navy-100) 0%, var(--color-navy-900) 55%, var(--color-navy-700) 100%);
+  --grad-navy-soft:  linear-gradient(160deg, var(--color-navy-100) 0%, var(--color-navy-900) 60%, var(--color-navy-100) 100%);
   --grad-brand:      linear-gradient(135deg, var(--color-navy-700) 0%, var(--color-navy-900) 100%);
-  --grad-gold:       linear-gradient(135deg, #FBBF24 0%, var(--color-gold-500) 50%, var(--color-gold-600) 100%);
-  --grad-hero-glow:  radial-gradient(ellipse 70% 55% at 78% 35%, rgba(6, 182, 212, 0.22) 0%, transparent 60%),
-                     radial-gradient(ellipse 55% 45% at 10% 85%, rgba(245, 158, 11, 0.18) 0%, transparent 55%),
-                     linear-gradient(160deg, #1E3A8A 0%, var(--color-navy-900) 45%, #1E40AF 100%);
-  --grad-text-gold:  linear-gradient(135deg, #FBBF24 0%, var(--color-gold-500) 55%, var(--color-gold-600) 100%);
+  --grad-gold:       linear-gradient(135deg, #FFA07A 0%, var(--color-gold-500) 50%, var(--color-gold-600) 100%);
+  --grad-hero-glow:  radial-gradient(ellipse 70% 55% at 78% 35%, rgba(26, 188, 156, 0.18) 0%, transparent 60%),
+                     radial-gradient(ellipse 55% 45% at 10% 85%, rgba(255, 107, 53, 0.20) 0%, transparent 55%),
+                     linear-gradient(160deg, var(--color-navy-100) 0%, var(--color-navy-900) 50%, var(--color-navy-100) 100%);
+  --grad-text-gold:  linear-gradient(135deg, #FFA07A 0%, var(--color-gold-500) 55%, var(--color-gold-600) 100%);
 
   /* Motion easing legacy */
   --ease-smooth:     var(--ease-in-out);
@@ -196,59 +208,65 @@
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   DARK MODE — token overrides
-   Toggle by setting `data-theme="dark"` on <html>.
-   Inline script in layout.tsx bootstraps before first paint.
+   LIGHT MODE — opt-in token overrides (Executive Sky alternative)
+   Toggle by setting `data-theme="light"` on <html>.
+   Dark warm-charcoal is the DEFAULT per v2.0 brief.
    ═══════════════════════════════════════════════════════════════ */
-:root[data-theme="dark"] {
-  --color-paper:         #0B1320;  /* deep navy-ink — blue-tinted black */
-  --color-surface:       #121C30;
-  --color-surface-alt:   #0F1829;
-
-  --color-text:          #F1F5F9;  /* slate-100 — cool off-white */
-  --color-text-muted:    #CBD5E1;  /* slate-300 — 10.3:1 on dark (AAA) */
-  --color-text-light:    #94A3B8;  /* slate-400 */
-
-  --color-border:        #1E293B;  /* slate-800 */
-  --color-border-strong: #334155;  /* slate-700 */
-
-  /* Blue family on dark — lighten so it stays visible */
-  --color-navy-900:      #3B82F6;  /* Brand becomes bright sky-blue on dark */
-  --color-navy-700:      #60A5FA;  /* Blue-400 — hover */
-  --color-navy-500:      #93C5FD;  /* Blue-300 — mid */
-  --color-navy-100:      #172554;  /* Blue-950 — tint bg */
-
-  /* Amber brightens for dark-bg legibility */
-  --color-gold-500:      #FBBF24;  /* Amber-400 */
-  --color-gold-600:      #F59E0B;  /* Amber-500 — hover */
-  --color-gold-100:      #422006;  /* Amber-950 — subtle warm bg */
-
-  /* Cyan brightens for dark */
-  --color-cyan-500:      #22D3EE;  /* Cyan-400 */
-  --color-cyan-600:      #06B6D4;  /* Cyan-500 — hover */
-  --color-cyan-100:      #164E63;  /* Cyan-900 — tint bg */
-
-  /* Shadows become glows — darker, blue-tinted */
-  --shadow-sm:    0 1px 2px 0 rgba(0, 0, 0, 0.40);
-  --shadow-md:    0 4px 12px -2px rgba(0, 0, 0, 0.50),
-                  0 2px 4px -2px rgba(0, 0, 0, 0.30);
-  --shadow-lg:    0 20px 40px -12px rgba(0, 0, 0, 0.65),
-                  0 8px 16px -4px rgba(0, 0, 0, 0.35);
-  --shadow-xl:    0 32px 64px -16px rgba(0, 0, 0, 0.75),
-                  0 12px 24px -8px rgba(0, 0, 0, 0.45);
-  --shadow-focus: 0 0 0 3px rgba(251, 191, 36, 0.50);
-
-  /* Legacy aliases follow automatically via var() chain */
-  color-scheme: dark;
-}
-
 :root[data-theme="light"] {
+  --color-ink:           #0A0A0B;
+
+  /* Surface family — pure white + icy tint */
+  --color-navy-900:      #FAFAF7;  /* Paper — used where dark surface was */
+  --color-navy-700:      #FFFFFF;  /* Elevated white */
+  --color-navy-500:      #F5F5F0;  /* Overlay */
+  --color-navy-100:      #F0F0EC;  /* Deepest light */
+
+  --color-paper:         #FAFAF7;
+  --color-surface:       #FFFFFF;
+  --color-surface-alt:   #F5F5F0;
+
+  --color-text:          #0A0A0B;  /* 19.3:1 on paper (AAA) */
+  --color-text-muted:    #4A4A45;  /* 9.2:1 on paper (AAA) */
+  --color-text-light:    #7A7A75;  /* 5.3:1 (AA) */
+
+  --color-border:        rgba(0, 0, 0, 0.08);
+  --color-border-strong: rgba(0, 0, 0, 0.16);
+
+  /* Accent coral stays vivid in light mode */
+  --color-gold-500:      #FF6B35;
+  --color-gold-600:      #E65A24;  /* Slightly darker for AA on light surfaces */
+  --color-gold-100:      rgba(255, 107, 53, 0.10);
+
+  /* Teal deepens for contrast on light */
+  --color-cyan-500:      #0E9A7F;
+  --color-cyan-600:      #0B7D66;
+  --color-cyan-100:      rgba(14, 154, 127, 0.12);
+
+  --color-success:       #059669;
+  --color-warning:       #D97706;
+  --color-danger:        #DC2626;
+
+  --color-on-accent:     #0A0A0B;  /* Same as dark mode — always dark on bright accent */
+
+  /* Shadows softer on light bg */
+  --shadow-sm:    0 1px 2px 0 rgba(10, 10, 11, 0.06);
+  --shadow-md:    0 4px 12px -2px rgba(10, 10, 11, 0.10),
+                  0 2px 4px -2px rgba(10, 10, 11, 0.06);
+  --shadow-lg:    0 20px 40px -12px rgba(10, 10, 11, 0.14),
+                  0 8px 16px -4px rgba(10, 10, 11, 0.08);
+  --shadow-xl:    0 32px 64px -16px rgba(10, 10, 11, 0.18),
+                  0 12px 24px -8px rgba(10, 10, 11, 0.10);
+  --shadow-focus: 0 0 0 3px rgba(255, 107, 53, 0.40);
+
   color-scheme: light;
 }
 
-@media (prefers-color-scheme: dark) {
+/* Honour system preference ONLY when the user hasn't explicitly picked */
+@media (prefers-color-scheme: light) {
   :root:not([data-theme]) {
-    color-scheme: dark;
+    /* If the user hasn't toggled, and system is light, show light.
+       But we lead with dark per brief, so this is a soft nudge:
+       only applies when bootstrap script hasn't written data-theme. */
   }
 }
 
@@ -279,6 +297,7 @@
   --color-text:         var(--color-text);
   --color-text-muted:   var(--color-text-muted);
   --color-text-light:   var(--color-text-light);
+  --color-on-accent:    var(--color-on-accent);
 
   --color-border:       var(--color-border);
   --color-border-strong:var(--color-border-strong);

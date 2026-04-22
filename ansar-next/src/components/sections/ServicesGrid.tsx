@@ -196,7 +196,7 @@ export function ServicesGrid() {
               Safety excellence and{" "}
               <span
                 className="serif-italic"
-                style={{ color: "var(--color-navy-900)" }}
+                style={{ color: "var(--color-gold-500)" }}
               >
                 digital transformation
               </span>{" "}
@@ -228,7 +228,7 @@ export function ServicesGrid() {
 
               <Link
                 href="/services/"
-                className="group mt-5 inline-flex items-center gap-2 text-[0.92rem] font-semibold text-[var(--color-ink)] hover:text-[var(--color-navy-900)] transition-colors cursor-pointer"
+                className="group mt-5 inline-flex items-center gap-2 text-[0.92rem] font-semibold text-[var(--color-ink)] hover:text-[var(--color-gold-500)] transition-colors cursor-pointer"
               >
                 <span className="relative after:absolute after:inset-inline-start-0 after:-bottom-0.5 after:h-px after:w-full after:bg-current after:origin-left after:scale-x-0 after:transition-transform after:duration-[var(--duration-slow)] group-hover:after:scale-x-100">
                   View all services
@@ -371,9 +371,9 @@ function FeaturedCard({ service, index }: { service: Service; index: number }) {
                 key={chip}
                 className="inline-flex items-center text-[0.75rem] font-medium font-mono tracking-[0.04em] px-3 py-1 rounded-full border"
                 style={{
-                  background: "var(--color-surface)",
+                  background: "var(--color-surface-alt)",
                   color: "var(--color-text-muted)",
-                  borderColor: "var(--color-border)",
+                  borderColor: "var(--color-border-strong)",
                 }}
               >
                 {chip}

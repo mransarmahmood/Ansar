@@ -92,7 +92,7 @@ export function FeaturedCaseStudy() {
                   className="inline-flex items-center px-3 py-1.5 rounded-full backdrop-blur-sm shadow-[var(--shadow-sm)]"
                   style={{
                     background: "rgba(255,255,255,0.95)",
-                    color: "var(--color-ink)",
+                    color: "var(--color-on-accent)",
                     borderInlineStart: "2px solid var(--color-gold-500)",
                   }}
                 >
@@ -147,7 +147,7 @@ export function FeaturedCaseStudy() {
               Taking a GCC hospitality giga-project from{" "}
               <span
                 className="serif-italic"
-                style={{ color: "var(--color-navy-900)" }}
+                style={{ color: "var(--color-gold-500)" }}
               >
                 scratch
               </span>{" "}

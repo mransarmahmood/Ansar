@@ -10,14 +10,16 @@ import { Sun, Moon } from "lucide-react";
  */
 export function ThemeToggle({ className = "" }: { className?: string }) {
   const [mounted, setMounted] = useState(false);
-  const [theme, setTheme] = useState<"light" | "dark">("light");
+  // v2.0 brief: dark is the default. SSR renders as dark; on mount
+  // we read the real attribute set by the bootstrap script.
+  const [theme, setTheme] = useState<"light" | "dark">("dark");
 
   useEffect(() => {
     const current =
       (document.documentElement.getAttribute("data-theme") as
         | "light"
         | "dark"
-        | null) ?? "light";
+        | null) ?? "dark";
     setTheme(current);
     setMounted(true);
   }, []);

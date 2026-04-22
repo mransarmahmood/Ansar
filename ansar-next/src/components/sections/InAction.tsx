@@ -132,7 +132,7 @@ export function InAction() {
               Consulting isn&apos;t a slide deck. It&apos;s{" "}
               <span
                 className="serif-italic"
-                style={{ color: "var(--color-navy-900)" }}
+                style={{ color: "var(--color-gold-500)" }}
               >
                 where the work happens
               </span>

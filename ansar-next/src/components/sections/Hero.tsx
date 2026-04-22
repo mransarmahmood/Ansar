@@ -204,7 +204,7 @@ export function Hero() {
                   className="flex-shrink-0 h-12 w-12 rounded-full flex items-center justify-center font-display text-[1.15rem] font-medium"
                   style={{
                     background: "var(--grad-gold)",
-                    color: "var(--color-navy-900)",
+                    color: "var(--color-on-accent)",
                   }}
                 >
                   25+

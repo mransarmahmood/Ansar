@@ -123,13 +123,15 @@ export default function RootLayout({
     >
       <head>
         {/* ── Theme bootstrap (FOUC-free) ─────────────────────
-            Runs BEFORE any paint. Reads saved preference from
-            localStorage, falls back to the OS preference, and
-            sets data-theme on <html> so CSS custom properties
-            in globals.css invert on first render. */}
+            Runs BEFORE any paint. v2.0 brief: DARK IS DEFAULT.
+            Reads saved preference from localStorage; if none is
+            saved, defaults to dark (regardless of OS preference)
+            per brief §2 — the brand leads dark-first.
+            Sets data-theme on <html> so CSS custom properties
+            in globals.css apply on first render. */}
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{var t=localStorage.getItem('ansar-theme');if(t!=='light'&&t!=='dark')t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();`,
+            __html: `(function(){try{var t=localStorage.getItem('ansar-theme');if(t!=='light'&&t!=='dark')t='dark';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();`,
           }}
         />
 

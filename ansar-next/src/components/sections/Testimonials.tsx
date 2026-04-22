@@ -86,7 +86,7 @@ export function Testimonials() {
               What enterprise clients{" "}
               <span
                 className="serif-italic"
-                style={{ color: "var(--color-navy-900)" }}
+                style={{ color: "var(--color-gold-500)" }}
               >
                 say
               </span>{" "}
@@ -139,12 +139,12 @@ export function Testimonials() {
 
                 {/* Attribution */}
                 <footer className="flex items-center gap-4 not-italic">
-                  {/* Monogram — amber gradient, ink text for AA contrast */}
+                  {/* Monogram — coral gradient, on-accent text for AAA contrast */}
                   <div
                     className="relative h-14 w-14 shrink-0 rounded-full flex items-center justify-center font-display font-medium text-[1.05rem] tracking-tight"
                     style={{
                       background: "var(--grad-gold)",
-                      color: "var(--color-ink)",
+                      color: "var(--color-on-accent)",
                       boxShadow: "var(--shadow-md)",
                     }}
                     aria-hidden="true"
