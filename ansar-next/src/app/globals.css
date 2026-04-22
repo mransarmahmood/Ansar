@@ -603,6 +603,39 @@ p {
 }
 
 /* ═══════════════════════════════════════════════════════════════
+   MARQUEE — CSS-only infinite scroll for logo band
+   Duplicate the track in markup; this halves at -50% so the loop
+   is seamless. Pause on hover, respect prefers-reduced-motion.
+   ═══════════════════════════════════════════════════════════════ */
+
+@keyframes marquee-x {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.marquee {
+  display: flex;
+  inline-size: max-content;
+  gap: var(--space-16);
+  animation: marquee-x 48s linear infinite;
+  will-change: transform;
+}
+
+.marquee-group:hover .marquee,
+.marquee-group:focus-within .marquee {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee {
+    animation: none;
+    flex-wrap: wrap;
+    justify-content: center;
+    inline-size: 100%;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
    PREFERS-REDUCED-MOTION — disable all non-essential animation
    Non-negotiable #6. Applies globally.
    ═══════════════════════════════════════════════════════════════ */
