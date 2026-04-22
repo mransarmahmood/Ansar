@@ -14,33 +14,44 @@
    ──────────────────────────────────────────────────────────────── */
 
 :root {
-  /* ── Color (light mode) ─────────────────────────────────────
-     Body text contrast (14.4:1 AAA), muted (8.6:1 AAA).
-     Gold is ACCENT ONLY — never body copy on paper. */
-  --color-ink:          #0A0F1C;  /* Headlines, primary inks */
-  --color-navy-900:     #0B1F3A;  /* Brand primary, dark surfaces */
-  --color-navy-700:     #1E3A5F;  /* Hover, secondary dark */
-  --color-navy-500:     #34547E;  /* Mid-tone, illustration */
-  --color-navy-100:     #E2E8F0;  /* Pale navy tint (chip bg) */
+  /* ── Color (light mode) — EXECUTIVE SKY palette ─────────────
+     Royal blue primary · pure white surface · amber warm accent
+     · cyan cool accent. Every contrast pair ≥ AA, headlines AAA.
+     The token NAMES stay (--color-navy-*, --color-gold-*) so all
+     downstream components re-theme automatically; only the hex
+     values change. */
+  --color-ink:          #0F172A;  /* Slate-900 — headlines, text */
 
-  --color-gold-600:     #B8893A;  /* Accent interactive (hover) */
-  --color-gold-500:     #C9A24B;  /* Accent primary — badges, § */
-  --color-gold-100:     #F5EDD9;  /* Soft accent highlight */
+  /* "Navy" family now carries royal-blue semantics */
+  --color-navy-900:     #1E40AF;  /* Royal blue — brand primary, hero bg */
+  --color-navy-700:     #1D4ED8;  /* Blue-700 — hover, secondary dark */
+  --color-navy-500:     #3B82F6;  /* Blue-500 — mid-tone, interactive */
+  --color-navy-100:     #DBEAFE;  /* Blue-100 — pale tint, chip bg */
 
-  --color-paper:        #FAFAF7;  /* Page background — warm off-white */
+  /* "Gold" family now carries amber (warm accent) semantics */
+  --color-gold-600:     #D97706;  /* Amber-600 — accent hover */
+  --color-gold-500:     #F59E0B;  /* Amber-500 — accent primary */
+  --color-gold-100:     #FEF3C7;  /* Amber-100 — soft highlight */
+
+  /* NEW — cyan family (cool accent, for links/small highlights) */
+  --color-cyan-600:     #0891B2;  /* Hover */
+  --color-cyan-500:     #06B6D4;  /* Primary cool accent */
+  --color-cyan-100:     #CFFAFE;  /* Soft highlight */
+
+  --color-paper:        #FFFFFF;  /* Page background — pure white */
   --color-surface:      #FFFFFF;  /* Card / elevated surface */
-  --color-surface-alt:  #F5F4EF;  /* Section alternation */
+  --color-surface-alt:  #F1F5FB;  /* Icy tint — section alternation */
 
-  --color-text:         #111827;  /* Body — 14.4:1 on paper (AAA) */
-  --color-text-muted:   #4B5563;  /* Caption — 8.6:1 on paper (AAA) */
-  --color-text-light:   #6B7280;  /* De-emphasised — 5.6:1 (AA only) */
+  --color-text:         #0F172A;  /* Body — 17.8:1 on paper (AAA) */
+  --color-text-muted:   #475569;  /* Slate-600 — 7.5:1 on paper (AAA) */
+  --color-text-light:   #64748B;  /* Slate-500 — 4.9:1 (AA) */
 
-  --color-border:       #E5E7EB;  /* Default borders, hairlines */
-  --color-border-strong:#D1D5DB;  /* Emphasised separators */
+  --color-border:       #E2E8F0;  /* Slate-200 — hairlines */
+  --color-border-strong:#CBD5E1;  /* Slate-300 — emphasised separators */
 
-  --color-success:      #047857;  /* Positive metrics */
-  --color-warning:      #B45309;  /* Warnings (sparingly) */
-  --color-danger:       #B91C1C;  /* Destructive / error */
+  --color-success:      #059669;  /* Emerald-600 — positive metrics */
+  --color-warning:      #D97706;  /* Amber-600 — same as accent-hover */
+  --color-danger:       #DC2626;  /* Red-600 — destructive / error */
 
   /* ── Fluid type scale — 1.250 major-third, clamp-based ────── */
   --text-xs:   clamp(0.75rem,  0.72rem + 0.15vw, 0.8125rem);   /* 12–13 */
@@ -76,15 +87,15 @@
   --radius-lg:  16px;  /* Cards */
   --radius-xl:  24px;  /* Feature blocks, hero cards */
 
-  /* ── Shadows — editorial, navy-tinted (not dramatic) ─────── */
-  --shadow-sm:    0 1px 2px 0 rgba(11, 31, 58, 0.04);
-  --shadow-md:    0 4px 12px -2px rgba(11, 31, 58, 0.08),
-                  0 2px 4px -2px rgba(11, 31, 58, 0.04);
-  --shadow-lg:    0 20px 40px -12px rgba(11, 31, 58, 0.12),
-                  0 8px 16px -4px rgba(11, 31, 58, 0.06);
-  --shadow-xl:    0 32px 64px -16px rgba(11, 31, 58, 0.18),
-                  0 12px 24px -8px rgba(11, 31, 58, 0.08);
-  --shadow-focus: 0 0 0 3px rgba(201, 162, 75, 0.35);
+  /* ── Shadows — editorial, blue-tinted (not dramatic) ─────── */
+  --shadow-sm:    0 1px 2px 0 rgba(30, 64, 175, 0.05);
+  --shadow-md:    0 4px 12px -2px rgba(30, 64, 175, 0.10),
+                  0 2px 4px -2px rgba(30, 64, 175, 0.06);
+  --shadow-lg:    0 20px 40px -12px rgba(30, 64, 175, 0.15),
+                  0 8px 16px -4px rgba(30, 64, 175, 0.08);
+  --shadow-xl:    0 32px 64px -16px rgba(30, 64, 175, 0.20),
+                  0 12px 24px -8px rgba(30, 64, 175, 0.10);
+  --shadow-focus: 0 0 0 3px rgba(245, 158, 11, 0.40);  /* amber focus ring */
 
   /* ── Motion — ease + duration ───────────────────────────── */
   --ease-out:      cubic-bezier(0.22, 1, 0.36, 1);
@@ -123,22 +134,22 @@
   --navy-light:      var(--color-navy-500);
   --navy-xlight:     var(--color-paper);
 
-  /* Brand = navy (was teal) — navy reads as institutional trust */
+  /* Brand = royal blue */
   --brand:           var(--color-navy-900);
-  --brand-dark:      #061125;                 /* deeper than navy-900 */
+  --brand-dark:      #1E3A8A;                 /* Blue-800 — deeper than brand */
   --brand-light:     var(--color-navy-500);
   --brand-xlight:    var(--color-navy-100);
   --brand-bright:    var(--color-navy-700);
 
-  /* Gold legacy = spec gold directly */
+  /* Gold legacy = amber accent */
   --gold:            var(--color-gold-500);
   --gold-dark:       var(--color-gold-600);
-  --gold-light:      #DDB96A;
+  --gold-light:      #FBBF24;                 /* Amber-400 — bright */
   --gold-xlight:     var(--color-gold-100);
 
-  /* Soft highlights — use gold-100 instead of old mint */
-  --mint:            var(--color-gold-100);
-  --mint-soft:       #EDE2B9;
+  /* Soft highlights — pale cyan for mint semantics (positive) */
+  --mint:            var(--color-cyan-100);
+  --mint-soft:       #A5F3FC;
 
   /* Warm editorial greys — aliased to border/text families */
   --gray-50:         var(--color-surface-alt);
@@ -160,19 +171,19 @@
   /* Shadow legacy */
   --shadow-xs:       var(--shadow-sm);
   --shadow:          var(--shadow-md);
-  --shadow-gold:     0 10px 24px -6px rgba(201, 162, 75, 0.40);
-  --shadow-brand:    0 10px 24px -6px rgba(11, 31, 58, 0.32);
+  --shadow-gold:     0 10px 24px -6px rgba(245, 158, 11, 0.45);
+  --shadow-brand:    0 10px 24px -6px rgba(30, 64, 175, 0.35);
   --shadow-ring:     var(--shadow-focus);
 
-  /* Gradient legacy — rebuilt with navy family */
-  --grad-navy:       linear-gradient(135deg, #061125 0%, var(--color-navy-900) 55%, var(--color-navy-700) 100%);
-  --grad-navy-soft:  linear-gradient(160deg, #061125 0%, var(--color-navy-900) 60%, #050C1A 100%);
+  /* Gradient legacy — rebuilt with royal-blue + amber */
+  --grad-navy:       linear-gradient(135deg, #1E3A8A 0%, var(--color-navy-900) 55%, var(--color-navy-700) 100%);
+  --grad-navy-soft:  linear-gradient(160deg, #1E3A8A 0%, var(--color-navy-900) 60%, #1E3A8A 100%);
   --grad-brand:      linear-gradient(135deg, var(--color-navy-700) 0%, var(--color-navy-900) 100%);
-  --grad-gold:       linear-gradient(135deg, #DDB96A 0%, var(--color-gold-500) 50%, var(--color-gold-600) 100%);
-  --grad-hero-glow:  radial-gradient(ellipse 70% 55% at 78% 35%, rgba(52, 84, 126, 0.22) 0%, transparent 60%),
-                     radial-gradient(ellipse 55% 45% at 10% 85%, rgba(201, 162, 75, 0.16) 0%, transparent 55%),
-                     linear-gradient(160deg, #061125 0%, var(--color-navy-900) 45%, #050C1A 100%);
-  --grad-text-gold:  linear-gradient(135deg, #DDB96A 0%, var(--color-gold-500) 55%, var(--color-gold-600) 100%);
+  --grad-gold:       linear-gradient(135deg, #FBBF24 0%, var(--color-gold-500) 50%, var(--color-gold-600) 100%);
+  --grad-hero-glow:  radial-gradient(ellipse 70% 55% at 78% 35%, rgba(6, 182, 212, 0.22) 0%, transparent 60%),
+                     radial-gradient(ellipse 55% 45% at 10% 85%, rgba(245, 158, 11, 0.18) 0%, transparent 55%),
+                     linear-gradient(160deg, #1E3A8A 0%, var(--color-navy-900) 45%, #1E40AF 100%);
+  --grad-text-gold:  linear-gradient(135deg, #FBBF24 0%, var(--color-gold-500) 55%, var(--color-gold-600) 100%);
 
   /* Motion easing legacy */
   --ease-smooth:     var(--ease-in-out);
@@ -190,37 +201,42 @@
    Inline script in layout.tsx bootstraps before first paint.
    ═══════════════════════════════════════════════════════════════ */
 :root[data-theme="dark"] {
-  --color-paper:         #0A0F1C;  /* near-black, navy-tinted */
-  --color-surface:       #12182A;
-  --color-surface-alt:   #0D1323;
+  --color-paper:         #0B1320;  /* deep navy-ink — blue-tinted black */
+  --color-surface:       #121C30;
+  --color-surface-alt:   #0F1829;
 
-  --color-text:          #F5F4EF;  /* warm off-white */
-  --color-text-muted:    #B8BCC5;  /* 7.1:1 on dark paper (AAA) */
-  --color-text-light:    #8A8F9A;
+  --color-text:          #F1F5F9;  /* slate-100 — cool off-white */
+  --color-text-muted:    #CBD5E1;  /* slate-300 — 10.3:1 on dark (AAA) */
+  --color-text-light:    #94A3B8;  /* slate-400 */
 
-  --color-border:        #1E2540;
-  --color-border-strong: #2A3250;
+  --color-border:        #1E293B;  /* slate-800 */
+  --color-border-strong: #334155;  /* slate-700 */
 
-  /* Navy family on dark — lighten so it stays visible */
-  --color-navy-900:      #020812;
-  --color-navy-700:      #0B1F3A;
-  --color-navy-500:      #3D5C85;
-  --color-navy-100:      #15213A;
+  /* Blue family on dark — lighten so it stays visible */
+  --color-navy-900:      #3B82F6;  /* Brand becomes bright sky-blue on dark */
+  --color-navy-700:      #60A5FA;  /* Blue-400 — hover */
+  --color-navy-500:      #93C5FD;  /* Blue-300 — mid */
+  --color-navy-100:      #172554;  /* Blue-950 — tint bg */
 
-  /* Gold brightens for dark-bg legibility */
-  --color-gold-500:      #DDB96A;
-  --color-gold-600:      #C9A24B;
-  --color-gold-100:      #2A2415;
+  /* Amber brightens for dark-bg legibility */
+  --color-gold-500:      #FBBF24;  /* Amber-400 */
+  --color-gold-600:      #F59E0B;  /* Amber-500 — hover */
+  --color-gold-100:      #422006;  /* Amber-950 — subtle warm bg */
 
-  /* Shadows become glows — darker */
-  --shadow-sm:    0 1px 2px 0 rgba(0, 0, 0, 0.35);
-  --shadow-md:    0 4px 12px -2px rgba(0, 0, 0, 0.45),
-                  0 2px 4px -2px rgba(0, 0, 0, 0.25);
-  --shadow-lg:    0 20px 40px -12px rgba(0, 0, 0, 0.60),
-                  0 8px 16px -4px rgba(0, 0, 0, 0.30);
-  --shadow-xl:    0 32px 64px -16px rgba(0, 0, 0, 0.70),
-                  0 12px 24px -8px rgba(0, 0, 0, 0.40);
-  --shadow-focus: 0 0 0 3px rgba(221, 185, 106, 0.45);
+  /* Cyan brightens for dark */
+  --color-cyan-500:      #22D3EE;  /* Cyan-400 */
+  --color-cyan-600:      #06B6D4;  /* Cyan-500 — hover */
+  --color-cyan-100:      #164E63;  /* Cyan-900 — tint bg */
+
+  /* Shadows become glows — darker, blue-tinted */
+  --shadow-sm:    0 1px 2px 0 rgba(0, 0, 0, 0.40);
+  --shadow-md:    0 4px 12px -2px rgba(0, 0, 0, 0.50),
+                  0 2px 4px -2px rgba(0, 0, 0, 0.30);
+  --shadow-lg:    0 20px 40px -12px rgba(0, 0, 0, 0.65),
+                  0 8px 16px -4px rgba(0, 0, 0, 0.35);
+  --shadow-xl:    0 32px 64px -16px rgba(0, 0, 0, 0.75),
+                  0 12px 24px -8px rgba(0, 0, 0, 0.45);
+  --shadow-focus: 0 0 0 3px rgba(251, 191, 36, 0.50);
 
   /* Legacy aliases follow automatically via var() chain */
   color-scheme: dark;
@@ -255,6 +271,10 @@
   --color-gold-600:     var(--color-gold-600);
   --color-gold-500:     var(--color-gold-500);
   --color-gold-100:     var(--color-gold-100);
+
+  --color-cyan-600:     var(--color-cyan-600);
+  --color-cyan-500:     var(--color-cyan-500);
+  --color-cyan-100:     var(--color-cyan-100);
 
   --color-text:         var(--color-text);
   --color-text-muted:   var(--color-text-muted);

@@ -60,13 +60,13 @@ export function Hero() {
         className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[var(--color-gold-500)]/45 to-transparent z-10"
       />
 
-      {/* Background glows — gold top-right, navy-mid lower-left */}
+      {/* Background glows — cyan top-right, amber lower-left */}
       <div
         aria-hidden="true"
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "radial-gradient(55% 45% at 82% 18%, rgba(201,162,75,0.18) 0%, transparent 60%), radial-gradient(45% 45% at 10% 85%, rgba(52,84,126,0.22) 0%, transparent 55%)",
+            "radial-gradient(55% 45% at 82% 18%, rgba(6,182,212,0.22) 0%, transparent 60%), radial-gradient(45% 45% at 10% 85%, rgba(245,158,11,0.18) 0%, transparent 55%)",
         }}
       />
 
@@ -187,13 +187,13 @@ export function Hero() {
                   className="object-cover"
                   style={{ objectPosition: "50% 20%" }}
                 />
-                {/* Slight navy wash for cohesion with page */}
+                {/* Slight brand-blue wash for cohesion with page */}
                 <div
                   aria-hidden="true"
                   className="absolute inset-0 pointer-events-none"
                   style={{
                     background:
-                      "linear-gradient(180deg, transparent 55%, rgba(11,31,58,0.55) 100%)",
+                      "linear-gradient(180deg, transparent 55%, rgba(30,64,175,0.60) 100%)",
                   }}
                 />
               </div>
