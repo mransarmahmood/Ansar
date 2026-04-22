@@ -139,10 +139,17 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
         />
       </head>
-      <body className="min-h-screen flex flex-col bg-[var(--page)] text-[var(--text)]">
+      <body className="min-h-screen flex flex-col bg-[var(--color-paper)] text-[var(--color-text)]">
+        {/* Skip-to-content link — appears on keyboard focus.
+            Non-negotiable #2: every page keyboard-navigable. */}
+        <a href="#main-content" className="skip-link">
+          Skip to content
+        </a>
         <TopBar />
         <Header />
-        <main className="flex-1">{children}</main>
+        <main id="main-content" className="flex-1">
+          {children}
+        </main>
         <Footer />
         <FloatingActions />
       </body>
