@@ -15,32 +15,10 @@
                  path === '';
   const base = isRoot ? '' : '../';
 
-  // ── Theme application (FOUC-minimised) ─────────────────────
-  // Applies cached theme from localStorage instantly, then fetches
-  // /theme.php in the background to pick up any admin changes.
-  try {
-    var cachedTheme = localStorage.getItem('ansar_theme');
-    if (cachedTheme && /^[a-z0-9_-]+$/i.test(cachedTheme)) {
-      document.documentElement.setAttribute('data-theme', cachedTheme);
-    }
-    fetch(base + 'theme.php', { cache: 'no-store' })
-      .then(function (r) { return r.ok ? r.text() : ''; })
-      .then(function (t) {
-        t = (t || '').trim();
-        if (t && /^[a-z0-9_-]+$/.test(t) && t !== cachedTheme) {
-          document.documentElement.setAttribute('data-theme', t);
-          localStorage.setItem('ansar_theme', t);
-        }
-      })
-      .catch(function () {});
-  } catch (e) { /* ignore storage / fetch errors */ }
-
   // ── Contact details (update these) ─────────────────────────
-  const EMAIL      = 'info@ansarmahmood.org';
-  const EMAIL_ALT  = 'mransarmahmood@gmail.com';
-  const PHONE      = '+92 333 928 4928';
-  const PHONE_ALT  = '+966 53 485 2341';
-  const WHATSAPP   = '923339284928'; // No + or spaces
+  const EMAIL    = 'ansar@ansarmahmood.com';
+  const PHONE    = '+1 (234) 567-8900';
+  const WHATSAPP = '12345678900'; // No + or spaces
 
   // ── Navigation data ────────────────────────────────────────
   const learningLinks = [
@@ -103,7 +81,7 @@
   <header class="header" id="site-header-elem" role="banner">
     <div class="container">
       <a href="${base}index.html" class="logo" aria-label="Ansar Mahmood Home">
-        <img src="${base}assets/images/logo.png" alt="Ansar Mahmood" class="logo-img" width="220" height="50" loading="eager" onerror="this.style.display='none';this.nextElementSibling.style.display='inline';">
+        <img src="${base}assets/images/logo.svg" alt="Ansar Mahmood" class="logo-img" width="220" height="46" loading="eager" onerror="this.style.display='none';this.nextElementSibling.style.display='inline';">
         <span class="logo-text" style="display:none;">Ansar<span>.</span>Mahmood</span>
       </a>
 
@@ -200,7 +178,7 @@
   <!-- Mobile Nav -->
   <nav class="mobile-nav" id="mobile-nav" role="dialog" aria-label="Mobile navigation" aria-modal="true">
     <div class="mobile-nav__header">
-      <img src="${base}assets/images/logo.png" alt="Ansar Mahmood" class="logo-img" width="180" height="41" onerror="this.style.display='none';">
+      <img src="${base}assets/images/logo.svg" alt="Ansar Mahmood" class="logo-img" width="180" height="38" onerror="this.style.display='none';">
 
       <button class="mobile-close" id="mobile-close" aria-label="Close navigation">
         <i class="fas fa-times"></i>
@@ -260,8 +238,7 @@
 
           <!-- Col 1: Brand -->
           <div class="footer__col footer__col--brand">
-            <img src="${base}assets/images/logo-white.png" alt="Ansar Mahmood" class="footer__logo-img" width="260" height="59" onerror="this.style.display='none';this.nextElementSibling.style.display='block';">
-            <div class="footer__logo" style="display:none;">Ansar<span>.</span>Mahmood</div>
+            <div class="footer__logo">Ansar<span>.</span>Mahmood</div>
             <p>Senior HSE Consultant, Trainer, Auditor, and AI & Digital Solutions Specialist — delivering safety excellence and digital transformation across 40+ countries.</p>
             <div class="footer__social">
               <a href="#" aria-label="LinkedIn" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
@@ -341,16 +318,8 @@
               <a href="mailto:${EMAIL}">${EMAIL}</a>
             </div>
             <div class="footer__contact-item">
-              <i class="fas fa-envelope-open"></i>
-              <a href="mailto:${EMAIL_ALT}">${EMAIL_ALT}</a>
-            </div>
-            <div class="footer__contact-item">
               <i class="fas fa-phone"></i>
-              <a href="tel:${PHONE.replace(/\s/g,'')}">${PHONE} <span style="opacity:.6;font-size:.78rem;">(PK)</span></a>
-            </div>
-            <div class="footer__contact-item">
-              <i class="fas fa-phone"></i>
-              <a href="tel:${PHONE_ALT.replace(/\s/g,'')}">${PHONE_ALT} <span style="opacity:.6;font-size:.78rem;">(KSA)</span></a>
+              <a href="tel:${PHONE.replace(/\s/g,'')}">${PHONE}</a>
             </div>
             <div class="footer__contact-item">
               <i class="fab fa-whatsapp"></i>

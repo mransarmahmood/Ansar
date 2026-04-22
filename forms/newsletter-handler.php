@@ -17,7 +17,7 @@ if (!empty($_POST['website'])) {
     exit;
 }
 
-define('RECIPIENT_EMAIL', 'info@ansarmahmood.org');
+define('RECIPIENT_EMAIL', 'ansar@ansarmahmood.com');
 define('CSV_FILE', __DIR__ . '/../data/subscribers.csv');
 
 $email  = filter_var(trim($_POST['email'] ?? ''), FILTER_SANITIZE_EMAIL);
@@ -49,16 +49,10 @@ if ($fp) {
     fclose($fp);
 }
 
-require_once __DIR__ . '/../includes/mailer.php';
-
 // ── Notify owner ─────────────────────────────────────────────
-ansar_send_mail([
-    'to'        => RECIPIENT_EMAIL,
-    'subject'   => "New newsletter subscriber: {$email}",
-    'body'      => "Email: {$email}\nSource: {$source}\nTime: " . date('Y-m-d H:i:s T'),
-    'from_name' => 'Ansar Mahmood Website',
-    'from_email'=> 'noreply@ansarmahmood.org',
-]);
+$notifyHeaders  = "From: noreply@ansarmahmood.com\r\n";
+$notifyHeaders .= "Content-Type: text/plain; charset=UTF-8\r\n";
+mail(RECIPIENT_EMAIL, "New newsletter subscriber: {$email}", "Email: {$email}\nSource: {$source}\nTime: " . date('Y-m-d H:i:s T'), $notifyHeaders);
 
 // ── Welcome email ────────────────────────────────────────────
 $welcome  = "Welcome to the Ansar Mahmood HSE Insights newsletter!\n\n";
@@ -68,13 +62,10 @@ $welcome .= "→ https://ansarmahmood.com/pages/resources.html\n\n";
 $welcome .= "To unsubscribe, simply reply to this email with 'Unsubscribe' in the subject line.\n\n";
 $welcome .= "Best regards,\nAnsar Mahmood\nGlobal HSE Consultant, Trainer & Digital Solutions Specialist\n";
 
-ansar_send_mail([
-    'to'        => $email,
-    'subject'   => 'Welcome to Ansar Mahmood HSE Insights',
-    'body'      => $welcome,
-    'reply_to'  => RECIPIENT_EMAIL,
-    'from_name' => 'Ansar Mahmood',
-    'from_email'=> RECIPIENT_EMAIL,
-]);
+$welcomeHeaders  = "From: Ansar Mahmood <" . RECIPIENT_EMAIL . ">\r\n";
+$welcomeHeaders .= "Reply-To: " . RECIPIENT_EMAIL . "\r\n";
+$welcomeHeaders .= "Content-Type: text/plain; charset=UTF-8\r\n";
+
+mail($email, 'Welcome to Ansar Mahmood HSE Insights', $welcome, $welcomeHeaders);
 
 echo json_encode(['success' => true, 'message' => 'Subscribed successfully.']);

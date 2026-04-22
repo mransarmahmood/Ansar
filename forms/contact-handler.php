@@ -20,10 +20,9 @@ if (!empty($_POST['website'])) {
 }
 
 // ── Configuration ────────────────────────────────────────────
-define('RECIPIENT_EMAIL', 'info@ansarmahmood.org');
-define('RECIPIENT_CC',    'mransarmahmood@gmail.com');
+define('RECIPIENT_EMAIL', 'ansar@ansarmahmood.com');
 define('RECIPIENT_NAME',  'Ansar Mahmood');
-define('SENDER_FROM',     'noreply@ansarmahmood.org');
+define('SENDER_FROM',     'noreply@ansarmahmood.com');
 define('SUBJECT_PREFIX',  '[Website Enquiry]');
 
 // ── Sanitize helper ──────────────────────────────────────────
@@ -80,21 +79,17 @@ $body .= "---\nSent via ansarmahmood.com contact form\n";
 $body .= "IP: " . ($_SERVER['REMOTE_ADDR'] ?? 'unknown') . "\n";
 $body .= "Time: " . date('Y-m-d H:i:s T') . "\n";
 
+$headers  = "From: {$name} <{$SENDER_FROM}>\r\n";
+$headers .= "Reply-To: {$email}\r\n";
+$headers .= "MIME-Version: 1.0\r\n";
+$headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
+$headers .= "X-Mailer: PHP/" . phpversion() . "\r\n";
+
 $subject = SUBJECT_PREFIX . " {$service} — {$name}";
 if (!$service) $subject = SUBJECT_PREFIX . " General enquiry from {$name}";
 
-// ── Send email via shared mailer (SMTP if configured, else mail()) ───
-require_once dirname(__DIR__) . '/includes/mailer.php';
-
-$sent = ansar_send_mail([
-    'to'        => RECIPIENT_EMAIL,
-    'cc'        => RECIPIENT_CC,
-    'subject'   => $subject,
-    'body'      => $body,
-    'reply_to'  => $email,
-    'from_name' => $name,
-    'from_email'=> SENDER_FROM,
-]);
+// ── Send email ───────────────────────────────────────────────
+$sent = mail(RECIPIENT_EMAIL, $subject, $body, $headers);
 
 // ── Auto-reply to sender ─────────────────────────────────────
 if ($sent) {
@@ -106,22 +101,17 @@ if ($sent) {
     $autoBody .= "In the meantime, you can:\n";
     $autoBody .= "- Book a free consultation: https://ansarmahmood.com/pages/book-consultation.html\n";
     $autoBody .= "- Browse resources: https://ansarmahmood.com/pages/resources.html\n\n";
-    $autoBody .= "Best regards,\nAnsar Mahmood\nGlobal HSE Consultant & Trainer\ninfo@ansarmahmood.org | +92 333 928 4928\n";
+    $autoBody .= "Best regards,\nAnsar Mahmood\nGlobal HSE Consultant & Trainer\nansar@ansarmahmood.com\n";
 
-    ansar_send_mail([
-        'to'        => $email,
-        'subject'   => 'Thank you for your enquiry — Ansar Mahmood',
-        'body'      => $autoBody,
-        'reply_to'  => RECIPIENT_EMAIL,
-        'from_name' => RECIPIENT_NAME,
-        'from_email'=> RECIPIENT_EMAIL,
-    ]);
+    $autoHeaders  = "From: " . RECIPIENT_NAME . " <" . RECIPIENT_EMAIL . ">\r\n";
+    $autoHeaders .= "Reply-To: " . RECIPIENT_EMAIL . "\r\n";
+    $autoHeaders .= "MIME-Version: 1.0\r\n";
+    $autoHeaders .= "Content-Type: text/plain; charset=UTF-8\r\n";
+
+    mail($email, 'Thank you for your enquiry — Ansar Mahmood', $autoBody, $autoHeaders);
 }
 
-// Note: lead is already saved to CSV even if email fails — so return success to the user.
 echo json_encode([
-    'success' => true,
-    'message' => $sent
-        ? 'Message sent successfully. Ansar will respond within 24 hours.'
-        : 'Your message has been received. Ansar will respond within 24 hours.'
+    'success' => $sent,
+    'message' => $sent ? 'Message sent successfully.' : 'Failed to send. Please email us directly.'
 ]);

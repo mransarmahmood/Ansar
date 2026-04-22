@@ -2,8 +2,6 @@
 
 # ── Process .html files as PHP (for CMS content rendering) ────
 AddType application/x-httpd-php .html .htm
-# Theme injection is now handled by layout.js + /theme.php (no server
-# config required — works on any host including PHP-FPM / LiteSpeed).
 
 # ── Enable Rewrite Engine ──────────────────────────────────────
 Options -Indexes
@@ -21,10 +19,8 @@ RewriteEngine On
 </IfModule>
 
 # ── Block direct access to sensitive directories ──────────────
-# Block data/ entirely (contains CSV logs + settings.json)
+RewriteRule ^forms/.*$ - [F,L]
 RewriteRule ^data/.*$  - [F,L]
-# forms/ handlers enforce POST + X-Requested-With themselves; we no longer
-# block the whole directory so AJAX submissions can reach them.
 
 # ── Gzip Compression ────────────────────────────────────────────
 <IfModule mod_deflate.c>
@@ -48,18 +44,7 @@ RewriteRule ^data/.*$  - [F,L]
   ExpiresByType font/woff2                "access plus 1 year"
 </IfModule>
 
-# ── React migration fallback ───────────────────────────────────
-# React build output puts /index.html + /_next/* at the repo root and
-# optionally /<route>/index.html per page. Until every React page is
-# built, fall back to the old PHP pages at /pages/*.html for routes
-# that don't yet exist in the React build.
-#
-# Example: /about/ → /pages/about.html when /about/index.html doesn't exist
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^([a-zA-Z][a-zA-Z0-9_-]*)/?$ pages/$1.html [L]
-
-# ── Extensionless .html for any remaining root-level .html files ──
+# ── Remove .html extension ──────────────────────────────────────
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME}.html -f
