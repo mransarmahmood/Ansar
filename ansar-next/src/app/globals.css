@@ -330,6 +330,37 @@ body {
   font-feature-settings: "kern", "liga", "ss01", "cv11";
 }
 
+/* ═══════════════════════════════════════════════════════════════
+   RTL / Arabic — activates when <html dir="rtl">
+   Swap display + body fonts to Cairo; disable italic variations
+   (italic serif doesn't exist in Arabic typography).
+   Non-negotiable #7.
+   ═══════════════════════════════════════════════════════════════ */
+:root[dir="rtl"] body,
+:root[lang="ar"] body {
+  font-family: var(--font-arabic), "Segoe UI", Tahoma, sans-serif;
+  font-feature-settings: normal;
+}
+
+:root[dir="rtl"] h1,
+:root[dir="rtl"] h2,
+:root[dir="rtl"] h3,
+:root[dir="rtl"] h4,
+:root[dir="rtl"] h5,
+:root[dir="rtl"] h6,
+:root[dir="rtl"] .font-display,
+:root[dir="rtl"] .serif-italic {
+  font-family: var(--font-arabic), "Segoe UI", Tahoma, sans-serif;
+  font-style: normal;                    /* Arabic has no italic */
+  font-variation-settings: normal;
+  letter-spacing: 0;                     /* Latin tracking breaks Arabic */
+}
+
+/* In RTL, flip directional lucide icons that imply motion */
+:root[dir="rtl"] .flip-rtl {
+  transform: scaleX(-1);
+}
+
 img,
 picture,
 video,

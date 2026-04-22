@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Fraunces, Inter, JetBrains_Mono } from "next/font/google";
+import { Fraunces, Inter, JetBrains_Mono, Cairo } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import { TopBar } from "@/components/layout/TopBar";
@@ -31,6 +31,14 @@ const mono = JetBrains_Mono({
   variable: "--font-mono",
   subsets: ["latin"],
   weight: ["400", "500", "600"],
+  display: "swap",
+});
+
+/** Arabic display + body. Activates when <html dir="rtl">. */
+const arabic = Cairo({
+  variable: "--font-arabic",
+  subsets: ["arabic", "latin"],
+  weight: ["400", "600", "700"],
   display: "swap",
 });
 
@@ -110,7 +118,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${display.variable} ${body.variable} ${mono.variable}`}
+      className={`${display.variable} ${body.variable} ${mono.variable} ${arabic.variable}`}
       suppressHydrationWarning
     >
       <head>
@@ -122,6 +130,18 @@ export default function RootLayout({
         <script
           dangerouslySetInnerHTML={{
             __html: `(function(){try{var t=localStorage.getItem('ansar-theme');if(t!=='light'&&t!=='dark')t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();`,
+          }}
+        />
+
+        {/* ── Language bootstrap (FOUC-free RTL flip) ────────
+            Reads saved preference, sets lang + dir + a
+            data-lang attribute on <html>. CSS in globals.css
+            and components respond to :root[dir="rtl"] for
+            Arabic font family swap + logical property
+            mirroring. Non-negotiable #7. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var l=localStorage.getItem('ansar-lang');if(l!=='en'&&l!=='ar')l='en';document.documentElement.setAttribute('lang',l);document.documentElement.setAttribute('dir',l==='ar'?'rtl':'ltr');document.documentElement.setAttribute('data-lang',l);}catch(e){document.documentElement.setAttribute('lang','en');document.documentElement.setAttribute('dir','ltr');}})();`,
           }}
         />
 
