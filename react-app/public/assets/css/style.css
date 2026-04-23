@@ -1009,12 +1009,17 @@ p { color: var(--text-muted); line-height: 1.8; font-size: 1.05rem; }
   .hero .container { grid-template-columns: 1fr; justify-items: center; text-align: center; }
   .hero__content   { max-width: 640px; }
   .hero__creds, .hero__actions { justify-content: center; }
-  .hero__visual    { display: none; }
+  .hero__visual    { width: 100%; max-width: 420px; margin-top: 32px; }
+  .hero__pro-card  { width: 100%; }
+}
+@media (max-width: 768px) {
+  .hero__visual    { max-width: 340px; }
 }
 @media (max-width: 640px) {
   .hero { min-height: auto; padding: 120px 0 80px; }
   .hero__actions { flex-direction: column; align-items: center; }
   .hero__actions .btn { width: 100%; justify-content: center; }
+  .hero__visual    { max-width: 280px; margin-top: 24px; }
 }
 
 /* ── Trust Bar — Scrolling Credential Marquee ───────────────── */
