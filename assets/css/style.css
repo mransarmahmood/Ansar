@@ -1009,12 +1009,17 @@ p { color: var(--text-muted); line-height: 1.8; font-size: 1.05rem; }
   .hero .container { grid-template-columns: 1fr; justify-items: center; text-align: center; }
   .hero__content   { max-width: 640px; }
   .hero__creds, .hero__actions { justify-content: center; }
-  .hero__visual    { display: none; }
+  .hero__visual    { width: 100%; max-width: 420px; margin-top: 32px; }
+  .hero__pro-card  { width: 100%; }
+}
+@media (max-width: 768px) {
+  .hero__visual    { max-width: 340px; }
 }
 @media (max-width: 640px) {
   .hero { min-height: auto; padding: 120px 0 80px; }
   .hero__actions { flex-direction: column; align-items: center; }
   .hero__actions .btn { width: 100%; justify-content: center; }
+  .hero__visual    { max-width: 280px; margin-top: 24px; }
 }
 
 /* ── Trust Bar — Scrolling Credential Marquee ───────────────── */
@@ -2189,6 +2194,68 @@ textarea.form-control {
   .process-steps { grid-template-columns: 1fr; }
 }
 
+/* ── Project cards (homepage showcase) ──────────────────────── */
+.project-card {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  background: #fff;
+  border: 1px solid var(--gray-200);
+  transition: transform .35s cubic-bezier(.22,.61,.36,1), box-shadow .35s cubic-bezier(.22,.61,.36,1);
+}
+.project-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-xl); }
+.project-card__media { position: relative; height: 220px; overflow: hidden; }
+.project-card__media img {
+  width: 100%; height: 100%; object-fit: cover; object-position: top;
+  transition: transform .6s ease;
+}
+.project-card:hover .project-card__media img { transform: scale(1.06); }
+.project-card__scrim {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(10,22,40,.75) 0%, transparent 50%);
+}
+.project-card__tag {
+  position: absolute; top: 14px; left: 14px;
+  color: #fff;
+  font-size: .72rem; font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 100px;
+  text-transform: uppercase;
+  letter-spacing: .07em;
+}
+
+/* ── Testimonial slider enhancements ─────────────────────────── */
+.testimonial-slider { overflow: hidden; }
+.testimonial-track {
+  display: flex;
+  will-change: transform;
+}
+.testimonial-slide { flex: 0 0 100%; box-sizing: border-box; padding: 8px 12px; }
+
+/* ── Header polish — smoother hover + active indicator ───────── */
+.nav-link { position: relative; transition: color .2s ease; }
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 50%; right: 50%; bottom: -6px;
+  height: 2px;
+  background: var(--gold);
+  transition: left .25s ease, right .25s ease;
+}
+.nav-link:hover::after,
+.nav-link.active::after { left: 0; right: 0; }
+.header .nav-link.active { color: var(--gold); }
+.header.scrolled { box-shadow: 0 8px 32px rgba(10, 22, 40, .10); }
+
+/* ── Mega-dropdown subtle lift ───────────────────────────────── */
+.has-dropdown:hover .dropdown { transform: translateY(0); opacity: 1; pointer-events: auto; }
+.dropdown { transition: transform .2s ease, opacity .2s ease; }
+
+/* ── Button micro-interactions ───────────────────────────────── */
+.btn { transition: transform .15s ease, box-shadow .2s ease, background .2s ease, color .2s ease; }
+.btn:hover { transform: translateY(-1px); }
+.btn:active { transform: translateY(0); }
+
 /* ── Responsive Global ────────────────────────────────────────── */
 @media (max-width: 640px) {
   :root {
@@ -2199,4 +2266,5 @@ textarea.form-control {
   .section-header { margin-bottom: 40px; }
   .cta-banner__actions { flex-direction: column; align-items: center; }
   .cta-banner__actions .btn { width: 100%; justify-content: center; }
+  .project-card__media { height: 180px; }
 }

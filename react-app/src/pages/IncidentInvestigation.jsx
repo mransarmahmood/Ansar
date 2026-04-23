@@ -10,13 +10,13 @@ const HTML = `
     <div class="container">
       <nav class="breadcrumb" aria-label="Breadcrumb"><a href="../index.html">Home</a><span class="breadcrumb__sep"><i class="fas fa-chevron-right"></i></span><a href="services.html">Services</a><span class="breadcrumb__sep"><i class="fas fa-chevron-right"></i></span><span class="breadcrumb__current">Incident Investigation</span></nav>
       <div class="page-hero__content">
-        <span class="eyebrow eyebrow--white"><?= cms_e($sp['hero_eyebrow'] ?? 'Root Cause Analysis') ?></span>
-        <h1><?= cms_e($sp['hero_headline'] ?? 'Professional Incident Investigation & Root Cause Analysis') ?></h1>
-        <p><?= cms_e($sp['hero_description'] ?? 'Find the real cause. Prevent the next incident. Expert investigation using ICAM, RCA, Bow Tie, and SCAT methodologies — from rapid response deployment to corrective action closure.') ?></p>
+        <span class="eyebrow eyebrow--white">Root Cause Analysis</span>
+        <h1>Professional Incident Investigation & Root Cause Analysis</h1>
+        <p>Find the real cause. Prevent the next incident. Expert investigation using ICAM, RCA, Bow Tie, and SCAT methodologies — from rapid response deployment to corrective action closure.</p>
         <div class="page-hero__actions">
-          <?php $cta1 = $sp['hero_cta_primary'] ?? []; $cta2 = $sp['hero_cta_secondary'] ?? []; ?>
-          <a href="<?= cms_e($cta1['url'] ?? 'book-consultation.html') ?>" class="btn btn-gold btn-lg"><?php if (!empty($cta1['icon'])): ?><i class="<?= cms_e($cta1['icon']) ?>"></i> <?php endif; ?><?= cms_e($cta1['text'] ?? 'Request Rapid Response') ?></a>
-          <a href="<?= cms_e($cta2['url'] ?? 'contact.html') ?>" class="btn btn-outline-white btn-lg"><?= cms_e($cta2['text'] ?? 'Get Investigation Support') ?></a>
+          
+          <a href="book-consultation.html" class="btn btn-gold btn-lg"><i class=""></i> Request Rapid Response</a>
+          <a href="contact.html" class="btn btn-outline-white btn-lg">Get Investigation Support</a>
         </div>
       </div>
     </div>

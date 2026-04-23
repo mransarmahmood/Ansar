@@ -20,31 +20,31 @@ const HTML = `
   <section class="section section-white">
     <div class="container">
 
-      <?php if (!empty($testimonials)): ?>
+      
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:28px;margin-bottom:60px;">
-        <?php foreach ($testimonials as $t): ?>
+        
         <div class="testimonial-card-full reveal">
-          <div class="testimonial-card-full__stars"><?= cms_stars((int)($t['rating'] ?? 5)) ?></div>
-          <blockquote class="testimonial-card-full__quote">"<?= cms_e($t['quote'] ?? '') ?>"</blockquote>
+          <div class="testimonial-card-full__stars"></div>
+          <blockquote class="testimonial-card-full__quote">""</blockquote>
           <div class="testimonial-card-full__author">
-            <div class="testimonial-card-full__avatar" aria-hidden="true"><?= cms_e($t['initials'] ?? strtoupper(substr($t['name'] ?? 'AN', 0, 2))) ?></div>
+            <div class="testimonial-card-full__avatar" aria-hidden="true"></div>
             <div>
-              <div class="testimonial-card-full__name"><?= cms_e($t['name'] ?? '') ?></div>
-              <div class="testimonial-card-full__role"><?= cms_e($t['role'] ?? '') ?><?= isset($t['company']) && $t['company'] ? ' — ' . cms_e($t['company']) : '' ?></div>
+              <div class="testimonial-card-full__name"></div>
+              <div class="testimonial-card-full__role"></div>
             </div>
           </div>
-          <?php if (!empty($t['tags'])): ?>
-          <div class="testimonial-card-full__tag"><?= cms_e($t['tags']) ?></div>
-          <?php endif; ?>
+          
+          <div class="testimonial-card-full__tag"></div>
+          
         </div>
-        <?php endforeach; ?>
+        
       </div>
-      <?php else: ?>
+      
       <div style="text-align:center;padding:60px 0;color:var(--text-muted);">
         <i class="fas fa-quote-left" style="font-size:3rem;opacity:.3;display:block;margin-bottom:16px;"></i>
         <p>Client testimonials coming soon.</p>
       </div>
-      <?php endif; ?>
+      
 
       <!-- Stats strip -->
       <div style="background:var(--navy);border-radius:var(--radius);padding:40px;display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:24px;text-align:center;margin-bottom:20px;">

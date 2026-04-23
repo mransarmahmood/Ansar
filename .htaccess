@@ -1,12 +1,9 @@
-# ── ANSAR MAHMOOD — Apache Configuration ──────────────────────
+# ── ANSAR MAHMOOD — Apache Configuration (React SPA + PHP backend) ─────
 
-# ── Process .html files as PHP (for CMS content rendering) ────
-AddType application/x-httpd-php .html .htm
-
-# ── Enable Rewrite Engine ──────────────────────────────────────
 Options -Indexes
 Options +FollowSymLinks
 RewriteEngine On
+RewriteBase /Ansar/
 
 # ── Security Headers ────────────────────────────────────────────
 <IfModule mod_headers.c>
@@ -18,10 +15,6 @@ RewriteEngine On
   Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains" env=HTTPS
 </IfModule>
 
-# ── Block direct access to sensitive directories ──────────────
-RewriteRule ^forms/.*$ - [F,L]
-RewriteRule ^data/.*$  - [F,L]
-
 # ── Gzip Compression ────────────────────────────────────────────
 <IfModule mod_deflate.c>
   AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript
@@ -32,7 +25,7 @@ RewriteRule ^data/.*$  - [F,L]
 # ── Browser Caching ─────────────────────────────────────────────
 <IfModule mod_expires.c>
   ExpiresActive On
-  ExpiresByType text/html                 "access plus 1 day"
+  ExpiresByType text/html                 "access plus 0 seconds"
   ExpiresByType text/css                  "access plus 1 month"
   ExpiresByType application/javascript    "access plus 1 month"
   ExpiresByType image/png                 "access plus 6 months"
@@ -44,19 +37,28 @@ RewriteRule ^data/.*$  - [F,L]
   ExpiresByType font/woff2                "access plus 1 year"
 </IfModule>
 
-# ── Remove .html extension ──────────────────────────────────────
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME}.html -f
-RewriteRule ^(.*)$ $1.html [L]
+# ── Block direct browsing of data/ (but Vite/React imports JSON at build
+#    time, so runtime access isn't needed for the SPA). PHP in forms/ must
+#    still be reachable for form submissions.
+RewriteRule ^data/.*\.json$ - [F,L]
 
-# ── Custom Error Pages ──────────────────────────────────────────
-ErrorDocument 404 /index.html
-
-# ── Prevent hotlinking (allow own domains + GitHub Pages) ────────
+# ── Hotlink protection for images ───────────────────────────────
 RewriteCond %{HTTP_REFERER} !^$ [NC]
 RewriteCond %{HTTP_REFERER} !^https?://(www\.)?ansarmahmood\.com [NC]
 RewriteCond %{HTTP_REFERER} !^https?://mransarmahmood\.github\.io [NC]
 RewriteCond %{HTTP_REFERER} !^https?://localhost [NC]
 RewriteCond %{HTTP_REFERER} !^https?://127\.0\.0\.1 [NC]
-RewriteRule \.(jpg|jpeg|png|gif|svg|pdf)$ - [F,NC,L]
+RewriteRule \.(jpg|jpeg|png|gif|pdf)$ - [F,NC,L]
+
+# ── SPA Routing ─────────────────────────────────────────────────
+# 1. Let Apache serve real files (index.html, assets/*, images, etc.)
+# 2. Let Apache execute PHP handlers normally (forms/*.php, exam-*.php, admin/*)
+# 3. Anything else (e.g. /Ansar/about, /Ansar/services) → fall through to
+#    index.html so React Router can resolve the route client-side.
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule .* - [L]
+
+RewriteRule \.php$ - [L]
+
+RewriteRule ^ index.html [L]

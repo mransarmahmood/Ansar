@@ -15,9 +15,9 @@ const HTML = `
         <span class="breadcrumb__current">About</span>
       </nav>
       <div class="page-hero__content">
-        <span class="eyebrow eyebrow--white"><?= cms_e($about['hero']['eyebrow'] ?? 'Trusted Globally') ?></span>
-        <h1 id="about-hero-heading"><?= cms_e($about['hero']['headline'] ?? 'Meet Ansar Mahmood') ?></h1>
-        <p><?= cms_e($about['hero']['description'] ?? '') ?></p>
+        <span class="eyebrow eyebrow--white">Trusted Globally</span>
+        <h1 id="about-hero-heading">Meet Ansar Mahmood</h1>
+        <p></p>
         <div class="page-hero__actions">
           <a href="book-consultation.html" class="btn btn-gold btn-lg"><i class="fas fa-calendar-check"></i> Book a Consultation</a>
           <a href="contact.html" class="btn btn-outline-white btn-lg">Get in Touch</a>
@@ -60,20 +60,20 @@ const HTML = `
 
         <!-- Bio Content -->
         <div class="reveal reveal--right">
-          <span class="eyebrow"><?= cms_e($about['intro']['eyebrow'] ?? 'The Professional Story') ?></span>
-          <h2 style="margin-bottom:24px;"><?= cms_e($about['intro']['subheading'] ?? 'Trusted by Corporations. Respected by Professionals. Driven by Purpose.') ?></h2>
-          <?php $introParagraphs = $about['intro']['paragraphs'] ?? []; ?>
-          <?php if (!empty($introParagraphs)): ?>
-            <?php foreach ($introParagraphs as $i => $p): ?>
-            <p style="<?= $i === 0 ? 'font-size:1.1rem;margin-bottom:20px;' : ($i === count($introParagraphs) - 1 ? 'margin-bottom:32px;' : 'margin-bottom:20px;') ?>"><?= cms_e($p) ?></p>
-            <?php endforeach; ?>
-          <?php else: ?>
+          <span class="eyebrow">The Professional Story</span>
+          <h2 style="margin-bottom:24px;">Trusted by Corporations. Respected by Professionals. Driven by Purpose.</h2>
+          
+          
+            
+            <p style=""></p>
+            
+          
             <p style="margin-bottom:32px;"></p>
-          <?php endif; ?>
+          
 
           <blockquote style="border-left:4px solid var(--gold);padding:20px 24px;background:var(--gold-xlight);border-radius:0 var(--radius-sm) var(--radius-sm) 0;margin-bottom:32px;">
-            <p style="font-size:1.1rem;font-style:italic;color:var(--navy);font-weight:600;margin:0;">"<?= cms_e($about['philosophy']['text'] ?? '') ?>"</p>
-            <cite style="display:block;margin-top:12px;font-size:.9rem;font-weight:700;color:var(--gold-dark);font-style:normal;">— <?= cms_e($about['philosophy']['attribution'] ?? 'Ansar Mahmood') ?></cite>
+            <p style="font-size:1.1rem;font-style:italic;color:var(--navy);font-weight:600;margin:0;">""</p>
+            <cite style="display:block;margin-top:12px;font-size:.9rem;font-weight:700;color:var(--gold-dark);font-style:normal;">— Ansar Mahmood</cite>
           </blockquote>
 
           <div style="display:flex;gap:14px;flex-wrap:wrap;">
@@ -94,14 +94,14 @@ const HTML = `
       </div>
       <div style="max-width:760px;margin:0 auto;">
         <div class="timeline">
-          <?php foreach (($about['timeline'] ?? []) as $tl): ?>
+          
           <div class="timeline-item reveal">
             <div class="timeline-dot"></div>
-            <div class="timeline-year"><?= cms_e($tl['year'] ?? '') ?></div>
-            <div class="timeline-title"><?= cms_e($tl['title'] ?? '') ?></div>
-            <p class="timeline-desc"><?= cms_e($tl['description'] ?? '') ?></p>
+            <div class="timeline-year"></div>
+            <div class="timeline-title"></div>
+            <p class="timeline-desc"></p>
           </div>
-          <?php endforeach; ?>
+          
         </div>
       </div>
     </div>
@@ -145,9 +145,9 @@ const HTML = `
         <p>Ansar Mahmood holds a comprehensive portfolio of professional qualifications spanning safety, environmental, quality, project management, and digital technologies.</p>
       </div>
       <div class="cert-grid">
-        <?php foreach (($about['credentials'] ?? []) as $cred): ?>
-        <div class="cert-card reveal"><div class="cert-card__icon"><i class="<?= cms_e($cred['icon'] ?? 'fas fa-certificate') ?>"></i></div><div class="cert-card__name"><?= cms_e($cred['name'] ?? '') ?></div><div class="cert-card__body"><?= cms_e($cred['detail'] ?? '') ?></div></div>
-        <?php endforeach; ?>
+        
+        <div class="cert-card reveal"><div class="cert-card__icon"><i class="fas fa-certificate"></i></div><div class="cert-card__name"></div><div class="cert-card__body"></div></div>
+        
       </div>
     </div>
   </section>

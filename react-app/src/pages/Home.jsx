@@ -4,6 +4,7 @@ import homepage from '../data/homepage.json';
 import services from '../data/services.json';
 import industries from '../data/industries.json';
 import testimonials from '../data/testimonials.json';
+import { asset } from '../utils/asset';
 
 const STAT_ICONS = ['fa-clock', 'fa-briefcase', 'fa-globe', 'fa-users'];
 
@@ -39,28 +40,28 @@ const WHY_CARDS = [
 
 const PROJECTS = [
   {
-    img: '/assets/images/ansar-8.jpeg', alt: 'Red Sea Global — 1 Million LTI-Free Man-Hours Milestone',
+    img: asset('assets/images/ansar-8.jpeg'), alt: 'Red Sea Global — 1 Million LTI-Free Man-Hours Milestone',
     tag: 'Construction', tagColor: 'var(--gold)',
     title: '1 Million LTI-Free Man-Hours',
     desc: 'Red Sea Global mega-project — led HSE advisory to achieve a landmark safety milestone with zero lost-time injuries across a complex multi-contractor site.',
     stats: [{ n: '1M+', l: 'Safe Man-Hours', c: 'var(--gold)' }, { n: '0', l: 'LTI Incidents', c: 'var(--blue)' }],
   },
   {
-    img: '/assets/images/ansar-4.jpeg', alt: 'Ansar Mahmood — On-site HSE Consulting',
+    img: asset('assets/images/ansar-4.jpeg'), alt: 'Ansar Mahmood — On-site HSE Consulting',
     tag: 'HSE Consulting', tagColor: 'var(--blue)',
     title: 'On-Site HSE Advisory',
     desc: 'Hands-on field HSE leadership embedded within high-hazard operations — conducting audits, risk assessments, and safety culture interventions directly on-site.',
     stats: [{ n: '500+', l: 'Projects', c: 'var(--gold)' }, { n: '10', l: 'Countries', c: 'var(--blue)' }],
   },
   {
-    img: '/assets/images/ansar-2.jpeg', alt: 'Ansar Mahmood delivering HSE training',
+    img: asset('assets/images/ansar-2.jpeg'), alt: 'Ansar Mahmood delivering HSE training',
     tag: 'Training', tagColor: 'var(--navy)',
     title: 'Professional Certification Coaching',
     desc: 'Delivering IOSH, CSP, CRSP, and ISO Lead Auditor coaching to professionals globally — with a 97%+ first-attempt pass rate.',
     stats: [{ n: '97%+', l: 'Pass Rate', c: 'var(--gold)' }, { n: '10K+', l: 'Trained', c: 'var(--blue)' }],
   },
   {
-    img: '/assets/images/ansar-10.jpeg', alt: 'Ansar Mahmood speaking at an international HSE conference',
+    img: asset('assets/images/ansar-10.jpeg'), alt: 'Ansar Mahmood speaking at an international HSE conference',
     tag: 'Speaking', tagColor: 'var(--gold)',
     title: 'International HSE Speaker & Advisor',
     desc: 'Keynote speaker and workshop facilitator at international safety conferences — sharing expertise on digital HSE, AI integration, and safety leadership.',
@@ -163,7 +164,7 @@ export default function Home() {
               <div className="hero__avatar-wrap">
                 <div className="hero__avatar-ring">
                   <img
-                    src="/assets/images/ansar-17.jpeg"
+                    src={asset('assets/images/ansar-17.jpeg')}
                     alt="Ansar Mahmood — Senior HSE Consultant"
                     style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top center', borderRadius: '50%' }}
                   />

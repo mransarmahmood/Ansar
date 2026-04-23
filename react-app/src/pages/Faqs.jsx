@@ -20,26 +20,26 @@ const HTML = `
   <section class="section section-white">
     <div class="container" style="max-width:820px;">
 
-      <?php if (!empty($faq_groups)): ?>
-        <?php foreach ($faq_groups as $group_name => $faqs): ?>
-        <h2 style="margin-bottom:8px;"><?= cms_e($group_name) ?></h2>
-        <p style="color:var(--text-muted);margin-bottom:28px;"><?= cms_e($cat_descs[$group_name] ?? '') ?></p>
+      
+        
+        <h2 style="margin-bottom:8px;"></h2>
+        <p style="color:var(--text-muted);margin-bottom:28px;"></p>
 
         <div class="faq-list" style="margin-bottom:48px;">
-          <?php foreach ($faqs as $faq): ?>
+          
           <div class="faq-item reveal">
-            <button class="faq-question" aria-expanded="false"><span><?= cms_e($faq['question'] ?? '') ?></span><i class="fas fa-chevron-down"></i></button>
-            <div class="faq-answer"><p><?= cms_e($faq['answer'] ?? '') ?></p></div>
+            <button class="faq-question" aria-expanded="false"><span></span><i class="fas fa-chevron-down"></i></button>
+            <div class="faq-answer"><p></p></div>
           </div>
-          <?php endforeach; ?>
+          
         </div>
-        <?php endforeach; ?>
-      <?php else: ?>
+        
+      
       <div style="text-align:center;padding:60px 0;color:var(--text-muted);">
         <i class="fas fa-question-circle" style="font-size:3rem;opacity:.3;display:block;margin-bottom:16px;"></i>
         <p>FAQs coming soon.</p>
       </div>
-      <?php endif; ?>
+      
 
       <div class="reveal" style="background:var(--navy);border-radius:var(--radius);padding:36px;text-align:center;">
         <h3 style="color:white;margin-bottom:12px;">Still have questions?</h3>

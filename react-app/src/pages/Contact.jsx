@@ -124,7 +124,7 @@ const HTML = `
             <div class="contact-info-icon"><i class="fas fa-envelope"></i></div>
             <div>
               <div class="contact-info-item__label">Email</div>
-              <div class="contact-info-item__value"><a href="mailto:<?= cms_e($settings['email'] ?? 'ansar@ansarmahmood.com') ?>"><?= cms_e($settings['email'] ?? 'ansar@ansarmahmood.com') ?></a></div>
+              <div class="contact-info-item__value"><a href="mailto:ansar@ansarmahmood.com">ansar@ansarmahmood.com</a></div>
             </div>
           </div>
 
@@ -132,7 +132,7 @@ const HTML = `
             <div class="contact-info-icon contact-info-icon--gold"><i class="fab fa-whatsapp"></i></div>
             <div>
               <div class="contact-info-item__label">WhatsApp</div>
-              <div class="contact-info-item__value"><a href="https://wa.me/<?= cms_e($settings['whatsapp'] ?? '12345678900') ?>?text=Hello%20Ansar%2C%20I%27d%20like%20to%20discuss%20a%20project">Chat on WhatsApp</a></div>
+              <div class="contact-info-item__value"><a href="https://wa.me/12345678900?text=Hello%20Ansar%2C%20I%27d%20like%20to%20discuss%20a%20project">Chat on WhatsApp</a></div>
             </div>
           </div>
 
@@ -140,7 +140,7 @@ const HTML = `
             <div class="contact-info-icon"><i class="fas fa-phone"></i></div>
             <div>
               <div class="contact-info-item__label">Phone</div>
-              <div class="contact-info-item__value"><a href="tel:<?= cms_e($settings['phone'] ?? '+12345678900') ?>"><?= cms_e($settings['phone'] ?? '+1 (234) 567-8900') ?></a></div>
+              <div class="contact-info-item__value"><a href="tel:+12345678900">+1 (234) 567-8900</a></div>
             </div>
           </div>
 
@@ -148,7 +148,7 @@ const HTML = `
             <div class="contact-info-icon contact-info-icon--gold"><i class="fab fa-linkedin-in"></i></div>
             <div>
               <div class="contact-info-item__label">LinkedIn</div>
-              <div class="contact-info-item__value"><a href="<?= cms_e($settings['linkedin'] ?? 'https://www.linkedin.com/in/ansar-mahmood') ?>" target="_blank" rel="noopener">LinkedIn Profile</a></div>
+              <div class="contact-info-item__value"><a href="https://www.linkedin.com/in/ansar-mahmood" target="_blank" rel="noopener">LinkedIn Profile</a></div>
             </div>
           </div>
 

@@ -10,13 +10,13 @@ const HTML = `
     <div class="container">
       <nav class="breadcrumb" aria-label="Breadcrumb"><a href="../index.html">Home</a><span class="breadcrumb__sep"><i class="fas fa-chevron-right"></i></span><a href="services.html">Services</a><span class="breadcrumb__sep"><i class="fas fa-chevron-right"></i></span><span class="breadcrumb__current">Power BI Dashboards</span></nav>
       <div class="page-hero__content">
-        <span class="eyebrow eyebrow--white"><?= cms_e($sp['hero_eyebrow'] ?? 'HSE Analytics') ?></span>
-        <h1><?= cms_e($sp['hero_headline'] ?? 'Real-Time HSE Power BI Dashboards') ?></h1>
-        <p><?= cms_e($sp['hero_description'] ?? 'Transform raw safety data into strategic insight. Custom Power BI dashboards connecting to any data source — delivering live KPIs, trend analysis, and board-level reporting that drives decision-making.') ?></p>
+        <span class="eyebrow eyebrow--white">HSE Analytics</span>
+        <h1>Real-Time HSE Power BI Dashboards</h1>
+        <p>Transform raw safety data into strategic insight. Custom Power BI dashboards connecting to any data source — delivering live KPIs, trend analysis, and board-level reporting that drives decision-making.</p>
         <div class="page-hero__actions">
-          <?php $cta1 = $sp['hero_cta_primary'] ?? []; $cta2 = $sp['hero_cta_secondary'] ?? []; ?>
-          <a href="<?= cms_e($cta1['url'] ?? 'book-consultation.html') ?>" class="btn btn-gold btn-lg"><?php if (!empty($cta1['icon'])): ?><i class="<?= cms_e($cta1['icon']) ?>"></i> <?php endif; ?><?= cms_e($cta1['text'] ?? 'Get a Free Demo') ?></a>
-          <a href="<?= cms_e($cta2['url'] ?? 'contact.html') ?>" class="btn btn-outline-white btn-lg"><?= cms_e($cta2['text'] ?? 'Discuss Your Data') ?></a>
+          
+          <a href="book-consultation.html" class="btn btn-gold btn-lg"><i class=""></i> Get a Free Demo</a>
+          <a href="contact.html" class="btn btn-outline-white btn-lg">Discuss Your Data</a>
         </div>
       </div>
     </div>

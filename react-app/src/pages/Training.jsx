@@ -11,23 +11,23 @@ const HTML = `
       <nav class="breadcrumb" aria-label="Breadcrumb"><a href="../index.html">Home</a><span class="breadcrumb__sep"><i class="fas fa-chevron-right"></i></span><a href="services.html">Services</a><span class="breadcrumb__sep"><i class="fas fa-chevron-right"></i></span><span class="breadcrumb__current">Training</span></nav>
       <div class="page-hero__inner">
         <div class="page-hero__content">
-          <span class="eyebrow eyebrow--white"><?= cms_e($sp['hero_eyebrow'] ?? 'Global Training Delivery') ?></span>
-          <h1><?= cms_e($sp['hero_headline'] ?? 'World-Class HSE Training Programs') ?></h1>
-          <p><?= cms_e($sp['hero_description'] ?? 'Delivered globally — classroom, virtual, and on-site. Corporate programs, certification coaching, e-learning, and LMS solutions designed to build lasting competency and measurable safety improvement.') ?></p>
+          <span class="eyebrow eyebrow--white">Global Training Delivery</span>
+          <h1>World-Class HSE Training Programs</h1>
+          <p>Delivered globally — classroom, virtual, and on-site. Corporate programs, certification coaching, e-learning, and LMS solutions designed to build lasting competency and measurable safety improvement.</p>
           <div class="page-hero__actions">
-            <?php $cta1 = $sp['hero_cta_primary'] ?? []; $cta2 = $sp['hero_cta_secondary'] ?? []; ?>
-            <a href="<?= cms_e($cta1['url'] ?? 'book-consultation.html') ?>" class="btn btn-gold btn-lg"><?php if (!empty($cta1['icon'])): ?><i class="<?= cms_e($cta1['icon']) ?>"></i> <?php endif; ?><?= cms_e($cta1['text'] ?? 'Get a Training Quote') ?></a>
-            <a href="<?= cms_e($cta2['url'] ?? 'certification-coaching.html') ?>" class="btn btn-outline-white btn-lg"><?= cms_e($cta2['text'] ?? 'Certification Coaching →') ?></a>
+            
+            <a href="book-consultation.html" class="btn btn-gold btn-lg"><i class=""></i> Get a Training Quote</a>
+            <a href="certification-coaching.html" class="btn btn-outline-white btn-lg">Certification Coaching →</a>
           </div>
         </div>
         <div class="page-hero__stats">
-          <?php if (!empty($sp['hero_stats'])): foreach ($sp['hero_stats'] as $stat): ?>
-          <div class="page-hero-stat"><span class="page-hero-stat__num"><?= cms_e($stat['value'] ?? '') ?></span><span class="page-hero-stat__label"><?= cms_e($stat['label'] ?? '') ?></span></div>
-          <?php endforeach; else: ?>
+          
+          <div class="page-hero-stat"><span class="page-hero-stat__num"></span><span class="page-hero-stat__label"></span></div>
+          
           <div class="page-hero-stat"><span class="page-hero-stat__num">10,000+</span><span class="page-hero-stat__label">Professionals Trained</span></div>
           <div class="page-hero-stat"><span class="page-hero-stat__num">97%+</span><span class="page-hero-stat__label">Pass Rate</span></div>
           <div class="page-hero-stat"><span class="page-hero-stat__num">10</span><span class="page-hero-stat__label">Countries</span></div>
-          <?php endif; ?>
+          
         </div>
       </div>
     </div>

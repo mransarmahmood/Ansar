@@ -29,33 +29,27 @@ const HTML = `
         <button class="filter-tab" data-filter="templates" data-target=".resource-grid">Templates</button>
       </div>
 
-      <?php if (!empty($resources)): ?>
+      
       <div class="resource-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;margin-bottom:60px;">
-        <?php foreach ($resources as $r):
-          $icon_bg    = $r['icon_bg']    ?? 'var(--navy)';
-          $icon       = $r['icon']       ?? 'fas fa-file';
-          $icon_color = $r['icon_color'] ?? 'var(--gold)';
-          $file_icon  = $r['file_icon']  ?? 'fas fa-file-pdf';
-          $dl_url     = $r['download_url'] ?? 'book-consultation.html';
-        ?>
-        <div class="resource-card reveal" data-category="<?= cms_e($r['category'] ?? '') ?>">
-          <div class="resource-card__icon" style="background:<?= cms_e($icon_bg) ?>;"><i class="<?= cms_e($icon) ?>" style="color:<?= cms_e($icon_color) ?>;"></i></div>
+        
+        <div class="resource-card reveal" data-category="">
+          <div class="resource-card__icon" style="background:;"><i class="" style="color:;"></i></div>
           <div class="resource-card__body">
-            <span class="resource-card__type"><?= cms_e($r['type'] ?? '') ?></span>
-            <h4 class="resource-card__title"><?= cms_e($r['title'] ?? '') ?></h4>
-            <p class="resource-card__desc"><?= cms_e($r['description'] ?? '') ?></p>
-            <div class="resource-card__meta"><i class="<?= cms_e($file_icon) ?>"></i> <?= cms_e($r['file_info'] ?? '') ?></div>
-            <a href="<?= cms_e($dl_url) ?>" class="btn btn-gold btn-sm" style="margin-top:12px;"><i class="fas fa-download"></i> Download Free</a>
+            <span class="resource-card__type"></span>
+            <h4 class="resource-card__title"></h4>
+            <p class="resource-card__desc"></p>
+            <div class="resource-card__meta"><i class=""></i> </div>
+            <a href="" class="btn btn-gold btn-sm" style="margin-top:12px;"><i class="fas fa-download"></i> Download Free</a>
           </div>
         </div>
-        <?php endforeach; ?>
+        
       </div>
-      <?php else: ?>
+      
       <div style="text-align:center;padding:60px 0;color:var(--text-muted);">
         <i class="fas fa-folder-open" style="font-size:3rem;opacity:.3;display:block;margin-bottom:16px;"></i>
         <p>Resources coming soon.</p>
       </div>
-      <?php endif; ?>
+      
 
       <!-- Newsletter signup -->
       <div class="reveal" style="background:var(--navy-xlight);border:1px solid var(--gray-200);border-radius:var(--radius-lg);padding:48px;text-align:center;max-width:640px;margin:0 auto;">

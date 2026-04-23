@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { CONTACT } from '../config';
+import { asset } from '../utils/asset';
 
 const consultingLinks = [
   { to: '/consulting', icon: 'fa-shield-alt', label: 'HSE Consulting' },
@@ -84,7 +85,7 @@ export default function Header() {
       <header className={`header${scrolled ? ' scrolled' : ''}`} id="site-header-elem" role="banner">
         <div className="container">
           <Link to="/" className="logo" aria-label="Ansar Mahmood Home">
-            <img src="/assets/images/logo.svg" alt="Ansar Mahmood" className="logo-img" width="220" height="46" loading="eager"
+            <img src={asset('assets/images/logo.svg')} alt="Ansar Mahmood" className="logo-img" width="220" height="46" loading="eager"
               onError={(e) => { e.currentTarget.style.display = 'none'; if (e.currentTarget.nextElementSibling) e.currentTarget.nextElementSibling.style.display = 'inline'; }} />
             <span className="logo-text" style={{ display: 'none' }}>Ansar<span>.</span>Mahmood</span>
           </Link>
@@ -189,7 +190,7 @@ export default function Header() {
 
       <nav className={`mobile-nav${mobileOpen ? ' open' : ''}`} id="mobile-nav" role="dialog" aria-label="Mobile navigation" aria-modal="true">
         <div className="mobile-nav__header">
-          <img src="/assets/images/logo.svg" alt="Ansar Mahmood" className="logo-img" width="180" height="38"
+          <img src={asset('assets/images/logo.svg')} alt="Ansar Mahmood" className="logo-img" width="180" height="38"
             onError={(e) => { e.currentTarget.style.display = 'none'; }} />
           <button className="mobile-close" aria-label="Close navigation" onClick={() => setMobileOpen(false)}>
             <i className="fas fa-times"></i>

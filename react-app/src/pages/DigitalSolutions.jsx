@@ -10,13 +10,13 @@ const HTML = `
     <div class="container">
       <nav class="breadcrumb" aria-label="Breadcrumb"><a href="../index.html">Home</a><span class="breadcrumb__sep"><i class="fas fa-chevron-right"></i></span><a href="services.html">Services</a><span class="breadcrumb__sep"><i class="fas fa-chevron-right"></i></span><span class="breadcrumb__current">Digital Transformation</span></nav>
       <div class="page-hero__content">
-        <span class="eyebrow eyebrow--white"><?= cms_e($sp['hero_eyebrow'] ?? 'Digital HSE') ?></span>
-        <h1><?= cms_e($sp['hero_headline'] ?? 'Digital HSE Transformation — From Paper to Platform') ?></h1>
-        <p><?= cms_e($sp['hero_description'] ?? 'Modernise your safety management with smart digital systems. From mobile inspection apps to fully integrated HSE portals — Ansar Mahmood designs and deploys end-to-end digital transformation solutions.') ?></p>
+        <span class="eyebrow eyebrow--white">Digital HSE</span>
+        <h1>Digital HSE Transformation — From Paper to Platform</h1>
+        <p>Modernise your safety management with smart digital systems. From mobile inspection apps to fully integrated HSE portals — Ansar Mahmood designs and deploys end-to-end digital transformation solutions.</p>
         <div class="page-hero__actions">
-          <?php $cta1 = $sp['hero_cta_primary'] ?? []; $cta2 = $sp['hero_cta_secondary'] ?? []; ?>
-          <a href="<?= cms_e($cta1['url'] ?? 'book-consultation.html') ?>" class="btn btn-gold btn-lg"><?php if (!empty($cta1['icon'])): ?><i class="<?= cms_e($cta1['icon']) ?>"></i> <?php endif; ?><?= cms_e($cta1['text'] ?? 'Start Digital Journey') ?></a>
-          <a href="<?= cms_e($cta2['url'] ?? 'contact.html') ?>" class="btn btn-outline-white btn-lg"><?= cms_e($cta2['text'] ?? 'Schedule Demo') ?></a>
+          
+          <a href="book-consultation.html" class="btn btn-gold btn-lg"><i class=""></i> Start Digital Journey</a>
+          <a href="contact.html" class="btn btn-outline-white btn-lg">Schedule Demo</a>
         </div>
       </div>
     </div>

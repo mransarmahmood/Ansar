@@ -1,0 +1,95 @@
+import{a as e,o as t,t as n}from"./index-DxTw45Zt.js";import{t as r}from"./PageHtml-BJ7P4Ipb.js";var i=t(e(),1),a=n(),o=`
+
+  <section class="page-hero">
+    <div class="page-hero__pattern" aria-hidden="true"></div>
+    <i class="page-hero__icon-bg fas fa-mobile-alt" aria-hidden="true"></i>
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="../index.html">Home</a><span class="breadcrumb__sep"><i class="fas fa-chevron-right"></i></span><a href="services.html">Services</a><span class="breadcrumb__sep"><i class="fas fa-chevron-right"></i></span><span class="breadcrumb__current">Safety Apps</span></nav>
+      <div class="page-hero__content">
+        <span class="eyebrow eyebrow--white"><?= cms_e($sp['hero_eyebrow'] ?? 'Custom Development') ?></span>
+        <h1><?= cms_e($sp['hero_headline'] ?? 'Custom Safety Apps & Software Solutions') ?></h1>
+        <p><?= cms_e($sp['hero_description'] ?? 'Purpose-built for your workflow, deployed on any device. From mobile inspection apps to full HSE management systems — developed using Power Apps, web technologies, and proven HSE domain expertise.') ?></p>
+        <div class="page-hero__actions">
+          <?php $cta1 = $sp['hero_cta_primary'] ?? []; $cta2 = $sp['hero_cta_secondary'] ?? []; ?>
+          <a href="<?= cms_e($cta1['url'] ?? 'book-consultation.html') ?>" class="btn btn-gold btn-lg"><?php if (!empty($cta1['icon'])): ?><i class="<?= cms_e($cta1['icon']) ?>"></i> <?php endif; ?><?= cms_e($cta1['text'] ?? 'Discuss Your App') ?></a>
+          <a href="<?= cms_e($cta2['url'] ?? 'contact.html') ?>" class="btn btn-outline-white btn-lg"><?= cms_e($cta2['text'] ?? 'Request a Quote') ?></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-white">
+    <div class="container">
+      <div class="service-page-layout">
+        <div>
+          <h2>Apps We Build</h2>
+          <div class="grid grid-2" style="gap:20px;margin-bottom:40px;">
+            <div class="feature-card reveal"><div class="feature-card__icon"><i class="fas fa-clipboard-list"></i></div><h4 class="feature-card__title">Safety Inspection App</h4><p class="feature-card__desc">Mobile-first inspection checklist app with photo capture, GPS tagging, scoring, and instant report generation. Works offline. Used by site supervisors daily.</p></div>
+            <div class="feature-card reveal"><div class="feature-card__icon"><i class="fas fa-file-signature"></i></div><h4 class="feature-card__title">Permit-to-Work App</h4><p class="feature-card__desc">End-to-end electronic PTW system: request, approve, monitor, extend, and close permits from any device. Live dashboard shows all active permits at a glance.</p></div>
+            <div class="feature-card reveal"><div class="feature-card__icon"><i class="fas fa-exclamation-triangle"></i></div><h4 class="feature-card__title">Incident & Near-Miss Reporter</h4><p class="feature-card__desc">Quick, one-tap incident reporting app for frontline workers. Captures photos, location, witnesses, and severity. Instantly routes to the right supervisor and investigation team.</p></div>
+            <div class="feature-card reveal"><div class="feature-card__icon"><i class="fas fa-hard-hat"></i></div><h4 class="feature-card__title">Site Induction & Competency App</h4><p class="feature-card__desc">Digital induction delivery, e-signature capture, competency assessment, and pass/fail certificate issuance. Eliminates paper induction folders permanently.</p></div>
+            <div class="feature-card reveal"><div class="feature-card__icon"><i class="fas fa-id-badge"></i></div><h4 class="feature-card__title">Contractor Prequalification App</h4><p class="feature-card__desc">Contractor self-service portal for document submission, HSE questionnaires, insurance upload, and performance tracking — integrated with your internal approval workflow.</p></div>
+            <div class="feature-card reveal"><div class="feature-card__icon"><i class="fas fa-tasks"></i></div><h4 class="feature-card__title">Action Tracker & CAPA App</h4><p class="feature-card__desc">Corrective and preventive action management system with ownership assignment, deadline tracking, automated reminders, and closure verification workflow.</p></div>
+          </div>
+
+          <h2>Development Platforms</h2>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:40px;">
+            <div class="reveal" style="background:var(--navy-xlight);border-radius:var(--radius);padding:28px;border:1px solid var(--gray-200);">
+              <h4 style="margin-bottom:12px;"><i class="fas fa-microsoft" style="color:#00A4EF;margin-right:10px;"></i>Microsoft Power Apps</h4>
+              <p style="font-size:.9rem;color:var(--text-muted);margin-bottom:12px;">Rapid development within your existing Microsoft 365 environment. No separate server or licence required. Integrates with SharePoint, Teams, and Power BI natively.</p>
+              <ul style="list-style:none;padding:0;font-size:.85rem;">
+                <li style="padding:4px 0;"><i class="fas fa-check" style="color:var(--gold);margin-right:8px;"></i>Fast to build — weeks, not months</li>
+                <li style="padding:4px 0;"><i class="fas fa-check" style="color:var(--gold);margin-right:8px;"></i>Works in Microsoft 365</li>
+                <li style="padding:4px 0;"><i class="fas fa-check" style="color:var(--gold);margin-right:8px;"></i>iOS, Android, and browser</li>
+              </ul>
+            </div>
+            <div class="reveal" style="background:var(--blue-xlight);border-radius:var(--radius);padding:28px;border:1px solid var(--gray-200);">
+              <h4 style="margin-bottom:12px;"><i class="fas fa-code" style="color:var(--blue);margin-right:10px;"></i>Custom Web Applications</h4>
+              <p style="font-size:.9rem;color:var(--text-muted);margin-bottom:12px;">Fully custom web-based apps for complex requirements, external contractor portals, or when Microsoft 365 isn't available. Hosted on your server or cloud.</p>
+              <ul style="list-style:none;padding:0;font-size:.85rem;">
+                <li style="padding:4px 0;"><i class="fas fa-check" style="color:var(--blue);margin-right:8px;"></i>No Microsoft licence needed</li>
+                <li style="padding:4px 0;"><i class="fas fa-check" style="color:var(--blue);margin-right:8px;"></i>Fully bespoke features</li>
+                <li style="padding:4px 0;"><i class="fas fa-check" style="color:var(--blue);margin-right:8px;"></i>API integration capability</li>
+              </ul>
+            </div>
+          </div>
+
+          <h2>Development Process</h2>
+          <div class="process-steps reveal" style="margin:28px 0 40px;">
+            <div class="step-item"><div class="step-number">1</div><div class="step-title">Requirements Workshop</div><p class="step-desc">Define user stories, workflows, integrations, and success criteria. Produce a functional specification document.</p></div>
+            <div class="step-item"><div class="step-number">2</div><div class="step-title">Prototype & Validate</div><p class="step-desc">Build a clickable prototype. Test with real end-users. Validate the UX before committing to full development.</p></div>
+            <div class="step-item"><div class="step-number">3</div><div class="step-title">Build & Test</div><p class="step-desc">Full development with regular demos. User acceptance testing with your team before sign-off.</p></div>
+            <div class="step-item"><div class="step-number">4</div><div class="step-title">Deploy & Support</div><p class="step-desc">Go-live with user training, admin documentation, and an agreed support and maintenance package.</p></div>
+          </div>
+        </div>
+
+        <div class="service-sidebar">
+          <div class="sidebar-card sidebar-card--navy">
+            <h4><i class="fas fa-mobile-alt" style="color:var(--gold);margin-right:8px;"></i>Build Your App</h4>
+            <p>Describe your workflow need and get a no-obligation technical scoping estimate.</p>
+            <a href="book-consultation.html" class="btn btn-gold" style="width:100%;justify-content:center;">Discuss Your App</a>
+          </div>
+          <div class="sidebar-card">
+            <h4>Related Services</h4>
+            <nav class="sidebar-nav">
+              <a href="digital-solutions.html"><i class="fas fa-laptop-code"></i>Digital Transformation</a>
+              <a href="sharepoint-solutions.html"><i class="fas fa-share-nodes"></i>SharePoint Portals</a>
+              <a href="powerbi-dashboards.html"><i class="fas fa-chart-bar"></i>Power BI Dashboards</a>
+              <a href="ai-solutions.html"><i class="fas fa-robot"></i>AI Solutions</a>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-banner section"><div class="container"><div class="cta-banner__content">
+    <h2>Have a Safety Workflow That Needs an App?</h2>
+    <p>If your team is using paper forms, spreadsheets, or WhatsApp to manage safety — there's a better way. Let's build an app that your workforce will actually use.</p>
+    <div class="cta-banner__actions">
+      <a href="book-consultation.html" class="btn btn-gold btn-xl"><i class="fas fa-mobile-alt"></i> Start App Development</a>
+      <a href="contact.html" class="btn btn-outline-white btn-xl">Get a Scoping Quote</a>
+    </div>
+  </div></div></section>
+
+`;function s(){return(0,i.useEffect)(()=>{document.title=`Custom Safety Apps & Software Solutions | Ansar Mahmood`},[]),(0,a.jsx)(r,{html:o})}export{s as default};

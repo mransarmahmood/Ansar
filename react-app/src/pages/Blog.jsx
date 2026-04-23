@@ -29,38 +29,32 @@ const HTML = `
         <button class="filter-tab" data-filter="culture" data-target=".blog-grid">Safety Culture</button>
       </div>
 
-      <?php if (!empty($posts)): ?>
+      
       <div class="blog-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:28px;margin-bottom:60px;">
-        <?php foreach ($posts as $post):
-          $icon_bg  = $post['icon_bg']  ?? 'linear-gradient(135deg,var(--navy),var(--navy-mid))';
-          $icon     = $post['icon']     ?? 'fa-pen-nib';
-          $cat_slug = $post['category_slug'] ?? '';
-          $cat_name = $post['category']      ?? '';
-          $url      = $post['url']           ?? 'book-consultation.html';
-        ?>
-        <article class="blog-card reveal" data-category="<?= cms_e($cat_slug) ?>">
-          <div class="blog-card__img" style="background:<?= cms_e($icon_bg) ?>;padding:32px;display:flex;align-items:center;gap:16px;">
-            <i class="fas <?= cms_e($icon) ?>" style="font-size:3rem;color:var(--gold);"></i>
+        
+        <article class="blog-card reveal" data-category="">
+          <div class="blog-card__img" style="background:;padding:32px;display:flex;align-items:center;gap:16px;">
+            <i class="fas " style="font-size:3rem;color:var(--gold);"></i>
             <div>
-              <span style="font-size:.75rem;color:rgba(255,255,255,.6);text-transform:uppercase;letter-spacing:.1em;"><?= cms_e($cat_name) ?></span>
-              <p style="color:white;font-weight:600;margin:4px 0 0;font-size:.95rem;"><?= cms_e($post['read_time'] ?? '') ?></p>
+              <span style="font-size:.75rem;color:rgba(255,255,255,.6);text-transform:uppercase;letter-spacing:.1em;"></span>
+              <p style="color:white;font-weight:600;margin:4px 0 0;font-size:.95rem;"></p>
             </div>
           </div>
           <div class="blog-card__body" style="padding:24px;">
-            <div class="blog-card__meta"><span><?= cms_e($post['date'] ?? '') ?></span> · <span><?= cms_e($cat_name) ?></span></div>
-            <h3 class="blog-card__title"><?= cms_e($post['title'] ?? '') ?></h3>
-            <p class="blog-card__excerpt" style="color:var(--text-muted);font-size:.9rem;line-height:1.7;"><?= cms_e($post['excerpt'] ?? '') ?></p>
-            <a href="<?= cms_e($url) ?>" class="blog-card__link">Read Article <i class="fas fa-arrow-right"></i></a>
+            <div class="blog-card__meta"><span></span> · <span></span></div>
+            <h3 class="blog-card__title"></h3>
+            <p class="blog-card__excerpt" style="color:var(--text-muted);font-size:.9rem;line-height:1.7;"></p>
+            <a href="" class="blog-card__link">Read Article <i class="fas fa-arrow-right"></i></a>
           </div>
         </article>
-        <?php endforeach; ?>
+        
       </div>
-      <?php else: ?>
+      
       <div style="text-align:center;padding:60px 0;color:var(--text-muted);">
         <i class="fas fa-pen-nib" style="font-size:3rem;opacity:.3;display:block;margin-bottom:16px;"></i>
         <p>Blog articles coming soon.</p>
       </div>
-      <?php endif; ?>
+      
 
       <!-- Newsletter CTA -->
       <div class="reveal" style="background:var(--navy-xlight);border:1px solid var(--gray-200);border-radius:var(--radius-lg);padding:48px;text-align:center;max-width:640px;margin:0 auto;">

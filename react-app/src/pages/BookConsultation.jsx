@@ -141,7 +141,7 @@ const HTML = `
 
             <p style="text-align:center;font-size:.8rem;color:var(--text-muted);margin-top:20px;">
               Alternatively, WhatsApp Ansar directly:
-              <a href="https://wa.me/<?= cms_e($settings['whatsapp'] ?? '12345678900') ?>?text=Hello%20Ansar%2C%20I%27d%20like%20to%20book%20a%20consultation" style="color:var(--blue);font-weight:600;">Chat Now →</a>
+              <a href="https://wa.me/12345678900?text=Hello%20Ansar%2C%20I%27d%20like%20to%20book%20a%20consultation" style="color:var(--blue);font-weight:600;">Chat Now →</a>
             </p>
           </div>
         </div>

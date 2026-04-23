@@ -14,13 +14,13 @@ const HTML = `
         <span class="breadcrumb__current">AI Solutions</span>
       </nav>
       <div class="page-hero__content">
-        <span class="eyebrow eyebrow--white"><?= cms_e($sp['hero_eyebrow'] ?? 'Future-Ready HSE') ?></span>
-        <h1><?= cms_e($sp['hero_headline'] ?? 'AI-Powered Safety Solutions for the Modern Era') ?></h1>
-        <p><?= cms_e($sp['hero_description'] ?? 'Intelligent tools that predict hazards, automate compliance, analyse incidents, and deliver safety intelligence — built specifically for HSE operations by a consultant who understands both the safety domain and the technology.') ?></p>
+        <span class="eyebrow eyebrow--white">Future-Ready HSE</span>
+        <h1>AI-Powered Safety Solutions for the Modern Era</h1>
+        <p>Intelligent tools that predict hazards, automate compliance, analyse incidents, and deliver safety intelligence — built specifically for HSE operations by a consultant who understands both the safety domain and the technology.</p>
         <div class="page-hero__actions">
-          <?php $cta1 = $sp['hero_cta_primary'] ?? []; $cta2 = $sp['hero_cta_secondary'] ?? []; ?>
-          <a href="<?= cms_e($cta1['url'] ?? 'book-consultation.html') ?>" class="btn btn-gold btn-lg"><?php if (!empty($cta1['icon'])): ?><i class="<?= cms_e($cta1['icon']) ?>"></i> <?php endif; ?><?= cms_e($cta1['text'] ?? 'Schedule a Demo') ?></a>
-          <a href="<?= cms_e($cta2['url'] ?? 'contact.html') ?>" class="btn btn-outline-white btn-lg"><?= cms_e($cta2['text'] ?? 'Discuss Your Needs') ?></a>
+          
+          <a href="book-consultation.html" class="btn btn-gold btn-lg"><i class=""></i> Schedule a Demo</a>
+          <a href="contact.html" class="btn btn-outline-white btn-lg">Discuss Your Needs</a>
         </div>
       </div>
     </div>

@@ -33,53 +33,42 @@ const HTML = `
         <button class="filter-tab" data-filter="systems" data-target=".case-grid">Management Systems</button>
       </div>
 
-      <?php if (!empty($cases)): ?>
+      
       <div class="case-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:28px;margin-bottom:60px;">
-        <?php foreach ($cases as $cs):
-          $icon_bg  = $cs['icon_bg']  ?? 'linear-gradient(135deg,var(--navy),var(--navy-mid))';
-          $icon     = $cs['icon']     ?? 'fas fa-trophy';
-          $metrics  = $cs['metrics']  ?? [];
-          $category = $cs['category'] ?? 'consulting';
-          $tag      = $cs['tag']      ?? 'HSE Consulting';
-          $tag_style = (strpos(strtolower($tag), 'digital') !== false || strpos(strtolower($tag), 'ai') !== false)
-            ? 'background:var(--blue-xlight);color:var(--blue);'
-            : 'background:var(--gold-xlight);color:var(--gold-dark);';
-        ?>
-        <article class="blog-card reveal" data-category="<?= cms_e($category) ?>">
-          <div class="blog-card__header" style="background:<?= cms_e($icon_bg) ?>;padding:28px;display:flex;align-items:center;gap:16px;">
+        
+        <article class="blog-card reveal" data-category="">
+          <div class="blog-card__header" style="background:;padding:28px;display:flex;align-items:center;gap:16px;">
             <div style="width:56px;height:56px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-              <i class="<?= cms_e($icon) ?>" style="color:white;font-size:1.3rem;"></i>
+              <i class="" style="color:white;font-size:1.3rem;"></i>
             </div>
             <div>
-              <div style="font-size:.75rem;color:var(--gold);text-transform:uppercase;letter-spacing:.1em;font-weight:600;margin-bottom:4px;"><?= cms_e($cs['industry'] ?? '') ?></div>
-              <h4 style="color:white;font-size:1rem;margin:0;"><?= cms_e($cs['headline'] ?? $cs['title'] ?? '') ?></h4>
+              <div style="font-size:.75rem;color:var(--gold);text-transform:uppercase;letter-spacing:.1em;font-weight:600;margin-bottom:4px;"></div>
+              <h4 style="color:white;font-size:1rem;margin:0;"></h4>
             </div>
           </div>
           <div class="blog-card__body" style="padding:24px;">
-            <p style="color:var(--text-muted);font-size:.9rem;margin-bottom:16px;"><?= cms_e($cs['description'] ?? '') ?></p>
-            <?php if (!empty($metrics)): ?>
-            <div style="display:grid;grid-template-columns:repeat(<?= min(3, count($metrics)) ?>,1fr);gap:12px;margin-bottom:16px;">
-              <?php foreach ($metrics as $m):
-                $m_color = $m['color'] ?? 'var(--gold)';
-              ?>
+            <p style="color:var(--text-muted);font-size:.9rem;margin-bottom:16px;"></p>
+            
+            <div style="display:grid;grid-template-columns:repeat(,1fr);gap:12px;margin-bottom:16px;">
+              
               <div style="text-align:center;padding:12px;background:var(--gray-50);border-radius:var(--radius-sm);">
-                <div style="font-size:1.3rem;font-weight:800;color:<?= cms_e($m_color) ?>;"><?= cms_e($m['value'] ?? '') ?></div>
-                <div style="font-size:.75rem;color:var(--text-muted);"><?= cms_e($m['label'] ?? '') ?></div>
+                <div style="font-size:1.3rem;font-weight:800;color:;"></div>
+                <div style="font-size:.75rem;color:var(--text-muted);"></div>
               </div>
-              <?php endforeach; ?>
+              
             </div>
-            <?php endif; ?>
-            <span style="display:inline-block;padding:4px 12px;border-radius:var(--radius-full);font-size:.78rem;font-weight:600;<?= $tag_style ?>"><?= cms_e($tag) ?></span>
+            
+            <span style="display:inline-block;padding:4px 12px;border-radius:var(--radius-full);font-size:.78rem;font-weight:600;"></span>
           </div>
         </article>
-        <?php endforeach; ?>
+        
       </div>
-      <?php else: ?>
+      
       <div style="text-align:center;padding:60px 0;color:var(--text-muted);">
         <i class="fas fa-trophy" style="font-size:3rem;opacity:.3;display:block;margin-bottom:16px;"></i>
         <p>Case studies coming soon.</p>
       </div>
-      <?php endif; ?>
+      
 
     </div>
   </section>

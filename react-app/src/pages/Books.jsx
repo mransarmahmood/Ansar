@@ -41,46 +41,38 @@ const HTML = `
       </div>
 
       <!-- Books Grid -->
-      <?php if (!empty($books)): ?>
+      
       <div class="book-grid">
-        <?php foreach ($books as $book):
-          $cat       = $book['category']   ?? 'foundations';
-          $color     = $book['color']      ?? '#0B1D36';
-          $rating    = (int)($book['rating']    ?? 5);
-          $diff      = $book['difficulty'] ?? 'Intermediate';
-          $diff_cls  = 'level-' . strtolower($diff);
-          $cat_lbl   = $cat_labels[$cat]   ?? ucfirst($cat);
-          $title_short = mb_strimwidth($book['title'] ?? '', 0, 28, '…');
-        ?>
-        <div class="book-card reveal" data-cat="<?= cms_e($cat) ?>">
-          <div class="book-card__cover" style="background:<?= cms_e($color) ?>;">
-            <div class="book-spine" style="background:<?= cms_e($color) ?>;">
+        
+        <div class="book-card reveal" data-cat="">
+          <div class="book-card__cover" style="background:;">
+            <div class="book-spine" style="background:;">
               <i class="fas fa-book"></i>
-              <div class="bs-title"><?= cms_e($title_short) ?></div>
+              <div class="bs-title"></div>
             </div>
           </div>
           <div class="book-card__body">
-            <div class="book-card__cat" style="color:var(--blue);"><?= cms_e($cat_lbl) ?></div>
-            <div class="book-card__title"><?= cms_e($book['title'] ?? '') ?></div>
-            <div class="book-card__author"><?= cms_e($book['author'] ?? '') ?> — <?= cms_e($book['year'] ?? '') ?></div>
-            <div class="book-card__desc"><?= cms_e($book['description'] ?? '') ?></div>
-            <?php if (!empty($book['recommendation'])): ?>
-            <div class="book-card__why"><strong>Why Ansar Recommends It</strong><?= cms_e($book['recommendation']) ?></div>
-            <?php endif; ?>
+            <div class="book-card__cat" style="color:var(--blue);"></div>
+            <div class="book-card__title"></div>
+            <div class="book-card__author"> — </div>
+            <div class="book-card__desc"></div>
+            
+            <div class="book-card__why"><strong>Why Ansar Recommends It</strong></div>
+            
             <div class="book-card__meta">
-              <div class="book-stars"><?= str_repeat('<i class="fas fa-star"></i>', min(5, max(1, $rating))) ?></div>
-              <span class="book-level <?= cms_e($diff_cls) ?>"><?= cms_e($diff) ?></span>
+              <div class="book-stars"></div>
+              <span class="book-level "></span>
             </div>
           </div>
         </div>
-        <?php endforeach; ?>
+        
       </div>
-      <?php else: ?>
+      
       <div style="text-align:center;padding:60px 0;color:var(--text-muted);">
         <i class="fas fa-book" style="font-size:3rem;opacity:.3;display:block;margin-bottom:16px;"></i>
         <p>Book recommendations coming soon.</p>
       </div>
-      <?php endif; ?>
+      
 
       <!-- Reading Banner CTA -->
       <div class="reading-banner reveal" style="margin-top:60px;">

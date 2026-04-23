@@ -29,34 +29,28 @@ const HTML = `
   <section class="section section-white">
     <div class="container">
 
-      <?php foreach ($category_meta as $cat_key => $meta):
-        $cat_services = $grouped[$cat_key] ?? [];
-        if (empty($cat_services)) continue;
-      ?>
+      
       <div style="margin-bottom:72px;">
         <div style="display:flex;align-items:center;gap:16px;margin-bottom:32px;padding-bottom:20px;border-bottom:2px solid var(--gray-100);">
-          <div style="width:48px;height:48px;border-radius:var(--radius);background:<?= $meta['bg'] ?>;color:<?= $meta['color'] ?>;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0;"><i class="fas <?= cms_e($meta['icon']) ?>"></i></div>
+          <div style="width:48px;height:48px;border-radius:var(--radius);background:;color:;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0;"><i class="fas "></i></div>
           <div>
-            <div style="font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);"><?= cms_e($meta['label']) ?></div>
-            <h2 style="margin:0;font-size:1.6rem;"><?= cms_e($meta['title']) ?></h2>
+            <div style="font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);"></div>
+            <h2 style="margin:0;font-size:1.6rem;"></h2>
           </div>
-          <a href="<?= cms_e($meta['link']) ?>" class="btn btn-outline-blue btn-sm" style="margin-left:auto;">Explore &rarr;</a>
+          <a href="" class="btn btn-outline-blue btn-sm" style="margin-left:auto;">Explore &rarr;</a>
         </div>
         <div class="grid grid-3 gap" style="gap:20px;">
-          <?php foreach ($cat_services as $svc):
-            $svc_url = $svc['url'] ?? '#';
-            if (strpos($svc_url, 'pages/') === 0) $svc_url = substr($svc_url, 6);
-          ?>
+          
           <div class="service-card reveal">
-            <div class="service-card__icon" style="background:<?= $meta['bg'] ?>;color:<?= $meta['color'] ?>;"><i class="fas <?= cms_e($svc['icon'] ?? 'fa-cog') ?>"></i></div>
-            <h3 class="service-card__title"><?= cms_e($svc['title'] ?? '') ?></h3>
-            <p class="service-card__desc"><?= cms_e($svc['description'] ?? '') ?></p>
-            <a href="<?= cms_e($svc_url) ?>" class="service-card__link">Learn More <i class="fas fa-arrow-right"></i></a>
+            <div class="service-card__icon" style="background:;color:;"><i class="fas fa-cog"></i></div>
+            <h3 class="service-card__title"></h3>
+            <p class="service-card__desc"></p>
+            <a href="" class="service-card__link">Learn More <i class="fas fa-arrow-right"></i></a>
           </div>
-          <?php endforeach; ?>
+          
         </div>
       </div>
-      <?php endforeach; ?>
+      
 
     </div>
   </section>

@@ -10,13 +10,13 @@ const HTML = `
     <div class="container">
       <nav class="breadcrumb" aria-label="Breadcrumb"><a href="../index.html">Home</a><span class="breadcrumb__sep"><i class="fas fa-chevron-right"></i></span><a href="services.html">Services</a><span class="breadcrumb__sep"><i class="fas fa-chevron-right"></i></span><span class="breadcrumb__current">Audits</span></nav>
       <div class="page-hero__content">
-        <span class="eyebrow eyebrow--white"><?= cms_e($sp['hero_eyebrow'] ?? 'Audits & Compliance') ?></span>
-        <h1><?= cms_e($sp['hero_headline'] ?? 'Comprehensive HSE Audits & Gap Analysis') ?></h1>
-        <p><?= cms_e($sp['hero_description'] ?? 'Identify risks before they become incidents. Ansar Mahmood delivers rigorous, evidence-based HSE audits against ISO 45001, OSHA, and local regulatory standards — with clear, actionable findings that drive real improvement.') ?></p>
+        <span class="eyebrow eyebrow--white">Audits & Compliance</span>
+        <h1>Comprehensive HSE Audits & Gap Analysis</h1>
+        <p>Identify risks before they become incidents. Ansar Mahmood delivers rigorous, evidence-based HSE audits against ISO 45001, OSHA, and local regulatory standards — with clear, actionable findings that drive real improvement.</p>
         <div class="page-hero__actions">
-          <?php $cta1 = $sp['hero_cta_primary'] ?? []; $cta2 = $sp['hero_cta_secondary'] ?? []; ?>
-          <a href="<?= cms_e($cta1['url'] ?? 'book-consultation.html') ?>" class="btn btn-gold btn-lg"><?php if (!empty($cta1['icon'])): ?><i class="<?= cms_e($cta1['icon']) ?>"></i> <?php endif; ?><?= cms_e($cta1['text'] ?? 'Book an Audit') ?></a>
-          <a href="<?= cms_e($cta2['url'] ?? 'contact.html') ?>" class="btn btn-outline-white btn-lg"><?= cms_e($cta2['text'] ?? 'Get a Quote') ?></a>
+          
+          <a href="book-consultation.html" class="btn btn-gold btn-lg"><i class=""></i> Book an Audit</a>
+          <a href="contact.html" class="btn btn-outline-white btn-lg">Get a Quote</a>
         </div>
       </div>
     </div>

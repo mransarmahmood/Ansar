@@ -32,21 +32,21 @@ const HTML = `
       <!-- Industry Cards -->
       <div class="grid grid-3" style="gap:24px;margin-bottom:60px;">
 
-        <?php foreach ($industries as $ind): ?>
+        
         <div class="feature-card reveal">
-          <div class="feature-card__icon"><i class="fas <?= cms_e($ind['icon'] ?? 'fa-industry') ?>"></i></div>
-          <h4 class="feature-card__title"><?= cms_e($ind['name'] ?? '') ?></h4>
-          <p class="feature-card__desc"><?= cms_e($ind['description'] ?? '') ?></p>
+          <div class="feature-card__icon"><i class="fas fa-industry"></i></div>
+          <h4 class="feature-card__title"></h4>
+          <p class="feature-card__desc"></p>
           <div style="margin-top:16px;padding-top:16px;border-top:1px solid var(--gray-100);">
             <div style="font-size:.8rem;color:var(--gold);font-weight:600;letter-spacing:.05em;text-transform:uppercase;margin-bottom:8px;">Key services</div>
             <div style="display:flex;flex-wrap:wrap;gap:6px;">
-              <?php foreach (($ind['key_services'] ?? []) as $ks): ?>
-              <span style="background:var(--gold-xlight);color:var(--gold-dark);padding:3px 10px;border-radius:var(--radius-full);font-size:.78rem;"><?= cms_e($ks) ?></span>
-              <?php endforeach; ?>
+              
+              <span style="background:var(--gold-xlight);color:var(--gold-dark);padding:3px 10px;border-radius:var(--radius-full);font-size:.78rem;"></span>
+              
             </div>
           </div>
         </div>
-        <?php endforeach; ?>
+        
 
       </div>
 

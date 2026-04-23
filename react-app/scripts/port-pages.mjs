@@ -30,6 +30,36 @@ function extractMain(html) {
   return body;
 }
 
+/**
+ * Remove all PHP syntax from the extracted HTML.
+ * - `<?= cms_e($x ?? 'fallback') ?>` → the literal fallback string (if present)
+ * - `<?= ... ?>` and `<?= $... ?>` → empty
+ * - `<?php ... ?>` blocks (including foreach/if/endif) → removed entirely
+ *
+ * This is a pragmatic strip: loops won't expand, but at least no raw PHP leaks
+ * through. Pages that rely heavily on loops should be converted to idiomatic
+ * JSX (see Home.jsx for the pattern).
+ */
+function stripPhp(html) {
+  let out = html;
+
+  // Short-echo with ?? 'fallback' — keep the fallback as a literal.
+  // Handles both single and double quoted fallbacks.
+  out = out.replace(
+    /<\?=\s*(?:cms_e\(|htmlspecialchars\()?\s*\$[^?]*?\?\?\s*(['"])((?:(?!\1)[^\\]|\\.)*)\1\s*\)?\s*\??\s*\)?\s*\?>/g,
+    (_, __, fallback) => fallback
+  );
+
+  // Any other short-echo (no fallback) — produce empty string.
+  out = out.replace(/<\?=[\s\S]*?\?>/g, '');
+
+  // Block PHP (foreach, if, endforeach, endif, etc.) — strip tags and bodies
+  // that are purely PHP control flow. Keep the HTML between them.
+  out = out.replace(/<\?php[\s\S]*?\?>/g, '');
+
+  return out;
+}
+
 function extractTitle(html) {
   const m = html.match(/<title>([\s\S]*?)<\/title>/i);
   return m ? m[1].trim() : '';
@@ -55,6 +85,7 @@ for (const file of files) {
   const raw = readFileSync(resolve(HTML_DIR, file), 'utf8');
   const title = extractTitle(raw);
   let main = extractMain(raw);
+  main = stripPhp(main);
   main = rewriteAssetPaths(main);
 
   const out = `// Auto-generated from pages/${file}. Edit freely — this file is the source of truth now.

@@ -58,66 +58,49 @@ const HTML = `
         <button class="cal-filter" onclick="filterCourses(this,'online')">Online Only</button>
       </div>
 
-      <?php if (!empty($months)): ?>
-        <?php foreach ($months as $month_label => $month_courses): ?>
-        <div class="month-header"><h3><?= cms_e($month_label) ?></h3></div>
+      
+        
+        <div class="month-header"><h3></h3></div>
         <div style="display:flex;flex-direction:column;gap:16px;" class="courses-list">
 
-          <?php foreach ($month_courses as $c):
-            $type_slug  = $c['type_slug'] ?? 'custom';
-            $mode_slug  = $c['mode_slug'] ?? 'online';
-            $type_icon  = $type_icons[$type_slug]  ?? 'fa-graduation-cap';
-            $mode_icon  = $mode_icons[$mode_slug]  ?? 'fa-laptop';
-            $seats      = (int)($c['seats_available'] ?? 0);
-            if ($seats <= 0) {
-                $seats_class = 'seats-full';
-                $seats_text  = 'Fully Booked';
-            } elseif ($seats <= 5) {
-                $seats_class = 'seats-few';
-                $seats_text  = $seats . ' Seats Left';
-            } else {
-                $seats_class = 'seats-ok';
-                $seats_text  = $seats . ' Seats Available';
-            }
-            $cat_str = $type_slug . ' ' . $mode_slug;
-          ?>
-          <div class="course-row reveal" data-cat="<?= cms_e($cat_str) ?>">
+          
+          <div class="course-row reveal" data-cat="">
             <div class="course-row__date-col">
-              <div class="course-row__day"><?= cms_e($c['day'] ?? '01') ?></div>
-              <div class="course-row__month"><?= cms_e($c['month'] ?? '') ?></div>
-              <div class="course-row__year"><?= cms_e($c['year'] ?? '2026') ?></div>
+              <div class="course-row__day">01</div>
+              <div class="course-row__month"></div>
+              <div class="course-row__year">2026</div>
             </div>
             <div class="course-row__body">
-              <span class="course-row__type type-<?= cms_e($type_slug) ?>">
-                <i class="fas <?= cms_e($type_icon) ?>"></i> <?= cms_e($c['type'] ?? '') ?>
+              <span class="course-row__type type-">
+                <i class="fas "></i> 
               </span>
-              <div class="course-row__title"><?= cms_e($c['title'] ?? '') ?></div>
+              <div class="course-row__title"></div>
               <div class="course-row__meta">
-                <span><i class="fas fa-clock"></i> <?= cms_e($c['duration'] ?? '') ?></span>
-                <span><i class="fas <?= cms_e($mode_icon) ?>"></i> <?= cms_e($c['mode'] ?? '') ?></span>
-                <span><i class="fas fa-map-marker-alt"></i> <?= cms_e($c['location'] ?? '') ?></span>
-                <span><i class="fas fa-tag"></i> <?= cms_e($c['price'] ?? '') ?></span>
+                <span><i class="fas fa-clock"></i> </span>
+                <span><i class="fas "></i> </span>
+                <span><i class="fas fa-map-marker-alt"></i> </span>
+                <span><i class="fas fa-tag"></i> </span>
               </div>
-              <?php if (!empty($c['description'])): ?>
-              <p style="font-size:.87rem;color:var(--text-muted);margin:0 0 14px;"><?= cms_e($c['description']) ?></p>
-              <?php endif; ?>
+              
+              <p style="font-size:.87rem;color:var(--text-muted);margin:0 0 14px;"></p>
+              
               <div class="course-row__actions">
-                <a href="course-admission.html?course=<?= urlencode($c['id'] ?? '') ?>" class="btn btn-gold btn-sm"><i class="fas fa-user-plus"></i> Apply Now</a>
+                <a href="course-admission.html?course=" class="btn btn-gold btn-sm"><i class="fas fa-user-plus"></i> Apply Now</a>
                 <a href="book-consultation.html" class="btn btn-outline-navy btn-sm"><i class="fas fa-question-circle"></i> Enquire</a>
-                <span class="seats-badge <?= $seats_class ?>"><i class="fas fa-chair"></i> <?= cms_e($seats_text) ?></span>
+                <span class="seats-badge "><i class="fas fa-chair"></i> </span>
               </div>
             </div>
           </div>
-          <?php endforeach; ?>
+          
 
         </div>
-        <?php endforeach; ?>
-      <?php else: ?>
+        
+      
       <div style="text-align:center;padding:60px 0;color:var(--text-muted);">
         <i class="fas fa-calendar-alt" style="font-size:3rem;opacity:.3;display:block;margin-bottom:16px;"></i>
         <p>No upcoming courses at this time. Check back soon or enquire about a custom programme.</p>
       </div>
-      <?php endif; ?>
+      
 
       <!-- Custom Training CTA -->
       <div class="reveal" style="background:linear-gradient(135deg,var(--navy),var(--navy-light));border-radius:var(--radius-lg);padding:48px;text-align:center;margin-top:60px;">

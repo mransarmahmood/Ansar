@@ -1,6 +1,7 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useMemo, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { API_BASE } from '../config';
+import { rewriteHtmlAssetPaths } from '../utils/asset';
 
 // Map of form-id → PHP handler path + success message, matching the original forms.js
 const FORM_CONFIG = {
@@ -50,6 +51,7 @@ function toSpaPath(href) {
 export default function PageHtml({ html }) {
   const ref = useRef(null);
   const navigate = useNavigate();
+  const rewrittenHtml = useMemo(() => rewriteHtmlAssetPaths(html), [html]);
 
   // Link interception
   useEffect(() => {
@@ -144,5 +146,5 @@ export default function PageHtml({ html }) {
     return () => root.removeEventListener('submit', onSubmit);
   }, [html]);
 
-  return <div ref={ref} dangerouslySetInnerHTML={{ __html: html }} />;
+  return <div ref={ref} dangerouslySetInnerHTML={{ __html: rewrittenHtml }} />;
 }

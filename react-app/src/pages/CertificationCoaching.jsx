@@ -11,23 +11,23 @@ const HTML = `
       <nav class="breadcrumb" aria-label="Breadcrumb"><a href="../index.html">Home</a><span class="breadcrumb__sep"><i class="fas fa-chevron-right"></i></span><a href="services.html">Services</a><span class="breadcrumb__sep"><i class="fas fa-chevron-right"></i></span><span class="breadcrumb__current">Certification Coaching</span></nav>
       <div class="page-hero__inner">
         <div class="page-hero__content">
-          <span class="eyebrow eyebrow--white"><?= cms_e($sp['hero_eyebrow'] ?? 'Professional Certification') ?></span>
-          <h1><?= cms_e($sp['hero_headline'] ?? 'Pass Your Safety Certification — First Time, Every Time') ?></h1>
-          <p><?= cms_e($sp['hero_description'] ?? 'Expert 1:1 and group coaching for IOSH, ASP/CSP, CRSP, ISO Lead Auditor, PMP, and more. With Ansar\\'s proven coaching methodology and 97%+ first-attempt pass rate, your certification success is the only acceptable outcome.') ?></p>
+          <span class="eyebrow eyebrow--white">Professional Certification</span>
+          <h1>Pass Your Safety Certification — First Time, Every Time</h1>
+          <p>Expert 1:1 and group coaching for IOSH, ASP/CSP, CRSP, ISO Lead Auditor, PMP, and more. With Ansar\\'s proven coaching methodology and 97%+ first-attempt pass rate, your certification success is the only acceptable outcome.</p>
           <div class="page-hero__actions">
-            <?php $cta1 = $sp['hero_cta_primary'] ?? []; $cta2 = $sp['hero_cta_secondary'] ?? []; ?>
-            <a href="<?= cms_e($cta1['url'] ?? 'book-consultation.html') ?>" class="btn btn-gold btn-lg"><?php if (!empty($cta1['icon'])): ?><i class="<?= cms_e($cta1['icon']) ?>"></i> <?php endif; ?><?= cms_e($cta1['text'] ?? 'Start Your Coaching') ?></a>
-            <a href="<?= cms_e($cta2['url'] ?? 'contact.html') ?>" class="btn btn-outline-white btn-lg"><?= cms_e($cta2['text'] ?? 'Ask a Question') ?></a>
+            
+            <a href="book-consultation.html" class="btn btn-gold btn-lg"><i class=""></i> Start Your Coaching</a>
+            <a href="contact.html" class="btn btn-outline-white btn-lg">Ask a Question</a>
           </div>
         </div>
         <div class="page-hero__stats">
-          <?php if (!empty($sp['hero_stats'])): foreach ($sp['hero_stats'] as $stat): ?>
-          <div class="page-hero-stat"><span class="page-hero-stat__num"><?= cms_e($stat['value'] ?? '') ?></span><span class="page-hero-stat__label"><?= cms_e($stat['label'] ?? '') ?></span></div>
-          <?php endforeach; else: ?>
+          
+          <div class="page-hero-stat"><span class="page-hero-stat__num"></span><span class="page-hero-stat__label"></span></div>
+          
           <div class="page-hero-stat"><span class="page-hero-stat__num">97%+</span><span class="page-hero-stat__label">First Pass Rate</span></div>
           <div class="page-hero-stat"><span class="page-hero-stat__num">10+</span><span class="page-hero-stat__label">Certifications Coached</span></div>
           <div class="page-hero-stat"><span class="page-hero-stat__num">5,000+</span><span class="page-hero-stat__label">Candidates Coached</span></div>
-          <?php endif; ?>
+          
         </div>
       </div>
     </div>
