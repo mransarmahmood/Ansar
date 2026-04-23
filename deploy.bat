@@ -4,8 +4,9 @@ REM Deploy the React app to /Ansar/ on XAMPP (Windows).
 pushd "%~dp0react-app"
 
 echo --^> Regenerating legacy-page JSX from pages/*.html ...
+REM Home.jsx is manually authored — it pulls CMS data from src/data/*.json.
+REM Only the 27 content pages in pages/ get ported.
 call node scripts\port-pages.mjs >nul
-call node scripts\port-home.mjs >nul 2>&1
 call node scripts\update-stats.mjs >nul 2>&1
 
 echo --^> Building React bundle ...

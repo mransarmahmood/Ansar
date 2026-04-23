@@ -1,8 +1,4 @@
-// Auto-generated from pages/consulting.html. Edit freely — this file is the source of truth now.
-import { useEffect } from 'react';
-import PageHtml from '../components/PageHtml';
-
-const HTML = `
+import{i as e,n as t,r as n,t as r}from"./index-XWoWUexf.js";var i=e(n(),1),a=t(),o=`
 
   <section class="page-hero">
     <div class="page-hero__pattern" aria-hidden="true"></div>
@@ -154,11 +150,4 @@ const HTML = `
     </div>
   </section>
 
-`;
-
-export default function Consulting() {
-  useEffect(() => {
-    document.title = "HSE Consulting Services | Ansar Mahmood — Strategic Safety Advisory";
-  }, []);
-  return <PageHtml html={HTML} />;
-}
+`;function s(){return(0,i.useEffect)(()=>{document.title=`HSE Consulting Services | Ansar Mahmood — Strategic Safety Advisory`},[]),(0,a.jsx)(r,{html:o})}export{s as default};

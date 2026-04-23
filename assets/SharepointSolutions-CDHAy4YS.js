@@ -1,0 +1,91 @@
+import{i as e,n as t,r as n,t as r}from"./index-XWoWUexf.js";var i=e(n(),1),a=t(),o=`
+
+  <section class="page-hero">
+    <div class="page-hero__pattern" aria-hidden="true"></div>
+    <i class="page-hero__icon-bg fas fa-share-nodes" aria-hidden="true"></i>
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="../index.html">Home</a><span class="breadcrumb__sep"><i class="fas fa-chevron-right"></i></span><a href="services.html">Services</a><span class="breadcrumb__sep"><i class="fas fa-chevron-right"></i></span><span class="breadcrumb__current">SharePoint Solutions</span></nav>
+      <div class="page-hero__content">
+        <span class="eyebrow eyebrow--white">Microsoft 365</span>
+        <h1>SharePoint HSE Portals & Document Management</h1>
+        <p>Your centralised HSE intelligence hub. Custom SharePoint intranet sites that put every safety document, procedure, register, and report at the fingertips of your entire workforce — from any device, anywhere.</p>
+        <div class="page-hero__actions">
+          
+          <a href="book-consultation.html" class="btn btn-gold btn-lg"><i class=""></i> See a Live Demo</a>
+          <a href="contact.html" class="btn btn-outline-white btn-lg">Discuss Your Portal</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-white">
+    <div class="container">
+      <div class="service-page-layout">
+        <div>
+          <h2>SharePoint HSE Solutions</h2>
+          <div class="grid grid-2" style="gap:20px;margin-bottom:40px;">
+            <div class="feature-card reveal"><div class="feature-card__icon"><i class="fas fa-home"></i></div><h4 class="feature-card__title">HSE Intranet Portal</h4><p class="feature-card__desc">Custom branded SharePoint intranet with safety news, policy library, upcoming audits, training calendar, quick-access tools, and management announcements — all in one hub.</p></div>
+            <div class="feature-card reveal"><div class="feature-card__icon"><i class="fas fa-folder-tree"></i></div><h4 class="feature-card__title">Document Control System</h4><p class="feature-card__desc">Fully controlled document library with version control, approval workflows, review reminders, retention policies, and search across all safety documentation.</p></div>
+            <div class="feature-card reveal"><div class="feature-card__icon"><i class="fas fa-exclamation-circle"></i></div><h4 class="feature-card__title">Incident Reporting Portal</h4><p class="feature-card__desc">Custom incident reporting forms using Power Apps — workers report from mobile, supervisors receive instant alerts, investigations are tracked through to CAPA closure.</p></div>
+            <div class="feature-card reveal"><div class="feature-card__icon"><i class="fas fa-user-hard-hat"></i></div><h4 class="feature-card__title">Contractor Management Portal</h4><p class="feature-card__desc">Prequalification questionnaires, document uploads, HSE performance scores, site induction tracking, and permit management — all in one contractor-facing portal.</p></div>
+            <div class="feature-card reveal"><div class="feature-card__icon"><i class="fas fa-graduation-cap"></i></div><h4 class="feature-card__title">Training Records System</h4><p class="feature-card__desc">Competency matrix, training history, certificate uploads, expiry tracking, and automated renewal reminders — ensuring your workforce is always compliant and current.</p></div>
+            <div class="feature-card reveal"><div class="feature-card__icon"><i class="fas fa-bell"></i></div><h4 class="feature-card__title">Teams Integration & Alerts</h4><p class="feature-card__desc">Safety notifications posted to Teams channels automatically. Overdue actions escalated via Teams message. Near-miss reported → supervisor notified instantly.</p></div>
+          </div>
+
+          <h2>Key Features</h2>
+          <div class="deliverable-list" style="margin-bottom:40px;">
+            <div class="deliverable-item reveal"><i class="fas fa-mobile-alt"></i><div><span class="deliverable-item__text">Fully responsive — works on any device</span><span class="deliverable-item__sub">Desktop, tablet, and mobile-optimised SharePoint pages — field workers access from phones</span></div></div>
+            <div class="deliverable-item reveal"><i class="fas fa-search"></i><div><span class="deliverable-item__text">Powerful document search</span><span class="deliverable-item__sub">Full-text search across all document libraries, metadata filtering, and column-based navigation</span></div></div>
+            <div class="deliverable-item reveal"><i class="fas fa-lock"></i><div><span class="deliverable-item__text">Role-based access control</span><span class="deliverable-item__sub">Only the right people see the right documents. Confidential investigations, management reviews, and legal registers are strictly permission-controlled</span></div></div>
+            <div class="deliverable-item reveal"><i class="fas fa-history"></i><div><span class="deliverable-item__text">Full version history and audit trail</span><span class="deliverable-item__sub">Every document edit, approval, and view is logged — essential for ISO certification and regulatory compliance</span></div></div>
+            <div class="deliverable-item reveal"><i class="fas fa-plug"></i><div><span class="deliverable-item__text">Power BI dashboard integration</span><span class="deliverable-item__sub">Embed live Power BI dashboards directly in SharePoint pages — one central hub for all HSE data</span></div></div>
+          </div>
+
+          <h2>Build Process</h2>
+          <div class="process-steps reveal" style="margin:28px 0 40px;">
+            <div class="step-item"><div class="step-number">1</div><div class="step-title">Requirements & Architecture</div><p class="step-desc">Map existing document landscape, user needs, and permission requirements. Design the information architecture and site structure.</p></div>
+            <div class="step-item"><div class="step-number">2</div><div class="step-title">Build & Configure</div><p class="step-desc">Build the SharePoint site, configure libraries, metadata, views, workflows, and Power Apps forms — branded to your organisation.</p></div>
+            <div class="step-item"><div class="step-number">3</div><div class="step-title">Migrate & Load</div><p class="step-desc">Migrate existing documents with metadata preserved. Set up managed metadata, taxonomy, and content types for future-proof organisation.</p></div>
+            <div class="step-item"><div class="step-number">4</div><div class="step-title">Train & Launch</div><p class="step-desc">Train administrators and end-users. Provide user guides. Go live with a phased rollout and hypercare support period.</p></div>
+          </div>
+        </div>
+
+        <div class="service-sidebar">
+          <div class="sidebar-card sidebar-card--navy">
+            <h4><i class="fas fa-desktop" style="color:var(--gold);margin-right:8px;"></i>See a Live Demo</h4>
+            <p>Book a free walkthrough of a live SharePoint HSE portal and see what your organisation could look like.</p>
+            <a href="book-consultation.html" class="btn btn-gold" style="width:100%;justify-content:center;">Book Free Demo</a>
+          </div>
+          <div class="sidebar-card">
+            <h4>Related Services</h4>
+            <nav class="sidebar-nav">
+              <a href="digital-solutions.html"><i class="fas fa-laptop-code"></i>Digital Transformation</a>
+              <a href="powerbi-dashboards.html"><i class="fas fa-chart-bar"></i>Power BI Dashboards</a>
+              <a href="safety-apps.html"><i class="fas fa-mobile-alt"></i>Safety Apps</a>
+              <a href="management-systems.html"><i class="fas fa-sitemap"></i>Document Control</a>
+            </nav>
+          </div>
+          <div class="sidebar-card">
+            <h4><i class="fas fa-certificate" style="color:var(--blue);margin-right:8px;"></i>Ideal For</h4>
+            <ul style="list-style:none;padding:0;margin:0;font-size:.88rem;">
+              <li style="padding:6px 0;border-bottom:1px solid var(--gray-100);">✓ ISO 45001 / 14001 / 9001 certification</li>
+              <li style="padding:6px 0;border-bottom:1px solid var(--gray-100);">✓ Multi-site organisations</li>
+              <li style="padding:6px 0;border-bottom:1px solid var(--gray-100);">✓ Oil &amp; gas and construction projects</li>
+              <li style="padding:6px 0;">✓ Microsoft 365 subscribers</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-banner section"><div class="container"><div class="cta-banner__content">
+    <h2>Build Your Centralised HSE Hub</h2>
+    <p>A custom SharePoint HSE portal eliminates scattered documents, missed reviews, and compliance gaps. Book a free discovery session and get a site architecture proposal.</p>
+    <div class="cta-banner__actions">
+      <a href="book-consultation.html" class="btn btn-gold btn-xl"><i class="fas fa-share-nodes"></i> Start Your Portal Project</a>
+      <a href="contact.html" class="btn btn-outline-white btn-xl">Get a Quote</a>
+    </div>
+  </div></div></section>
+
+`;function s(){return(0,i.useEffect)(()=>{document.title=`SharePoint HSE Portals & Document Management | Ansar Mahmood`},[]),(0,a.jsx)(r,{html:o})}export{s as default};

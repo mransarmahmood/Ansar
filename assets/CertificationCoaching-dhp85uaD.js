@@ -1,8 +1,4 @@
-// Auto-generated from pages/certification-coaching.html. Edit freely — this file is the source of truth now.
-import { useEffect } from 'react';
-import PageHtml from '../components/PageHtml';
-
-const HTML = `
+import{a as e,o as t,t as n}from"./index-kiEOIvBn.js";import{t as r}from"./PageHtml-CJun-K1R.js";var i=t(e(),1),a=n(),o=`
 
   <section class="page-hero">
     <div class="page-hero__pattern" aria-hidden="true"></div>
@@ -357,11 +353,4 @@ const HTML = `
     </div>
   </section>
 
-`;
-
-export default function CertificationCoaching() {
-  useEffect(() => {
-    document.title = "IOSH & Professional Certification Coaching | Ansar Mahmood";
-  }, []);
-  return <PageHtml html={HTML} />;
-}
+`;function s(){return(0,i.useEffect)(()=>{document.title=`IOSH & Professional Certification Coaching | Ansar Mahmood`},[]),(0,a.jsx)(r,{html:o})}export{s as default};

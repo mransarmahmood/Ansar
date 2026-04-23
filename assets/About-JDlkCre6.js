@@ -1,8 +1,4 @@
-// Auto-generated from pages/about.html. Edit freely — this file is the source of truth now.
-import { useEffect } from 'react';
-import PageHtml from '../components/PageHtml';
-
-const HTML = `
+import{i as e,n as t,r as n,t as r}from"./index-XWoWUexf.js";var i=e(n(),1),a=t(),o=`
 
   <!-- Page Hero -->
   <section class="page-hero" aria-labelledby="about-hero-heading">
@@ -167,11 +163,4 @@ const HTML = `
     </div>
   </section>
 
-`;
-
-export default function About() {
-  useEffect(() => {
-    document.title = "About Ansar Mahmood | Global HSE Consultant, Trainer & AI Solutions Specialist";
-  }, []);
-  return <PageHtml html={HTML} />;
-}
+`;function s(){return(0,i.useEffect)(()=>{document.title=`About Ansar Mahmood | Global HSE Consultant, Trainer & AI Solutions Specialist`},[]),(0,a.jsx)(r,{html:o})}export{s as default};

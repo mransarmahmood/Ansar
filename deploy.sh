@@ -7,8 +7,9 @@ SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 cd "$SCRIPT_DIR/react-app"
 
 echo "→ Regenerating legacy-page JSX from pages/*.html ..."
+# NOTE: Home.jsx is manually authored (not regenerated) — it pulls CMS data
+# directly from src/data/*.json. Only the 27 content pages in pages/ get ported.
 node scripts/port-pages.mjs > /dev/null
-node scripts/port-home.mjs > /dev/null 2>&1 || true
 node scripts/update-stats.mjs > /dev/null 2>&1 || true
 
 echo "→ Building React bundle ..."

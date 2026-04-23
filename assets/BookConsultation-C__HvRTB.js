@@ -1,8 +1,4 @@
-// Auto-generated from pages/book-consultation.html. Edit freely — this file is the source of truth now.
-import { useEffect } from 'react';
-import PageHtml from '../components/PageHtml';
-
-const HTML = `
+import{i as e,n as t,r as n,t as r}from"./index-XWoWUexf.js";var i=e(n(),1),a=t(),o=`
 
   <section class="page-hero">
     <div class="page-hero__pattern" aria-hidden="true"></div>
@@ -74,7 +70,7 @@ const HTML = `
                data-url="https://calendly.com/ansar-mahmood/30min"
                style="min-width:320px;height:700px;">
           </div>
-          <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+          <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async><\/script>
           -->
 
           <!-- Manual Booking Form (fallback) -->
@@ -164,11 +160,4 @@ const HTML = `
     </div>
   </section>
 
-`;
-
-export default function BookConsultation() {
-  useEffect(() => {
-    document.title = "Book a Free Consultation | Ansar Mahmood — HSE Consultant";
-  }, []);
-  return <PageHtml html={HTML} />;
-}
+`;function s(){return(0,i.useEffect)(()=>{document.title=`Book a Free Consultation | Ansar Mahmood — HSE Consultant`},[]),(0,a.jsx)(r,{html:o})}export{s as default};
