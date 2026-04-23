@@ -39,7 +39,7 @@ const HTML = `
       <div class="section-header reveal">
         <span class="eyebrow">Certifications We Coach</span>
         <h2>Every Major HSE Professional Certification</h2>
-        <p>Expert exam coaching for the world's most recognised safety and quality certifications — candidates in 40+ countries, 97%+ first-attempt pass rate.</p>
+        <p>Expert exam coaching for the world's most recognised safety and quality certifications — candidates in 10 countries, 97%+ first-attempt pass rate.</p>
       </div>
 
       <style>

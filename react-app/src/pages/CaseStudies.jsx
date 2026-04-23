@@ -12,7 +12,7 @@ const HTML = `
       <div class="page-hero__content">
         <span class="eyebrow eyebrow--white">Proven Results</span>
         <h1>Real Projects. Measurable Outcomes.</h1>
-        <p>500+ projects delivered across 40+ countries. Here are some of the transformations Ansar Mahmood has led — from incident rate reductions to ISO certifications and full digital transformations.</p>
+        <p>500+ projects delivered across 10 countries. Here are some of the transformations Ansar Mahmood has led — from incident rate reductions to ISO certifications and full digital transformations.</p>
         <div class="page-hero__actions">
           <a href="book-consultation.html" class="btn btn-gold btn-lg"><i class="fas fa-calendar-check"></i> Start Your Transformation</a>
           <a href="services.html" class="btn btn-outline-white btn-lg">Explore Services</a>

@@ -40,11 +40,11 @@ const HTML = `
           <!-- Quick stats -->
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px;">
             <div style="background:var(--gray-50);border:1px solid var(--gray-200);border-radius:var(--radius-sm);padding:16px;text-align:center;">
-              <strong style="font-family:var(--font-heading);font-size:1.6rem;font-weight:800;color:var(--navy);display:block;">25+</strong>
+              <strong style="font-family:var(--font-heading);font-size:1.6rem;font-weight:800;color:var(--navy);display:block;">20</strong>
               <span style="font-size:.78rem;color:var(--text-muted);">Years Experience</span>
             </div>
             <div style="background:var(--gray-50);border:1px solid var(--gray-200);border-radius:var(--radius-sm);padding:16px;text-align:center;">
-              <strong style="font-family:var(--font-heading);font-size:1.6rem;font-weight:800;color:var(--navy);display:block;">40+</strong>
+              <strong style="font-family:var(--font-heading);font-size:1.6rem;font-weight:800;color:var(--navy);display:block;">10</strong>
               <span style="font-size:.78rem;color:var(--text-muted);">Countries</span>
             </div>
             <div style="background:var(--gray-50);border:1px solid var(--gray-200);border-radius:var(--radius-sm);padding:16px;text-align:center;">
@@ -90,7 +90,7 @@ const HTML = `
     <div class="container">
       <div class="section-header">
         <span class="eyebrow">Career Journey</span>
-        <h2 id="timeline-heading">25+ Years of Global HSE Leadership</h2>
+        <h2 id="timeline-heading">20 Years of Global HSE Leadership</h2>
       </div>
       <div style="max-width:760px;margin:0 auto;">
         <div class="timeline">
@@ -113,7 +113,7 @@ const HTML = `
       <div class="section-header">
         <span class="eyebrow">In the Field & Beyond</span>
         <h2>A Career Built on Real-World Experience</h2>
-        <p>From megaproject sites to international conferences — 25+ years of global HSE leadership, training, and impact.</p>
+        <p>From megaproject sites to international conferences — 20 years of global HSE leadership, training, and impact.</p>
       </div>
       <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;">
         <div class="reveal" style="border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-md);aspect-ratio:3/4;">

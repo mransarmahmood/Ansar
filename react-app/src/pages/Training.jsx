@@ -26,7 +26,7 @@ const HTML = `
           <?php endforeach; else: ?>
           <div class="page-hero-stat"><span class="page-hero-stat__num">10,000+</span><span class="page-hero-stat__label">Professionals Trained</span></div>
           <div class="page-hero-stat"><span class="page-hero-stat__num">97%+</span><span class="page-hero-stat__label">Pass Rate</span></div>
-          <div class="page-hero-stat"><span class="page-hero-stat__num">40+</span><span class="page-hero-stat__label">Countries</span></div>
+          <div class="page-hero-stat"><span class="page-hero-stat__num">10</span><span class="page-hero-stat__label">Countries</span></div>
           <?php endif; ?>
         </div>
       </div>

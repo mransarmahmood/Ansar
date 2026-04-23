@@ -61,7 +61,7 @@ const HTML = `
           <div style="color:rgba(255,255,255,.7);font-size:.88rem;margin-top:6px;">Professionals Trained</div>
         </div>
         <div class="reveal">
-          <div style="font-size:2.2rem;font-weight:800;color:var(--gold);" data-counter="40" data-suffix="+">40+</div>
+          <div style="font-size:2.2rem;font-weight:800;color:var(--gold);" data-counter="10" data-suffix="">10</div>
           <div style="color:rgba(255,255,255,.7);font-size:.88rem;margin-top:6px;">Countries Worked In</div>
         </div>
       </div>

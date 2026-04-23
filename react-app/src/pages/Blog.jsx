@@ -12,7 +12,7 @@ const HTML = `
       <div class="page-hero__content">
         <span class="eyebrow eyebrow--white">HSE Insights</span>
         <h1>Safety, Digital & AI Insights</h1>
-        <p>Practical perspectives on health and safety management, digital transformation, AI tools, and professional certification — written by a practitioner with 25+ years of global field experience.</p>
+        <p>Practical perspectives on health and safety management, digital transformation, AI tools, and professional certification — written by a practitioner with 20 years of global field experience.</p>
       </div>
     </div>
   </section>

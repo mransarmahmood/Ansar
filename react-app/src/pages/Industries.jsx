@@ -10,9 +10,9 @@ const HTML = `
     <div class="container">
       <nav class="breadcrumb" aria-label="Breadcrumb"><a href="../index.html">Home</a><span class="breadcrumb__sep"><i class="fas fa-chevron-right"></i></span><span class="breadcrumb__current">Industries</span></nav>
       <div class="page-hero__content">
-        <span class="eyebrow eyebrow--white">40+ Countries · 10 Sectors</span>
+        <span class="eyebrow eyebrow--white">10 Countries · 10 Sectors</span>
         <h1>Industry-Specific HSE Expertise</h1>
-        <p>Generic safety advice rarely solves sector-specific problems. With 25+ years deployed across the world's most demanding industries, Ansar Mahmood understands the unique hazards, regulatory landscapes, and operational pressures of your sector.</p>
+        <p>Generic safety advice rarely solves sector-specific problems. With 20 years deployed across the world's most demanding industries, Ansar Mahmood understands the unique hazards, regulatory landscapes, and operational pressures of your sector.</p>
         <div class="page-hero__actions">
           <a href="book-consultation.html" class="btn btn-gold btn-lg"><i class="fas fa-calendar-check"></i> Book Industry Consultation</a>
           <a href="services.html" class="btn btn-outline-white btn-lg">Explore Services</a>
@@ -53,7 +53,7 @@ const HTML = `
       <!-- Stats row -->
       <div class="stats-strip reveal" style="border-radius:var(--radius);overflow:hidden;">
         <div class="stat-item">
-          <div class="stat-number" data-counter="40" data-suffix="+">40+</div>
+          <div class="stat-number" data-counter="10" data-suffix="">10</div>
           <div class="stat-label">Countries Worked In</div>
         </div>
         <div class="stat-item">
@@ -65,7 +65,7 @@ const HTML = `
           <div class="stat-label">Projects Delivered</div>
         </div>
         <div class="stat-item">
-          <div class="stat-number" data-counter="25" data-suffix="+">25+</div>
+          <div class="stat-number" data-counter="20" data-suffix="">20</div>
           <div class="stat-label">Years Experience</div>
         </div>
       </div>

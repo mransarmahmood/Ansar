@@ -14,7 +14,7 @@ export default function Footer() {
           <div className="footer__grid">
             <div className="footer__col footer__col--brand">
               <div className="footer__logo">Ansar<span>.</span>Mahmood</div>
-              <p>Senior HSE Consultant, Trainer, Auditor, and AI & Digital Solutions Specialist — delivering safety excellence and digital transformation across 40+ countries.</p>
+              <p>Senior HSE Consultant, Trainer, Auditor, and AI & Digital Solutions Specialist — delivering safety excellence and digital transformation across 10 countries.</p>
               <div className="footer__social">
                 <a href="#" aria-label="LinkedIn" title="LinkedIn"><i className="fab fa-linkedin-in"></i></a>
                 <a href="#" aria-label="Twitter" title="Twitter"><i className="fab fa-x-twitter"></i></a>

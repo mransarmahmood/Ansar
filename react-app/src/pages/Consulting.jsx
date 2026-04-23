@@ -17,7 +17,7 @@ const HTML = `
         <div class="page-hero__content">
           <span class="eyebrow eyebrow--white"><?= cms_e($sp['hero_eyebrow'] ?? 'Expert Advisory') ?></span>
           <h1><?= cms_e($sp['hero_headline'] ?? 'HSE Consulting Services That Protect People and Drive Performance') ?></h1>
-          <p><?= cms_e($sp['hero_description'] ?? 'Strategic health, safety and environment advisory for organisations that demand more than compliance — they demand excellence. From gap analysis to culture transformation, delivered by a globally trusted expert with 25+ years of frontline experience.') ?></p>
+          <p><?= cms_e($sp['hero_description'] ?? 'Strategic health, safety and environment advisory for organisations that demand more than compliance — they demand excellence. From gap analysis to culture transformation, delivered by a globally trusted expert with 20 years of frontline experience.') ?></p>
           <div class="page-hero__actions">
             <?php $cta1 = $sp['hero_cta_primary'] ?? []; $cta2 = $sp['hero_cta_secondary'] ?? []; ?>
             <a href="<?= cms_e($cta1['url'] ?? 'book-consultation.html') ?>" class="btn btn-gold btn-lg"><?php if (!empty($cta1['icon'])): ?><i class="<?= cms_e($cta1['icon']) ?>"></i> <?php endif; ?><?= cms_e($cta1['text'] ?? 'Book Free Consultation') ?></a>
@@ -28,9 +28,9 @@ const HTML = `
           <?php if (!empty($sp['hero_stats'])): foreach ($sp['hero_stats'] as $stat): ?>
           <div class="page-hero-stat"><span class="page-hero-stat__num"><?= cms_e($stat['value'] ?? '') ?></span><span class="page-hero-stat__label"><?= cms_e($stat['label'] ?? '') ?></span></div>
           <?php endforeach; else: ?>
-          <div class="page-hero-stat"><span class="page-hero-stat__num">25+</span><span class="page-hero-stat__label">Years Experience</span></div>
+          <div class="page-hero-stat"><span class="page-hero-stat__num">20</span><span class="page-hero-stat__label">Years Experience</span></div>
           <div class="page-hero-stat"><span class="page-hero-stat__num">500+</span><span class="page-hero-stat__label">Projects Delivered</span></div>
-          <div class="page-hero-stat"><span class="page-hero-stat__num">40+</span><span class="page-hero-stat__label">Countries Served</span></div>
+          <div class="page-hero-stat"><span class="page-hero-stat__num">10</span><span class="page-hero-stat__label">Countries Served</span></div>
           <?php endif; ?>
         </div>
       </div>
@@ -42,7 +42,7 @@ const HTML = `
       <div class="service-page-layout">
         <!-- Main Content -->
         <div>
-          <div class="alert alert-gold" style="margin-bottom:32px;"><i class="fas fa-star"></i><span>Ansar Mahmood is a globally trusted HSE consultant with deployments across oil &amp; gas, construction, manufacturing, healthcare, and government sectors in 40+ countries.</span></div>
+          <div class="alert alert-gold" style="margin-bottom:32px;"><i class="fas fa-star"></i><span>Ansar Mahmood is a globally trusted HSE consultant with deployments across oil &amp; gas, construction, manufacturing, healthcare, and government sectors in 10 countries.</span></div>
 
           <h2>The Challenge</h2>
           <p>Most organisations know they need better health and safety — but they don't always know where to start, what to prioritise, or how to build a system that actually works. Regulatory landscapes change, incidents happen, and audit findings pile up. Without a credible, experienced advisor to guide the journey, organisations lose time, money, and — most critically — lives.</p>
@@ -104,7 +104,7 @@ const HTML = `
             </div>
             <div class="faq-item">
               <button class="faq-question" aria-expanded="false"><span class="faq-question__text">What industries does Ansar specialise in?</span><span class="faq-icon"><i class="fas fa-plus"></i></span></button>
-              <div class="faq-answer"><div class="faq-answer__inner">Primary expertise: oil &amp; gas, construction, manufacturing, and logistics. Also experienced in healthcare, government, energy &amp; utilities, mining, aviation, and hospitality. The 25+ years of multi-sector exposure means the HSE principles and solutions transfer effectively across industries.</div></div>
+              <div class="faq-answer"><div class="faq-answer__inner">Primary expertise: oil &amp; gas, construction, manufacturing, and logistics. Also experienced in healthcare, government, energy &amp; utilities, mining, aviation, and hospitality. The 20 years of multi-sector exposure means the HSE principles and solutions transfer effectively across industries.</div></div>
             </div>
             <div class="faq-item">
               <button class="faq-question" aria-expanded="false"><span class="faq-question__text">How is pricing structured for consulting services?</span><span class="faq-icon"><i class="fas fa-plus"></i></span></button>

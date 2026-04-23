@@ -12,7 +12,7 @@ const HTML = `
       <div class="page-hero__content">
         <span class="eyebrow eyebrow--white">Curated by Ansar Mahmood</span>
         <h1>HSE Books & Recommended Reading</h1>
-        <p>25+ years of experience condensed into an essential reading list. These books have shaped how I approach safety leadership, incident investigation, ISO implementation, and digital transformation in HSE.</p>
+        <p>20 years of experience condensed into an essential reading list. These books have shaped how I approach safety leadership, incident investigation, ISO implementation, and digital transformation in HSE.</p>
       </div>
     </div>
   </section>

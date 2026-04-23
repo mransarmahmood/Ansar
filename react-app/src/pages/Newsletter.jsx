@@ -95,7 +95,7 @@ const HTML = `
           </div>
           <div class="benefit-item reveal">
             <div class="benefit-icon"><i class="fas fa-lightbulb"></i></div>
-            <div><h5 style="margin-bottom:4px;">Ansar's Expert Column</h5><p style="color:var(--text-muted);font-size:.9rem;margin:0;">Personal insights, case study breakdowns, and lessons from 25+ years of global HSE consulting.</p></div>
+            <div><h5 style="margin-bottom:4px;">Ansar's Expert Column</h5><p style="color:var(--text-muted);font-size:.9rem;margin:0;">Personal insights, case study breakdowns, and lessons from 20 years of global HSE consulting.</p></div>
           </div>
           <div class="benefit-item reveal">
             <div class="benefit-icon"><i class="fas fa-gift"></i></div>

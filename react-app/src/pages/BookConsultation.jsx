@@ -41,7 +41,7 @@ const HTML = `
               <div style="width:48px;height:48px;border-radius:50%;background:var(--navy);color:var(--gold);display:flex;align-items:center;justify-content:center;font-weight:800;font-family:var(--font-heading);font-size:1.1rem;flex-shrink:0;">2</div>
               <div>
                 <h4>Provide Strategic Insights</h4>
-                <p style="font-size:.9rem;">Based on 25+ years of global HSE experience, Ansar will share initial recommendations and observations — actionable insights you can use immediately.</p>
+                <p style="font-size:.9rem;">Based on 20 years of global HSE experience, Ansar will share initial recommendations and observations — actionable insights you can use immediately.</p>
               </div>
             </div>
             <div style="display:flex;gap:20px;align-items:flex-start;">
@@ -57,7 +57,7 @@ const HTML = `
           <div style="background:var(--gray-50);border-radius:var(--radius);padding:28px;">
             <h4 style="margin-bottom:16px;">Why Professionals Book This Call</h4>
             <ul style="display:flex;flex-direction:column;gap:12px;">
-              <li style="display:flex;gap:10px;font-size:.92rem;color:var(--text-muted);"><i class="fas fa-check-circle" style="color:var(--success);flex-shrink:0;margin-top:2px;"></i>Get expert advice from a 25+ year global HSE professional</li>
+              <li style="display:flex;gap:10px;font-size:.92rem;color:var(--text-muted);"><i class="fas fa-check-circle" style="color:var(--success);flex-shrink:0;margin-top:2px;"></i>Get expert advice from a 20 year global HSE professional</li>
               <li style="display:flex;gap:10px;font-size:.92rem;color:var(--text-muted);"><i class="fas fa-check-circle" style="color:var(--success);flex-shrink:0;margin-top:2px;"></i>Understand the realistic scope and cost of your project</li>
               <li style="display:flex;gap:10px;font-size:.92rem;color:var(--text-muted);"><i class="fas fa-check-circle" style="color:var(--success);flex-shrink:0;margin-top:2px;"></i>Discover AI and digital tools you didn't know existed</li>
               <li style="display:flex;gap:10px;font-size:.92rem;color:var(--text-muted);"><i class="fas fa-check-circle" style="color:var(--success);flex-shrink:0;margin-top:2px;"></i>No obligation — this is genuinely free strategic advice</li>

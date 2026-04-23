@@ -1,0 +1,122 @@
+[
+  {
+    "id": "cert_001",
+    "acronym": "IOSH",
+    "name": "Institution of Occupational Safety & Health",
+    "gradient_from": "#0B1D36",
+    "gradient_to": "#122B52",
+    "icon": "fa-user-shield",
+    "badge_text": "Live Coaching",
+    "programs": [
+      "IOSH Managing Safely",
+      "IOSH Leading Safely",
+      "IOSH Working Safely",
+      "IOSH Managing Safely in Construction"
+    ],
+    "pass_rate": "97%+",
+    "tags": ["Online", "Weekend"],
+    "cta_text": "Start IOSH Coaching",
+    "order": 1,
+    "published": true
+  },
+  {
+    "id": "cert_002",
+    "acronym": "CSP",
+    "name": "Certified Safety Professional \u2014 BCSP",
+    "gradient_from": "#0891B2",
+    "gradient_to": "#0369A1",
+    "icon": "fa-star",
+    "badge_text": "Live Coaching",
+    "programs": [
+      "Associate Safety Professional (ASP)",
+      "Certified Safety Professional (CSP)",
+      "Domain-by-domain structured coaching",
+      "Mock exams & blueprint coverage"
+    ],
+    "pass_rate": "97%+",
+    "tags": ["Online", "Weekend"],
+    "cta_text": "Start CSP Coaching",
+    "order": 2,
+    "published": true
+  },
+  {
+    "id": "cert_003",
+    "acronym": "CRSP",
+    "name": "Canadian Registered Safety Professional",
+    "gradient_from": "#7C3AED",
+    "gradient_to": "#5B21B6",
+    "icon": "fa-leaf",
+    "badge_text": "Live Coaching",
+    "programs": [
+      "CRSP Exam Preparation",
+      "CRSP Application Support",
+      "All CRSP domain coverage",
+      "Canadian OHS regulatory context"
+    ],
+    "pass_rate": "97%+",
+    "tags": ["Global", "Weekend"],
+    "cta_text": "Start CRSP Coaching",
+    "order": 3,
+    "published": true
+  },
+  {
+    "id": "cert_004",
+    "acronym": "ISO",
+    "name": "Lead Auditor \u2014 45001 \u00b7 14001 \u00b7 9001",
+    "gradient_from": "#B87E18",
+    "gradient_to": "#92640F",
+    "icon": "fa-clipboard-check",
+    "badge_text": "Intensive Coaching",
+    "programs": [
+      "ISO 45001 Lead Auditor",
+      "ISO 14001 Lead Auditor",
+      "ISO 9001 Lead Auditor",
+      "Exam preparation & audit case studies"
+    ],
+    "pass_rate": "97%+",
+    "tags": ["Online", "Intensive"],
+    "cta_text": "Start ISO Coaching",
+    "order": 4,
+    "published": true
+  },
+  {
+    "id": "cert_005",
+    "acronym": "CMIOSH",
+    "name": "Chartered Membership \u2014 IOSH",
+    "gradient_from": "#059669",
+    "gradient_to": "#047857",
+    "icon": "fa-award",
+    "badge_text": "Application Support",
+    "programs": [
+      "IPD portfolio development",
+      "Professional review preparation",
+      "Peer review mock sessions",
+      "Chartered status pathway"
+    ],
+    "pass_rate": "95%+",
+    "tags": ["Global", "Flexible"],
+    "cta_text": "Start CMIOSH Journey",
+    "order": 5,
+    "published": true
+  },
+  {
+    "id": "cert_006",
+    "acronym": "MORE",
+    "name": "Additional Professional Certifications",
+    "gradient_from": "#0B1D36",
+    "gradient_to": "#1a3a5c",
+    "icon": "fa-graduation-cap",
+    "badge_text": "Multiple Pathways",
+    "programs": [
+      "PMP \u2014 Project Management Professional",
+      "IIRSM \u2014 International Member",
+      "NVQ Level 6 \u2014 Occupational Safety",
+      "OTHM \u2014 Level 7 Health & Safety"
+    ],
+    "pass_rate": "95%+",
+    "tags": ["Online", "Flexible"],
+    "cta_text": "Explore All Options",
+    "order": 6,
+    "published": true
+  }
+]
