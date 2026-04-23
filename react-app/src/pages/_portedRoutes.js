@@ -1,0 +1,32 @@
+// Auto-generated — manifest of ported pages. Each route is lazy-loaded.
+import { lazy } from 'react';
+
+export const portedRoutes = [
+  { path: '/about', Component: lazy(() => import('./About')) },
+  { path: '/ai-solutions', Component: lazy(() => import('./AiSolutions')) },
+  { path: '/audits', Component: lazy(() => import('./Audits')) },
+  { path: '/blog', Component: lazy(() => import('./Blog')) },
+  { path: '/book-consultation', Component: lazy(() => import('./BookConsultation')) },
+  { path: '/books', Component: lazy(() => import('./Books')) },
+  { path: '/case-studies', Component: lazy(() => import('./CaseStudies')) },
+  { path: '/certification-coaching', Component: lazy(() => import('./CertificationCoaching')) },
+  { path: '/consulting', Component: lazy(() => import('./Consulting')) },
+  { path: '/contact', Component: lazy(() => import('./Contact')) },
+  { path: '/corporate-solutions', Component: lazy(() => import('./CorporateSolutions')) },
+  { path: '/course-admission', Component: lazy(() => import('./CourseAdmission')) },
+  { path: '/course-calendar', Component: lazy(() => import('./CourseCalendar')) },
+  { path: '/digital-solutions', Component: lazy(() => import('./DigitalSolutions')) },
+  { path: '/faqs', Component: lazy(() => import('./Faqs')) },
+  { path: '/free-tools', Component: lazy(() => import('./FreeTools')) },
+  { path: '/incident-investigation', Component: lazy(() => import('./IncidentInvestigation')) },
+  { path: '/industries', Component: lazy(() => import('./Industries')) },
+  { path: '/management-systems', Component: lazy(() => import('./ManagementSystems')) },
+  { path: '/newsletter', Component: lazy(() => import('./Newsletter')) },
+  { path: '/powerbi-dashboards', Component: lazy(() => import('./PowerbiDashboards')) },
+  { path: '/resources', Component: lazy(() => import('./Resources')) },
+  { path: '/safety-apps', Component: lazy(() => import('./SafetyApps')) },
+  { path: '/services', Component: lazy(() => import('./Services')) },
+  { path: '/sharepoint-solutions', Component: lazy(() => import('./SharepointSolutions')) },
+  { path: '/testimonials', Component: lazy(() => import('./Testimonials')) },
+  { path: '/training', Component: lazy(() => import('./Training')) },
+];

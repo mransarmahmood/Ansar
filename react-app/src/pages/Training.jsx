@@ -1,0 +1,148 @@
+// Auto-generated from pages/training.html. Edit freely — this file is the source of truth now.
+import { useEffect } from 'react';
+import PageHtml from '../components/PageHtml';
+
+const HTML = `
+
+  <section class="page-hero">
+    <div class="page-hero__pattern" aria-hidden="true"></div>
+    <i class="page-hero__icon-bg fas fa-chalkboard-teacher" aria-hidden="true"></i>
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="../index.html">Home</a><span class="breadcrumb__sep"><i class="fas fa-chevron-right"></i></span><a href="services.html">Services</a><span class="breadcrumb__sep"><i class="fas fa-chevron-right"></i></span><span class="breadcrumb__current">Training</span></nav>
+      <div class="page-hero__inner">
+        <div class="page-hero__content">
+          <span class="eyebrow eyebrow--white"><?= cms_e($sp['hero_eyebrow'] ?? 'Global Training Delivery') ?></span>
+          <h1><?= cms_e($sp['hero_headline'] ?? 'World-Class HSE Training Programs') ?></h1>
+          <p><?= cms_e($sp['hero_description'] ?? 'Delivered globally — classroom, virtual, and on-site. Corporate programs, certification coaching, e-learning, and LMS solutions designed to build lasting competency and measurable safety improvement.') ?></p>
+          <div class="page-hero__actions">
+            <?php $cta1 = $sp['hero_cta_primary'] ?? []; $cta2 = $sp['hero_cta_secondary'] ?? []; ?>
+            <a href="<?= cms_e($cta1['url'] ?? 'book-consultation.html') ?>" class="btn btn-gold btn-lg"><?php if (!empty($cta1['icon'])): ?><i class="<?= cms_e($cta1['icon']) ?>"></i> <?php endif; ?><?= cms_e($cta1['text'] ?? 'Get a Training Quote') ?></a>
+            <a href="<?= cms_e($cta2['url'] ?? 'certification-coaching.html') ?>" class="btn btn-outline-white btn-lg"><?= cms_e($cta2['text'] ?? 'Certification Coaching →') ?></a>
+          </div>
+        </div>
+        <div class="page-hero__stats">
+          <?php if (!empty($sp['hero_stats'])): foreach ($sp['hero_stats'] as $stat): ?>
+          <div class="page-hero-stat"><span class="page-hero-stat__num"><?= cms_e($stat['value'] ?? '') ?></span><span class="page-hero-stat__label"><?= cms_e($stat['label'] ?? '') ?></span></div>
+          <?php endforeach; else: ?>
+          <div class="page-hero-stat"><span class="page-hero-stat__num">10,000+</span><span class="page-hero-stat__label">Professionals Trained</span></div>
+          <div class="page-hero-stat"><span class="page-hero-stat__num">97%+</span><span class="page-hero-stat__label">Pass Rate</span></div>
+          <div class="page-hero-stat"><span class="page-hero-stat__num">40+</span><span class="page-hero-stat__label">Countries</span></div>
+          <?php endif; ?>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Training Categories -->
+  <section class="section section-white">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">Training Solutions</span>
+        <h2>Training That Builds Real Competency</h2>
+        <p>Every training program is designed with one outcome in mind: measurable competency improvement that reduces incidents, improves compliance, and empowers your workforce to manage safety effectively.</p>
+      </div>
+
+      <div class="grid grid-3" style="gap:24px;">
+        <div class="service-card reveal">
+          <div class="service-card__icon"><i class="fas fa-building"></i></div>
+          <h3 class="service-card__title">Corporate HSE Training</h3>
+          <p class="service-card__desc">Bespoke training programs designed for your specific industry, hazards, workforce profile, and regulatory requirements. Delivered in your preferred format.</p>
+          <div style="margin-top:16px;display:flex;flex-direction:column;gap:8px;">
+            <span style="font-size:.85rem;color:var(--text-muted);display:flex;gap:8px;"><i class="fas fa-check" style="color:var(--blue);"></i>Fully customised content</span>
+            <span style="font-size:.85rem;color:var(--text-muted);display:flex;gap:8px;"><i class="fas fa-check" style="color:var(--blue);"></i>Classroom, virtual, or blended</span>
+            <span style="font-size:.85rem;color:var(--text-muted);display:flex;gap:8px;"><i class="fas fa-check" style="color:var(--blue);"></i>Pre/post competency assessment</span>
+          </div>
+        </div>
+
+        <div class="service-card reveal">
+          <div class="service-card__icon" style="background:var(--gold-xlight);color:var(--gold-dark);"><i class="fas fa-laptop-house"></i></div>
+          <h3 class="service-card__title">Online Live Coaching</h3>
+          <p class="service-card__desc">Virtual 1:1 and small group sessions for remote learners anywhere in the world. Flexible scheduling, session recordings, and comprehensive study materials.</p>
+          <div style="margin-top:16px;display:flex;flex-direction:column;gap:8px;">
+            <span style="font-size:.85rem;color:var(--text-muted);display:flex;gap:8px;"><i class="fas fa-check" style="color:var(--gold-dark);"></i>Zoom/Teams/Meet delivery</span>
+            <span style="font-size:.85rem;color:var(--text-muted);display:flex;gap:8px;"><i class="fas fa-check" style="color:var(--gold-dark);"></i>Recording access for revision</span>
+            <span style="font-size:.85rem;color:var(--text-muted);display:flex;gap:8px;"><i class="fas fa-check" style="color:var(--gold-dark);"></i>Study packs and practice questions</span>
+          </div>
+        </div>
+
+        <div class="service-card reveal">
+          <div class="service-card__icon"><i class="fas fa-desktop"></i></div>
+          <h3 class="service-card__title">E-learning &amp; LMS Solutions</h3>
+          <p class="service-card__desc">SCORM-compliant e-learning modules, full LMS platform deployment, assessment engines, and completion tracking for scalable, self-paced learning.</p>
+          <div style="margin-top:16px;display:flex;flex-direction:column;gap:8px;">
+            <span style="font-size:.85rem;color:var(--text-muted);display:flex;gap:8px;"><i class="fas fa-check" style="color:var(--blue);"></i>SCORM 1.2 / xAPI compatible</span>
+            <span style="font-size:.85rem;color:var(--text-muted);display:flex;gap:8px;"><i class="fas fa-check" style="color:var(--blue);"></i>Branded LMS portal</span>
+            <span style="font-size:.85rem;color:var(--text-muted);display:flex;gap:8px;"><i class="fas fa-check" style="color:var(--blue);"></i>Progress tracking &amp; reporting</span>
+          </div>
+        </div>
+
+        <div class="service-card reveal">
+          <div class="service-card__icon" style="background:var(--gold-xlight);color:var(--gold-dark);"><i class="fas fa-hard-hat"></i></div>
+          <h3 class="service-card__title">On-site In-house Workshops</h3>
+          <p class="service-card__desc">Ansar delivers training directly at your workplace — using real site hazards, equipment, and scenarios to maximise relevance and learner engagement.</p>
+          <div style="margin-top:16px;display:flex;flex-direction:column;gap:8px;">
+            <span style="font-size:.85rem;color:var(--text-muted);display:flex;gap:8px;"><i class="fas fa-check" style="color:var(--gold-dark);"></i>Site-specific content</span>
+            <span style="font-size:.85rem;color:var(--text-muted);display:flex;gap:8px;"><i class="fas fa-check" style="color:var(--gold-dark);"></i>Practical exercises included</span>
+            <span style="font-size:.85rem;color:var(--text-muted);display:flex;gap:8px;"><i class="fas fa-check" style="color:var(--gold-dark);"></i>Leadership editions available</span>
+          </div>
+        </div>
+
+        <div class="service-card reveal">
+          <div class="service-card__icon"><i class="fas fa-file-edit"></i></div>
+          <h3 class="service-card__title">Custom Course Development</h3>
+          <p class="service-card__desc">Full curriculum design service — from needs analysis and learning objectives to content writing, animation briefs, assessments, and SCORM packaging.</p>
+          <div style="margin-top:16px;display:flex;flex-direction:column;gap:8px;">
+            <span style="font-size:.85rem;color:var(--text-muted);display:flex;gap:8px;"><i class="fas fa-check" style="color:var(--blue);"></i>Instructional design methodology</span>
+            <span style="font-size:.85rem;color:var(--text-muted);display:flex;gap:8px;"><i class="fas fa-check" style="color:var(--blue);"></i>AI-assisted content generation</span>
+            <span style="font-size:.85rem;color:var(--text-muted);display:flex;gap:8px;"><i class="fas fa-check" style="color:var(--blue);"></i>Multi-language development</span>
+          </div>
+        </div>
+
+        <div class="service-card reveal">
+          <div class="service-card__icon"><i class="fas fa-crown"></i></div>
+          <h3 class="service-card__title">Leadership Safety Workshops</h3>
+          <p class="service-card__desc">Executive and management workshops that build visible safety leadership capability — the single greatest driver of safety culture improvement in any organisation.</p>
+          <div style="margin-top:16px;display:flex;flex-direction:column;gap:8px;">
+            <span style="font-size:.85rem;color:var(--text-muted);display:flex;gap:8px;"><i class="fas fa-check" style="color:var(--blue);"></i>Board and C-suite editions</span>
+            <span style="font-size:.85rem;color:var(--text-muted);display:flex;gap:8px;"><i class="fas fa-check" style="color:var(--blue);"></i>HSE in business decision-making</span>
+            <span style="font-size:.85rem;color:var(--text-muted);display:flex;gap:8px;"><i class="fas fa-check" style="color:var(--blue);"></i>Culture survey integration</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Training Topics -->
+  <section class="section section-gray">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">Course Library</span>
+        <h2>Corporate Training Topics Available</h2>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;">
+        {%topics%}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-banner section">
+    <div class="container">
+      <div class="cta-banner__content">
+        <h2>Ready to Upskill Your Workforce?</h2>
+        <p>Get a customised training proposal for your organisation. All programs designed to your specific industry, workforce profile, and learning objectives.</p>
+        <div class="cta-banner__actions">
+          <a href="book-consultation.html" class="btn btn-gold btn-xl"><i class="fas fa-calendar-check"></i> Get a Training Quote</a>
+          <a href="certification-coaching.html" class="btn btn-outline-white btn-xl">Certification Coaching</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+`;
+
+export default function Training() {
+  useEffect(() => {
+    document.title = "HSE Training Programs | Ansar Mahmood — Corporate, Online & On-site Delivery";
+  }, []);
+  return <PageHtml html={HTML} />;
+}
