@@ -1,0 +1,103 @@
+{
+  "hero": {
+    "badge": "Available for Global Engagements",
+    "headline": "Transforming Workplaces. Saving Lives. Powering the Future.",
+    "subheadline": "Senior HSE Consultant, Trainer, and AI & Digital Solutions Specialist — delivering safety excellence, regulatory compliance, and digital transformation across 40+ countries and every major industry.",
+    "cta_primary_text": "Book Free Consultation",
+    "cta_primary_url": "pages/book-consultation.html",
+    "cta_secondary_text": "Explore All Services",
+    "cta_secondary_url": "pages/services.html",
+    "credentials": [
+      "Internationally Certified",
+      "IOSH Member",
+      "40+ Countries",
+      "AI Specialist",
+      "ISO Lead Auditor"
+    ]
+  },
+  "stats": [
+    { "value": "25", "suffix": "+", "label": "Years of Global HSE Experience" },
+    { "value": "500", "suffix": "+", "label": "Projects Delivered Worldwide" },
+    { "value": "40", "suffix": "+", "label": "Countries Worked Across" },
+    { "value": "10000", "suffix": "+", "label": "Professionals Trained", "display": "10,000+" }
+  ],
+  "why_choose": [
+    {
+      "icon": "fa-globe",
+      "title": "Global Field Experience",
+      "text": "Deployed across 40+ countries in oil & gas, construction, manufacturing, and beyond. Real-world expertise, not just theory."
+    },
+    {
+      "icon": "fa-laptop-code",
+      "title": "Digital-First Approach",
+      "text": "The only HSE consultant who builds AI agents, Power BI dashboards, and SharePoint safety portals — bridging the gap between safety and technology."
+    },
+    {
+      "icon": "fa-certificate",
+      "title": "Certified Trainer & Coach",
+      "text": "Internationally certified trainer with a 97%+ exam pass rate across ASP, CSP, CRSP, IOSH, and ISO programs."
+    }
+  ],
+  "cta_banner": {
+    "headline": "Ready to Transform Your Safety Culture?",
+    "subtext": "Whether you need a compliance audit, a Power BI dashboard, AI-powered tools, or certification coaching — let's start with a free 30-minute consultation.",
+    "cta_primary_text": "Schedule Free Consultation",
+    "cta_primary_url": "pages/book-consultation.html",
+    "cta_secondary_text": "Send a Message",
+    "cta_secondary_url": "pages/contact.html"
+  },
+  "trust_bar": [
+    { "label": "Safety Certification", "icon": "fa-certificate" },
+    { "label": "IOSH", "icon": "fa-users" },
+    { "label": "ISO 45001", "icon": "fa-shield-alt" },
+    { "label": "Microsoft", "icon": "fa-microsoft" },
+    { "label": "Power BI", "icon": "fa-chart-bar" },
+    { "label": "AI Specialist", "icon": "fa-robot" }
+  ],
+  "services_section": {
+    "eyebrow": "8 Service Areas \u00b7 One Expert",
+    "headline": "Everything Your Organisation Needs \u2014 Under One Roof",
+    "description": "From field-proven HSE consulting and certification coaching to AI-powered analytics and custom digital platforms \u2014 Ansar Mahmood delivers where other consultants stop. One advisor. Full-spectrum capability."
+  },
+  "industries_section": {
+    "eyebrow": "Industries Served",
+    "headline": "Deep Expertise Across Every Major Sector",
+    "description": "With 25+ years of field deployment across 40+ countries, Ansar Mahmood brings sector-specific knowledge to every engagement."
+  },
+  "featured_solutions": [
+    {
+      "eyebrow": "HSE Consulting & Advisory",
+      "headline": "From Compliance to Culture \u2014 Strategic Safety That Actually Works",
+      "description": "Ansar Mahmood brings 25+ years of frontline HSE experience to your boardroom. Whether you need a regulatory compliance audit, a safety culture transformation program, or a complete HSE management system built from scratch \u2014 the approach is always strategic, practical, and results-focused.",
+      "features": [
+        "Risk Assessment & HAZOP / HAZID facilitation",
+        "Regulatory compliance audit and gap analysis",
+        "Safety culture transformation and behavioral programs",
+        "Emergency response planning and BCP development"
+      ],
+      "cta_primary_text": "Explore Consulting",
+      "cta_primary_url": "pages/consulting.html",
+      "cta_secondary_text": "Book a Call",
+      "cta_secondary_url": "pages/book-consultation.html",
+      "icon": "fa-shield-alt",
+      "label": "Expert Advisory"
+    },
+    {
+      "eyebrow": "AI & Digital Solutions",
+      "headline": "The Future of Safety Is Intelligent \u2014 Let AI Work for You",
+      "description": "Ansar deploys custom AI agents, predictive analytics models, and Power BI dashboards that give your HSE team the intelligence to prevent incidents before they happen. No generic software \u2014 these are purpose-built tools designed specifically for your operations.",
+      "features": [
+        "AI HSE document review and compliance assistant",
+        "Power BI real-time safety KPI dashboards",
+        "SharePoint HSE portals and document management",
+        "Custom safety apps and digital inspection tools"
+      ],
+      "cta_primary_text": "Explore AI Solutions",
+      "cta_primary_url": "pages/ai-solutions.html",
+      "cta_secondary_text": "Schedule Demo",
+      "cta_secondary_url": "pages/book-consultation.html",
+      "icon": "fa-robot",
+      "label": "AI Technology"
+    }
+  ]
+}

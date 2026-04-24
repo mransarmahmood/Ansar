@@ -1,0 +1,2 @@
+name,email,phone,company,service,budget,message,submitted_at,ip
+"Test User",test@example.com,+923339284928,,,,"This is a test submission to verify the contact form works after the update.","2026-04-16 19:23:00",::1
