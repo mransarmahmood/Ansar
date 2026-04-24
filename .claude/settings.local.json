@@ -66,7 +66,8 @@
       "Bash(curl -s -w \"\\\\nHTTP: %{http_code}\\\\n\" --max-time 10 https://api.github.com/repos/mransarmahmood/Ansar)",
       "Bash(curl -s --max-time 15 \"https://api.github.com/users/mransarmahmood/repos?per_page=30\")",
       "Bash(curl -s --max-time 15 \"https://api.github.com/users/mransarmahmood\")",
-      "Bash(curl -s --max-time 15 \"https://api.github.com/users/mransarmahmood/repos\")"
+      "Bash(curl -s --max-time 15 \"https://api.github.com/users/mransarmahmood/repos\")",
+      "Bash(curl -s -o /dev/null -w \"HOME: %{http_code}\\\\nABOUT: %{http_code}\\\\n\" http://localhost/Ansar/)"
     ]
   }
 }
