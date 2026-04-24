@@ -51,7 +51,22 @@
       "Read(//c/xampp/htdocs/Ansar/**)",
       "Bash(\"C:/xampp83/apache/bin/httpd.exe\" -t)",
       "Bash(\"C:/xampp83/apache/bin/httpd.exe\" -k restart)",
-      "Bash(curl -s http://localhost/Ansar/)"
+      "Bash(curl -s http://localhost/Ansar/)",
+      "Bash(curl -s -o /dev/null -w \"GITHUB: %{http_code} \\(time: %{time_total}s\\)\\\\n\" --max-time 10 https://github.com)",
+      "Bash(nslookup github.com)",
+      "Bash(git config *)",
+      "Bash(env)",
+      "Bash(timeout 15 git ls-remote https://github.com/mransarmahmood/ansar.git)",
+      "Bash(curl -s -o /dev/null -w \"HTTP: %{http_code}\\\\n\" --max-time 10 https://github.com/mransarmahmood/ansar)",
+      "Bash(curl -s --max-time 10 https://api.github.com/repos/mransarmahmood/ansar)",
+      "Bash(ping -n 2 github.com)",
+      "Bash(git -C \"C:/xampp/htdocs/Ansar\" remote -v)",
+      "Bash(git -C \"C:/xampp/htdocs/Ansar/ansar\" remote -v)",
+      "Bash(curl -s --max-time 10 https://api.github.com/repos/mransarmahmood/Ansar)",
+      "Bash(curl -s -w \"\\\\nHTTP: %{http_code}\\\\n\" --max-time 10 https://api.github.com/repos/mransarmahmood/Ansar)",
+      "Bash(curl -s --max-time 15 \"https://api.github.com/users/mransarmahmood/repos?per_page=30\")",
+      "Bash(curl -s --max-time 15 \"https://api.github.com/users/mransarmahmood\")",
+      "Bash(curl -s --max-time 15 \"https://api.github.com/users/mransarmahmood/repos\")"
     ]
   }
 }
