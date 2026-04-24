@@ -46,14 +46,24 @@ RewriteRule ^data/.*$  - [F,L]
   ExpiresByType font/woff2                "access plus 1 year"
 </IfModule>
 
-# ── Remove .html extension ──────────────────────────────────────
+# ── Remove .html extension (legacy /pages/*.html still reachable) ──
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME}.html -f
 RewriteRule ^(.*)$ $1.html [L]
 
+# ── React SPA fallback ──────────────────────────────────────────
+# Any path that isn't a real file/directory and isn't a .php endpoint
+# falls through to index.html so React Router can resolve it client-side.
+RewriteBase /Ansar/
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule .* - [L]
+RewriteRule \.php$ - [L]
+RewriteRule ^ index.html [L]
+
 # ── Custom Error Pages ──────────────────────────────────────────
-ErrorDocument 404 /index.html
+ErrorDocument 404 /Ansar/index.html
 
 # ── Prevent hotlinking (allow own domains + GitHub Pages) ────────
 RewriteCond %{HTTP_REFERER} !^$ [NC]

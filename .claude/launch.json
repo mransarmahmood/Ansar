@@ -1,0 +1,17 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "react-app",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev", "--prefix", "react-app"],
+      "port": 5173
+    },
+    {
+      "name": "xampp-proxy",
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["-e", "const http=require('http');const srv=http.createServer((req,res)=>{if(req.url==='/'){res.writeHead(302,{Location:'/Ansar/'});return res.end();}const opts={hostname:'localhost',port:80,path:req.url,method:req.method,headers:{...req.headers,host:'localhost'}};const r=http.request(opts,pr=>{res.writeHead(pr.statusCode,pr.headers);pr.pipe(res);});req.pipe(r);r.on('error',e=>{res.writeHead(502);res.end('Upstream: '+e.message);});});srv.listen(8787,()=>console.log('Proxy :8787 -> localhost:80, / redirects to /Ansar/'));"],
+      "port": 8787
+    }
+  ]
+}
