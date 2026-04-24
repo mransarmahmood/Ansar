@@ -1,367 +1,286 @@
-// Auto-generated from pages/certification-coaching.html. Edit freely — this file is the source of truth now.
 import { useEffect } from 'react';
-import PageHtml from '../components/PageHtml';
+import { Link } from 'react-router-dom';
+import servicePages from '../data/service-pages.json';
+import { asset } from '../utils/asset';
 
-const HTML = `
+const PROGRAMS = [
+  {
+    code: 'CSP',
+    icon: 'fa-hard-hat',
+    title: 'Certified Safety Professional',
+    body: 'Join our weekend live-online CSP sessions. Complete CSP11 blueprint coverage, insider tips for mastering MCQs & scenarios, step-by-step guidance on formulas, and real-world examples for better recall.',
+    poster: asset('assets/images/poster-csp.jpg'),
+    bullets: [
+      'Complete CSP11 Blueprint Coverage',
+      'Insider tips to master MCQs & scenarios',
+      'Step-by-step guidance on formulas, tools & techniques',
+      'Real-world examples for better recall',
+    ],
+    cadence: 'Every Weekend · Live Online · Small Group',
+    cta: 'Crack Your CSP in the First Attempt!',
+    accent: 'linear-gradient(135deg, #1E3A8A, #1E6FD9)',
+    badge: 'LIVE ONLINE',
+  },
+  {
+    code: 'CMIOSH',
+    icon: 'fa-award',
+    title: 'CMIOSH — Your PDA Made Easy',
+    body: 'The new PDA process can be challenging — but not with the right mentor. Free workshops & seminars covering PDA evidence, assessment structuring, experience presentation, and peer review preparation.',
+    poster: asset('assets/images/poster-cmiosh.jpg'),
+    bullets: [
+      'Step-by-step PDA evidence requirements',
+      'How to structure and submit your assessment',
+      'Presenting your experience for maximum impact',
+      'Peer Review preparation tips',
+    ],
+    cadence: 'Every Weekend · Online Mentoring · Free Workshop',
+    cta: 'Start Your CMIOSH Journey Today',
+    accent: 'linear-gradient(135deg, #7c5b2e, #a17e44)',
+    badge: 'ONLINE MENTORING',
+  },
+];
 
-  <section class="page-hero">
-    <div class="page-hero__pattern" aria-hidden="true"></div>
-    <i class="page-hero__icon-bg fas fa-award" aria-hidden="true"></i>
-    <div class="container">
-      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="../index.html">Home</a><span class="breadcrumb__sep"><i class="fas fa-chevron-right"></i></span><a href="services.html">Services</a><span class="breadcrumb__sep"><i class="fas fa-chevron-right"></i></span><span class="breadcrumb__current">Certification Coaching</span></nav>
-      <div class="page-hero__inner">
-        <div class="page-hero__content">
-          <span class="eyebrow eyebrow--white">Professional Certification</span>
-          <h1>Pass Your Safety Certification — First Time, Every Time</h1>
-          <p>Expert 1:1 and group coaching for IOSH, ASP/CSP, CRSP, ISO Lead Auditor, PMP, and more. With Ansar\\'s proven coaching methodology and 97%+ first-attempt pass rate, your certification success is the only acceptable outcome.</p>
-          <div class="page-hero__actions">
-            
-            <a href="book-consultation.html" class="btn btn-gold btn-lg"><i class=""></i> Start Your Coaching</a>
-            <a href="contact.html" class="btn btn-outline-white btn-lg">Ask a Question</a>
-          </div>
-        </div>
-        <div class="page-hero__stats">
-          
-          <div class="page-hero-stat"><span class="page-hero-stat__num"></span><span class="page-hero-stat__label"></span></div>
-          
-          <div class="page-hero-stat"><span class="page-hero-stat__num">97%+</span><span class="page-hero-stat__label">First Pass Rate</span></div>
-          <div class="page-hero-stat"><span class="page-hero-stat__num">10+</span><span class="page-hero-stat__label">Certifications Coached</span></div>
-          <div class="page-hero-stat"><span class="page-hero-stat__num">5,000+</span><span class="page-hero-stat__label">Candidates Coached</span></div>
-          
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Certifications Grid — Redesigned -->
-  <section class="section" style="background:var(--gray-50);">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="eyebrow">Certifications We Coach</span>
-        <h2>Every Major HSE Professional Certification</h2>
-        <p>Expert exam coaching for the world's most recognised safety and quality certifications — candidates in 10 countries, 97%+ first-attempt pass rate.</p>
-      </div>
-
-      <style>
-        .cert-card { background:#fff; border-radius:16px; overflow:hidden; box-shadow:0 2px 16px rgba(10,22,40,.08); transition:transform .3s,box-shadow .3s; display:flex; flex-direction:column; }
-        .cert-card:hover { transform:translateY(-6px); box-shadow:0 16px 48px rgba(10,22,40,.15); }
-        .cert-card__header { padding:28px 28px 20px; position:relative; }
-        .cert-card__badge { display:inline-flex; align-items:center; gap:8px; font-size:.72rem; font-weight:700; text-transform:uppercase; letter-spacing:.08em; padding:5px 12px; border-radius:100px; margin-bottom:16px; }
-        .cert-card__acronym { font-family:var(--font-heading); font-size:2.8rem; font-weight:800; line-height:1; margin-bottom:4px; }
-        .cert-card__name { font-size:.82rem; font-weight:600; opacity:.75; }
-        .cert-card__icon-bg { position:absolute; right:20px; top:20px; font-size:4rem; opacity:.1; }
-        .cert-card__body { padding:0 28px 24px; flex:1; display:flex; flex-direction:column; }
-        .cert-card__list { list-style:none; padding:0; margin:0 0 20px; display:flex; flex-direction:column; gap:9px; flex:1; }
-        .cert-card__list li { display:flex; align-items:flex-start; gap:10px; font-size:.875rem; color:var(--text-muted); line-height:1.4; }
-        .cert-card__list li::before { content:''; width:18px; height:18px; border-radius:50%; flex-shrink:0; margin-top:1px; display:flex; align-items:center; justify-content:center; background-size:10px; }
-        .cert-card__divider { height:1px; background:var(--gray-100,#f1f3f7); margin:0 28px 20px; }
-        .cert-card__footer { padding:0 28px 28px; }
-        .cert-card__pass { display:flex; align-items:center; justify-content:space-between; margin-bottom:16px; }
-        .cert-card__pass-rate { font-family:var(--font-heading); font-size:1.5rem; font-weight:800; }
-        .cert-card__pass-label { font-size:.75rem; color:var(--text-muted); }
-        .cert-card__cta { display:flex; align-items:center; justify-content:space-between; padding:14px 18px; border-radius:10px; font-weight:700; font-size:.88rem; text-decoration:none; transition:all .2s; }
-        .cert-card__cta i { font-size:.8rem; transition:transform .2s; }
-        .cert-card__cta:hover i { transform:translateX(4px); }
-        @media(max-width:768px){ .cert-grid-main { grid-template-columns:1fr!important; } }
-      </style>
-
-      <!-- Top row: 3 featured certs -->
-      <div class="cert-grid-main" style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:20px;">
-
-        <!-- IOSH -->
-        <div class="cert-card reveal">
-          <div class="cert-card__header" style="background:linear-gradient(135deg,#0B1D36 0%,#122B52 100%);">
-            <i class="cert-card__icon-bg fas fa-user-shield" style="color:#fff;"></i>
-            <div class="cert-card__badge" style="background:rgba(255,255,255,.12);color:rgba(255,255,255,.9);">
-              <i class="fas fa-circle" style="font-size:.45rem;color:#4ade80;"></i> Live Coaching
-            </div>
-            <div class="cert-card__acronym" style="color:#fff;">IOSH</div>
-            <div class="cert-card__name" style="color:rgba(255,255,255,.7);">Institution of Occupational Safety &amp; Health</div>
-          </div>
-          <div class="cert-card__body">
-            <ul class="cert-card__list" style="margin-top:20px;">
-              <li><span style="width:18px;height:18px;background:#0B1D36;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;margin-top:1px;"><i class="fas fa-check" style="color:#fff;font-size:.55rem;"></i></span>IOSH Managing Safely</li>
-              <li><span style="width:18px;height:18px;background:#0B1D36;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;margin-top:1px;"><i class="fas fa-check" style="color:#fff;font-size:.55rem;"></i></span>IOSH Leading Safely</li>
-              <li><span style="width:18px;height:18px;background:#0B1D36;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;margin-top:1px;"><i class="fas fa-check" style="color:#fff;font-size:.55rem;"></i></span>IOSH Working Safely</li>
-              <li><span style="width:18px;height:18px;background:#0B1D36;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;margin-top:1px;"><i class="fas fa-check" style="color:#fff;font-size:.55rem;"></i></span>IOSH Managing Safely in Construction</li>
-            </ul>
-          </div>
-          <div class="cert-card__divider"></div>
-          <div class="cert-card__footer">
-            <div class="cert-card__pass" style="margin-bottom:14px;">
-              <div><div class="cert-card__pass-rate" style="color:#0B1D36;">97%+</div><div class="cert-card__pass-label">First Attempt Pass Rate</div></div>
-              <div style="display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end;">
-                <span style="background:#f0fdf4;color:#166534;font-size:.7rem;font-weight:700;padding:3px 9px;border-radius:100px;">Online</span>
-                <span style="background:#eff6ff;color:#1d4ed8;font-size:.7rem;font-weight:700;padding:3px 9px;border-radius:100px;">Weekend</span>
-              </div>
-            </div>
-            <a href="book-consultation.html" class="cert-card__cta" style="background:#0B1D36;color:#fff;">
-              Start IOSH Coaching <i class="fas fa-arrow-right"></i>
-            </a>
-          </div>
-        </div>
-
-        <!-- CSP -->
-        <div class="cert-card reveal">
-          <div class="cert-card__header" style="background:linear-gradient(135deg,#0891B2 0%,#0369A1 100%);">
-            <i class="cert-card__icon-bg fas fa-star" style="color:#fff;"></i>
-            <div class="cert-card__badge" style="background:rgba(255,255,255,.15);color:rgba(255,255,255,.95);">
-              <i class="fas fa-circle" style="font-size:.45rem;color:#4ade80;"></i> Live Coaching
-            </div>
-            <div class="cert-card__acronym" style="color:#fff;">CSP</div>
-            <div class="cert-card__name" style="color:rgba(255,255,255,.75);">Certified Safety Professional — BCSP</div>
-          </div>
-          <div class="cert-card__body">
-            <ul class="cert-card__list" style="margin-top:20px;">
-              <li><span style="width:18px;height:18px;background:#0891B2;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;margin-top:1px;"><i class="fas fa-check" style="color:#fff;font-size:.55rem;"></i></span>Associate Safety Professional (ASP)</li>
-              <li><span style="width:18px;height:18px;background:#0891B2;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;margin-top:1px;"><i class="fas fa-check" style="color:#fff;font-size:.55rem;"></i></span>Certified Safety Professional (CSP)</li>
-              <li><span style="width:18px;height:18px;background:#0891B2;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;margin-top:1px;"><i class="fas fa-check" style="color:#fff;font-size:.55rem;"></i></span>Domain-by-domain structured coaching</li>
-              <li><span style="width:18px;height:18px;background:#0891B2;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;margin-top:1px;"><i class="fas fa-check" style="color:#fff;font-size:.55rem;"></i></span>Mock exams &amp; blueprint coverage</li>
-            </ul>
-          </div>
-          <div class="cert-card__divider"></div>
-          <div class="cert-card__footer">
-            <div class="cert-card__pass" style="margin-bottom:14px;">
-              <div><div class="cert-card__pass-rate" style="color:#0891B2;">97%+</div><div class="cert-card__pass-label">First Attempt Pass Rate</div></div>
-              <div style="display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end;">
-                <span style="background:#f0fdf4;color:#166534;font-size:.7rem;font-weight:700;padding:3px 9px;border-radius:100px;">Online</span>
-                <span style="background:#eff6ff;color:#1d4ed8;font-size:.7rem;font-weight:700;padding:3px 9px;border-radius:100px;">Weekend</span>
-              </div>
-            </div>
-            <a href="book-consultation.html" class="cert-card__cta" style="background:#0891B2;color:#fff;">
-              Start CSP Coaching <i class="fas fa-arrow-right"></i>
-            </a>
-          </div>
-        </div>
-
-        <!-- CRSP -->
-        <div class="cert-card reveal">
-          <div class="cert-card__header" style="background:linear-gradient(135deg,#7C3AED 0%,#5B21B6 100%);">
-            <i class="cert-card__icon-bg fas fa-leaf" style="color:#fff;"></i>
-            <div class="cert-card__badge" style="background:rgba(255,255,255,.15);color:rgba(255,255,255,.95);">
-              <i class="fas fa-circle" style="font-size:.45rem;color:#4ade80;"></i> Live Coaching
-            </div>
-            <div class="cert-card__acronym" style="color:#fff;">CRSP</div>
-            <div class="cert-card__name" style="color:rgba(255,255,255,.75);">Canadian Registered Safety Professional</div>
-          </div>
-          <div class="cert-card__body">
-            <ul class="cert-card__list" style="margin-top:20px;">
-              <li><span style="width:18px;height:18px;background:#7C3AED;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;margin-top:1px;"><i class="fas fa-check" style="color:#fff;font-size:.55rem;"></i></span>CRSP Exam Preparation</li>
-              <li><span style="width:18px;height:18px;background:#7C3AED;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;margin-top:1px;"><i class="fas fa-check" style="color:#fff;font-size:.55rem;"></i></span>CRSP Application Support</li>
-              <li><span style="width:18px;height:18px;background:#7C3AED;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;margin-top:1px;"><i class="fas fa-check" style="color:#fff;font-size:.55rem;"></i></span>All CRSP domain coverage</li>
-              <li><span style="width:18px;height:18px;background:#7C3AED;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;margin-top:1px;"><i class="fas fa-check" style="color:#fff;font-size:.55rem;"></i></span>Canadian OHS regulatory context</li>
-            </ul>
-          </div>
-          <div class="cert-card__divider"></div>
-          <div class="cert-card__footer">
-            <div class="cert-card__pass" style="margin-bottom:14px;">
-              <div><div class="cert-card__pass-rate" style="color:#7C3AED;">97%+</div><div class="cert-card__pass-label">First Attempt Pass Rate</div></div>
-              <div style="display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end;">
-                <span style="background:#f5f3ff;color:#5B21B6;font-size:.7rem;font-weight:700;padding:3px 9px;border-radius:100px;">Global</span>
-                <span style="background:#eff6ff;color:#1d4ed8;font-size:.7rem;font-weight:700;padding:3px 9px;border-radius:100px;">Weekend</span>
-              </div>
-            </div>
-            <a href="book-consultation.html" class="cert-card__cta" style="background:#7C3AED;color:#fff;">
-              Start CRSP Coaching <i class="fas fa-arrow-right"></i>
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Bottom row: 3 more certs -->
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;" class="cert-grid-main">
-
-        <!-- ISO Lead Auditor -->
-        <div class="cert-card reveal">
-          <div class="cert-card__header" style="background:linear-gradient(135deg,#B87E18 0%,#92640F 100%);">
-            <i class="cert-card__icon-bg fas fa-clipboard-check" style="color:#fff;"></i>
-            <div class="cert-card__badge" style="background:rgba(255,255,255,.15);color:rgba(255,255,255,.95);">
-              <i class="fas fa-circle" style="font-size:.45rem;color:#4ade80;"></i> Intensive Coaching
-            </div>
-            <div class="cert-card__acronym" style="color:#fff;">ISO</div>
-            <div class="cert-card__name" style="color:rgba(255,255,255,.75);">Lead Auditor — 45001 · 14001 · 9001</div>
-          </div>
-          <div class="cert-card__body">
-            <ul class="cert-card__list" style="margin-top:20px;">
-              <li><span style="width:18px;height:18px;background:#B87E18;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;margin-top:1px;"><i class="fas fa-check" style="color:#fff;font-size:.55rem;"></i></span>ISO 45001 Lead Auditor</li>
-              <li><span style="width:18px;height:18px;background:#B87E18;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;margin-top:1px;"><i class="fas fa-check" style="color:#fff;font-size:.55rem;"></i></span>ISO 14001 Lead Auditor</li>
-              <li><span style="width:18px;height:18px;background:#B87E18;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;margin-top:1px;"><i class="fas fa-check" style="color:#fff;font-size:.55rem;"></i></span>ISO 9001 Lead Auditor</li>
-              <li><span style="width:18px;height:18px;background:#B87E18;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;margin-top:1px;"><i class="fas fa-check" style="color:#fff;font-size:.55rem;"></i></span>Exam preparation &amp; audit case studies</li>
-            </ul>
-          </div>
-          <div class="cert-card__divider"></div>
-          <div class="cert-card__footer">
-            <div class="cert-card__pass" style="margin-bottom:14px;">
-              <div><div class="cert-card__pass-rate" style="color:#B87E18;">97%+</div><div class="cert-card__pass-label">First Attempt Pass Rate</div></div>
-              <div style="display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end;">
-                <span style="background:#fffbeb;color:#92400e;font-size:.7rem;font-weight:700;padding:3px 9px;border-radius:100px;">Online</span>
-                <span style="background:#fffbeb;color:#92400e;font-size:.7rem;font-weight:700;padding:3px 9px;border-radius:100px;">In-Person</span>
-              </div>
-            </div>
-            <a href="book-consultation.html" class="cert-card__cta" style="background:#B87E18;color:#fff;">
-              Start ISO Coaching <i class="fas fa-arrow-right"></i>
-            </a>
-          </div>
-        </div>
-
-        <!-- CMIOSH / NVQ -->
-        <div class="cert-card reveal">
-          <div class="cert-card__header" style="background:linear-gradient(135deg,#059669 0%,#047857 100%);">
-            <i class="cert-card__icon-bg fas fa-award" style="color:#fff;"></i>
-            <div class="cert-card__badge" style="background:rgba(255,255,255,.15);color:rgba(255,255,255,.95);">
-              <i class="fas fa-circle" style="font-size:.45rem;color:#fde68a;"></i> PDA Mentoring
-            </div>
-            <div class="cert-card__acronym" style="color:#fff;">CMIOSH</div>
-            <div class="cert-card__name" style="color:rgba(255,255,255,.75);">Chartered Member of IOSH</div>
-          </div>
-          <div class="cert-card__body">
-            <ul class="cert-card__list" style="margin-top:20px;">
-              <li><span style="width:18px;height:18px;background:#059669;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;margin-top:1px;"><i class="fas fa-check" style="color:#fff;font-size:.55rem;"></i></span>Professional Development Assessment (PDA)</li>
-              <li><span style="width:18px;height:18px;background:#059669;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;margin-top:1px;"><i class="fas fa-check" style="color:#fff;font-size:.55rem;"></i></span>NVQ Level 6 &amp; 7 Evidence Collection</li>
-              <li><span style="width:18px;height:18px;background:#059669;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;margin-top:1px;"><i class="fas fa-check" style="color:#fff;font-size:.55rem;"></i></span>Portfolio structuring &amp; submission</li>
-              <li><span style="width:18px;height:18px;background:#059669;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;margin-top:1px;"><i class="fas fa-check" style="color:#fff;font-size:.55rem;"></i></span>Free weekend workshops &amp; seminars</li>
-            </ul>
-          </div>
-          <div class="cert-card__divider"></div>
-          <div class="cert-card__footer">
-            <div class="cert-card__pass" style="margin-bottom:14px;">
-              <div><div class="cert-card__pass-rate" style="color:#059669;">100%</div><div class="cert-card__pass-label">Success Rate</div></div>
-              <div style="display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end;">
-                <span style="background:#f0fdf4;color:#065f46;font-size:.7rem;font-weight:700;padding:3px 9px;border-radius:100px;">Free Workshop</span>
-                <span style="background:#eff6ff;color:#1d4ed8;font-size:.7rem;font-weight:700;padding:3px 9px;border-radius:100px;">Online</span>
-              </div>
-            </div>
-            <a href="book-consultation.html" class="cert-card__cta" style="background:#059669;color:#fff;">
-              Start CMIOSH Coaching <i class="fas fa-arrow-right"></i>
-            </a>
-          </div>
-        </div>
-
-        <!-- Other / PMP -->
-        <div class="cert-card reveal" style="background:linear-gradient(135deg,#0B1D36 0%,#122B52 100%);">
-          <div class="cert-card__header" style="background:transparent;border-bottom:1px solid rgba(255,255,255,.1);">
-            <i class="cert-card__icon-bg fas fa-globe" style="color:rgba(255,255,255,.2);"></i>
-            <div class="cert-card__badge" style="background:rgba(201,168,76,.2);color:var(--gold);">
-              <i class="fas fa-star" style="font-size:.55rem;"></i> All Levels
-            </div>
-            <div class="cert-card__acronym" style="color:var(--gold);">MORE</div>
-            <div class="cert-card__name" style="color:rgba(255,255,255,.6);">Global Professional Certifications</div>
-          </div>
-          <div class="cert-card__body">
-            <ul class="cert-card__list" style="margin-top:20px;">
-              <li><span style="width:18px;height:18px;background:rgba(201,168,76,.2);border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;margin-top:1px;"><i class="fas fa-check" style="color:var(--gold);font-size:.55rem;"></i></span><span style="color:rgba(255,255,255,.75);">PMP — Project Management Professional</span></li>
-              <li><span style="width:18px;height:18px;background:rgba(201,168,76,.2);border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;margin-top:1px;"><i class="fas fa-check" style="color:var(--gold);font-size:.55rem;"></i></span><span style="color:rgba(255,255,255,.75);">IIRSM Member Preparation</span></li>
-              <li><span style="width:18px;height:18px;background:rgba(201,168,76,.2);border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;margin-top:1px;"><i class="fas fa-check" style="color:var(--gold);font-size:.55rem;"></i></span><span style="color:rgba(255,255,255,.75);">RoSPA / OTHM / HABC Programs</span></li>
-              <li><span style="width:18px;height:18px;background:rgba(201,168,76,.2);border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;margin-top:1px;"><i class="fas fa-check" style="color:var(--gold);font-size:.55rem;"></i></span><span style="color:rgba(255,255,255,.75);">Custom certification pathway design</span></li>
-            </ul>
-          </div>
-          <div style="height:1px;background:rgba(255,255,255,.1);margin:0 28px 20px;"></div>
-          <div class="cert-card__footer">
-            <div class="cert-card__pass" style="margin-bottom:14px;">
-              <div><div class="cert-card__pass-rate" style="color:var(--gold);">Bespoke</div><div class="cert-card__pass-label" style="color:rgba(255,255,255,.5);">Tailored to Your Goals</div></div>
-              <div style="display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end;">
-                <span style="background:rgba(201,168,76,.15);color:var(--gold);font-size:.7rem;font-weight:700;padding:3px 9px;border-radius:100px;">Any Cert</span>
-              </div>
-            </div>
-            <a href="contact.html" class="cert-card__cta" style="background:var(--gold);color:#fff;">
-              Enquire Now <i class="fas fa-arrow-right"></i>
-            </a>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- Live Coaching Programs — Leaflets -->
-  <section class="section section-gray">
-    <div class="container">
-      <div class="section-header">
-        <span class="eyebrow">Currently Running</span>
-        <h2>Live Weekend Coaching Programs</h2>
-        <p>Join from anywhere in the world. Small groups for focused learning. Every weekend — interactive, live, and results-driven.</p>
-      </div>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;">
-        <div class="reveal" style="border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-lg);transition:transform .3s,box-shadow .3s;" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='var(--shadow-xl)'" onmouseout="this.style.transform='';this.style.boxShadow='var(--shadow-lg)'">
-          <img src="/assets/images/ansar-11.jpeg" alt="CSP Certified Safety Professional — Live Online Coaching by Ansar Mahmood" style="width:100%;display:block;">
-          <div style="padding:16px 20px;background:#fff;display:flex;justify-content:space-between;align-items:center;">
-            <span style="font-weight:700;color:var(--navy);font-size:.95rem;">CSP Coaching</span>
-            <a href="book-consultation.html" class="btn btn-gold btn-sm">Enrol Now</a>
-          </div>
-        </div>
-        <div class="reveal" style="border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-lg);transition:transform .3s,box-shadow .3s;" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='var(--shadow-xl)'" onmouseout="this.style.transform='';this.style.boxShadow='var(--shadow-lg)'">
-          <img src="/assets/images/ansar-12.jpeg" alt="CMIOSH PDA — Free Workshop & Seminars Online Mentoring by Ansar Mahmood" style="width:100%;display:block;">
-          <div style="padding:16px 20px;background:#fff;display:flex;justify-content:space-between;align-items:center;">
-            <span style="font-weight:700;color:var(--navy);font-size:.95rem;">CMIOSH Mentoring</span>
-            <a href="book-consultation.html" class="btn btn-gold btn-sm">Enrol Now</a>
-          </div>
-        </div>
-        <div class="reveal" style="border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-lg);transition:transform .3s,box-shadow .3s;" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='var(--shadow-xl)'" onmouseout="this.style.transform='';this.style.boxShadow='var(--shadow-lg)'">
-          <img src="/assets/images/ansar-15.jpeg" alt="CRSP Canadian Registered Safety Professional — Interactive Sessions by Ansar Mahmood" style="width:100%;display:block;">
-          <div style="padding:16px 20px;background:#fff;display:flex;justify-content:space-between;align-items:center;">
-            <span style="font-weight:700;color:var(--navy);font-size:.95rem;">CRSP Coaching</span>
-            <a href="book-consultation.html" class="btn btn-gold btn-sm">Enrol Now</a>
-          </div>
-        </div>
-        <div class="reveal" style="border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-lg);transition:transform .3s,box-shadow .3s;" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='var(--shadow-xl)'" onmouseout="this.style.transform='';this.style.boxShadow='var(--shadow-lg)'">
-          <img src="/assets/images/ansar-16.jpeg" alt="NVQ Level 6 & 7 Evidence Collection — Online Guidance by Ansar Mahmood" style="width:100%;display:block;">
-          <div style="padding:16px 20px;background:#fff;display:flex;justify-content:space-between;align-items:center;">
-            <span style="font-weight:700;color:var(--navy);font-size:.95rem;">NVQ Level 6 & 7</span>
-            <a href="book-consultation.html" class="btn btn-gold btn-sm">Enrol Now</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- How Coaching Works -->
-  <section class="section section-gray">
-    <div class="container">
-      <div class="section-header">
-        <span class="eyebrow">Coaching Methodology</span>
-        <h2>How the Certification Coaching Works</h2>
-      </div>
-      <div class="process-steps reveal">
-        <div class="step-item"><div class="step-number">1</div><div class="step-title">Assessment</div><p class="step-desc">Initial assessment of your current knowledge, exam date, learning style, and availability to build a personalised study plan.</p></div>
-        <div class="step-item"><div class="step-number">2</div><div class="step-title">Structured Study</div><p class="step-desc">Weekly coaching sessions covering each syllabus domain, with notes, worked examples, and guided reading.</p></div>
-        <div class="step-item"><div class="step-number">3</div><div class="step-title">Practice &amp; Assessment</div><p class="step-desc">Regular mock questions, past paper practice, and detailed feedback on answers to identify and address weak areas.</p></div>
-        <div class="step-item"><div class="step-number">4</div><div class="step-title">Exam Readiness</div><p class="step-desc">Final revision sessions, exam technique coaching, timing practice, and mindset preparation for exam success.</p></div>
-      </div>
-
-      <!-- Testimonial -->
-      <div class="testimonial-card" style="max-width:680px;margin:48px auto 0;">
-        <div class="testimonial-card__quote"><i class="fas fa-quote-left"></i></div>
-        <p class="testimonial-card__text">"I attempted  IGC twice before finding Ansar. His coaching approach is completely different — he doesn't just teach the syllabus, he teaches you how to think like a safety professional and answer exam questions strategically. I passed with Distinction."</p>
-        <div class="testimonial-card__author">
-          <div class="testimonial-card__avatar">RA</div>
-          <div>
-            <div class="testimonial-card__author-name">Rashida Al-Farsi</div>
-            <div class="testimonial-card__author-title">Safety Officer — Oman LNG</div>
-          </div>
-        </div>
-        <div class="testimonial-card__stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="cta-banner section">
-    <div class="container">
-      <div class="cta-banner__content">
-        <h2>Ready to Earn Your Certification?</h2>
-        <p>Book a free 30-minute consultation to discuss your certification goals, timeline, and the right coaching program for you.</p>
-        <div class="cta-banner__actions">
-          <a href="book-consultation.html" class="btn btn-gold btn-xl"><i class="fas fa-calendar-check"></i> Start Your Coaching Journey</a>
-          <a href="contact.html" class="btn btn-outline-white btn-xl">Ask a Question</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-`;
+const CERTIFICATIONS = [
+  { code: 'IOSH', name: 'IOSH Managing Safely', desc: 'Practical safety leadership for line managers — 4-day intensive with role-play and case work.' },
+  { code: 'ASP', name: 'Associate Safety Professional', desc: 'BCSP ASP exam coaching with full domain-by-domain review and weekly mock papers.' },
+  { code: 'CRSP', name: 'Canadian Registered Safety Professional', desc: 'BCRSP-aligned coaching with Canadian OHS law, ergonomics, and ethics focus.' },
+  { code: 'ISO 45001', name: 'ISO 45001 Lead Auditor', desc: 'IRCA-recognised 5-day lead auditor training with live audit simulations.' },
+  { code: 'PMP', name: 'PMP Certification', desc: 'PMBOK-7 aligned coaching for project professionals — ideal complement to HSE leadership.' },
+  { code: 'OSHA', name: 'OSHA 30 / 48-Hour', desc: 'US OSHA general industry and construction safety certifications delivered virtually.' },
+];
 
 export default function CertificationCoaching() {
-  useEffect(() => {
-    document.title = "IOSH & Professional Certification Coaching | Ansar Mahmood";
-  }, []);
-  return <PageHtml html={HTML} />;
+  useEffect(() => { document.title = 'Certification Coaching | CSP, CMIOSH, IOSH, ISO Lead Auditor'; }, []);
+
+  const cms = servicePages['certification-coaching'] || {};
+
+  return (
+    <>
+      <section className="page-hero page-hero--gradient">
+        <div className="container">
+          <div className="breadcrumb">
+            <Link to="/">Home</Link>
+            <i className="fas fa-chevron-right"></i>
+            <Link to="/services">Services</Link>
+            <i className="fas fa-chevron-right"></i>
+            <span>Certification Coaching</span>
+          </div>
+          <span className="eyebrow eyebrow--white">{cms.hero_eyebrow || 'Professional Certification'}</span>
+          <h1>{cms.hero_headline || 'Pass Your Safety Certification — First Time, Every Time'}</h1>
+          <p>{cms.hero_description || "Expert 1:1 and group coaching for IOSH, ASP/CSP, CRSP, ISO Lead Auditor, PMP, and more. With Ansar's proven coaching methodology and 97%+ first-attempt pass rate, your certification success is the only acceptable outcome."}</p>
+
+          <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap', marginTop: 28 }}>
+            <Link to="/book-consultation" className="btn btn-gold btn-lg">
+              <i className="fas fa-calendar-check"></i> {cms.hero_cta_primary?.text || 'Start Your Coaching'}
+            </Link>
+            <Link to="/course-calendar" className="btn btn-outline-white btn-lg">
+              <i className="fas fa-calendar-alt"></i> See Upcoming Dates
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="stats-strip section-sm">
+        <div className="container">
+          <div className="stats-grid">
+            {(cms.hero_stats || [
+              { value: '97%+', label: 'First-Attempt Pass Rate' },
+              { value: '10+', label: 'Certifications Coached' },
+              { value: '5,000+', label: 'Candidates Coached' },
+              { value: '20', label: 'Years as Examiner' },
+            ]).map((s, i) => (
+              <div key={i} className="stat-item">
+                <div className="stat-item__icon"><i className={`fas ${['fa-thumbs-up', 'fa-award', 'fa-user-graduate', 'fa-clock'][i % 4]}`}></i></div>
+                <span className="stat-number">{s.value}</span>
+                <span className="stat-label">{s.label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section section-white">
+        <div className="container">
+          <div className="section-header">
+            <span className="eyebrow">Featured Programs</span>
+            <h2>Live Weekend Coaching — CSP &amp; CMIOSH</h2>
+            <p>Two flagship programs with structured weekend cohorts. Small groups, direct access to Ansar, and a curriculum built around the exam blueprint.</p>
+          </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: 28 }}>
+            {PROGRAMS.map((p) => (
+              <article
+                key={p.code}
+                className="program-card reveal"
+                style={{
+                  background: '#fff',
+                  border: '1px solid var(--gray-200)',
+                  borderRadius: 'var(--radius-lg)',
+                  boxShadow: 'var(--shadow-md)',
+                  overflow: 'hidden',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  transition: 'transform .3s, box-shadow .3s',
+                }}
+              >
+                <div style={{ position: 'relative', paddingTop: '150%', background: p.accent, overflow: 'hidden' }}>
+                  <img
+                    src={p.poster}
+                    alt={`${p.title} — coaching program poster`}
+                    loading="lazy"
+                    style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }}
+                    onError={(e) => { e.currentTarget.style.display = 'none'; }}
+                  />
+                  {/* Fallback overlay shown when the poster img hides itself */}
+                  <div
+                    aria-hidden="true"
+                    style={{
+                      position: 'absolute', inset: 0,
+                      display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
+                      color: 'rgba(255,255,255,.92)', textAlign: 'center', padding: 24,
+                    }}
+                  >
+                    <i className={`fas ${p.icon}`} style={{ fontSize: '4rem', opacity: 0.35, marginBottom: 14 }}></i>
+                    <div style={{ fontFamily: 'var(--font-heading)', fontSize: '4rem', fontWeight: 800, letterSpacing: '-.02em', lineHeight: 1 }}>{p.code}</div>
+                    <div style={{ fontSize: '.9rem', opacity: 0.8, marginTop: 8 }}>{p.title}</div>
+                  </div>
+                  <span
+                    style={{
+                      position: 'absolute',
+                      top: 18, left: 18,
+                      background: '#dc2626',
+                      color: '#fff',
+                      fontSize: '.68rem',
+                      fontWeight: 800,
+                      letterSpacing: '.08em',
+                      padding: '6px 14px',
+                      borderRadius: 100,
+                      textTransform: 'uppercase',
+                      boxShadow: '0 4px 12px rgba(220,38,38,.4)',
+                    }}
+                  >
+                    <i className="fas fa-circle" style={{ fontSize: '.55rem', marginRight: 6, color: '#fca5a5' }}></i>
+                    {p.badge}
+                  </span>
+                </div>
+
+                <div style={{ padding: '28px 26px', flex: 1, display: 'flex', flexDirection: 'column' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 10 }}>
+                    <div
+                      style={{
+                        width: 42, height: 42, borderRadius: 12,
+                        background: 'linear-gradient(135deg, var(--navy), var(--navy-mid))',
+                        color: 'var(--gold)',
+                        display: 'flex', alignItems: 'center', justifyContent: 'center',
+                        fontSize: '1.05rem',
+                      }}
+                    >
+                      <i className={`fas ${p.icon}`}></i>
+                    </div>
+                    <div style={{ fontSize: '.72rem', fontWeight: 700, color: 'var(--text-muted)', letterSpacing: '.08em', textTransform: 'uppercase' }}>
+                      {p.cadence}
+                    </div>
+                  </div>
+
+                  <h3 style={{ fontSize: '1.35rem', color: 'var(--navy)', marginBottom: 10 }}>{p.cta}</h3>
+                  <p style={{ fontSize: '.92rem', color: 'var(--text-muted)', lineHeight: 1.6, marginBottom: 16 }}>{p.body}</p>
+
+                  <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 20px', display: 'grid', gap: 8 }}>
+                    {p.bullets.map((b) => (
+                      <li key={b} style={{ display: 'flex', gap: 10, alignItems: 'flex-start', fontSize: '.9rem', color: 'var(--text)' }}>
+                        <i className="fas fa-check-circle" style={{ color: 'var(--success, #047857)', flexShrink: 0, marginTop: 3 }}></i>
+                        <span>{b}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <div style={{ display: 'flex', gap: 10, marginTop: 'auto' }}>
+                    <Link to="/book-consultation" className="btn btn-primary btn-sm" style={{ flex: 1, justifyContent: 'center' }}>
+                      <i className="fas fa-user-graduate"></i> Enrol Now
+                    </Link>
+                    <Link to="/contact" className="btn btn-outline-navy btn-sm" style={{ justifyContent: 'center' }} aria-label={`Ask about ${p.code}`}>
+                      <i className="fas fa-envelope"></i>
+                    </Link>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section section-gray">
+        <div className="container">
+          <div className="section-header">
+            <span className="eyebrow">All Certifications Coached</span>
+            <h2>Cover the Complete HSE Certification Landscape</h2>
+            <p>Beyond the two flagship programs above, Ansar provides coaching for every major international safety certification.</p>
+          </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 20 }}>
+            {CERTIFICATIONS.map((c) => (
+              <div
+                key={c.code}
+                className="cert-card reveal"
+                style={{
+                  background: '#fff',
+                  padding: '22px 24px',
+                  borderRadius: 'var(--radius-md)',
+                  border: '1px solid var(--gray-200)',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: 8,
+                }}
+              >
+                <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+                  <span
+                    style={{
+                      fontSize: '.72rem',
+                      fontWeight: 800,
+                      letterSpacing: '.06em',
+                      padding: '4px 10px',
+                      borderRadius: 100,
+                      background: 'var(--navy)',
+                      color: 'var(--gold)',
+                    }}
+                  >
+                    {c.code}
+                  </span>
+                  <h4 style={{ fontSize: '.98rem', margin: 0, color: 'var(--navy)' }}>{c.name}</h4>
+                </div>
+                <p style={{ fontSize: '.88rem', color: 'var(--text-muted)', lineHeight: 1.55, margin: 0 }}>{c.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          <div style={{ textAlign: 'center', marginTop: 48 }}>
+            <Link to="/course-calendar" className="btn btn-outline-navy btn-lg" style={{ marginRight: 12 }}>
+              <i className="fas fa-calendar-alt"></i> View Full Course Calendar
+            </Link>
+            <Link to="/book-consultation" className="btn btn-primary btn-lg">
+              <i className="fas fa-calendar-check"></i> Book Free Coaching Call
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="cta-banner section">
+        <div className="container">
+          <div className="cta-banner__content">
+            <span className="eyebrow eyebrow--white">Start Your Safety Journey Today</span>
+            <h2>Your Certification Success Is the Only Outcome We Accept</h2>
+            <p>97%+ of Ansar's coached candidates pass their chosen certification on the first attempt. Book a free 15-minute coaching consultation — bring your exam date, we'll build the plan.</p>
+            <div className="cta-banner__actions">
+              <Link to="/book-consultation" className="btn btn-gold btn-xl">
+                <i className="fas fa-calendar-check"></i> Book Free Coaching Call
+              </Link>
+              <a href="https://wa.me/966534852341?text=Hi%20Ansar%2C%20I%27m%20interested%20in%20certification%20coaching" target="_blank" rel="noopener noreferrer" className="btn btn-outline-white btn-xl">
+                <i className="fab fa-whatsapp"></i> WhatsApp Ansar
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
+  );
 }

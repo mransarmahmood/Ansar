@@ -40,21 +40,27 @@ const WHY_CARDS = [
 
 const PROJECTS = [
   {
-    img: asset('assets/images/ansar-8.jpeg'), alt: 'Red Sea Global — 1 Million LTI-Free Man-Hours Milestone',
+    img: asset('assets/images/ansar-1million-milestone.jpeg'),
+    fallback: asset('assets/images/ansar-8.jpeg'),
+    alt: 'Red Sea Global — 1 Million LTI-Free Man-Hours Milestone Celebration',
     tag: 'Construction', tagColor: 'var(--gold)',
     title: '1 Million LTI-Free Man-Hours',
     desc: 'Red Sea Global mega-project — led HSE advisory to achieve a landmark safety milestone with zero lost-time injuries across a complex multi-contractor site.',
     stats: [{ n: '1M+', l: 'Safe Man-Hours', c: 'var(--gold)' }, { n: '0', l: 'LTI Incidents', c: 'var(--blue)' }],
   },
   {
-    img: asset('assets/images/ansar-4.jpeg'), alt: 'Ansar Mahmood — On-site HSE Consulting',
+    img: asset('assets/images/ansar-field-rsg.jpeg'),
+    fallback: asset('assets/images/ansar-4.jpeg'),
+    alt: 'Ansar Mahmood on site in full Red Sea Global PPE',
     tag: 'HSE Consulting', tagColor: 'var(--blue)',
     title: 'On-Site HSE Advisory',
     desc: 'Hands-on field HSE leadership embedded within high-hazard operations — conducting audits, risk assessments, and safety culture interventions directly on-site.',
     stats: [{ n: '500+', l: 'Projects', c: 'var(--gold)' }, { n: '10', l: 'Countries', c: 'var(--blue)' }],
   },
   {
-    img: asset('assets/images/ansar-2.jpeg'), alt: 'Ansar Mahmood delivering HSE training',
+    img: asset('assets/images/ansar-speaking.jpeg'),
+    fallback: asset('assets/images/ansar-2.jpeg'),
+    alt: 'Ansar Mahmood delivering HSE training in a corporate classroom',
     tag: 'Training', tagColor: 'var(--navy)',
     title: 'Professional Certification Coaching',
     desc: 'Delivering IOSH, CSP, CRSP, and ISO Lead Auditor coaching to professionals globally — with a 97%+ first-attempt pass rate.',
@@ -163,9 +169,13 @@ export default function Home() {
               <div className="hero__avatar-wrap">
                 <div className="hero__avatar-ring">
                   <img
-                    src={asset('assets/images/ansar-17.jpeg')}
-                    alt="Ansar Mahmood — Senior HSE Consultant"
+                    src={asset('assets/images/ansar-field-rsg.jpeg')}
+                    alt="Ansar Mahmood — Senior HSE Consultant on site"
                     style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top center', borderRadius: '50%' }}
+                    onError={(e) => {
+                      const fb = asset('assets/images/ansar-17.jpeg');
+                      if (e.currentTarget.src !== fb) e.currentTarget.src = fb;
+                    }}
                   />
                 </div>
                 <div className="hero__orbit-badge hero__orbit-badge--1"><i className="fas fa-certificate"></i></div>
@@ -434,7 +444,14 @@ export default function Home() {
             {PROJECTS.map((p) => (
               <div key={p.title} className="project-card reveal">
                 <div className="project-card__media">
-                  <img src={p.img} alt={p.alt} loading="lazy" />
+                  <img
+                    src={p.img}
+                    alt={p.alt}
+                    loading="lazy"
+                    onError={(e) => {
+                      if (p.fallback && e.currentTarget.src !== p.fallback) e.currentTarget.src = p.fallback;
+                    }}
+                  />
                   <div className="project-card__scrim"></div>
                   <span className="project-card__tag" style={{ background: p.tagColor }}>{p.tag}</span>
                 </div>

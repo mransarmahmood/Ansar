@@ -18,6 +18,7 @@ const MANUAL_SLUGS = new Set([
   'industries',
   'faqs',
   'testimonials',
+  'certification-coaching',
 ]);
 
 function toPascal(slug) {
