@@ -57,7 +57,7 @@ ErrorDocument 404 /index.html
 
 # ── Prevent hotlinking (allow own domains + GitHub Pages) ────────
 RewriteCond %{HTTP_REFERER} !^$ [NC]
-RewriteCond %{HTTP_REFERER} !^https?://(www\.)?ansarmahmood\.com [NC]
+RewriteCond %{HTTP_REFERER} !^https?://(www\.)?ansarmahmood\.(com|org) [NC]
 RewriteCond %{HTTP_REFERER} !^https?://mransarmahmood\.github\.io [NC]
 RewriteCond %{HTTP_REFERER} !^https?://localhost [NC]
 RewriteCond %{HTTP_REFERER} !^https?://127\.0\.0\.1 [NC]
