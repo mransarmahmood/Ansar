@@ -12,6 +12,10 @@ dist
 dist-ssr
 *.local
 
+# Production secret overrides — create manually on the host, never commit
+exams-config.local.php
+admin/includes/config.local.php
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

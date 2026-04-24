@@ -2,10 +2,15 @@
 // Exam Portal shared config — Ansar Mahmood
 if (session_status() === PHP_SESSION_NONE) session_start();
 
-define('EXAM_DB_HOST', 'localhost');
-define('EXAM_DB_NAME', 'ansar_cms');
-define('EXAM_DB_USER', 'root');
-define('EXAM_DB_PASS', 'admin123');
+// Load production overrides if present (gitignored — uploaded manually on the host)
+$localCfg = __DIR__ . '/exams-config.local.php';
+if (is_file($localCfg)) require_once $localCfg;
+
+// Fallback defaults for local XAMPP development
+if (!defined('EXAM_DB_HOST')) define('EXAM_DB_HOST', 'localhost');
+if (!defined('EXAM_DB_NAME')) define('EXAM_DB_NAME', 'ansar_cms');
+if (!defined('EXAM_DB_USER')) define('EXAM_DB_USER', 'root');
+if (!defined('EXAM_DB_PASS')) define('EXAM_DB_PASS', 'admin123');
 
 if (!defined('EXAM_BASE')) {
     $docRoot  = realpath($_SERVER['DOCUMENT_ROOT'] ?? '');

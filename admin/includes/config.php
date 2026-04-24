@@ -72,10 +72,14 @@ function get_settings(): array {
 }
 
 // ── Exam DB connection ────────────────────────────────────────
-define('EXAM_DB_HOST', 'localhost');
-define('EXAM_DB_NAME', 'ansar_cms');
-define('EXAM_DB_USER', 'root');
-define('EXAM_DB_PASS', 'admin123');
+// Load production overrides if present (gitignored — uploaded manually on the host)
+$localCfg = __DIR__ . '/config.local.php';
+if (is_file($localCfg)) require_once $localCfg;
+
+if (!defined('EXAM_DB_HOST')) define('EXAM_DB_HOST', 'localhost');
+if (!defined('EXAM_DB_NAME')) define('EXAM_DB_NAME', 'ansar_cms');
+if (!defined('EXAM_DB_USER')) define('EXAM_DB_USER', 'root');
+if (!defined('EXAM_DB_PASS')) define('EXAM_DB_PASS', 'admin123');
 
 function exam_pdo(): PDO {
     static $pdo = null;
