@@ -67,7 +67,13 @@
       "Bash(curl -s --max-time 15 \"https://api.github.com/users/mransarmahmood/repos?per_page=30\")",
       "Bash(curl -s --max-time 15 \"https://api.github.com/users/mransarmahmood\")",
       "Bash(curl -s --max-time 15 \"https://api.github.com/users/mransarmahmood/repos\")",
-      "Bash(curl -s -o /dev/null -w \"HOME: %{http_code}\\\\nABOUT: %{http_code}\\\\n\" http://localhost/Ansar/)"
+      "Bash(curl -s -o /dev/null -w \"HOME: %{http_code}\\\\nABOUT: %{http_code}\\\\n\" http://localhost/Ansar/)",
+      "Bash(curl -s -o /dev/null -w \"No-referer: %{http_code}\\\\n\" --max-time 10 \"https://ansarmahmood.org/assets/images/logo.svg\")",
+      "Bash(curl -s -o /dev/null -w \"With .org referer: %{http_code}\\\\n\" --max-time 10 -e \"https://ansarmahmood.org/\" \"https://ansarmahmood.org/assets/images/logo.svg\")",
+      "Bash(curl -s -o /dev/null -w \"Homepage: %{http_code}\\\\n\" --max-time 10 \"https://ansarmahmood.org/\")",
+      "Bash(curl -s -o /dev/null -w \"github.com: %{http_code} \\(%{time_total}s\\)\\\\n\" --max-time 15 https://github.com)",
+      "Bash(curl -s -o /dev/null -w \"github repo: %{http_code} \\(%{time_total}s\\)\\\\n\" --max-time 15 https://github.com/mransarmahmood)",
+      "Bash(curl -s -o /dev/null -w \"Image with .org referer: %{http_code}\\\\n\" --max-time 10 -e \"https://ansarmahmood.org/\" \"https://ansarmahmood.org/assets/images/logo.svg\")"
     ]
   }
 }
