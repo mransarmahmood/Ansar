@@ -35,7 +35,23 @@
       "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost/Ansar/admin/)",
       "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost/dashboard/)",
       "Bash(tasklist)",
-      "Bash(wmic process:*)"
+      "Bash(wmic process:*)",
+      "Bash(curl -s -o /tmp/about-output.html -w \"HTTP: %{http_code}\\\\nSize: %{size_download}\\\\n\" http://localhost/Ansar/pages/about.html)",
+      "Bash(curl -s -o /tmp/home.html -w \"HOME HTTP: %{http_code}\\\\nSize: %{size_download}\\\\n\" http://localhost/Ansar/)",
+      "Bash(curl -s -o /tmp/about2.html -w \"ABOUT-NO-EXT HTTP: %{http_code}\\\\nSize: %{size_download}\\\\n\" http://localhost/Ansar/pages/about)",
+      "Bash(curl -s -o /dev/null -w \"LOCALHOST: %{http_code}\\\\n\" http://localhost/)",
+      "Bash(curl -s http://localhost/Ansar/pages/about.html)",
+      "Bash(curl -sI http://localhost/)",
+      "Bash(curl -sI http://localhost/Ansar/index.html)",
+      "Bash(curl -sI http://localhost/Ansar/)",
+      "Bash(netstat -ano)",
+      "Bash(curl -s -o /dev/null -w \"HOME: %{http_code}\\\\n\" http://localhost/Ansar/)",
+      "Bash(curl -s -o /dev/null -w \"ABOUT: %{http_code}\\\\n\" http://localhost/Ansar/pages/about.html)",
+      "Bash(curl -s -o /dev/null -w \"CONTACT: %{http_code}\\\\n\" http://localhost/Ansar/pages/contact.html)",
+      "Read(//c/xampp/htdocs/Ansar/**)",
+      "Bash(\"C:/xampp83/apache/bin/httpd.exe\" -t)",
+      "Bash(\"C:/xampp83/apache/bin/httpd.exe\" -k restart)",
+      "Bash(curl -s http://localhost/Ansar/)"
     ]
   }
 }
