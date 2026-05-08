@@ -4,7 +4,10 @@ import homepage from '../data/homepage.json';
 import services from '../data/services.json';
 import industries from '../data/industries.json';
 import testimonials from '../data/testimonials.json';
+import caseStudies from '../data/case-studies.json';
 import { asset } from '../utils/asset';
+import PillarCard from '../components/PillarCard';
+import ProcessSteps from '../components/ProcessSteps';
 
 const STAT_ICONS = ['fa-clock', 'fa-briefcase', 'fa-globe', 'fa-users'];
 
@@ -23,56 +26,74 @@ const TRUST_CHIPS = [
   { tone: 'gold', icon: 'fa-briefcase', name: '500+ Projects', sub: 'Delivered Globally' },
 ];
 
+const PILLARS = [
+  {
+    tone: 'navy',
+    icon: 'fa-shield-alt',
+    label: 'Pillar 01',
+    title: 'Consulting & Audits',
+    description: 'Strategic HSE advisory, ISO implementation, audits, and incident investigation — delivered by a Lead Auditor with 20 years on the front line.',
+    items: [
+      { to: '/consulting', icon: 'fa-shield-alt', label: 'HSE Consulting & Advisory' },
+      { to: '/audits', icon: 'fa-clipboard-check', label: 'Audits & Gap Analysis' },
+      { to: '/management-systems', icon: 'fa-sitemap', label: 'ISO 45001 / 14001 Implementation' },
+      { to: '/incident-investigation', icon: 'fa-search', label: 'Incident Investigation & RCA' },
+    ],
+    cta: 'Explore Consulting',
+    ctaTo: '/consulting',
+  },
+  {
+    tone: 'gold',
+    icon: 'fa-graduation-cap',
+    label: 'Pillar 02',
+    title: 'Training & Coaching',
+    description: 'Certification coaching with a 97%+ first-attempt pass rate. IOSH, NEBOSH, ISO Lead Auditor, ASP/CSP, CRSP — online, in-person, and corporate cohorts.',
+    items: [
+      { to: '/training', icon: 'fa-chalkboard-teacher', label: 'HSE Training Programs' },
+      { to: '/certification-coaching', icon: 'fa-award', label: 'Certification Coaching' },
+      { to: '/course-calendar', icon: 'fa-calendar-alt', label: 'Course Calendar' },
+      { to: '/corporate-solutions', icon: 'fa-building', label: 'Corporate Programs' },
+    ],
+    cta: 'Explore Training',
+    ctaTo: '/training',
+  },
+  {
+    tone: 'blue',
+    icon: 'fa-microchip',
+    label: 'Pillar 03',
+    title: 'Digital & AI Solutions',
+    description: 'The only HSE consultant who builds purpose-fit AI agents, Power BI dashboards, SharePoint portals, and safety apps — bridging safety with the modern enterprise.',
+    items: [
+      { to: '/ai-solutions', icon: 'fa-robot', label: 'AI Solutions for HSE' },
+      { to: '/digital-solutions', icon: 'fa-laptop-code', label: 'Digital Transformation' },
+      { to: '/powerbi-dashboards', icon: 'fa-chart-bar', label: 'Power BI Dashboards' },
+      { to: '/safety-apps', icon: 'fa-mobile-alt', label: 'Custom Safety Apps' },
+    ],
+    cta: 'Explore Digital & AI',
+    ctaTo: '/ai-solutions',
+  },
+];
+
+const PROCESS = [
+  { title: 'Discover', outcome: 'Free 30-min strategy call to map your context, risks, and constraints.' },
+  { title: 'Diagnose', outcome: 'Targeted audit or gap analysis turns blind spots into a prioritised plan.' },
+  { title: 'Deliver', outcome: 'Hands-on rollout — systems, training, dashboards, or AI tooling on the ground.' },
+  { title: 'Sustain', outcome: 'Quarterly reviews, retainer support, or fractional HSE leadership keep momentum.' },
+];
+
 const WHY_CARDS = [
   { icon: 'fa-globe-americas', title: 'Global Field Experience',
-    text: 'Deployed across 10 countries in oil & gas, construction, manufacturing, and infrastructure. Real-world expertise that translates into practical, results-driven solutions — not just theory.' },
+    text: 'Deployed across 10+ countries in oil & gas, construction, manufacturing, and infrastructure. Real-world expertise that translates into practical, results-driven solutions — not theory.' },
   { icon: 'fa-microchip', title: 'Digital & AI Innovation',
-    text: 'The only HSE consultant who builds AI agents, Power BI dashboards, SharePoint portals, and custom safety apps — bridging the gap between safety management and modern technology.' },
+    text: 'Custom AI agents, Power BI dashboards, SharePoint portals, and safety apps — bridging the gap between safety management and modern technology.' },
   { icon: 'fa-award', title: 'Certified Trainer & Coach',
     text: 'Internationally certified trainer with 20 years of teaching excellence. 97%+ first-attempt pass rate across IOSH, ASP/CSP, CRSP, ISO, and PMP programs.' },
   { icon: 'fa-handshake', title: 'Trusted Long-Term Partner',
-    text: "Clients retain Ansar year after year because of his commitment to their outcomes — not just deliverables. Fractional HSE leadership and monthly retainer options available." },
+    text: 'Clients retain Ansar year after year because of his commitment to their outcomes. Fractional HSE leadership and monthly retainer options available.' },
   { icon: 'fa-chart-line', title: 'Measurable Business Impact',
     text: 'Every engagement is outcomes-focused: incident reduction targets, compliance scores, audit results, training pass rates, and dashboard KPIs that prove ROI to your board.' },
   { icon: 'fa-network-wired', title: 'Full-Spectrum Capability',
     text: 'From day-one risk assessment to ISO certification, from frontline training to board-level safety reporting — one advisor with the full-spectrum capability to support your entire HSE journey.' },
-];
-
-const PROJECTS = [
-  {
-    img: asset('assets/images/ansar-1million-milestone.jpeg'),
-    fallback: asset('assets/images/ansar-8.jpeg'),
-    alt: 'Red Sea Global — 1 Million LTI-Free Man-Hours Milestone Celebration',
-    tag: 'Construction', tagColor: 'var(--gold)',
-    title: '1 Million LTI-Free Man-Hours',
-    desc: 'Red Sea Global mega-project — led HSE advisory to achieve a landmark safety milestone with zero lost-time injuries across a complex multi-contractor site.',
-    stats: [{ n: '1M+', l: 'Safe Man-Hours', c: 'var(--gold)' }, { n: '0', l: 'LTI Incidents', c: 'var(--blue)' }],
-  },
-  {
-    img: asset('assets/images/ansar-field-rsg.jpeg'),
-    fallback: asset('assets/images/ansar-4.jpeg'),
-    alt: 'Ansar Mahmood on site in full Red Sea Global PPE',
-    tag: 'HSE Consulting', tagColor: 'var(--blue)',
-    title: 'On-Site HSE Advisory',
-    desc: 'Hands-on field HSE leadership embedded within high-hazard operations — conducting audits, risk assessments, and safety culture interventions directly on-site.',
-    stats: [{ n: '500+', l: 'Projects', c: 'var(--gold)' }, { n: '10', l: 'Countries', c: 'var(--blue)' }],
-  },
-  {
-    img: asset('assets/images/ansar-speaking.jpeg'),
-    fallback: asset('assets/images/ansar-2.jpeg'),
-    alt: 'Ansar Mahmood delivering HSE training in a corporate classroom',
-    tag: 'Training', tagColor: 'var(--navy)',
-    title: 'Professional Certification Coaching',
-    desc: 'Delivering IOSH, CSP, CRSP, and ISO Lead Auditor coaching to professionals globally — with a 97%+ first-attempt pass rate.',
-    stats: [{ n: '97%+', l: 'Pass Rate', c: 'var(--gold)' }, { n: '10K+', l: 'Trained', c: 'var(--blue)' }],
-  },
-  {
-    img: asset('assets/images/ansar-10.jpeg'), alt: 'Ansar Mahmood speaking at an international HSE conference',
-    tag: 'Speaking', tagColor: 'var(--gold)',
-    title: 'International HSE Speaker & Advisor',
-    desc: 'Keynote speaker and workshop facilitator at international safety conferences — sharing expertise on digital HSE, AI integration, and safety leadership.',
-    stats: [{ n: '20', l: 'Years Exp.', c: 'var(--gold)' }, { n: 'Global', l: 'Reach', c: 'var(--blue)' }],
-  },
 ];
 
 function normaliseUrl(u) {
@@ -109,18 +130,20 @@ export default function Home() {
   }, []);
 
   const stats = homepage.stats || [];
-  const svcSec = homepage.services_section || {};
   const indSec = homepage.industries_section || {};
-  const solutions = homepage.featured_solutions || [];
-  const hpServices = useMemo(() => featured(services).slice(0, 8), []);
   const hpIndustries = useMemo(() => featured(industries).slice(0, 8), []);
   const sliderTestimonials = useMemo(() => {
     const f = featured(testimonials);
     return f.length ? f : testimonials;
   }, []);
+  const featuredCases = useMemo(() => {
+    const arr = Array.isArray(caseStudies) ? caseStudies : [];
+    return arr.filter((c) => c.published !== false).slice(0, 3);
+  }, []);
 
   return (
     <>
+      {/* ── Hero ─────────────────────────────────────────────── */}
       <section className="hero" id="home" aria-label="Hero section">
         <div className="hero__bg" aria-hidden="true"></div>
         <div className="hero__pattern" aria-hidden="true"></div>
@@ -133,14 +156,14 @@ export default function Home() {
             </div>
 
             <h1 className="hero__headline reveal reveal--up">
-              Transforming Workplaces.<br />
-              <span className="text-gold">Saving Lives.</span><br />
-              Powering the Future.
+              Safety that drives <em className="em">strategic</em> advantage.<br />
+              Training that <em className="em">actually</em> sticks.<br />
+              Technology built for <em className="em">your</em> field.
             </h1>
 
             <p className="hero__sub reveal">
               Senior HSE Consultant &bull; Trainer &bull; Digital Transformation &amp; AI Solutions Specialist
-              with <strong style={{ color: 'rgba(255,255,255,.9)' }}>20 years of global impact</strong> across Oil &amp; Gas,
+              with <strong style={{ color: 'rgba(255,255,255,.92)' }}>20 years of global impact</strong> across Oil &amp; Gas,
               Construction, Manufacturing, and beyond.
             </p>
 
@@ -149,7 +172,7 @@ export default function Home() {
               <span className="cred-pill cred-pill--safety"><i className="fas fa-id-badge"></i> IOSH Member</span>
               <span className="cred-pill cred-pill--safety"><i className="fas fa-clipboard-check"></i> ISO Lead Auditor</span>
               <span className="cred-pill cred-pill--tech"><i className="fas fa-robot"></i> AI Specialist</span>
-              <span className="cred-pill cred-pill--global"><i className="fas fa-globe"></i> 10 Countries</span>
+              <span className="cred-pill cred-pill--global"><i className="fas fa-globe"></i> 10+ Countries</span>
             </div>
 
             <div className="hero__actions reveal">
@@ -157,20 +180,36 @@ export default function Home() {
                 <i className="fas fa-calendar-check"></i> Book Free Consultation
               </Link>
               <Link to="/services" className="btn btn-outline-white btn-xl">
-                Explore Services <i className="fas fa-arrow-right"></i>
+                See Services <i className="fas fa-arrow-right"></i>
               </Link>
+            </div>
+            <div
+              className="reveal"
+              style={{
+                marginTop: 18,
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: 8,
+                fontSize: '.82rem',
+                color: 'rgba(255,255,255,.65)',
+              }}
+            >
+              <i className="fas fa-shield-alt" style={{ color: 'var(--gold)' }}></i>
+              30 minutes · No cost · No obligation
             </div>
           </div>
 
           <div className="hero__visual reveal reveal--right">
             <div className="hero__pro-card">
-              <div className="hero__pro-badge"><i className="fas fa-globe"></i> 10 Countries</div>
+              <div className="hero__pro-badge"><i className="fas fa-globe"></i> 10+ Countries</div>
 
               <div className="hero__avatar-wrap">
                 <div className="hero__avatar-ring">
                   <img
                     src={asset('assets/images/ansar-field-rsg.jpeg')}
                     alt="Ansar Mahmood — Senior HSE Consultant on site"
+                    width="180"
+                    height="180"
                     style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top center', borderRadius: '50%' }}
                     onError={(e) => {
                       const fb = asset('assets/images/ansar-17.jpeg');
@@ -207,6 +246,7 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── Trust marquee ─────────────────────────────────────── */}
       <section className="trust-bar" aria-label="Credentials and affiliations">
         <div className="trust-bar__header">
           <div className="container">
@@ -237,44 +277,40 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section section-white" id="services" aria-labelledby="services-heading">
+      {/* ── Three Pillars ─────────────────────────────────────── */}
+      <section className="section section-white pillars-section" id="pillars" aria-labelledby="pillars-heading">
         <div className="container">
-          <div className="section-header">
-            <span className="eyebrow">{svcSec.eyebrow || '8 Service Areas · One Expert'}</span>
-            <h2 id="services-heading">{svcSec.headline || 'Everything Your Organisation Needs — Under One Roof'}</h2>
-            <p>{svcSec.description || ''}</p>
+          <div className="section-header reveal">
+            <span className="eyebrow">Three Pillars · One Trusted Advisor</span>
+            <h2 id="pillars-heading">
+              Everything your HSE function needs — <em className="em">under one roof.</em>
+            </h2>
+            <p>
+              Most consultants do one thing. Ansar combines three deeply-developed disciplines, so your safety
+              strategy, team capability, and digital tooling stay aligned instead of fighting each other.
+            </p>
           </div>
 
-          <div className="grid grid-4" style={{ gap: 22 }}>
-            {hpServices.map((svc, i) => (
-              <SmartLink
-                key={svc.id || i}
-                to={svc.url}
-                className={`service-card reveal${i % 2 === 1 ? ' service-card--gold' : ''}`}
-                style={{ textDecoration: 'none', color: 'inherit' }}
-              >
-                <div className="service-card__top">
-                  <div className="service-card__icon"><i className={`fas ${svc.icon || 'fa-cog'}`}></i></div>
-                  <span className="service-card__tag">{svc.tag || ''}</span>
-                  <h3 className="service-card__title">{svc.title}</h3>
-                  <p className="service-card__desc">{svc.description}</p>
-                </div>
-                <div className="service-card__foot">
-                  <span className="service-card__link">Explore <i className="fas fa-arrow-right"></i></span>
-                  <span className="service-card__arr"><i className="fas fa-chevron-right"></i></span>
-                </div>
-              </SmartLink>
-            ))}
-          </div>
-
-          <div style={{ textAlign: 'center', marginTop: 48 }}>
-            <Link to="/services" className="btn btn-outline-navy btn-lg">
-              View All Services <i className="fas fa-arrow-right"></i>
-            </Link>
+          <div className="pillar-grid">
+            {PILLARS.map((p) => <PillarCard key={p.title} {...p} />)}
           </div>
         </div>
       </section>
 
+      {/* ── How we work ───────────────────────────────────────── */}
+      <section className="section section-gray" aria-labelledby="how-we-work">
+        <div className="container">
+          <div className="section-header reveal">
+            <span className="eyebrow">How We Work</span>
+            <h2 id="how-we-work">A four-step path from <em className="em">first call</em> to lasting impact.</h2>
+            <p>The same proven process across every engagement — whether it's a one-week audit or a multi-year corporate partnership.</p>
+          </div>
+
+          <ProcessSteps steps={PROCESS} />
+        </div>
+      </section>
+
+      {/* ── Proof bar ─────────────────────────────────────────── */}
       <section className="stats-strip section-sm" aria-label="Key statistics">
         <div className="container">
           <div className="stats-grid">
@@ -296,12 +332,73 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── Featured Case Studies ─────────────────────────────── */}
+      {featuredCases.length > 0 && (
+        <section className="section section-white" id="case-studies-home" aria-labelledby="case-heading">
+          <div className="container">
+            <div className="section-header reveal">
+              <span className="eyebrow">Featured Outcomes</span>
+              <h2 id="case-heading">Real projects. <em className="em">Real numbers.</em></h2>
+              <p>A glimpse at what good safety leadership looks like in the wild — anonymised where confidentiality applies.</p>
+            </div>
+
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 24, marginBottom: 32 }}>
+              {featuredCases.map((c, ci) => {
+                const fallbackImg = asset(`assets/images/ansar-${[1, 4, 8][ci % 3]}.jpeg`);
+                const summary = c.summary || (c.description ? c.description.split('. ').slice(0, 2).join('. ') + '.' : '');
+                const kpis = (c.kpis || c.metrics || []).slice(0, 3);
+                return (
+                  <article key={c.id} className="project-card reveal">
+                    <div className="project-card__media" style={{ background: c.icon_bg || 'linear-gradient(135deg,var(--navy),var(--navy-mid))' }}>
+                      <img
+                        src={asset(c.image || `assets/images/ansar-${[1, 4, 8][ci % 3]}.jpeg`)}
+                        alt={c.headline || c.title}
+                        loading="lazy"
+                        decoding="async"
+                        width="600"
+                        height="320"
+                        onError={(e) => {
+                          if (e.currentTarget.src !== fallbackImg) e.currentTarget.src = fallbackImg;
+                        }}
+                      />
+                      <div className="project-card__scrim"></div>
+                      <span className="project-card__tag" style={{ background: 'var(--gold)' }}>{c.industry}</span>
+                    </div>
+                    <div style={{ padding: '20px 24px' }}>
+                      <h4 style={{ fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: '1.18rem', marginBottom: 8, color: 'var(--navy)', lineHeight: 1.3 }}>
+                        {c.headline}
+                      </h4>
+                      <p style={{ fontSize: '.9rem', color: 'var(--text-muted)', marginBottom: 16 }}>{summary}</p>
+                      <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap' }}>
+                        {kpis.map((k, ki) => (
+                          <div key={ki} style={{ background: 'var(--gray-50)', borderRadius: 8, padding: '8px 12px', minWidth: 90 }}>
+                            <div style={{ fontSize: '1.05rem', fontWeight: 800, color: 'var(--gold-dark)', fontFamily: 'var(--font-display)' }}>{k.value}</div>
+                            <div style={{ fontSize: '.7rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '.06em' }}>{k.label}</div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </article>
+                );
+              })}
+            </div>
+
+            <div style={{ textAlign: 'center' }} className="reveal">
+              <Link to="/case-studies" className="btn btn-outline-navy btn-lg">
+                View All Case Studies <i className="fas fa-arrow-right"></i>
+              </Link>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* ── Why choose Ansar ─────────────────────────────────── */}
       <section className="section section-gray" id="why-choose" aria-labelledby="why-heading">
         <div className="container">
-          <div className="section-header">
+          <div className="section-header reveal">
             <span className="eyebrow">Why Ansar Mahmood</span>
-            <h2 id="why-heading">One Expert. Three Disciplines. Unlimited Value.</h2>
-            <p>What makes Ansar Mahmood unique is the rare combination of deep field expertise, professional training credentials, and cutting-edge technology skills — all in one trusted advisor.</p>
+            <h2 id="why-heading">One expert. <em className="em">Three disciplines.</em> Unlimited value.</h2>
+            <p>What makes Ansar unique is the rare combination of deep field expertise, professional training credentials, and cutting-edge technology skills — all in one trusted advisor.</p>
           </div>
 
           <div className="grid grid-3" style={{ gap: 24 }}>
@@ -316,12 +413,16 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── Testimonials ──────────────────────────────────────── */}
+      <TestimonialSlider items={sliderTestimonials} />
+
+      {/* ── Industries strip ─────────────────────────────────── */}
       <section className="section section-white" id="industries" aria-labelledby="industries-heading">
         <div className="container">
-          <div className="section-header">
+          <div className="section-header reveal">
             <span className="eyebrow">{indSec.eyebrow || 'Industries Served'}</span>
-            <h2 id="industries-heading">{indSec.headline || 'Deep Expertise Across Every Major Sector'}</h2>
-            <p>{indSec.description || 'With 20 years of field deployment across 10 countries, Ansar Mahmood brings sector-specific knowledge to every engagement.'}</p>
+            <h2 id="industries-heading">Deep expertise across <em className="em">every major sector.</em></h2>
+            <p>{indSec.description || 'With 20 years of field deployment across 10+ countries, sector-specific knowledge ships with every engagement.'}</p>
           </div>
 
           <div className="grid grid-4" style={{ gap: 20, gridTemplateColumns: 'repeat(4, 1fr)' }}>
@@ -342,60 +443,13 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section section-gray" id="solutions" aria-labelledby="solutions-heading">
+      {/* ── Resources teaser ─────────────────────────────────── */}
+      <section className="section section-gray" aria-labelledby="resources-home-heading">
         <div className="container">
-          <div className="section-header">
-            <span className="eyebrow">Featured Solutions</span>
-            <h2 id="solutions-heading">Proven Solutions for Every Challenge</h2>
-          </div>
-
-          {solutions.map((sol, si) => {
-            const reverse = si % 2 !== 0;
-            const isLast = si === solutions.length - 1;
-            return (
-              <div
-                className={`solution-block${reverse ? ' solution-block--reverse' : ''}`}
-                style={{ marginBottom: isLast ? 0 : 72 }}
-                key={si}
-              >
-                <div className={`solution-visual reveal ${reverse ? 'reveal--right' : 'reveal--left'}`}>
-                  <div className="solution-visual__label">{sol.label}</div>
-                  <i className={`fas ${sol.icon || 'fa-cog'}`} style={{ fontSize: '8rem', color: 'var(--gold)', opacity: 0.4 }}></i>
-                </div>
-                <div className={`solution-content reveal ${reverse ? 'reveal--left' : 'reveal--right'}`}>
-                  <span className="eyebrow">{sol.eyebrow}</span>
-                  <h3>{sol.headline}</h3>
-                  <p>{sol.description}</p>
-                  {sol.features?.length > 0 && (
-                    <div className="solution-features">
-                      {sol.features.map((f, fi) => (
-                        <div className="solution-feature" key={fi}><i className="fas fa-check-circle"></i>{f}</div>
-                      ))}
-                    </div>
-                  )}
-                  <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap' }}>
-                    {sol.cta_primary_text && (
-                      <SmartLink to={sol.cta_primary_url} className="btn btn-primary btn-lg">{sol.cta_primary_text}</SmartLink>
-                    )}
-                    {sol.cta_secondary_text && (
-                      <SmartLink to={sol.cta_secondary_url} className="btn btn-outline-navy btn-lg">{sol.cta_secondary_text}</SmartLink>
-                    )}
-                  </div>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-      </section>
-
-      <TestimonialSlider items={sliderTestimonials} />
-
-      <section className="section section-white" aria-labelledby="resources-home-heading">
-        <div className="container">
-          <div className="section-header">
+          <div className="section-header reveal">
             <span className="eyebrow">Free Resources</span>
-            <h2 id="resources-home-heading">Start Your Safety Journey Today — For Free</h2>
-            <p>Download industry-leading templates, checklists, and guides curated from 20 years of global HSE practice.</p>
+            <h2 id="resources-home-heading">Start your safety journey — <em className="em">for free.</em></h2>
+            <p>Industry-leading templates, checklists, and guides curated from 20 years of global HSE practice.</p>
           </div>
 
           <div className="grid grid-3" style={{ gap: 24 }}>
@@ -405,7 +459,7 @@ export default function Home() {
                 <div className="resource-card__type">PDF Checklist</div>
                 <div className="resource-card__title">ISO 45001 Audit Checklist</div>
                 <p className="resource-card__desc">200-point checklist aligned to ISO 45001:2018. Used by HSE auditors in 30+ countries.</p>
-                <Link to="/resources" className="btn btn-gold btn-sm" style={{ marginTop: 16 }}>Download Free</Link>
+                <Link to="/resources" className="btn btn-outline-navy btn-sm" style={{ marginTop: 16 }}>Download Free</Link>
               </div>
             </div>
 
@@ -415,7 +469,7 @@ export default function Home() {
                 <div className="resource-card__type">Online Assessment</div>
                 <div className="resource-card__title">HSE Maturity Assessment</div>
                 <p className="resource-card__desc">Free 15-minute digital maturity assessment. Get a personalised scorecard and improvement roadmap.</p>
-                <Link to="/contact" className="btn btn-gold btn-sm" style={{ marginTop: 16 }}>Start Assessment</Link>
+                <Link to="/contact" className="btn btn-outline-navy btn-sm" style={{ marginTop: 16 }}>Start Assessment</Link>
               </div>
             </div>
 
@@ -424,7 +478,7 @@ export default function Home() {
               <div className="resource-card__body">
                 <div className="resource-card__type">Free Consultation</div>
                 <div className="resource-card__title">30-Minute Strategy Call</div>
-                <p className="resource-card__desc">Book a free 30-minute call with Ansar to discuss your specific HSE, training, or digital transformation challenges.</p>
+                <p className="resource-card__desc">A free 30-minute call with Ansar to discuss your HSE, training, or digital transformation challenge.</p>
                 <Link to="/book-consultation" className="btn btn-gold btn-sm" style={{ marginTop: 16 }}>Book Free Call</Link>
               </div>
             </div>
@@ -432,70 +486,27 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section section-white" id="projects" aria-labelledby="projects-heading">
-        <div className="container">
-          <div className="section-header reveal">
-            <span className="eyebrow">Real Projects. Real Impact.</span>
-            <h2 id="projects-heading">A Track Record Built on the Ground</h2>
-            <p>From oil & gas mega-sites to international conferences — every engagement is backed by hands-on expertise and measurable results.</p>
-          </div>
-
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 24, marginBottom: 48 }}>
-            {PROJECTS.map((p) => (
-              <div key={p.title} className="project-card reveal">
-                <div className="project-card__media">
-                  <img
-                    src={p.img}
-                    alt={p.alt}
-                    loading="lazy"
-                    onError={(e) => {
-                      if (p.fallback && e.currentTarget.src !== p.fallback) e.currentTarget.src = p.fallback;
-                    }}
-                  />
-                  <div className="project-card__scrim"></div>
-                  <span className="project-card__tag" style={{ background: p.tagColor }}>{p.tag}</span>
-                </div>
-                <div style={{ padding: '20px 24px' }}>
-                  <h4 style={{ fontSize: '1rem', marginBottom: 8, color: 'var(--navy)' }}>{p.title}</h4>
-                  <p style={{ fontSize: '.87rem', color: 'var(--text-muted)', marginBottom: 14 }}>{p.desc}</p>
-                  <div style={{ display: 'flex', gap: 16 }}>
-                    {p.stats.map((s) => (
-                      <div key={s.l} style={{ textAlign: 'center' }}>
-                        <div style={{ fontSize: '1.3rem', fontWeight: 800, color: s.c }}>{s.n}</div>
-                        <div style={{ fontSize: '.72rem', color: 'var(--text-muted)' }}>{s.l}</div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div style={{ textAlign: 'center' }} className="reveal">
-            <Link to="/case-studies" className="btn btn-primary btn-lg">
-              <i className="fas fa-briefcase"></i> View All Case Studies
-            </Link>
-            <Link to="/book-consultation" className="btn btn-gold btn-lg" style={{ marginLeft: 12 }}>
-              <i className="fas fa-calendar-check"></i> Start Your Project
-            </Link>
-          </div>
-        </div>
-      </section>
-
+      {/* ── Final CTA banner ─────────────────────────────────── */}
       <section className="cta-banner section" aria-labelledby="cta-heading">
         <div className="container">
           <div className="cta-banner__content">
             <span className="eyebrow eyebrow--white">Let's Work Together</span>
-            <h2 id="cta-heading">{homepage.cta_banner?.headline || 'Ready to Transform Your Safety Culture?'}</h2>
-            <p>{homepage.cta_banner?.subtext || "Whether you need a compliance audit, a certification coaching program, a Power BI dashboard, or an AI-powered safety agent — Ansar Mahmood has the expertise to deliver. Let's start with a free 30-minute strategy conversation."}</p>
+            <h2 id="cta-heading">
+              Ready to make safety a <em className="em">strategic advantage?</em>
+            </h2>
+            <p>{homepage.cta_banner?.subtext || "Whether you need a compliance audit, a certification coaching program, a Power BI dashboard, or an AI-powered safety agent — start with a free 30-minute strategy conversation."}</p>
             <div className="cta-banner__actions">
               <Link to="/book-consultation" className="btn btn-gold btn-xl">
-                <i className="fas fa-calendar-check"></i> Schedule Free Consultation
+                <i className="fas fa-calendar-check"></i> Book Free Consultation
               </Link>
               <Link to="/contact" className="btn btn-outline-white btn-xl">
                 <i className="fas fa-envelope"></i> Send a Message
               </Link>
             </div>
+            <p style={{ marginTop: 18, fontSize: '.86rem', color: 'rgba(255,255,255,.55)' }}>
+              <i className="fas fa-shield-alt" style={{ color: 'var(--gold)', marginRight: 6 }}></i>
+              No cost · No obligation · If we're not the right fit, we'll point you to who is.
+            </p>
           </div>
         </div>
       </section>
@@ -519,10 +530,10 @@ function TestimonialSlider({ items }) {
   return (
     <section className="testimonials section" id="testimonials" aria-labelledby="testimonials-heading">
       <div className="container">
-        <div className="section-header">
-          <span className="eyebrow">Client Testimonials</span>
-          <h2 id="testimonials-heading">Trusted by Industry Leaders Worldwide</h2>
-          <p>Don't take our word for it — hear directly from the organisations and professionals Ansar has helped transform.</p>
+        <div className="section-header reveal">
+          <span className="eyebrow">Client Voices</span>
+          <h2 id="testimonials-heading">Trusted by leaders across <em className="em">four continents.</em></h2>
+          <p>Direct quotes from the operations directors, HSE managers, and executives Ansar partners with.</p>
         </div>
 
         <div className="testimonial-slider" role="region" aria-label="Testimonials slider">
@@ -537,7 +548,7 @@ function TestimonialSlider({ items }) {
                 <div className="testimonial-slide" key={i} aria-hidden={i !== idx}>
                   <div className="testimonial-card">
                     <div className="testimonial-card__quote"><i className="fas fa-quote-left"></i></div>
-                    <p className="testimonial-card__text">&ldquo;{t.quote}&rdquo;</p>
+                    <p className="testimonial-card__text pullquote" style={{ paddingLeft: 0, borderLeft: 'none', textAlign: 'center' }}>&ldquo;{t.quote}&rdquo;</p>
                     <div className="testimonial-card__author">
                       <div className="testimonial-card__avatar">{t.initials || initials(t.name)}</div>
                       <div>

@@ -1,6 +1,8 @@
 // Auto-generated from pages/safety-apps.html. Edit freely — this file is the source of truth now.
 import { useEffect } from 'react';
 import PageHtml from '../components/PageHtml';
+import ServiceEnhancements from '../components/ServiceEnhancements';
+import { splitAtCtaBanner } from '../utils/splitHtml';
 
 const HTML = `
 
@@ -98,9 +100,22 @@ const HTML = `
 
 `;
 
+const INVESTMENT = {
+  range: '<span class="from">From</span>$8k <em>—</em> $60k+',
+  description: 'Single-form Power Apps (e.g. mobile inspection, hazard reporting, permit-to-work) typically run $8k–$15k. Multi-flow apps with dashboards and back-end integrations land $25k–$60k+. Power Platform builds usually ship faster than custom code.',
+  entryNote: 'Free workflow walkthrough before scoping',
+};
+
 export default function SafetyApps() {
   useEffect(() => {
     document.title = "Custom Safety Apps & Software Solutions | Ansar Mahmood";
   }, []);
-  return <PageHtml html={HTML} />;
+  const [pre, ctaPart] = splitAtCtaBanner(HTML);
+  return (
+    <>
+      <PageHtml html={pre} />
+      <ServiceEnhancements investment={INVESTMENT} ctaLabel="Free workflow walkthrough" />
+      {ctaPart && <PageHtml html={ctaPart} />}
+    </>
+  );
 }

@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import servicePages from '../data/service-pages.json';
 import { asset } from '../utils/asset';
+import StickyMobileCTA from '../components/StickyMobileCTA';
 
 const PROGRAMS = [
   {
@@ -264,12 +265,16 @@ export default function CertificationCoaching() {
         </div>
       </section>
 
+      <StickyMobileCTA label="Free 15-min coaching call" />
+
       <section className="cta-banner section">
         <div className="container">
           <div className="cta-banner__content">
             <span className="eyebrow eyebrow--white">Start Your Safety Journey Today</span>
-            <h2>Your Certification Success Is the Only Outcome We Accept</h2>
-            <p>97%+ of Ansar's coached candidates pass their chosen certification on the first attempt. Book a free 15-minute coaching consultation — bring your exam date, we'll build the plan.</p>
+            <h2>
+              Your certification success is the <em className="em">only outcome</em> we accept.
+            </h2>
+            <p>97%+ of Ansar's coached candidates pass their chosen certification on the first attempt. Book a free 15-minute coaching consultation — bring your exam date, we'll build the plan. <strong style={{ color: 'var(--gold-light)' }}>No cost. No obligation.</strong></p>
             <div className="cta-banner__actions">
               <Link to="/book-consultation" className="btn btn-gold btn-xl">
                 <i className="fas fa-calendar-check"></i> Book Free Coaching Call

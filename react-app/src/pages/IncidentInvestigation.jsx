@@ -1,6 +1,8 @@
 // Auto-generated from pages/incident-investigation.html. Edit freely — this file is the source of truth now.
 import { useEffect } from 'react';
 import PageHtml from '../components/PageHtml';
+import ServiceEnhancements from '../components/ServiceEnhancements';
+import { splitAtCtaBanner } from '../utils/splitHtml';
 
 const HTML = `
 
@@ -100,9 +102,22 @@ const HTML = `
 
 `;
 
+const INVESTMENT = {
+  range: '<span class="from">From</span>$4k <em>—</em> $25k+',
+  description: 'Rapid-response single-incident investigations (ICAM/RCA) typically run $4k–$10k including site time and report. Complex multi-LTI or fatality investigations with regulator interface land $15k–$25k+. 24-hour deployment available globally.',
+  entryNote: '24-hour rapid-response deployment available',
+};
+
 export default function IncidentInvestigation() {
   useEffect(() => {
     document.title = "Incident Investigation & Root Cause Analysis | Ansar Mahmood";
   }, []);
-  return <PageHtml html={HTML} />;
+  const [pre, ctaPart] = splitAtCtaBanner(HTML);
+  return (
+    <>
+      <PageHtml html={pre} />
+      <ServiceEnhancements investment={INVESTMENT} ctaLabel="Request rapid-response deployment" />
+      {ctaPart && <PageHtml html={ctaPart} />}
+    </>
+  );
 }

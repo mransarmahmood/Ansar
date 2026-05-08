@@ -1,6 +1,8 @@
 // Auto-generated from pages/powerbi-dashboards.html. Edit freely — this file is the source of truth now.
 import { useEffect } from 'react';
 import PageHtml from '../components/PageHtml';
+import ServiceEnhancements from '../components/ServiceEnhancements';
+import { splitAtCtaBanner } from '../utils/splitHtml';
 
 const HTML = `
 
@@ -126,9 +128,22 @@ const HTML = `
 
 `;
 
+const INVESTMENT = {
+  range: '<span class="from">From</span>$3.5k <em>—</em> $25k+',
+  description: 'A single-source HSE Power BI dashboard typically lands $3.5k–$8k. Multi-source enterprise builds (data gateway, role-level security, mobile reports) range $12k–$25k+. Pricing scales with the number of data sources and the breadth of stakeholders consuming reports.',
+  entryNote: 'Free 30-min dashboard scoping call',
+};
+
 export default function PowerbiDashboards() {
   useEffect(() => {
     document.title = "Real-Time HSE Power BI Dashboards | Ansar Mahmood";
   }, []);
-  return <PageHtml html={HTML} />;
+  const [pre, ctaPart] = splitAtCtaBanner(HTML);
+  return (
+    <>
+      <PageHtml html={pre} />
+      <ServiceEnhancements investment={INVESTMENT} ctaLabel="Free dashboard scoping call" />
+      {ctaPart && <PageHtml html={ctaPart} />}
+    </>
+  );
 }

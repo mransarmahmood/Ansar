@@ -1,6 +1,8 @@
 // Auto-generated from pages/management-systems.html. Edit freely — this file is the source of truth now.
 import { useEffect } from 'react';
 import PageHtml from '../components/PageHtml';
+import ServiceEnhancements from '../components/ServiceEnhancements';
+import { splitAtCtaBanner } from '../utils/splitHtml';
 
 const HTML = `
 
@@ -83,9 +85,35 @@ const HTML = `
 
 `;
 
+const INVESTMENT = {
+  range: '<span class="from">From</span>$15k <em>—</em> $80k+',
+  description: 'A single-standard ISO 45001 implementation typically runs $15k–$35k for SMEs and $40k–$80k+ for multi-site or integrated programs (45001/14001/9001). Pricing is shaped by site count, certification deadline, and how mature your existing system is.',
+  entryNote: 'Free 60-min readiness call available before scoping',
+};
+
+const COMPARISON = {
+  headers: ['', 'Off-the-shelf template', 'Generalist Consultant', 'Ansar Mahmood'],
+  winnerIndex: 3,
+  rows: [
+    ['Tailored to your operational reality', false, 'Sometimes', true],
+    ['Lead Auditor running the project', false, 'Rarely', true],
+    ['100+ certifications delivered', false, 'No', true],
+    ['Internal-auditor training included', false, 'Usually extra', true],
+    ['Fixed timeline to certification', false, false, true],
+    ['Post-cert quarterly health-check', false, false, 'Optional retainer'],
+  ],
+};
+
 export default function ManagementSystems() {
   useEffect(() => {
     document.title = "ISO Management System Implementation | Ansar Mahmood — ISO 45001, 14001, 9001";
   }, []);
-  return <PageHtml html={HTML} />;
+  const [pre, ctaPart] = splitAtCtaBanner(HTML);
+  return (
+    <>
+      <PageHtml html={pre} />
+      <ServiceEnhancements investment={INVESTMENT} comparison={COMPARISON} ctaLabel="ISO readiness conversation" />
+      {ctaPart && <PageHtml html={ctaPart} />}
+    </>
+  );
 }

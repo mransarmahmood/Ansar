@@ -65,6 +65,16 @@ export default function Header() {
 
   return (
     <>
+      <div className="trust-pill-bar" role="region" aria-label="Credentials">
+        <div className="trust-pill-bar__inner">
+          <span className="trust-pill-bar__item"><i className="fas fa-id-badge"></i>IOSH Member</span>
+          <span className="trust-pill-bar__item"><i className="fas fa-clipboard-check"></i>ISO Lead Auditor</span>
+          <span className="trust-pill-bar__item"><i className="fas fa-clock"></i>20+ Years Field Experience</span>
+          <span className="trust-pill-bar__item"><i className="fas fa-globe"></i>10+ Countries Served</span>
+          <span className="trust-pill-bar__item"><i className="fas fa-graduation-cap"></i>10,000+ Trained</span>
+        </div>
+      </div>
+
       <div className="top-bar">
         <div className="container">
           <div className="top-bar__left">
@@ -160,11 +170,8 @@ export default function Header() {
 
           <div className="nav-actions">
             <NavLink to="/contact" className="nav-link">Contact</NavLink>
-            <a href="/Ansar/exam-login.php" className="nav-link" style={{ fontSize: '.82rem' }}>
-              <i className="fas fa-graduation-cap"></i> Exam Portal
-            </a>
             <Link to="/book-consultation" className="btn btn-gold btn-sm">
-              <i className="fas fa-calendar-check"></i> Book a Call
+              <i className="fas fa-calendar-check"></i> Book Free Consultation
             </Link>
           </div>
 

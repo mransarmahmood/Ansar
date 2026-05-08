@@ -1,6 +1,8 @@
 // Auto-generated from pages/book-consultation.html. Edit freely — this file is the source of truth now.
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import PageHtml from '../components/PageHtml';
+import { splitAtCtaBanner } from '../utils/splitHtml';
 
 const HTML = `
 
@@ -166,9 +168,75 @@ const HTML = `
 
 `;
 
+function WhatHappensNext() {
+  return (
+    <section className="section section-gray" aria-labelledby="next-heading">
+      <div className="container">
+        <div className="section-header reveal" style={{ marginBottom: 40 }}>
+          <span className="eyebrow">What Happens Next</span>
+          <h2 id="next-heading" className="display">
+            From <em className="em">first call</em> to clear next steps — in 30 minutes.
+          </h2>
+          <p>No sales pitch. No pressure. Just an honest conversation about your context, your constraints, and what good looks like for you.</p>
+        </div>
+
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 24 }} className="happens-grid">
+          <div className="feature-card reveal">
+            <div className="feature-card__icon"><i className="fas fa-calendar-check"></i></div>
+            <h4 className="feature-card__title">1. You book a slot</h4>
+            <p className="feature-card__desc">Pick a 30-minute window that works across timezones. Confirmation lands in your inbox within minutes.</p>
+          </div>
+          <div className="feature-card reveal">
+            <div className="feature-card__icon"><i className="fas fa-comments"></i></div>
+            <h4 className="feature-card__title">2. We talk through your context</h4>
+            <p className="feature-card__desc">Bring your goals, your blockers, and your timeline. Ansar listens first, then maps the problem to a recommended path.</p>
+          </div>
+          <div className="feature-card reveal">
+            <div className="feature-card__icon"><i className="fas fa-route"></i></div>
+            <h4 className="feature-card__title">3. You get a written next-step plan</h4>
+            <p className="feature-card__desc">Within 24 hours: a 1-page recommendation with options, ballpark investment, and a clear next-action — even if that next action is "do nothing yet".</p>
+          </div>
+        </div>
+
+        <div className="risk-reversal reveal" style={{ marginTop: 48 }}>
+          <div className="risk-reversal__icon"><i className="fas fa-shield-alt"></i></div>
+          <div>
+            <div className="risk-reversal__title">No cost. No obligation. No upsell theatre.</div>
+            <p>If we're not the right fit, Ansar will say so on the call and point you to a peer who is. The 30 minutes is yours regardless.</p>
+            <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', marginTop: 14 }}>
+              <a
+                href="https://wa.me/923339284928?text=Hi%20Ansar%20%E2%80%94%20I%27d%20like%20to%20book%20a%20free%20consultation"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-gold btn-sm"
+              >
+                <i className="fab fa-whatsapp"></i> Skip the form — WhatsApp Ansar
+              </a>
+              <Link to="/contact" className="btn btn-outline-navy btn-sm">
+                Send a message instead
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <style>{`
+        @media (max-width: 900px) { .happens-grid { grid-template-columns: 1fr !important; } }
+      `}</style>
+    </section>
+  );
+}
+
 export default function BookConsultation() {
   useEffect(() => {
     document.title = "Book a Free Consultation | Ansar Mahmood — HSE Consultant";
   }, []);
-  return <PageHtml html={HTML} />;
+  const [pre, ctaPart] = splitAtCtaBanner(HTML);
+  return (
+    <>
+      <PageHtml html={pre} />
+      <WhatHappensNext />
+      {ctaPart && <PageHtml html={ctaPart} />}
+    </>
+  );
 }

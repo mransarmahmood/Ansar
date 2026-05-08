@@ -1,6 +1,8 @@
 // Auto-generated from pages/consulting.html. Edit freely — this file is the source of truth now.
 import { useEffect } from 'react';
 import PageHtml from '../components/PageHtml';
+import ServiceEnhancements from '../components/ServiceEnhancements';
+import { splitAtCtaBanner } from '../utils/splitHtml';
 
 const HTML = `
 
@@ -157,9 +159,36 @@ const HTML = `
 
 `;
 
+const INVESTMENT = {
+  eyebrow: 'Investment Guidance',
+  range: '<span class="from">From</span>$8k <em>—</em> $45k+',
+  description: 'Most consulting engagements range $8k–$45k depending on scope, with multi-month strategic retainers and Fractional HSE Director contracts above that. The right starting point is almost always a focused diagnostic, not a multi-year commitment.',
+  entryNote: 'Most clients begin with a $2k–$4k diagnostic',
+};
+
+const COMPARISON = {
+  headers: ['', 'In-house only', 'Generalist Consultant', 'Ansar Mahmood'],
+  winnerIndex: 3,
+  rows: [
+    ['20+ yrs frontline HSE experience', false, 'Sometimes', true],
+    ['ISO 45001 Lead Auditor credential', false, 'Rarely', true],
+    ['Hands-on with Power BI / SharePoint / AI', false, false, true],
+    ['Cross-sector deployment (10+ countries)', false, 'Limited', true],
+    ['Outcomes-tied engagement', 'Internal only', 'Sometimes', true],
+    ['Continuity beyond the audit (training + tooling)', false, false, true],
+  ],
+};
+
 export default function Consulting() {
   useEffect(() => {
     document.title = "HSE Consulting Services | Ansar Mahmood — Strategic Safety Advisory";
   }, []);
-  return <PageHtml html={HTML} />;
+  const [pre, ctaPart] = splitAtCtaBanner(HTML);
+  return (
+    <>
+      <PageHtml html={pre} />
+      <ServiceEnhancements investment={INVESTMENT} comparison={COMPARISON} ctaLabel="Free HSE diagnostic call" />
+      {ctaPart && <PageHtml html={ctaPart} />}
+    </>
+  );
 }

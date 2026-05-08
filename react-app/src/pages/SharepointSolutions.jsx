@@ -1,6 +1,8 @@
 // Auto-generated from pages/sharepoint-solutions.html. Edit freely — this file is the source of truth now.
 import { useEffect } from 'react';
 import PageHtml from '../components/PageHtml';
+import ServiceEnhancements from '../components/ServiceEnhancements';
+import { splitAtCtaBanner } from '../utils/splitHtml';
 
 const HTML = `
 
@@ -94,9 +96,22 @@ const HTML = `
 
 `;
 
+const INVESTMENT = {
+  range: '<span class="from">From</span>$6k <em>—</em> $35k+',
+  description: 'A focused HSE intranet site (document hub + register lists) typically runs $6k–$12k. Full enterprise portals with permit-to-work, contractor management, and Teams/Power Platform integrations range $20k–$35k+.',
+  entryNote: 'Free portal-architecture call before scoping',
+};
+
 export default function SharepointSolutions() {
   useEffect(() => {
     document.title = "SharePoint HSE Portals & Document Management | Ansar Mahmood";
   }, []);
-  return <PageHtml html={HTML} />;
+  const [pre, ctaPart] = splitAtCtaBanner(HTML);
+  return (
+    <>
+      <PageHtml html={pre} />
+      <ServiceEnhancements investment={INVESTMENT} ctaLabel="Free portal-architecture call" />
+      {ctaPart && <PageHtml html={ctaPart} />}
+    </>
+  );
 }

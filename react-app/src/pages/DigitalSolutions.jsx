@@ -1,6 +1,8 @@
 // Auto-generated from pages/digital-solutions.html. Edit freely — this file is the source of truth now.
 import { useEffect } from 'react';
 import PageHtml from '../components/PageHtml';
+import ServiceEnhancements from '../components/ServiceEnhancements';
+import { splitAtCtaBanner } from '../utils/splitHtml';
 
 const HTML = `
 
@@ -129,9 +131,22 @@ const HTML = `
 
 `;
 
+const INVESTMENT = {
+  range: '<span class="from">From</span>$5k <em>—</em> $40k+',
+  description: 'Single-flow digitisations (e.g. permit-to-work or inspection rounds) typically run $5k–$12k. Multi-process portals with SharePoint/Power Platform integrations land between $20k and $40k+. Pricing scales with the number of forms, integrations, and user roles.',
+  entryNote: 'Free 60-min digital-readiness audit',
+};
+
 export default function DigitalSolutions() {
   useEffect(() => {
     document.title = "Digital HSE Transformation — From Paper to Platform | Ansar Mahmood";
   }, []);
-  return <PageHtml html={HTML} />;
+  const [pre, ctaPart] = splitAtCtaBanner(HTML);
+  return (
+    <>
+      <PageHtml html={pre} />
+      <ServiceEnhancements investment={INVESTMENT} ctaLabel="Free digital-readiness audit" />
+      {ctaPart && <PageHtml html={ctaPart} />}
+    </>
+  );
 }

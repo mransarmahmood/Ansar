@@ -1,6 +1,8 @@
 // Auto-generated from pages/training.html. Edit freely — this file is the source of truth now.
 import { useEffect } from 'react';
 import PageHtml from '../components/PageHtml';
+import ServiceEnhancements from '../components/ServiceEnhancements';
+import { splitAtCtaBanner } from '../utils/splitHtml';
 
 const HTML = `
 
@@ -140,9 +142,35 @@ const HTML = `
 
 `;
 
+const INVESTMENT = {
+  range: '<span class="from">From</span>$95 <em>—</em> $1.4k <span class="from">/ delegate</span>',
+  description: 'Open-cohort certification courses (IOSH MS, ISO Lead Auditor, etc.) typically run $95–$1,400 per delegate depending on length and credential. Corporate in-house programs are quoted by group size with discounts above 12 attendees.',
+  entryNote: 'Free 30-min training-needs call before quoting',
+};
+
+const COMPARISON = {
+  headers: ['', 'Generic Trainer', 'Online-Only Provider', 'Ansar Mahmood'],
+  winnerIndex: 3,
+  rows: [
+    ['97%+ first-attempt pass rate', false, 'Varies', true],
+    ['Live coaching + recorded materials', 'Sometimes', false, true],
+    ['Hands-on field examples in delivery', 'Limited', false, true],
+    ['Cohort + 1:1 coaching mix', false, false, true],
+    ['Post-exam mentoring', false, false, 'Included'],
+    ['Custom corporate cohorts', 'Sometimes', 'Limited', true],
+  ],
+};
+
 export default function Training() {
   useEffect(() => {
     document.title = "HSE Training Programs | Ansar Mahmood — Corporate, Online & On-site Delivery";
   }, []);
-  return <PageHtml html={HTML} />;
+  const [pre, ctaPart] = splitAtCtaBanner(HTML);
+  return (
+    <>
+      <PageHtml html={pre} />
+      <ServiceEnhancements investment={INVESTMENT} comparison={COMPARISON} ctaLabel="Free training-needs call" />
+      {ctaPart && <PageHtml html={ctaPart} />}
+    </>
+  );
 }

@@ -1,6 +1,8 @@
 // Auto-generated from pages/ai-solutions.html. Edit freely — this file is the source of truth now.
 import { useEffect } from 'react';
 import PageHtml from '../components/PageHtml';
+import ServiceEnhancements from '../components/ServiceEnhancements';
+import { splitAtCtaBanner } from '../utils/splitHtml';
 
 const HTML = `
 
@@ -207,9 +209,35 @@ const HTML = `
 
 `;
 
+const INVESTMENT = {
+  range: '<span class="from">From</span>$6k <em>—</em> $50k+',
+  description: 'AI proof-of-concept builds (e.g. an incident-classification model or an HSE-document Q&A agent) typically run $6k–$15k. Production-ready agents with integrations and dashboards land between $20k and $50k+. Every engagement starts with a workflow audit, not a tool sale.',
+  entryNote: 'Free workflow-audit session before scoping',
+};
+
+const COMPARISON = {
+  headers: ['', 'Generic AI Agency', 'Off-the-shelf SaaS', 'Ansar Mahmood'],
+  winnerIndex: 3,
+  rows: [
+    ['HSE domain expertise', false, false, true],
+    ['Trained on your safety data', false, false, true],
+    ['Compliant with your data-residency rules', 'Maybe', 'Often no', true],
+    ['Integrates with Power BI / SharePoint', false, 'Limited', true],
+    ['Built around your existing process', false, false, true],
+    ['Knowledge transfer to your team', false, false, true],
+  ],
+};
+
 export default function AiSolutions() {
   useEffect(() => {
     document.title = "AI Solutions for HSE | Ansar Mahmood — AI Agents, Predictive Safety, Automation";
   }, []);
-  return <PageHtml html={HTML} />;
+  const [pre, ctaPart] = splitAtCtaBanner(HTML);
+  return (
+    <>
+      <PageHtml html={pre} />
+      <ServiceEnhancements investment={INVESTMENT} comparison={COMPARISON} ctaLabel="Free AI workflow audit" />
+      {ctaPart && <PageHtml html={ctaPart} />}
+    </>
+  );
 }

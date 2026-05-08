@@ -1,6 +1,8 @@
 // Auto-generated from pages/audits.html. Edit freely — this file is the source of truth now.
 import { useEffect } from 'react';
 import PageHtml from '../components/PageHtml';
+import ServiceEnhancements from '../components/ServiceEnhancements';
+import { splitAtCtaBanner } from '../utils/splitHtml';
 
 const HTML = `
 
@@ -86,9 +88,34 @@ const HTML = `
 
 `;
 
+const INVESTMENT = {
+  range: '<span class="from">From</span>$3k <em>—</em> $20k+',
+  description: 'A focused single-site gap analysis or ISO 45001 readiness audit typically lands between $3k and $12k. Multi-site programs and certification-stage audits scale up from there. Most clients pair the audit with a remediation plan.',
+  entryNote: 'Single-day diagnostic available from $2k',
+};
+
+const COMPARISON = {
+  headers: ['', 'Self-audit', 'Generic Auditor', 'Ansar Mahmood'],
+  winnerIndex: 3,
+  rows: [
+    ['ISO 45001 Lead Auditor credential', false, 'Sometimes', true],
+    ['Sector-specific risk insight', false, 'Limited', true],
+    ['Findings tied to a remediation plan', false, false, true],
+    ['Board-ready report', false, 'Sometimes', true],
+    ['Ongoing support after the audit', false, false, true],
+  ],
+};
+
 export default function Audits() {
   useEffect(() => {
     document.title = "HSE Audits & Gap Analysis | Ansar Mahmood — ISO Compliance Audit Services";
   }, []);
-  return <PageHtml html={HTML} />;
+  const [pre, ctaPart] = splitAtCtaBanner(HTML);
+  return (
+    <>
+      <PageHtml html={pre} />
+      <ServiceEnhancements investment={INVESTMENT} comparison={COMPARISON} ctaLabel="Free audit-readiness call" />
+      {ctaPart && <PageHtml html={ctaPart} />}
+    </>
+  );
 }

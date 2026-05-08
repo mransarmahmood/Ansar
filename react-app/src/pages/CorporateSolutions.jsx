@@ -1,6 +1,8 @@
 // Auto-generated from pages/corporate-solutions.html. Edit freely — this file is the source of truth now.
 import { useEffect } from 'react';
 import PageHtml from '../components/PageHtml';
+import ServiceEnhancements from '../components/ServiceEnhancements';
+import { splitAtCtaBanner } from '../utils/splitHtml';
 
 const HTML = `
 
@@ -167,9 +169,35 @@ const HTML = `
 
 `;
 
+const INVESTMENT = {
+  range: '<span class="from">From</span>$4k <em>/ month</em>',
+  description: 'Corporate partnerships typically start at $4k/month for a fractional-HSE retainer (8–12 advisory days/month) and scale with consulting, training, and digital deliverables bundled in. Quarterly statements of work keep scope flexible without long lock-ins.',
+  entryNote: 'Pilot-quarter option keeps the first 90 days low-risk',
+};
+
+const COMPARISON = {
+  headers: ['', 'Hire FTE HSE Director', 'Big-4 Consultancy', 'Ansar Partnership'],
+  winnerIndex: 3,
+  rows: [
+    ['Senior credentials from day one', 'Possible', true, true],
+    ['Cost of a single FTE', '$120k+ / yr', '$300k+ / yr', '$48k+ / yr'],
+    ['Scales up & down with project load', false, 'Slow', true],
+    ['Hands-on delivery (not just decks)', 'Yes', false, true],
+    ['Digital + AI tooling under the same SOW', false, 'Add-on', true],
+    ['Trains your internal team along the way', 'Sometimes', false, true],
+  ],
+};
+
 export default function CorporateSolutions() {
   useEffect(() => {
     document.title = "End-to-End Corporate HSE Solutions | Ansar Mahmood";
   }, []);
-  return <PageHtml html={HTML} />;
+  const [pre, ctaPart] = splitAtCtaBanner(HTML);
+  return (
+    <>
+      <PageHtml html={pre} />
+      <ServiceEnhancements investment={INVESTMENT} comparison={COMPARISON} ctaLabel="Discuss enterprise partnership" />
+      {ctaPart && <PageHtml html={ctaPart} />}
+    </>
+  );
 }
