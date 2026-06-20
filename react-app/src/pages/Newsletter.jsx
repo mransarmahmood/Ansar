@@ -40,7 +40,7 @@ const HTML = `
             <p style="font-size:.83rem;font-weight:600;color:var(--text);margin-bottom:8px;">Topics you're interested in:</p>
             <div class="nl-interests">
               <label><input type="checkbox" name="interest[]" value="iso"><span>ISO Standards</span></label>
-              <label><input type="checkbox" name="interest[]" value="nebosh"><span> / IOSH</span></label>
+              <label><input type="checkbox" name="interest[]" value="iosh"><span>IOSH & Certifications</span></label>
               <label><input type="checkbox" name="interest[]" value="ai"><span>AI in Safety</span></label>
               <label><input type="checkbox" name="interest[]" value="digital"><span>Digital Tools</span></label>
               <label><input type="checkbox" name="interest[]" value="leadership"><span>Safety Leadership</span></label>

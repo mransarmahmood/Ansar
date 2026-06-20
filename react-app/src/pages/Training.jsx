@@ -161,11 +161,24 @@ const COMPARISON = {
   ],
 };
 
+const TOPICS = [
+  'Confined Space Entry', 'Working at Height', 'Manual Handling', 'Chemical Spill Response',
+  'Lifting, Rigging & Slinging', 'Permit to Work', 'Fire Warden / Marshal', 'Hazard Identification',
+  'Behaviour-Based Safety', 'Accident & Incident Investigation', 'PPE & Respiratory Protection',
+  'Electrical Safety', 'Scaffolding Awareness', 'Heat & Cold Stress', 'H2S Awareness',
+  'Defensive Driving', 'Environmental Awareness', 'Toolbox Talks', 'Emergency Response & Evacuation',
+  'Noise & Vibration', 'COSHH & Hazardous Substances', 'Office & Ergonomics Safety',
+];
+
+const TOPIC_CHIPS = TOPICS.map(
+  (t, i) => `<span class="topic-chip" style="--d:${(i % 12) * 0.04}s"><i class="fas fa-check"></i>${t}</span>`
+).join('');
+
 export default function Training() {
   useEffect(() => {
     document.title = "HSE Training Programs | Ansar Mahmood — Corporate, Online & On-site Delivery";
   }, []);
-  const [pre, ctaPart] = splitAtCtaBanner(HTML);
+  const [pre, ctaPart] = splitAtCtaBanner(HTML.replace('{%topics%}', TOPIC_CHIPS));
   return (
     <>
       <PageHtml html={pre} />

@@ -1,0 +1,101 @@
+[
+  {
+    "id": "ind_001",
+    "name": "Oil & Gas",
+    "icon": "fa-oil-can",
+    "tag": "Upstream \u00b7 Midstream \u00b7 Downstream",
+    "description": "Upstream, midstream, and downstream operations across onshore and offshore facilities. Major hazard HSE management, process safety, PTW, SIMOPS, emergency response, and contractor management in some of the world\u2019s most challenging environments.",
+    "key_services": ["Process Safety", "HAZOP/HAZID", "ISO 45001"],
+    "featured": true,
+    "order": 1,
+    "published": true
+  },
+  {
+    "id": "ind_002",
+    "name": "Construction",
+    "icon": "fa-hard-hat",
+    "tag": "Civil \u00b7 Building \u00b7 Infrastructure",
+    "description": "Civil, structural, MEP, and major infrastructure projects. CDM compliance, site safety plans, subcontractor management, permit-to-work systems, and safety culture programs for project leadership teams across residential, commercial, and infrastructure.",
+    "key_services": ["CDM", "Site Audits", "Safety Plans"],
+    "featured": true,
+    "order": 2,
+    "published": true
+  },
+  {
+    "id": "ind_003",
+    "name": "Manufacturing",
+    "icon": "fa-industry",
+    "tag": "Heavy \u00b7 Light \u00b7 Process",
+    "description": "Process manufacturing, FMCG, automotive, chemical, and pharmaceutical plants. Machine guarding, COSHH, LOLER/PUWER compliance, ISO 45001 implementation, and comprehensive safety management system development for complex production environments.",
+    "key_services": ["ISO 45001", "COSHH", "Risk Assessments"],
+    "featured": true,
+    "order": 3,
+    "published": true
+  },
+  {
+    "id": "ind_004",
+    "name": "Healthcare",
+    "icon": "fa-hospital",
+    "tag": "Hospitals \u00b7 Clinics \u00b7 Labs",
+    "description": "Hospitals, clinics, and healthcare facilities. Manual handling, infection control integration, lone worker safety, RIDDOR compliance, fire risk assessments, and CQC-aligned safety management systems for NHS trusts and private healthcare organisations.",
+    "key_services": ["CQC Compliance", "Manual Handling", "Risk Assessments"],
+    "featured": true,
+    "order": 4,
+    "published": true
+  },
+  {
+    "id": "ind_005",
+    "name": "Logistics & Transport",
+    "icon": "fa-truck",
+    "tag": "Transport \u00b7 Warehousing \u00b7 Fleet",
+    "description": "Road, rail, aviation, and maritime freight. Driver safety programs, fatigue management, dangerous goods (ADR/IATA), loading dock risk management, fleet safety, and HSQE management systems for complex multi-modal supply chains.",
+    "key_services": ["ADR/IATA", "Fleet Safety", "Fatigue Mgmt"],
+    "featured": true,
+    "order": 5,
+    "published": true
+  },
+  {
+    "id": "ind_006",
+    "name": "Government & Public Sector",
+    "icon": "fa-landmark",
+    "tag": "Public Sector \u00b7 Municipalities",
+    "description": "Local authorities, government agencies, utilities, and public infrastructure. Statutory compliance, asbestos management, workplace stress, public liability risk, procurement HSE standards, and regulatory reporting for accountability-driven organisations.",
+    "key_services": ["Statutory Compliance", "Asbestos", "Procurement HSE"],
+    "featured": true,
+    "order": 6,
+    "published": true
+  },
+  {
+    "id": "ind_007",
+    "name": "Utilities & Energy",
+    "icon": "fa-bolt",
+    "tag": "Power \u00b7 Water \u00b7 Renewables",
+    "description": "Power generation, renewable energy, water utilities, and distribution networks. Electrical safety, confined space, working at height, environmental compliance, and ISO 45001/14001/50001 integrated management systems.",
+    "key_services": ["ISO 50001", "Electrical Safety", "Environmental"],
+    "featured": true,
+    "order": 7,
+    "published": true
+  },
+  {
+    "id": "ind_008",
+    "name": "Mining & Extractives",
+    "icon": "fa-gem",
+    "tag": "Extraction \u00b7 Processing \u00b7 Refining",
+    "description": "Surface and underground mining operations. Major hazard risk management, ground control, ventilation, explosive safety, emergency response, and regulatory compliance across global jurisdictions from West Africa to Central Asia.",
+    "key_services": ["Major Hazard", "ERP", "Compliance Audits"],
+    "featured": true,
+    "order": 8,
+    "published": true
+  },
+  {
+    "id": "ind_009",
+    "name": "Aviation & Hospitality",
+    "icon": "fa-plane",
+    "tag": "Aviation \u00b7 Hospitality \u00b7 Service",
+    "description": "Airport ground handling, MRO facilities, and hospitality environments. SMS (Safety Management Systems), IATA ISAGO, food safety integration, lone working, and security interface \u2014 safety cultures built around service excellence.",
+    "key_services": ["SMS", "IATA ISAGO", "Risk Management"],
+    "featured": false,
+    "order": 9,
+    "published": true
+  }
+]

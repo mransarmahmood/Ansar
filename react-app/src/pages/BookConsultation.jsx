@@ -143,7 +143,7 @@ const HTML = `
 
             <p style="text-align:center;font-size:.8rem;color:var(--text-muted);margin-top:20px;">
               Alternatively, WhatsApp Ansar directly:
-              <a href="https://wa.me/923339284928?text=Hello%20Ansar%2C%20I%27d%20like%20to%20book%20a%20consultation" style="color:var(--blue);font-weight:600;">Chat Now →</a>
+              <a href="https://wa.me/966534852341?text=Hello%20Ansar%2C%20I%27d%20like%20to%20book%20a%20consultation" style="color:var(--blue);font-weight:600;">Chat Now →</a>
             </p>
           </div>
         </div>
@@ -205,7 +205,7 @@ function WhatHappensNext() {
             <p>If we're not the right fit, Ansar will say so on the call and point you to a peer who is. The 30 minutes is yours regardless.</p>
             <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', marginTop: 14 }}>
               <a
-                href="https://wa.me/923339284928?text=Hi%20Ansar%20%E2%80%94%20I%27d%20like%20to%20book%20a%20free%20consultation"
+                href="https://wa.me/966534852341?text=Hi%20Ansar%20%E2%80%94%20I%27d%20like%20to%20book%20a%20free%20consultation"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn-gold btn-sm"

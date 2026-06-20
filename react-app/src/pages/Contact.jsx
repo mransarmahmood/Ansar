@@ -140,7 +140,7 @@ const HTML = `
             <div class="contact-info-icon contact-info-icon--gold"><i class="fab fa-whatsapp"></i></div>
             <div>
               <div class="contact-info-item__label">WhatsApp</div>
-              <div class="contact-info-item__value"><a href="https://wa.me/923339284928?text=Hello%20Ansar%2C%20I%27d%20like%20to%20discuss%20a%20project">Chat on WhatsApp</a></div>
+              <div class="contact-info-item__value"><a href="https://wa.me/966534852341?text=Hello%20Ansar%2C%20I%27d%20like%20to%20discuss%20a%20project">Chat on WhatsApp</a></div>
             </div>
           </div>
 

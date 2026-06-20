@@ -7,7 +7,7 @@ export default function ServiceEnhancements({
   investment,
   comparison,
   riskReversal = true,
-  whatsappNumber = '923339284928',
+  whatsappNumber = '966534852341',
   ctaLabel = 'Free 30-min strategy call',
 }) {
   return (

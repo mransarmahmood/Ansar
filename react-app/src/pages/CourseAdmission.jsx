@@ -1,384 +1,419 @@
-// Auto-generated from pages/course-admission.html. Edit freely — this file is the source of truth now.
-import { useEffect } from 'react';
-import PageHtml from '../components/PageHtml';
+import { useEffect, useMemo, useState, useCallback } from 'react';
+import { Link } from 'react-router-dom';
+import courses from '../data/courses.json';
+import { API_BASE } from '../config';
 
-const HTML = `
+const LEVEL_LABELS = { beginner: 'Beginner', intermediate: 'Intermediate', advanced: 'Advanced' };
 
-  <section class="page-hero">
-    <div class="page-hero__pattern" aria-hidden="true"></div>
-    <i class="page-hero__icon-bg fas fa-user-graduate" aria-hidden="true"></i>
-    <div class="container">
-      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="../index.html">Home</a><span class="breadcrumb__sep"><i class="fas fa-chevron-right"></i></span><a href="course-calendar.html">Course Calendar</a><span class="breadcrumb__sep"><i class="fas fa-chevron-right"></i></span><span class="breadcrumb__current">Apply</span></nav>
-      <div class="page-hero__content">
-        <span class="eyebrow eyebrow--white">Enrolment Application</span>
-        <h1>Course Admission Form</h1>
-        <p>Complete the form below to apply for your chosen course. All applications are reviewed within 24 hours and you'll receive a confirmation email with payment details and course access information.</p>
-      </div>
+const STEPS = [
+  { key: 'course', label: 'Your Course', icon: 'fa-graduation-cap' },
+  { key: 'details', label: 'Your Details', icon: 'fa-user' },
+  { key: 'background', label: 'Background', icon: 'fa-briefcase' },
+  { key: 'confirm', label: 'Goals & Confirm', icon: 'fa-paper-plane' },
+];
+
+const NATIONALITIES = ['United Arab Emirates', 'Saudi Arabia', 'United Kingdom', 'United States', 'Pakistan', 'India', 'Nigeria', 'Canada', 'Australia', 'South Africa', 'Other'];
+const INDUSTRIES = ['Oil & Gas', 'Construction', 'Manufacturing', 'Healthcare', 'Mining & Extractives', 'Transport & Logistics', 'Utilities / Energy', 'Government / Public Sector', 'Consulting', 'Other'];
+const EXPERIENCE = ['Less than 1 year', '1–2 years', '3–5 years', '6–10 years', '10+ years'];
+const EDUCATION = ['High School / Secondary', 'Diploma / HND', "Bachelor's Degree", "Master's Degree", 'PhD / Doctorate', 'Professional Qualification'];
+const FUNDING = ['Self-funded', 'Employer sponsored', 'Government / scholarship', 'Part employer / part self', 'Other'];
+const REFERRALS = ['Google / Search', 'LinkedIn', 'Colleague referral', 'Newsletter', 'Previous course / client', 'Social media', 'Other'];
+const QUALS = ['IOSH Managing Safely', 'OSHA 30-Hour', 'ISO 45001 Internal Auditor', 'HABC First Aid', 'OTHM Level 3', 'None yet'];
+const MODES = ['Online Live (Zoom)', 'In-Person', 'Blended (Self-study + Live)', 'Corporate On-Site'];
+
+const REQUIRED = {
+  course: ['course', 'preferred_intake', 'delivery_mode'],
+  details: ['first_name', 'last_name', 'email', 'phone', 'country'],
+  background: ['job_title', 'organisation'],
+  confirm: ['motivation', 'declaration_accurate', 'declaration_consent'],
+};
+
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+const emptyForm = {
+  course: '', preferred_intake: '', delivery_mode: '',
+  first_name: '', last_name: '', email: '', phone: '', country: '', nationality: '', dob: '',
+  job_title: '', organisation: '', industry: '', experience_years: '', education_level: '', study_field: '',
+  motivation: '', funding: '', sponsor_name: '', referral_source: '', special_requirements: '',
+  declaration_accurate: false, declaration_consent: false, newsletter_opt: false,
+};
+
+function Field({ label, name, type = 'text', value, onChange, error, required, placeholder, children, span }) {
+  const id = `f_${name}`;
+  return (
+    <div className={`adm-field${span ? ' adm-field--span' : ''}`}>
+      <label className="adm-label" htmlFor={id}>{label}{required && <span className="adm-req">*</span>}</label>
+      {children ? (
+        children
+      ) : type === 'textarea' ? (
+        <textarea id={id} name={name} className={`adm-input adm-textarea${error ? ' is-error' : ''}`} value={value} onChange={onChange} placeholder={placeholder} rows={4} />
+      ) : (
+        <input id={id} name={name} type={type} className={`adm-input${error ? ' is-error' : ''}`} value={value} onChange={onChange} placeholder={placeholder} />
+      )}
+      {error && <span className="adm-error"><i className="fas fa-circle-exclamation"></i>{error}</span>}
     </div>
-  </section>
-
-  <section class="section section-white">
-    <div class="container">
-      <div class="adm-layout">
-
-        <!-- Main Form -->
-        <div>
-          <form id="admission-form" novalidate>
-
-            <!-- Section 1: Course Selection -->
-            <div class="form-section reveal">
-              <h3><span class="sec-num">1</span> Course Selection</h3>
-              <p>Choose the course and intake you want to apply for.</p>
-              <div class="form-grid grid-1">
-                <div class="field">
-                  <label>Course <span class="req">*</span></label>
-                  <select name="course" id="course-select" required onchange="updateCourseInfo()">
-                    <option value="" disabled selected>— Select a Course —</option>
-                    <optgroup label="Safety Certification">
-                      <option value=" International General Certificate (IGC)"> International General Certificate (IGC)</option>
-                      <option value="International Safety Diploma">International Safety Diploma</option>
-                      <option value=" Certificate in Fire Safety"> Certificate in Fire Safety</option>
-                    </optgroup>
-                    <optgroup label="IOSH">
-                      <option value="IOSH Managing Safely">IOSH Managing Safely</option>
-                      <option value="IOSH Working Safely">IOSH Working Safely</option>
-                    </optgroup>
-                    <optgroup label="ISO Standards">
-                      <option value="ISO 45001:2018 Lead Auditor">ISO 45001:2018 Lead Auditor (IRCA)</option>
-                      <option value="ISO 14001:2015 Lead Auditor">ISO 14001:2015 Lead Auditor</option>
-                      <option value="ISO 45001 Internal Auditor">ISO 45001 Internal Auditor</option>
-                      <option value="Integrated Management Systems (IMS)">Integrated Management Systems (IMS)</option>
-                    </optgroup>
-                    <optgroup label="AI & Digital">
-                      <option value="AI & Power BI for HSE Professionals">AI & Power BI for HSE Professionals</option>
-                      <option value="SharePoint & M365 for HSE Managers">SharePoint & Microsoft 365 for HSE Managers</option>
-                      <option value="Digital HSE Transformation Programme">Digital HSE Transformation Programme</option>
-                    </optgroup>
-                    <optgroup label="Other">
-                      <option value="Incident Investigation Masterclass">Incident Investigation Masterclass</option>
-                      <option value="Risk Assessment Workshop">Risk Assessment Workshop</option>
-                      <option value="Corporate Custom Programme">Corporate Custom Programme</option>
-                    </optgroup>
-                  </select>
-                </div>
-                <div class="field" id="intake-field">
-                  <label>Preferred Intake / Start Date <span class="req">*</span></label>
-                  <select name="preferred_intake" required>
-                    <option value="" disabled selected>— Select Intake —</option>
-                    <option value="March 2026 — Online">March 2026 — Online Live</option>
-                    <option value="April 2026 — Online">April 2026 — Online Live</option>
-                    <option value="April 2026 — Dubai In-Person">April 2026 — Dubai In-Person</option>
-                    <option value="May 2026 — Online">May 2026 — Online Live</option>
-                    <option value="June 2026 — Online">June 2026 — Online Live</option>
-                    <option value="Flexible / Next Available">Flexible — Any Next Available</option>
-                    <option value="Corporate On-Site — Custom Date">Corporate On-Site (Custom Date)</option>
-                  </select>
-                </div>
-                <div class="field">
-                  <label>Preferred Delivery Mode <span class="req">*</span></label>
-                  <select name="delivery_mode" required>
-                    <option value="" disabled selected>— Select Mode —</option>
-                    <option value="Online Live">Online Live (Zoom)</option>
-                    <option value="In-Person">In-Person</option>
-                    <option value="Blended">Blended (Self-Study + Live)</option>
-                    <option value="Corporate On-Site">Corporate On-Site</option>
-                  </select>
-                </div>
-              </div>
-              <!-- Course info box -->
-              <div id="course-info" style="display:none;margin-top:16px;" class="highlight-box">
-                <strong id="course-info-title"></strong>
-                <div id="course-info-detail" style="margin-top:6px;font-size:.82rem;color:var(--text-muted);"></div>
-              </div>
-            </div>
-
-            <!-- Section 2: Personal Information -->
-            <div class="form-section reveal">
-              <h3><span class="sec-num">2</span> Personal Information</h3>
-              <p>Your contact and personal details.</p>
-              <div class="form-grid">
-                <div class="field">
-                  <label>First Name <span class="req">*</span></label>
-                  <input type="text" name="first_name" required placeholder="e.g. Ahmed">
-                </div>
-                <div class="field">
-                  <label>Last Name <span class="req">*</span></label>
-                  <input type="text" name="last_name" required placeholder="e.g. Al-Rashid">
-                </div>
-                <div class="field">
-                  <label>Email Address <span class="req">*</span></label>
-                  <input type="email" name="email" required placeholder="you@example.com">
-                </div>
-                <div class="field">
-                  <label>Phone / WhatsApp <span class="req">*</span></label>
-                  <input type="tel" name="phone" required placeholder="+92 333 928 4928">
-                </div>
-                <div class="field">
-                  <label>Date of Birth</label>
-                  <input type="date" name="dob">
-                </div>
-                <div class="field">
-                  <label>Nationality</label>
-                  <select name="nationality">
-                    <option value="" disabled selected>— Select —</option>
-                    <option>United Arab Emirates</option>
-                    <option>United Kingdom</option>
-                    <option>United States</option>
-                    <option>Saudi Arabia</option>
-                    <option>India</option>
-                    <option>Pakistan</option>
-                    <option>Nigeria</option>
-                    <option>Australia</option>
-                    <option>Canada</option>
-                    <option>South Africa</option>
-                    <option>Other</option>
-                  </select>
-                </div>
-                <div class="field span-2">
-                  <label>Current Country of Residence <span class="req">*</span></label>
-                  <input type="text" name="country" required placeholder="e.g. United Arab Emirates">
-                </div>
-              </div>
-            </div>
-
-            <!-- Section 3: Professional Background -->
-            <div class="form-section reveal">
-              <h3><span class="sec-num">3</span> Professional Background</h3>
-              <p>Helps us tailor the course delivery and examples to your context.</p>
-              <div class="form-grid">
-                <div class="field">
-                  <label>Current Job Title <span class="req">*</span></label>
-                  <input type="text" name="job_title" required placeholder="e.g. HSE Manager">
-                </div>
-                <div class="field">
-                  <label>Organisation / Employer <span class="req">*</span></label>
-                  <input type="text" name="organisation" required placeholder="Company name">
-                </div>
-                <div class="field">
-                  <label>Industry Sector</label>
-                  <select name="industry">
-                    <option value="" disabled selected>— Select —</option>
-                    <option>Oil & Gas</option>
-                    <option>Construction</option>
-                    <option>Manufacturing</option>
-                    <option>Healthcare</option>
-                    <option>Mining</option>
-                    <option>Transport & Logistics</option>
-                    <option>Utilities / Energy</option>
-                    <option>Government / Public Sector</option>
-                    <option>Consulting</option>
-                    <option>Other</option>
-                  </select>
-                </div>
-                <div class="field">
-                  <label>Years of HSE Experience</label>
-                  <select name="experience_years">
-                    <option value="" disabled selected>— Select —</option>
-                    <option>Less than 1 year</option>
-                    <option>1–2 years</option>
-                    <option>3–5 years</option>
-                    <option>6–10 years</option>
-                    <option>10+ years</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-
-            <!-- Section 4: Educational Background -->
-            <div class="form-section reveal">
-              <h3><span class="sec-num">4</span> Education & Existing Qualifications</h3>
-              <p>Required for eligibility assessment and academic recognition.</p>
-              <div class="form-grid">
-                <div class="field">
-                  <label>Highest Education Level</label>
-                  <select name="education_level">
-                    <option value="" disabled selected>— Select —</option>
-                    <option>High School / Secondary</option>
-                    <option>Diploma / HND</option>
-                    <option>Bachelor's Degree</option>
-                    <option>Master's Degree</option>
-                    <option>PhD / Doctorate</option>
-                    <option>Professional Qualification</option>
-                  </select>
-                </div>
-                <div class="field">
-                  <label>Field of Study</label>
-                  <input type="text" name="study_field" placeholder="e.g. Engineering, Science, Business">
-                </div>
-                <div class="field span-2">
-                  <label>Existing HSE Qualifications</label>
-                  <div class="check-group">
-                    <label class="check-item"><input type="checkbox" name="quals[]" value=" IGC"><i class="fas fa-check"></i> <span> IGC</span></label>
-                    <label class="check-item"><input type="checkbox" name="quals[]" value="IOSH MS"><i class="fas fa-check"></i> <span>IOSH Managing Safely</span></label>
-                    <label class="check-item"><input type="checkbox" name="quals[]" value="ISO 45001 Internal"><i class="fas fa-check"></i> <span>ISO 45001 Internal Auditor</span></label>
-                    <label class="check-item"><input type="checkbox" name="quals[]" value="OSHA 30"><i class="fas fa-check"></i> <span>OSHA 30-Hour</span></label>
-                    <label class="check-item"><input type="checkbox" name="quals[]" value="None"><i class="fas fa-check"></i> <span>None yet</span></label>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Section 5: Motivation & Sponsorship -->
-            <div class="form-section reveal">
-              <h3><span class="sec-num">5</span> Motivation & Funding</h3>
-              <p>Tell us your goals and how this course is being funded.</p>
-              <div class="form-grid grid-1">
-                <div class="field">
-                  <label>Why are you applying for this course? <span class="req">*</span></label>
-                  <textarea name="motivation" required placeholder="Describe your career goals and how this course fits your development plan..."></textarea>
-                </div>
-                <div class="field">
-                  <label>Funding / Sponsorship</label>
-                  <select name="funding">
-                    <option value="" disabled selected>— Select —</option>
-                    <option>Self-funded</option>
-                    <option>Employer sponsored</option>
-                    <option>Government / scholarship</option>
-                    <option>Part employer / part self</option>
-                    <option>Other</option>
-                  </select>
-                </div>
-                <div class="field">
-                  <label>If employer sponsored, name of sponsor / approval contact</label>
-                  <input type="text" name="sponsor_name" placeholder="e.g. HR Manager / Training Department">
-                </div>
-              </div>
-            </div>
-
-            <!-- Section 6: Emergency Contact -->
-            <div class="form-section reveal">
-              <h3><span class="sec-num">6</span> Emergency Contact</h3>
-              <p>Required for in-person and residential courses.</p>
-              <div class="form-grid">
-                <div class="field">
-                  <label>Emergency Contact Name</label>
-                  <input type="text" name="emergency_name" placeholder="Full name">
-                </div>
-                <div class="field">
-                  <label>Relationship</label>
-                  <input type="text" name="emergency_relationship" placeholder="e.g. Spouse, Parent">
-                </div>
-                <div class="field span-2">
-                  <label>Emergency Contact Phone</label>
-                  <input type="tel" name="emergency_phone" placeholder="+92 333 928 4928">
-                </div>
-              </div>
-            </div>
-
-            <!-- Section 7: Additional Info -->
-            <div class="form-section reveal">
-              <h3><span class="sec-num">7</span> Special Requirements & Additional Notes</h3>
-              <p>Any dietary requirements, accessibility needs, scheduling constraints, or questions for our team.</p>
-              <div class="form-grid grid-1">
-                <div class="field">
-                  <label>Special Requirements / Notes</label>
-                  <textarea name="special_requirements" placeholder="e.g. dietary requirements, accessibility needs, preferred session time, or any questions about the course..."></textarea>
-                </div>
-                <div class="field">
-                  <label>How did you hear about us?</label>
-                  <select name="referral_source">
-                    <option value="" disabled selected>— Select —</option>
-                    <option>Google / Search Engine</option>
-                    <option>LinkedIn</option>
-                    <option>Colleague / Colleague Referral</option>
-                    <option>Newsletter</option>
-                    <option>Previous Course / Client</option>
-                    <option>Social Media</option>
-                    <option>Other</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-
-            <!-- Section 8: Declaration -->
-            <div class="form-section reveal">
-              <h3><span class="sec-num">8</span> Declaration & Consent</h3>
-              <p>Please read and agree to the following before submitting your application.</p>
-              <div style="background:var(--bg,#f2f5f3);border-radius:var(--radius-sm);padding:16px 20px;font-size:.85rem;color:var(--text-muted);line-height:1.7;margin-bottom:20px;">
-                By submitting this application I confirm that: (1) All information provided is accurate and complete. (2) I understand this is an application and that enrolment is subject to availability, eligibility, and payment. (3) I consent to Ansar Mahmood contacting me regarding this application and related training services. (4) I understand that course fees are due within 7 days of acceptance and that cancellation terms apply as communicated in the enrolment confirmation.
-              </div>
-              <div class="check-group" style="flex-direction:column;">
-                <label class="check-item" style="border-radius:var(--radius-sm);width:100%;">
-                  <input type="checkbox" name="declaration_accurate" required>
-                  <i class="fas fa-check"></i>
-                  <span>I confirm all information is accurate and complete <span class="req">*</span></span>
-                </label>
-                <label class="check-item" style="border-radius:var(--radius-sm);width:100%;">
-                  <input type="checkbox" name="declaration_consent" required>
-                  <i class="fas fa-check"></i>
-                  <span>I consent to being contacted about this application and HSE training services <span class="req">*</span></span>
-                </label>
-                <label class="check-item" style="border-radius:var(--radius-sm);width:100%;">
-                  <input type="checkbox" name="newsletter_opt">
-                  <i class="fas fa-check"></i>
-                  <span>I'd like to receive the free monthly HSE newsletter (optional)</span>
-                </label>
-              </div>
-            </div>
-
-            <!-- Honeypot -->
-            <div class="form-honeypot" style="display:none;"><input type="text" name="website"></div>
-            <input type="hidden" name="source" value="course-admission-form">
-
-            <!-- Submit -->
-            <div class="form-section reveal" style="background:var(--navy);border-color:var(--navy);">
-              <div style="text-align:center;">
-                <h3 style="color:#fff;justify-content:center;margin-bottom:8px;"><span class="sec-num" style="background:var(--gold);color:var(--navy);">✓</span> Submit Your Application</h3>
-                <p style="color:rgba(255,255,255,.7);margin-bottom:24px;">You'll receive an email confirmation within 24 hours with next steps, eligibility confirmation, and payment details.</p>
-                <button type="submit" class="btn btn-gold" style="font-size:1rem;padding:15px 48px;">
-                  <i class="fas fa-paper-plane"></i> Submit Application
-                </button>
-                <div class="form-status" style="margin-top:16px;" role="alert"></div>
-              </div>
-            </div>
-
-          </form>
-        </div>
-
-        <!-- Sidebar -->
-        <aside class="adm-sidebar">
-          <!-- Selected Course -->
-          <div class="sidebar-info-card">
-            <h4><i class="fas fa-graduation-cap" style="color:var(--gold);margin-right:8px;"></i> Your Application</h4>
-            <div id="sidebar-course" style="background:rgba(255,255,255,.08);border-radius:var(--radius-sm);padding:14px;font-size:.88rem;color:rgba(255,255,255,.8);min-height:60px;">
-              <em style="color:rgba(255,255,255,.4);">Select a course to see details</em>
-            </div>
-            <div style="margin-top:16px;">
-              <div class="info-row"><i class="fas fa-clock"></i><span>Application review: <strong style="color:#fff;">Within 24 hours</strong></span></div>
-              <div class="info-row"><i class="fas fa-envelope"></i><span>Confirmation sent by email</span></div>
-              <div class="info-row"><i class="fas fa-credit-card"></i><span>Payment due within 7 days of acceptance</span></div>
-              <div class="info-row"><i class="fas fa-globe"></i><span>Available to applicants worldwide</span></div>
-            </div>
-          </div>
-
-          <!-- What happens next -->
-          <div class="sidebar-card">
-            <h5 style="margin-bottom:16px;"><i class="fas fa-list-check" style="color:var(--blue);margin-right:6px;"></i> What Happens Next</h5>
-            <div class="next-step"><div class="next-num">1</div><div><strong style="font-size:.88rem;display:block;">Application Received</strong><p style="font-size:.82rem;color:var(--text-muted);margin:3px 0 0;">Auto-confirmation email sent immediately.</p></div></div>
-            <div class="next-step"><div class="next-num">2</div><div><strong style="font-size:.88rem;display:block;">Eligibility Review</strong><p style="font-size:.82rem;color:var(--text-muted);margin:3px 0 0;">Our team reviews your background within 24 hours.</p></div></div>
-            <div class="next-step"><div class="next-num">3</div><div><strong style="font-size:.88rem;display:block;">Enrolment Offer</strong><p style="font-size:.82rem;color:var(--text-muted);margin:3px 0 0;">You receive a formal offer with fee details and terms.</p></div></div>
-            <div class="next-step"><div class="next-num">4</div><div><strong style="font-size:.88rem;display:block;">Payment & Confirmation</strong><p style="font-size:.82rem;color:var(--text-muted);margin:3px 0 0;">Pay within 7 days to secure your seat.</p></div></div>
-            <div class="next-step"><div class="next-num">5</div><div><strong style="font-size:.88rem;display:block;">Welcome & Access</strong><p style="font-size:.82rem;color:var(--text-muted);margin:3px 0 0;">Course materials and join details sent 48 hrs before start.</p></div></div>
-          </div>
-
-          <!-- Have questions -->
-          <div style="margin-top:20px;padding:20px 24px;background:var(--navy-xlight,#e6f4ee);border-radius:var(--radius-md);">
-            <h5 style="margin-bottom:8px;"><i class="fas fa-question-circle" style="color:var(--blue);margin-right:6px;"></i> Questions Before Applying?</h5>
-            <p style="font-size:.85rem;color:var(--text-muted);margin-bottom:14px;">Not sure which course is right for you? Book a free 15-minute career consultation.</p>
-            <a href="book-consultation.html" class="btn btn-gold btn-sm" style="width:100%;justify-content:center;"><i class="fas fa-calendar-check"></i> Book Free Consultation</a>
-            <a href="course-calendar.html" class="btn btn-outline-navy btn-sm" style="width:100%;justify-content:center;margin-top:8px;"><i class="fas fa-calendar-alt"></i> View Course Calendar</a>
-          </div>
-        </aside>
-
-      </div>
-    </div>
-  </section>
-
-`;
+  );
+}
 
 export default function CourseAdmission() {
-  useEffect(() => {
-    document.title = "Course Admission & Enrolment Form | Ansar Mahmood HSE Training";
+  useEffect(() => { document.title = 'Course Admission & Enrolment | Ansar Mahmood HSE Training'; }, []);
+
+  const [step, setStep] = useState(0);
+  const [maxReached, setMaxReached] = useState(0);
+  const [form, setForm] = useState(emptyForm);
+  const [errors, setErrors] = useState({});
+  const [status, setStatus] = useState('idle'); // idle | sending | done | error
+  const [statusMsg, setStatusMsg] = useState('');
+
+  const grouped = useMemo(() => {
+    const m = { beginner: [], intermediate: [], advanced: [] };
+    courses.filter((c) => c.published !== false).forEach((c) => (m[c.level] || (m[c.level] = [])).push(c));
+    return m;
   }, []);
-  return <PageHtml html={HTML} />;
+
+  const selectedCourse = useMemo(() => courses.find((c) => c.title.trim() === form.course), [form.course]);
+
+  const set = useCallback((name, val) => {
+    setForm((f) => ({ ...f, [name]: val }));
+    setErrors((e) => (e[name] ? { ...e, [name]: undefined } : e));
+  }, []);
+
+  const onInput = useCallback((e) => {
+    const { name, type, checked, value } = e.target;
+    set(name, type === 'checkbox' ? checked : value);
+  }, [set]);
+
+  // When a course is picked, prefill suggested intake + mode.
+  const onCourseChange = useCallback((e) => {
+    const title = e.target.value;
+    const c = courses.find((x) => x.title.trim() === title);
+    setForm((f) => ({
+      ...f,
+      course: title,
+      preferred_intake: c ? `${c.start_display} — ${c.mode}` : f.preferred_intake,
+      delivery_mode: c ? (MODES.find((m) => m.toLowerCase().startsWith((c.mode || '').toLowerCase().split(' ')[0])) || f.delivery_mode) : f.delivery_mode,
+    }));
+    setErrors((er) => ({ ...er, course: undefined }));
+  }, []);
+
+  const validateStep = useCallback((s) => {
+    const req = REQUIRED[STEPS[s].key];
+    const e = {};
+    req.forEach((k) => {
+      const v = form[k];
+      if (typeof v === 'boolean') { if (!v) e[k] = 'Required'; }
+      else if (!v || !String(v).trim()) e[k] = 'This field is required';
+    });
+    if (req.includes('email') && form.email && !EMAIL_RE.test(form.email)) e.email = 'Enter a valid email address';
+    return e;
+  }, [form]);
+
+  const go = useCallback((target) => {
+    if (target > step) {
+      const e = validateStep(step);
+      if (Object.keys(e).length) { setErrors(e); return; }
+    }
+    if (target <= maxReached || target <= step + 1) {
+      setStep(target);
+      setMaxReached((m) => Math.max(m, target));
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }, [step, maxReached, validateStep]);
+
+  const submit = useCallback(async (e) => {
+    e.preventDefault();
+    const allErr = { ...validateStep(3) };
+    if (Object.keys(allErr).length) { setErrors(allErr); return; }
+    setStatus('sending');
+    const fd = new FormData();
+    Object.entries(form).forEach(([k, v]) => {
+      if (k === 'declaration_accurate' || k === 'declaration_consent' || k === 'newsletter_opt') fd.append(k, v ? 'yes' : '');
+      else fd.append(k, v);
+    });
+    fd.append('source', 'course-admission-form');
+    fd.append('website', '');
+    try {
+      const res = await fetch(`${API_BASE}/forms/admission-handler.php`, {
+        method: 'POST', body: fd, headers: { 'X-Requested-With': 'XMLHttpRequest' },
+      });
+      if (!res.ok) throw new Error(`Server ${res.status}`);
+      const data = await res.json();
+      if (data.success) { setStatus('done'); window.scrollTo({ top: 0, behavior: 'smooth' }); }
+      else { setStatus('error'); setStatusMsg(data.message || 'Something went wrong. Please try again.'); }
+    } catch {
+      setStatus('error');
+      setStatusMsg('We could not submit your application right now. Please email ansar@ansarmahmood.com or try again shortly.');
+    }
+  }, [form, validateStep]);
+
+  if (status === 'done') {
+    return (
+      <section className="section section-white">
+        <div className="container" style={{ maxWidth: 640 }}>
+          <div className="adm-success reveal">
+            <div className="adm-success__icon"><i className="fas fa-check"></i></div>
+            <h1>Application received</h1>
+            <p>Thank you, {form.first_name || 'there'}. Your application for <strong>{form.course}</strong> has been submitted. You'll get a confirmation email within 24 hours with eligibility confirmation, next steps, and payment details.</p>
+            <div className="adm-success__actions">
+              <Link to="/course-calendar" className="btn btn-gold btn-lg"><i className="fas fa-calendar-alt"></i> Browse More Courses</Link>
+              <Link to="/" className="btn btn-outline-navy btn-lg">Back to Home</Link>
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  const pct = ((step + (status === 'sending' ? 1 : 0)) / (STEPS.length - 1)) * 100;
+
+  return (
+    <>
+      <section className="page-hero page-hero--gradient adm-hero">
+        <div className="container">
+          <div className="breadcrumb">
+            <Link to="/">Home</Link><i className="fas fa-chevron-right"></i>
+            <Link to="/course-calendar">Course Calendar</Link><i className="fas fa-chevron-right"></i>
+            <span>Apply</span>
+          </div>
+          <span className="eyebrow eyebrow--white">Enrolment Application</span>
+          <h1>Apply for your course</h1>
+          <p>A quick four-step application. Reviewed within 24 hours — you'll receive confirmation with payment details and course access.</p>
+        </div>
+      </section>
+
+      <section className="section section-gray">
+        <div className="container adm-wrap">
+          <div className="adm-card">
+            {/* Stepper */}
+            <div className="adm-stepper" role="tablist" aria-label="Application steps">
+              <div className="adm-stepper__track"><div className="adm-stepper__fill" style={{ width: `${pct}%` }} /></div>
+              {STEPS.map((s, i) => {
+                const state = i < step ? 'done' : i === step ? 'active' : 'todo';
+                return (
+                  <button
+                    key={s.key}
+                    type="button"
+                    className={`adm-stepper__item is-${state}`}
+                    onClick={() => i <= maxReached && go(i)}
+                    aria-selected={i === step}
+                    disabled={i > maxReached}
+                  >
+                    <span className="adm-stepper__dot">{i < step ? <i className="fas fa-check"></i> : <i className={`fas ${s.icon}`}></i>}</span>
+                    <span className="adm-stepper__label">{s.label}</span>
+                  </button>
+                );
+              })}
+            </div>
+
+            <form onSubmit={submit} noValidate>
+              <div className="adm-step" key={step}>
+                {/* STEP 1 — COURSE */}
+                {step === 0 && (
+                  <>
+                    <h2 className="adm-step__title">Which course are you applying for?</h2>
+                    <p className="adm-step__sub">Pick your programme and preferred intake. We'll tailor delivery and examples to your context.</p>
+                    <div className="adm-grid">
+                      <Field label="Course" name="course" required error={errors.course} span>
+                        <select id="f_course" name="course" className={`adm-input${errors.course ? ' is-error' : ''}`} value={form.course} onChange={onCourseChange}>
+                          <option value="">— Select a course —</option>
+                          {['beginner', 'intermediate', 'advanced'].map((lvl) => grouped[lvl]?.length ? (
+                            <optgroup key={lvl} label={`${LEVEL_LABELS[lvl]} level`}>
+                              {grouped[lvl].map((c) => <option key={c.id} value={c.title.trim()}>{c.title.trim()} — {c.price}</option>)}
+                            </optgroup>
+                          ) : null)}
+                        </select>
+                      </Field>
+                      <Field label="Preferred intake / start" name="preferred_intake" required error={errors.preferred_intake}>
+                        <select id="f_intake" name="preferred_intake" className={`adm-input${errors.preferred_intake ? ' is-error' : ''}`} value={form.preferred_intake} onChange={onInput}>
+                          <option value="">— Select intake —</option>
+                          {selectedCourse && <option value={`${selectedCourse.start_display} — ${selectedCourse.mode}`}>{selectedCourse.start_display} — {selectedCourse.mode}</option>}
+                          <option value="Flexible — next available">Flexible — next available</option>
+                          <option value="Corporate on-site — custom date">Corporate on-site — custom date</option>
+                        </select>
+                      </Field>
+                      <Field label="Delivery mode" name="delivery_mode" required error={errors.delivery_mode}>
+                        <select id="f_mode" name="delivery_mode" className={`adm-input${errors.delivery_mode ? ' is-error' : ''}`} value={form.delivery_mode} onChange={onInput}>
+                          <option value="">— Select mode —</option>
+                          {MODES.map((m) => <option key={m} value={m}>{m}</option>)}
+                        </select>
+                      </Field>
+                    </div>
+
+                    {selectedCourse && (
+                      <div className="adm-coursecard reveal">
+                        <div className="adm-coursecard__head">
+                          <span className="adm-coursecard__lvl">{selectedCourse.level_label}</span>
+                          <span className="adm-coursecard__accr">{selectedCourse.accreditor}</span>
+                        </div>
+                        <h4>{selectedCourse.title.trim()}</h4>
+                        <div className="adm-coursecard__facts">
+                          <span><i className="fas fa-calendar-day"></i>{selectedCourse.start_display}</span>
+                          <span><i className="fas fa-clock"></i>{selectedCourse.duration}</span>
+                          <span><i className="fas fa-laptop"></i>{selectedCourse.mode}</span>
+                          <span className="adm-coursecard__price">{selectedCourse.price}</span>
+                        </div>
+                      </div>
+                    )}
+                  </>
+                )}
+
+                {/* STEP 2 — DETAILS */}
+                {step === 1 && (
+                  <>
+                    <h2 className="adm-step__title">Tell us about you</h2>
+                    <p className="adm-step__sub">Your contact details — we'll send your confirmation and joining instructions here.</p>
+                    <div className="adm-grid">
+                      <Field label="First name" name="first_name" required value={form.first_name} onChange={onInput} error={errors.first_name} placeholder="e.g. Ahmed" />
+                      <Field label="Last name" name="last_name" required value={form.last_name} onChange={onInput} error={errors.last_name} placeholder="e.g. Al-Rashid" />
+                      <Field label="Email address" name="email" type="email" required value={form.email} onChange={onInput} error={errors.email} placeholder="you@example.com" />
+                      <Field label="Phone / WhatsApp" name="phone" type="tel" required value={form.phone} onChange={onInput} error={errors.phone} placeholder="+971 50 123 4567" />
+                      <Field label="Country of residence" name="country" required value={form.country} onChange={onInput} error={errors.country} placeholder="e.g. United Arab Emirates" />
+                      <Field label="Nationality" name="nationality">
+                        <select id="f_nat" name="nationality" className="adm-input" value={form.nationality} onChange={onInput}>
+                          <option value="">— Select —</option>
+                          {NATIONALITIES.map((n) => <option key={n}>{n}</option>)}
+                        </select>
+                      </Field>
+                      <Field label="Date of birth" name="dob" type="date" value={form.dob} onChange={onInput} />
+                    </div>
+                  </>
+                )}
+
+                {/* STEP 3 — BACKGROUND */}
+                {step === 2 && (
+                  <>
+                    <h2 className="adm-step__title">Your professional background</h2>
+                    <p className="adm-step__sub">This helps us pitch the course at the right level and use relevant industry examples.</p>
+                    <div className="adm-grid">
+                      <Field label="Current job title" name="job_title" required value={form.job_title} onChange={onInput} error={errors.job_title} placeholder="e.g. HSE Manager" />
+                      <Field label="Organisation / employer" name="organisation" required value={form.organisation} onChange={onInput} error={errors.organisation} placeholder="Company name" />
+                      <Field label="Industry sector" name="industry">
+                        <select id="f_ind" name="industry" className="adm-input" value={form.industry} onChange={onInput}>
+                          <option value="">— Select —</option>
+                          {INDUSTRIES.map((n) => <option key={n}>{n}</option>)}
+                        </select>
+                      </Field>
+                      <Field label="Years of HSE experience" name="experience_years">
+                        <select id="f_exp" name="experience_years" className="adm-input" value={form.experience_years} onChange={onInput}>
+                          <option value="">— Select —</option>
+                          {EXPERIENCE.map((n) => <option key={n}>{n}</option>)}
+                        </select>
+                      </Field>
+                      <Field label="Highest education level" name="education_level">
+                        <select id="f_edu" name="education_level" className="adm-input" value={form.education_level} onChange={onInput}>
+                          <option value="">— Select —</option>
+                          {EDUCATION.map((n) => <option key={n}>{n}</option>)}
+                        </select>
+                      </Field>
+                      <Field label="Field of study" name="study_field" value={form.study_field} onChange={onInput} placeholder="e.g. Engineering, Science" />
+                      <div className="adm-field adm-field--span">
+                        <label className="adm-label">Existing HSE qualifications</label>
+                        <div className="adm-checks">
+                          {QUALS.map((q) => {
+                            const active = (form.quals || []).includes?.(q);
+                            const arr = Array.isArray(form.quals) ? form.quals : [];
+                            return (
+                              <button type="button" key={q}
+                                className={`adm-chip${active ? ' is-on' : ''}`}
+                                onClick={() => set('quals', active ? arr.filter((x) => x !== q) : [...arr, q])}>
+                                <i className={`fas ${active ? 'fa-check-circle' : 'fa-circle'}`}></i>{q}
+                              </button>
+                            );
+                          })}
+                        </div>
+                      </div>
+                    </div>
+                  </>
+                )}
+
+                {/* STEP 4 — CONFIRM */}
+                {step === 3 && (
+                  <>
+                    <h2 className="adm-step__title">Your goals & confirmation</h2>
+                    <p className="adm-step__sub">Almost done — tell us your goals and confirm the declarations below.</p>
+                    <div className="adm-grid">
+                      <Field label="Why are you applying for this course?" name="motivation" type="textarea" required value={form.motivation} onChange={onInput} error={errors.motivation} placeholder="Your career goals and how this course fits your development plan…" span />
+                      <Field label="Funding / sponsorship" name="funding">
+                        <select id="f_fund" name="funding" className="adm-input" value={form.funding} onChange={onInput}>
+                          <option value="">— Select —</option>
+                          {FUNDING.map((n) => <option key={n}>{n}</option>)}
+                        </select>
+                      </Field>
+                      <Field label="How did you hear about us?" name="referral_source">
+                        <select id="f_ref" name="referral_source" className="adm-input" value={form.referral_source} onChange={onInput}>
+                          <option value="">— Select —</option>
+                          {REFERRALS.map((n) => <option key={n}>{n}</option>)}
+                        </select>
+                      </Field>
+                      <Field label="Special requirements / notes" name="special_requirements" type="textarea" value={form.special_requirements} onChange={onInput} placeholder="Accessibility needs, preferred session time, or any questions…" span />
+                    </div>
+
+                    <div className="adm-declare">
+                      <label className={`adm-consent${errors.declaration_accurate ? ' is-error' : ''}`}>
+                        <input type="checkbox" name="declaration_accurate" checked={form.declaration_accurate} onChange={onInput} />
+                        <span className="adm-consent__box"><i className="fas fa-check"></i></span>
+                        <span>I confirm all information provided is accurate and complete. <span className="adm-req">*</span></span>
+                      </label>
+                      <label className={`adm-consent${errors.declaration_consent ? ' is-error' : ''}`}>
+                        <input type="checkbox" name="declaration_consent" checked={form.declaration_consent} onChange={onInput} />
+                        <span className="adm-consent__box"><i className="fas fa-check"></i></span>
+                        <span>I consent to being contacted about this application and HSE training services. <span className="adm-req">*</span></span>
+                      </label>
+                      <label className="adm-consent">
+                        <input type="checkbox" name="newsletter_opt" checked={form.newsletter_opt} onChange={onInput} />
+                        <span className="adm-consent__box"><i className="fas fa-check"></i></span>
+                        <span>Send me the free monthly HSE newsletter (optional).</span>
+                      </label>
+                    </div>
+
+                    {status === 'error' && <div className="adm-formstatus is-error"><i className="fas fa-triangle-exclamation"></i>{statusMsg}</div>}
+                  </>
+                )}
+              </div>
+
+              {/* Nav */}
+              <div className="adm-nav">
+                <button type="button" className="btn btn-outline-navy" onClick={() => go(step - 1)} disabled={step === 0} style={{ visibility: step === 0 ? 'hidden' : 'visible' }}>
+                  <i className="fas fa-arrow-left"></i> Back
+                </button>
+                <span className="adm-nav__count">Step {step + 1} of {STEPS.length}</span>
+                {step < STEPS.length - 1 ? (
+                  <button type="button" className="btn btn-primary" onClick={() => go(step + 1)}>
+                    Continue <i className="fas fa-arrow-right"></i>
+                  </button>
+                ) : (
+                  <button type="submit" className="btn btn-gold" disabled={status === 'sending'}>
+                    {status === 'sending' ? <><i className="fas fa-spinner fa-spin"></i> Submitting…</> : <><i className="fas fa-paper-plane"></i> Submit Application</>}
+                  </button>
+                )}
+              </div>
+            </form>
+          </div>
+
+          {/* Summary sidebar */}
+          <aside className="adm-summary">
+            <div className="adm-summary__card">
+              <h4><i className="fas fa-clipboard-list"></i> Your application</h4>
+              <dl className="adm-summary__list">
+                <div><dt>Course</dt><dd>{form.course || <em>Not selected yet</em>}</dd></div>
+                {selectedCourse && <div><dt>Investment</dt><dd>{selectedCourse.price}</dd></div>}
+                <div><dt>Intake</dt><dd>{form.preferred_intake || <em>—</em>}</dd></div>
+                <div><dt>Applicant</dt><dd>{[form.first_name, form.last_name].filter(Boolean).join(' ') || <em>—</em>}</dd></div>
+              </dl>
+            </div>
+            <div className="adm-summary__steps">
+              <h5>What happens next</h5>
+              {['Application received — instant email confirmation', 'Eligibility review within 24 hours', 'Formal enrolment offer with fees & terms', 'Pay within 7 days to secure your seat', 'Course materials sent 48h before start'].map((t, i) => (
+                <div className="adm-summary__step" key={i}><span>{i + 1}</span><p>{t}</p></div>
+              ))}
+            </div>
+            <div className="adm-summary__help">
+              <p>Not sure which course fits? Book a free 15-minute advisory call.</p>
+              <Link to="/book-consultation" className="btn btn-gold btn-sm" style={{ width: '100%', justifyContent: 'center' }}><i className="fas fa-calendar-check"></i> Book Free Call</Link>
+            </div>
+          </aside>
+        </div>
+      </section>
+    </>
+  );
 }

@@ -101,6 +101,29 @@ export function usePageEffects() {
     return () => { io.disconnect(); mo.disconnect(); };
   }, [location.pathname]);
 
+  // Cursor-follow spotlight on cards — sets --mx/--my consumed by CSS.
+  useEffect(() => {
+    const SEL = '.feature-card, .service-card, .industry-card, .resource-card, .pillar-card, .course-card, .session-card, .uc-card';
+    let ticking = false;
+    let ev = null;
+    const apply = () => {
+      ticking = false;
+      const e = ev;
+      if (!e || !e.target || !e.target.closest) return;
+      const card = e.target.closest(SEL);
+      if (!card) return;
+      const r = card.getBoundingClientRect();
+      card.style.setProperty('--mx', `${(((e.clientX - r.left) / r.width) * 100).toFixed(1)}%`);
+      card.style.setProperty('--my', `${(((e.clientY - r.top) / r.height) * 100).toFixed(1)}%`);
+    };
+    const onMove = (e) => {
+      ev = e;
+      if (!ticking) { ticking = true; requestAnimationFrame(apply); }
+    };
+    document.addEventListener('pointermove', onMove, { passive: true });
+    return () => document.removeEventListener('pointermove', onMove);
+  }, [location.pathname]);
+
   useEffect(() => {
     const items = document.querySelectorAll('.faq-item');
     if (!items.length) return;

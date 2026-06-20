@@ -1,0 +1,66 @@
+[
+  {
+    "id": "corp_001",
+    "icon": "fas fa-user-tie",
+    "name": "Fractional HSE Director",
+    "subtitle": "Strategic HSE leadership without the full-time cost",
+    "description": "Dedicated advisory days per month, leadership team engagement, board reporting, and full accountability for HSE performance.",
+    "features": [
+      "Monthly strategic advisory sessions",
+      "Board-level HSE reporting",
+      "Regulatory compliance oversight",
+      "Available for urgent escalations"
+    ],
+    "highlighted": false,
+    "order": 1,
+    "published": true
+  },
+  {
+    "id": "corp_002",
+    "icon": "fas fa-calendar-alt",
+    "name": "Monthly HSE Retainer",
+    "subtitle": "Ongoing advisory and support on a retained basis",
+    "description": "Providing consistent, expert input for organisations that need regular but not full-time HSE guidance.",
+    "features": [
+      "Agreed monthly advisory hours",
+      "Document review and sign-off",
+      "Incident and compliance support",
+      "Priority response to queries"
+    ],
+    "highlighted": false,
+    "order": 2,
+    "published": true
+  },
+  {
+    "id": "corp_003",
+    "icon": "fas fa-hard-hat",
+    "name": "Project-Embedded HSE Lead",
+    "subtitle": "Dedicated on-site or remote HSE leadership for a specific project",
+    "description": "Construction, commissioning, turnaround, or major capital project \u2014 from mobilisation to handover.",
+    "features": [
+      "Full project lifecycle coverage",
+      "HSE plan development",
+      "Contractor management",
+      "Regulatory interface"
+    ],
+    "highlighted": false,
+    "order": 3,
+    "published": true
+  },
+  {
+    "id": "corp_004",
+    "icon": "fas fa-infinity",
+    "name": "Corporate HSE Partner Program",
+    "subtitle": "Long-term strategic partnership delivering all four pillars",
+    "description": "Consulting, training, digital, and AI \u2014 as a unified service. The most comprehensive engagement model available.",
+    "features": [
+      "Consulting + Training + Digital + AI",
+      "Annual performance roadmap",
+      "Dedicated account management",
+      "Best value \u2014 bundled pricing"
+    ],
+    "highlighted": true,
+    "order": 4,
+    "published": true
+  }
+]

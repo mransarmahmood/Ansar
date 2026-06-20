@@ -7,7 +7,10 @@ import testimonials from '../data/testimonials.json';
 import caseStudies from '../data/case-studies.json';
 import { asset } from '../utils/asset';
 import PillarCard from '../components/PillarCard';
-import ProcessSteps from '../components/ProcessSteps';
+import HeroSlider from '../components/HeroSlider';
+import BlogSection from '../components/BlogSection';
+import QuickContact from '../components/QuickContact';
+import UpcomingSessions from '../components/UpcomingSessions';
 
 const STAT_ICONS = ['fa-clock', 'fa-briefcase', 'fa-globe', 'fa-users'];
 
@@ -47,7 +50,7 @@ const PILLARS = [
     icon: 'fa-graduation-cap',
     label: 'Pillar 02',
     title: 'Training & Coaching',
-    description: 'Certification coaching with a 97%+ first-attempt pass rate. IOSH, NEBOSH, ISO Lead Auditor, ASP/CSP, CRSP — online, in-person, and corporate cohorts.',
+    description: 'Certification coaching with a 97%+ first-attempt pass rate. IOSH, ISO Lead Auditor, ASP/CSP, CRSP, OTHM/NVQ — online, in-person, and corporate cohorts.',
     items: [
       { to: '/training', icon: 'fa-chalkboard-teacher', label: 'HSE Training Programs' },
       { to: '/certification-coaching', icon: 'fa-award', label: 'Certification Coaching' },
@@ -74,12 +77,31 @@ const PILLARS = [
   },
 ];
 
-const PROCESS = [
-  { title: 'Discover', outcome: 'Free 30-min strategy call to map your context, risks, and constraints.' },
-  { title: 'Diagnose', outcome: 'Targeted audit or gap analysis turns blind spots into a prioritised plan.' },
-  { title: 'Deliver', outcome: 'Hands-on rollout — systems, training, dashboards, or AI tooling on the ground.' },
-  { title: 'Sustain', outcome: 'Quarterly reviews, retainer support, or fractional HSE leadership keep momentum.' },
+const COURSE_LEVELS = [
+  {
+    accent: 'var(--navy-light)',
+    icon: 'fa-seedling',
+    label: 'Beginner',
+    blurb: 'Short, certified, no prerequisites — get your team safe fast.',
+    courses: ['IOSH Working / Managing Safely', 'OSHA 30-Hour', 'HABC First Aid, Fire & CPR'],
+  },
+  {
+    accent: 'var(--gold-dark)',
+    icon: 'fa-layer-group',
+    label: 'Intermediate',
+    blurb: 'Step up into risk assessment, auditing, and regulated qualifications.',
+    courses: ['OTHM Level 3 · ISO Internal Auditor', 'NFPA 70E / 70B / 25 Electrical & Fire', 'Lean Six Sigma · AI & Power BI'],
+  },
+  {
+    accent: 'var(--blue)',
+    icon: 'fa-trophy',
+    label: 'Advanced',
+    blurb: 'Degree-level diplomas and globally-recognised credentials.',
+    courses: ['ISO 9001 / 14001 / 45001 / 27001 Lead Auditor', 'OTHM L6 · NVQ Level 6 & 7', 'ASP · CSP · PMP · CFPS'],
+  },
 ];
+
+const ACCREDITORS = ['IOSH', 'OSHA', 'NFPA', 'Highfield (HABC)', 'OTHM', 'ProQual (NVQ)', 'BCSP', 'CQI / IRCA', 'PECB', 'PMI', 'ISO'];
 
 const WHY_CARDS = [
   { icon: 'fa-globe-americas', title: 'Global Field Experience',
@@ -143,108 +165,8 @@ export default function Home() {
 
   return (
     <>
-      {/* ── Hero ─────────────────────────────────────────────── */}
-      <section className="hero" id="home" aria-label="Hero section">
-        <div className="hero__bg" aria-hidden="true"></div>
-        <div className="hero__pattern" aria-hidden="true"></div>
-
-        <div className="container">
-          <div className="hero__content">
-            <div className="hero__badge reveal">
-              <span className="hero__badge-dot"></span>
-              {homepage.hero?.badge || 'Available for Global Engagements'}
-            </div>
-
-            <h1 className="hero__headline reveal reveal--up">
-              Safety that drives <em className="em">strategic</em> advantage.<br />
-              Training that <em className="em">actually</em> sticks.<br />
-              Technology built for <em className="em">your</em> field.
-            </h1>
-
-            <p className="hero__sub reveal">
-              Senior HSE Consultant &bull; Trainer &bull; Digital Transformation &amp; AI Solutions Specialist
-              with <strong style={{ color: 'rgba(255,255,255,.92)' }}>20 years of global impact</strong> across Oil &amp; Gas,
-              Construction, Manufacturing, and beyond.
-            </p>
-
-            <div className="hero__creds reveal">
-              <span className="cred-pill cred-pill--safety"><i className="fas fa-certificate"></i> Internationally Certified</span>
-              <span className="cred-pill cred-pill--safety"><i className="fas fa-id-badge"></i> IOSH Member</span>
-              <span className="cred-pill cred-pill--safety"><i className="fas fa-clipboard-check"></i> ISO Lead Auditor</span>
-              <span className="cred-pill cred-pill--tech"><i className="fas fa-robot"></i> AI Specialist</span>
-              <span className="cred-pill cred-pill--global"><i className="fas fa-globe"></i> 10+ Countries</span>
-            </div>
-
-            <div className="hero__actions reveal">
-              <Link to="/book-consultation" className="btn btn-gold btn-xl">
-                <i className="fas fa-calendar-check"></i> Book Free Consultation
-              </Link>
-              <Link to="/services" className="btn btn-outline-white btn-xl">
-                See Services <i className="fas fa-arrow-right"></i>
-              </Link>
-            </div>
-            <div
-              className="reveal"
-              style={{
-                marginTop: 18,
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: 8,
-                fontSize: '.82rem',
-                color: 'rgba(255,255,255,.65)',
-              }}
-            >
-              <i className="fas fa-shield-alt" style={{ color: 'var(--gold)' }}></i>
-              30 minutes · No cost · No obligation
-            </div>
-          </div>
-
-          <div className="hero__visual reveal reveal--right">
-            <div className="hero__pro-card">
-              <div className="hero__pro-badge"><i className="fas fa-globe"></i> 10+ Countries</div>
-
-              <div className="hero__avatar-wrap">
-                <div className="hero__avatar-ring">
-                  <img
-                    src={asset('assets/images/ansar-field-rsg.jpeg')}
-                    alt="Ansar Mahmood — Senior HSE Consultant on site"
-                    width="180"
-                    height="180"
-                    style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top center', borderRadius: '50%' }}
-                    onError={(e) => {
-                      const fb = asset('assets/images/ansar-17.jpeg');
-                      if (e.currentTarget.src !== fb) e.currentTarget.src = fb;
-                    }}
-                  />
-                </div>
-                <div className="hero__orbit-badge hero__orbit-badge--1"><i className="fas fa-certificate"></i></div>
-                <div className="hero__orbit-badge hero__orbit-badge--2"><i className="fas fa-clipboard-check"></i> ISO Lead</div>
-                <div className="hero__orbit-badge hero__orbit-badge--3"><i className="fas fa-robot"></i> AI Expert</div>
-              </div>
-
-              <div className="hero__pro-name">Ansar Mahmood</div>
-              <div className="hero__pro-title">Senior HSE Consultant &amp; AI Specialist</div>
-
-              <div className="hero__pro-stats">
-                <div className="hero__pro-stat"><strong>20</strong><span>Years</span></div>
-                <div className="hero__pro-divider"></div>
-                <div className="hero__pro-stat"><strong>500+</strong><span>Projects</span></div>
-                <div className="hero__pro-divider"></div>
-                <div className="hero__pro-stat"><strong>10K+</strong><span>Trained</span></div>
-              </div>
-
-              <div className="hero__pro-verified">
-                <i className="fas fa-check-circle"></i> Verified Global HSE Expert
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="hero__scroll-hint" aria-hidden="true">
-          <span>Scroll to explore</span>
-          <div className="hero__scroll-arrow"></div>
-        </div>
-      </section>
+      {/* ── Hero slider ──────────────────────────────────────── */}
+      <HeroSlider />
 
       {/* ── Trust marquee ─────────────────────────────────────── */}
       <section className="trust-bar" aria-label="Credentials and affiliations">
@@ -297,19 +219,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── How we work ───────────────────────────────────────── */}
-      <section className="section section-gray" aria-labelledby="how-we-work">
-        <div className="container">
-          <div className="section-header reveal">
-            <span className="eyebrow">How We Work</span>
-            <h2 id="how-we-work">A four-step path from <em className="em">first call</em> to lasting impact.</h2>
-            <p>The same proven process across every engagement — whether it's a one-week audit or a multi-year corporate partnership.</p>
-          </div>
-
-          <ProcessSteps steps={PROCESS} />
-        </div>
-      </section>
-
       {/* ── Proof bar ─────────────────────────────────────────── */}
       <section className="stats-strip section-sm" aria-label="Key statistics">
         <div className="container">
@@ -331,6 +240,70 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* ── Training Academy band ─────────────────────────────── */}
+      <section className="section section-gray" id="academy" aria-labelledby="academy-heading">
+        <div className="container">
+          <div className="section-header reveal">
+            <span className="eyebrow">Accredited Training Academy</span>
+            <h2 id="academy-heading">Internationally accredited courses — <em className="em">at every level.</em></h2>
+            <p>20+ certified programs from beginner first-aid to degree-level diplomas, taught live by an internationally certified tutor with 20 years on the field. Online and in-person, with a 97%+ first-attempt pass rate.</p>
+          </div>
+
+          <div className="grid grid-3" style={{ gap: 24, marginBottom: 36 }}>
+            {COURSE_LEVELS.map((lvl) => (
+              <div
+                className="feature-card reveal"
+                key={lvl.label}
+                style={{ borderTop: `4px solid ${lvl.accent}` }}
+              >
+                <div className="feature-card__icon" style={{ background: `color-mix(in srgb, ${lvl.accent} 14%, #fff)`, color: lvl.accent }}>
+                  <i className={`fas ${lvl.icon}`}></i>
+                </div>
+                <h4 className="feature-card__title">{lvl.label} Level</h4>
+                <p className="feature-card__desc" style={{ marginBottom: 14 }}>{lvl.blurb}</p>
+                <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: 8 }}>
+                  {lvl.courses.map((c) => (
+                    <li key={c} style={{ display: 'flex', gap: 10, alignItems: 'flex-start', fontSize: '.88rem', color: 'var(--text-muted)' }}>
+                      <i className="fas fa-check" style={{ color: lvl.accent, marginTop: 4 }}></i>{c}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+
+          <div className="reveal" style={{ display: 'flex', flexWrap: 'wrap', gap: 10, justifyContent: 'center', marginBottom: 32 }}>
+            {ACCREDITORS.map((a) => (
+              <span
+                key={a}
+                style={{
+                  padding: '8px 16px',
+                  background: '#fff',
+                  border: '1px solid var(--gray-200)',
+                  borderRadius: 100,
+                  fontSize: '.82rem',
+                  fontWeight: 700,
+                  letterSpacing: '.02em',
+                  color: 'var(--navy)',
+                  boxShadow: 'var(--shadow-sm)',
+                }}
+              >
+                {a}
+              </span>
+            ))}
+          </div>
+
+          <div style={{ textAlign: 'center' }} className="reveal">
+            <Link to="/course-calendar" className="btn btn-gold btn-lg">
+              <i className="fas fa-calendar-alt"></i> View 2026 Course Calendar
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Upcoming Courses (after Services + Courses) ────────── */}
+      <UpcomingSessions limit={6} />
 
       {/* ── Featured Case Studies ─────────────────────────────── */}
       {featuredCases.length > 0 && (
@@ -443,6 +416,9 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── Blog & Insights ──────────────────────────────────── */}
+      <BlogSection limit={3} />
+
       {/* ── Resources teaser ─────────────────────────────────── */}
       <section className="section section-gray" aria-labelledby="resources-home-heading">
         <div className="container">
@@ -485,6 +461,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* ── Quick Contact ────────────────────────────────────── */}
+      <QuickContact />
 
       {/* ── Final CTA banner ─────────────────────────────────── */}
       <section className="cta-banner section" aria-labelledby="cta-heading">

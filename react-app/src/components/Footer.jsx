@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { CONTACT } from '../config';
 import NewsletterForm from './NewsletterForm';
 
-const certs = ['IOSH', 'ISO 45001', 'ISO 14001', 'OSHA', 'NEBOSH', 'ICAM', 'ISO 9001', 'PMP'];
+const certs = ['IOSH', 'ISO 45001', 'ISO 14001', 'OSHA', 'OTHM', 'ICAM', 'ISO 9001', 'PMP'];
 
 export default function Footer() {
   const phoneLink = `tel:${CONTACT.PHONE.replace(/\s/g, '')}`;
@@ -22,9 +22,8 @@ export default function Footer() {
                 delivering safety excellence and digital transformation across 10+ countries.
               </p>
               <div className="footer__social" style={{ marginTop: 18 }}>
-                <a href="#" aria-label="LinkedIn" title="LinkedIn"><i className="fab fa-linkedin-in"></i></a>
-                <a href="#" aria-label="Twitter" title="Twitter"><i className="fab fa-x-twitter"></i></a>
-                <a href="#" aria-label="YouTube" title="YouTube"><i className="fab fa-youtube"></i></a>
+                <a href={CONTACT.LINKEDIN} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn"><i className="fab fa-linkedin-in"></i></a>
+                <a href={`mailto:${CONTACT.EMAIL}`} aria-label="Email" title="Email"><i className="fas fa-envelope"></i></a>
                 <a
                   href={`https://wa.me/${CONTACT.WHATSAPP}`}
                   aria-label="WhatsApp"
