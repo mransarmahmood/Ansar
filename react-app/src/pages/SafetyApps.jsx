@@ -2,6 +2,7 @@
 import { useEffect } from 'react';
 import PageHtml from '../components/PageHtml';
 import ServiceEnhancements from '../components/ServiceEnhancements';
+import PageBanner from '../components/PageBanner';
 import { splitAtCtaBanner } from '../utils/splitHtml';
 
 const HTML = `
@@ -113,7 +114,8 @@ export default function SafetyApps() {
   const [pre, ctaPart] = splitAtCtaBanner(HTML);
   return (
     <>
-      <PageHtml html={pre} />
+      <PageBanner route="safety-apps" icon="fa-mobile-screen" />
+      <PageHtml html={pre.slice(pre.indexOf('</section>') + 10)} />
       <ServiceEnhancements investment={INVESTMENT} ctaLabel="Free workflow walkthrough" />
       {ctaPart && <PageHtml html={ctaPart} />}
     </>

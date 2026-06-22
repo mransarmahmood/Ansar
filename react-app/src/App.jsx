@@ -18,13 +18,13 @@ export default function App() {
     <Routes>
       <Route element={<Layout />}>
         <Route index element={<Home />} />
-        {portedRoutes.map(({ path, Component }) => (
+        {portedRoutes.map(({ path, Component, props }) => (
           <Route
             key={path}
             path={path}
             element={
               <Suspense fallback={<PageFallback />}>
-                <Component />
+                <Component {...(props || {})} />
               </Suspense>
             }
           />

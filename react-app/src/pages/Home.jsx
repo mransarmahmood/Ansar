@@ -8,9 +8,12 @@ import caseStudies from '../data/case-studies.json';
 import { asset } from '../utils/asset';
 import PillarCard from '../components/PillarCard';
 import HeroSlider from '../components/HeroSlider';
+import AuthorityBand from '../components/AuthorityBand';
+import ClientLogos from '../components/ClientLogos';
 import BlogSection from '../components/BlogSection';
 import QuickContact from '../components/QuickContact';
 import UpcomingSessions from '../components/UpcomingSessions';
+import TrustedBy from '../components/TrustedBy';
 
 const STAT_ICONS = ['fa-clock', 'fa-briefcase', 'fa-globe', 'fa-users'];
 
@@ -34,27 +37,25 @@ const PILLARS = [
     tone: 'navy',
     icon: 'fa-shield-alt',
     label: 'Pillar 01',
-    title: 'Consulting & Audits',
+    title: 'Consultancy',
     description: 'Strategic HSE advisory, ISO implementation, audits, and incident investigation — delivered by a Lead Auditor with 20 years on the front line.',
     items: [
       { to: '/consulting', icon: 'fa-shield-alt', label: 'HSE Consulting & Advisory' },
       { to: '/audits', icon: 'fa-clipboard-check', label: 'Audits & Gap Analysis' },
-      { to: '/management-systems', icon: 'fa-sitemap', label: 'ISO 45001 / 14001 Implementation' },
       { to: '/incident-investigation', icon: 'fa-search', label: 'Incident Investigation & RCA' },
     ],
-    cta: 'Explore Consulting',
+    cta: 'Explore Consultancy',
     ctaTo: '/consulting',
   },
   {
     tone: 'gold',
     icon: 'fa-graduation-cap',
     label: 'Pillar 02',
-    title: 'Training & Coaching',
-    description: 'Certification coaching with a 97%+ first-attempt pass rate. IOSH, ISO Lead Auditor, ASP/CSP, CRSP, OTHM/NVQ — online, in-person, and corporate cohorts.',
+    title: 'Training',
+    description: 'Live, accredited HSE training — IOSH, ISO Lead Auditor, OTHM/NVQ and more — delivered online, in-person, and as corporate cohorts.',
     items: [
       { to: '/training', icon: 'fa-chalkboard-teacher', label: 'HSE Training Programs' },
-      { to: '/certification-coaching', icon: 'fa-award', label: 'Certification Coaching' },
-      { to: '/course-calendar', icon: 'fa-calendar-alt', label: 'Course Calendar' },
+      { to: '/course-calendar', icon: 'fa-calendar-alt', label: '2026 Course Calendar' },
       { to: '/corporate-solutions', icon: 'fa-building', label: 'Corporate Programs' },
     ],
     cta: 'Explore Training',
@@ -62,18 +63,59 @@ const PILLARS = [
   },
   {
     tone: 'blue',
-    icon: 'fa-microchip',
+    icon: 'fa-user-graduate',
     label: 'Pillar 03',
-    title: 'Digital & AI Solutions',
-    description: 'The only HSE consultant who builds purpose-fit AI agents, Power BI dashboards, SharePoint portals, and safety apps — bridging safety with the modern enterprise.',
+    title: 'Mentoring',
+    description: 'One-to-one certification coaching and career mentoring with a 97%+ first-attempt pass rate — ASP, CSP, CRSP, PMP and beyond.',
     items: [
-      { to: '/ai-solutions', icon: 'fa-robot', label: 'AI Solutions for HSE' },
+      { to: '/certification-coaching', icon: 'fa-award', label: 'Certification Coaching' },
+      { to: '/certification-coaching', icon: 'fa-user-tie', label: 'Career Mentoring' },
+      { to: '/certification-coaching', icon: 'fa-clipboard-list', label: 'Exam Preparation' },
+    ],
+    cta: 'Explore Mentoring',
+    ctaTo: '/certification-coaching',
+  },
+  {
+    tone: 'gold',
+    icon: 'fa-laptop-code',
+    label: 'Pillar 04',
+    title: 'Solutions',
+    description: 'Digital transformation for safety — Power BI dashboards, SharePoint portals, and custom safety apps that connect the field to the boardroom.',
+    items: [
       { to: '/digital-solutions', icon: 'fa-laptop-code', label: 'Digital Transformation' },
       { to: '/powerbi-dashboards', icon: 'fa-chart-bar', label: 'Power BI Dashboards' },
-      { to: '/safety-apps', icon: 'fa-mobile-alt', label: 'Custom Safety Apps' },
+      { to: '/safety-apps', icon: 'fa-mobile-alt', label: 'Safety Apps & Software' },
     ],
-    cta: 'Explore Digital & AI',
+    cta: 'Explore Solutions',
+    ctaTo: '/digital-solutions',
+  },
+  {
+    tone: 'navy',
+    icon: 'fa-microchip',
+    label: 'Pillar 05',
+    title: 'AI Integrations',
+    description: 'Purpose-fit AI for HSE — document & permit review assistants, predictive risk analytics, and chatbots that turn safety data into foresight.',
+    items: [
+      { to: '/ai-solutions', icon: 'fa-robot', label: 'AI Solutions for HSE' },
+      { to: '/ai-solutions', icon: 'fa-file-shield', label: 'AI Document & Permit Review' },
+      { to: '/ai-solutions', icon: 'fa-brain', label: 'Predictive Risk Analytics' },
+    ],
+    cta: 'Explore AI Integrations',
     ctaTo: '/ai-solutions',
+  },
+  {
+    tone: 'blue',
+    icon: 'fa-magnifying-glass-chart',
+    label: 'Pillar 06',
+    title: 'Inspection & Audits',
+    description: 'Independent site inspections and management-system audits — ISO 45001/14001/9001 readiness, gap analysis, and contractor checks by a certified Lead Auditor.',
+    items: [
+      { to: '/inspection-audits', icon: 'fa-magnifying-glass', label: 'Site & Workplace Inspections' },
+      { to: '/inspection-audits', icon: 'fa-clipboard-check', label: 'Compliance & ISO Audits' },
+      { to: '/inspection-audits', icon: 'fa-list-check', label: 'Gap Analysis & Readiness' },
+    ],
+    cta: 'Explore Inspection & Audits',
+    ctaTo: '/inspection-audits',
   },
 ];
 
@@ -199,21 +241,26 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── Authority band (personal brand) ───────────────────── */}
+      <AuthorityBand />
+
+      {/* ── Trusted-by client logos ───────────────────────────── */}
+      <ClientLogos />
+
       {/* ── Three Pillars ─────────────────────────────────────── */}
       <section className="section section-white pillars-section" id="pillars" aria-labelledby="pillars-heading">
         <div className="container">
           <div className="section-header reveal">
-            <span className="eyebrow">Three Pillars · One Trusted Advisor</span>
-            <h2 id="pillars-heading">
-              Everything your HSE function needs — <em className="em">under one roof.</em>
-            </h2>
+            <span className="eyebrow eyebrow--center">How I Help</span>
+            <h2 id="pillars-heading">One partner. <em className="em">Measurably safer</em> operations.</h2>
             <p>
-              Most consultants do one thing. Ansar combines three deeply-developed disciplines, so your safety
-              strategy, team capability, and digital tooling stay aligned instead of fighting each other.
+              Six connected disciplines — consultancy, training, mentoring, digital
+              solutions, AI, and inspection &amp; audits — so you get end-to-end HSE
+              support from a single trusted advisor, not six disconnected vendors.
             </p>
           </div>
 
-          <div className="pillar-grid">
+          <div className="pcard-grid">
             {PILLARS.map((p) => <PillarCard key={p.title} {...p} />)}
           </div>
         </div>
@@ -250,51 +297,30 @@ export default function Home() {
             <p>20+ certified programs from beginner first-aid to degree-level diplomas, taught live by an internationally certified tutor with 20 years on the field. Online and in-person, with a 97%+ first-attempt pass rate.</p>
           </div>
 
-          <div className="grid grid-3" style={{ gap: 24, marginBottom: 36 }}>
-            {COURSE_LEVELS.map((lvl) => (
-              <div
-                className="feature-card reveal"
-                key={lvl.label}
-                style={{ borderTop: `4px solid ${lvl.accent}` }}
-              >
-                <div className="feature-card__icon" style={{ background: `color-mix(in srgb, ${lvl.accent} 14%, #fff)`, color: lvl.accent }}>
-                  <i className={`fas ${lvl.icon}`}></i>
+          <div className="lvl-grid">
+            {COURSE_LEVELS.map((lvl, i) => (
+              <article className={`lvl-card lvl-card--${lvl.label.toLowerCase()} reveal`} key={lvl.label} data-d={i}>
+                <div className="lvl-card__top">
+                  <span className="lvl-card__ic"><i className={`fas ${lvl.icon}`}></i></span>
+                  <span className="lvl-card__tag">Level {i + 1}</span>
                 </div>
-                <h4 className="feature-card__title">{lvl.label} Level</h4>
-                <p className="feature-card__desc" style={{ marginBottom: 14 }}>{lvl.blurb}</p>
-                <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: 8 }}>
+                <h4 className="lvl-card__title">{lvl.label} Level</h4>
+                <p className="lvl-card__blurb">{lvl.blurb}</p>
+                <span className="lvl-card__rule"></span>
+                <ul className="lvl-card__list">
                   {lvl.courses.map((c) => (
-                    <li key={c} style={{ display: 'flex', gap: 10, alignItems: 'flex-start', fontSize: '.88rem', color: 'var(--text-muted)' }}>
-                      <i className="fas fa-check" style={{ color: lvl.accent, marginTop: 4 }}></i>{c}
-                    </li>
+                    <li key={c}><i className="fas fa-check"></i><span>{c}</span></li>
                   ))}
                 </ul>
-              </div>
+              </article>
             ))}
           </div>
 
-          <div className="reveal" style={{ display: 'flex', flexWrap: 'wrap', gap: 10, justifyContent: 'center', marginBottom: 32 }}>
-            {ACCREDITORS.map((a) => (
-              <span
-                key={a}
-                style={{
-                  padding: '8px 16px',
-                  background: '#fff',
-                  border: '1px solid var(--gray-200)',
-                  borderRadius: 100,
-                  fontSize: '.82rem',
-                  fontWeight: 700,
-                  letterSpacing: '.02em',
-                  color: 'var(--navy)',
-                  boxShadow: 'var(--shadow-sm)',
-                }}
-              >
-                {a}
-              </span>
-            ))}
+          <div className="lvl-accr reveal">
+            {ACCREDITORS.map((a) => (<span className="lvl-pill" key={a}>{a}</span>))}
           </div>
 
-          <div style={{ textAlign: 'center' }} className="reveal">
+          <div className="lvl-cta reveal">
             <Link to="/course-calendar" className="btn btn-gold btn-lg">
               <i className="fas fa-calendar-alt"></i> View 2026 Course Calendar
             </Link>
@@ -315,41 +341,25 @@ export default function Home() {
               <p>A glimpse at what good safety leadership looks like in the wild — anonymised where confidentiality applies.</p>
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 24, marginBottom: 32 }}>
-              {featuredCases.map((c, ci) => {
-                const fallbackImg = asset(`assets/images/ansar-${[1, 4, 8][ci % 3]}.jpeg`);
+            <div className="cs-grid">
+              {featuredCases.map((c) => {
                 const summary = c.summary || (c.description ? c.description.split('. ').slice(0, 2).join('. ') + '.' : '');
-                const kpis = (c.kpis || c.metrics || []).slice(0, 3);
+                const kpis = (c.metrics || c.kpis || []).slice(0, 4);
                 return (
-                  <article key={c.id} className="project-card reveal">
-                    <div className="project-card__media" style={{ background: c.icon_bg || 'linear-gradient(135deg,var(--navy),var(--navy-mid))' }}>
-                      <img
-                        src={asset(c.image || `assets/images/ansar-${[1, 4, 8][ci % 3]}.jpeg`)}
-                        alt={c.headline || c.title}
-                        loading="lazy"
-                        decoding="async"
-                        width="600"
-                        height="320"
-                        onError={(e) => {
-                          if (e.currentTarget.src !== fallbackImg) e.currentTarget.src = fallbackImg;
-                        }}
-                      />
-                      <div className="project-card__scrim"></div>
-                      <span className="project-card__tag" style={{ background: 'var(--gold)' }}>{c.industry}</span>
+                  <article key={c.id} className="cs-card reveal">
+                    <div className="cs-card__head">
+                      <span className="cs-card__ic"><i className={`fas ${c.icon || 'fa-chart-line'}`}></i></span>
+                      <span className="cs-card__industry">{c.industry}</span>
                     </div>
-                    <div style={{ padding: '20px 24px' }}>
-                      <h4 style={{ fontFamily: 'var(--font-display)', fontWeight: 600, fontSize: '1.18rem', marginBottom: 8, color: 'var(--navy)', lineHeight: 1.3 }}>
-                        {c.headline}
-                      </h4>
-                      <p style={{ fontSize: '.9rem', color: 'var(--text-muted)', marginBottom: 16 }}>{summary}</p>
-                      <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap' }}>
-                        {kpis.map((k, ki) => (
-                          <div key={ki} style={{ background: 'var(--gray-50)', borderRadius: 8, padding: '8px 12px', minWidth: 90 }}>
-                            <div style={{ fontSize: '1.05rem', fontWeight: 800, color: 'var(--gold-dark)', fontFamily: 'var(--font-display)' }}>{k.value}</div>
-                            <div style={{ fontSize: '.7rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '.06em' }}>{k.label}</div>
-                          </div>
-                        ))}
-                      </div>
+                    <h4 className="cs-card__headline">{c.headline}</h4>
+                    <p className="cs-card__summary">{summary}</p>
+                    <div className="cs-card__kpis">
+                      {kpis.map((k, ki) => (
+                        <div key={ki} className="cs-kpi">
+                          <div className="cs-kpi__val">{k.value}</div>
+                          <div className="cs-kpi__lbl">{k.label}</div>
+                        </div>
+                      ))}
                     </div>
                   </article>
                 );
@@ -445,7 +455,7 @@ export default function Home() {
                 <div className="resource-card__type">Online Assessment</div>
                 <div className="resource-card__title">HSE Maturity Assessment</div>
                 <p className="resource-card__desc">Free 15-minute digital maturity assessment. Get a personalised scorecard and improvement roadmap.</p>
-                <Link to="/contact" className="btn btn-outline-navy btn-sm" style={{ marginTop: 16 }}>Start Assessment</Link>
+                <Link to="/hse-assessment" className="btn btn-outline-navy btn-sm" style={{ marginTop: 16 }}>Start Assessment</Link>
               </div>
             </div>
 
@@ -461,6 +471,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* ── Trusted By + impact stats ────────────────────────── */}
+      <TrustedBy />
 
       {/* ── Quick Contact ────────────────────────────────────── */}
       <QuickContact />

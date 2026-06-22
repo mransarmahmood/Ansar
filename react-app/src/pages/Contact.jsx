@@ -1,65 +1,69 @@
-// Auto-generated from pages/contact.html. Edit freely — this file is the source of truth now.
+// Premium, conversion-focused Contact page.
+// IMPORTANT: the form below keeps id="contact-form", all field name attributes,
+// the honeypot input[name="website"], the .form-status element, and a
+// [type="submit"] button. Submission is handled by PageHtml's delegated submit
+// handler (POST -> /forms/contact-handler.php). Do not change those hooks.
 import { useEffect } from 'react';
 import PageHtml from '../components/PageHtml';
 
 const HTML = `
 
-  <section class="page-hero">
-    <div class="page-hero__pattern" aria-hidden="true"></div>
-    <i class="page-hero__icon-bg fas fa-envelope" aria-hidden="true"></i>
-    <div class="container">
-      <nav class="breadcrumb" aria-label="Breadcrumb">
-        <a href="../index.html">Home</a><span class="breadcrumb__sep"><i class="fas fa-chevron-right"></i></span>
-        <span class="breadcrumb__current">Contact</span>
-      </nav>
-      <div class="page-hero__content">
-        <span class="eyebrow eyebrow--white">Get in Touch</span>
-        <h1>Let's Work Together</h1>
-        <p>Whether you need a strategic HSE advisor, a  coach, a Power BI dashboard, or an AI-powered safety solution — Ansar Mahmood is ready to help. Reach out using any of the options below.</p>
-      </div>
+  <section class="contact-hero">
+    <div class="contact-hero__glow" aria-hidden="true"></div>
+    <div class="container contact-hero__inner">
+      <span class="eyebrow contact-hero__eyebrow">Let's Talk</span>
+      <h1 class="contact-hero__title">Let's make safety your <em>competitive advantage.</em></h1>
+      <p class="contact-hero__sub">Tell me about your project, your challenge, or your goal — and I'll come back to you personally with a clear, practical next step. No pressure, no jargon.</p>
+      <ul class="contact-hero__trust" aria-label="What to expect">
+        <li><i class="fas fa-bolt" aria-hidden="true"></i> Replies within 1 business day</li>
+        <li><i class="fas fa-handshake" aria-hidden="true"></i> No-obligation conversation</li>
+        <li><i class="fas fa-globe" aria-hidden="true"></i> Global delivery — remote &amp; on-site</li>
+      </ul>
     </div>
   </section>
 
-  <section class="section section-white">
+  <section class="section contact-main">
     <div class="container">
-      <div class="grid grid-2" style="gap:64px;align-items:start;">
+      <div class="contact-layout">
 
-        <!-- Contact Form -->
-        <div class="reveal reveal--left">
-          <h2 style="margin-bottom:8px;">Send a Message</h2>
-          <p style="margin-bottom:32px;">Complete the form and Ansar will respond personally within 24 hours.</p>
+        <!-- ============ FORM (left) ============ -->
+        <div class="contact-formcard">
+          <div class="contact-formcard__head">
+            <h2 class="contact-formcard__title">Send a message</h2>
+            <p class="contact-formcard__lead">Complete the form and I'll respond personally — usually within one business day.</p>
+          </div>
 
-          <form id="contact-form" novalidate>
-            <!-- Honeypot -->
-            <div class="form-honeypot" aria-hidden="true">
+          <form id="contact-form" class="contact-form" novalidate>
+            <!-- Honeypot (do not remove) -->
+            <div class="form-honeypot" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0;height:0;overflow:hidden;">
               <input type="text" name="website" tabindex="-1" autocomplete="off" />
             </div>
 
-            <div class="form-row">
-              <div class="form-group">
-                <label class="form-label" for="name">Full Name <span style="color:var(--danger)">*</span></label>
-                <input type="text" id="name" name="name" class="form-control" placeholder="John Smith" required />
+            <div class="contact-field-row">
+              <div class="contact-field">
+                <label class="contact-label" for="name">Full Name <span class="contact-req" aria-hidden="true">*</span></label>
+                <input type="text" id="name" name="name" class="contact-input" placeholder="John Smith" required autocomplete="name" />
               </div>
-              <div class="form-group">
-                <label class="form-label" for="email">Email Address <span style="color:var(--danger)">*</span></label>
-                <input type="email" id="email" name="email" class="form-control" placeholder="john@company.com" required />
-              </div>
-            </div>
-
-            <div class="form-row">
-              <div class="form-group">
-                <label class="form-label" for="phone">Phone / WhatsApp</label>
-                <input type="tel" id="phone" name="phone" class="form-control" placeholder="+1 234 567 8900" />
-              </div>
-              <div class="form-group">
-                <label class="form-label" for="company">Company / Organisation</label>
-                <input type="text" id="company" name="company" class="form-control" placeholder="Acme Corporation" />
+              <div class="contact-field">
+                <label class="contact-label" for="email">Email Address <span class="contact-req" aria-hidden="true">*</span></label>
+                <input type="email" id="email" name="email" class="contact-input" placeholder="john@company.com" required autocomplete="email" />
               </div>
             </div>
 
-            <div class="form-group">
-              <label class="form-label" for="service">Service of Interest</label>
-              <select id="service" name="service" class="form-control">
+            <div class="contact-field-row">
+              <div class="contact-field">
+                <label class="contact-label" for="phone">Phone / WhatsApp</label>
+                <input type="tel" id="phone" name="phone" class="contact-input" placeholder="+1 234 567 8900" autocomplete="tel" />
+              </div>
+              <div class="contact-field">
+                <label class="contact-label" for="company">Company / Organisation</label>
+                <input type="text" id="company" name="company" class="contact-input" placeholder="Acme Corporation" autocomplete="organization" />
+              </div>
+            </div>
+
+            <div class="contact-field">
+              <label class="contact-label" for="service">Service of Interest</label>
+              <select id="service" name="service" class="contact-input contact-select">
                 <option value="">Select a service...</option>
                 <optgroup label="Consulting">
                   <option>HSE Consulting &amp; Advisory</option>
@@ -70,7 +74,7 @@ const HTML = `
                 </optgroup>
                 <optgroup label="Training">
                   <option>Corporate HSE Training</option>
-                  <option> Coaching</option>
+                  <option>Coaching</option>
                   <option>IOSH / ISO Certification Coaching</option>
                   <option>ASP / CSP / CRSP Exam Prep</option>
                   <option>E-learning &amp; LMS Development</option>
@@ -90,9 +94,9 @@ const HTML = `
               </select>
             </div>
 
-            <div class="form-group">
-              <label class="form-label" for="budget">Approximate Budget Range</label>
-              <select id="budget" name="budget" class="form-control">
+            <div class="contact-field">
+              <label class="contact-label" for="budget">Approximate Budget Range</label>
+              <select id="budget" name="budget" class="contact-input contact-select">
                 <option value="">Prefer not to say</option>
                 <option>Under $5,000</option>
                 <option>$5,000 – $15,000</option>
@@ -102,98 +106,93 @@ const HTML = `
               </select>
             </div>
 
-            <div class="form-group">
-              <label class="form-label" for="message">Your Message <span style="color:var(--danger)">*</span></label>
-              <textarea id="message" name="message" class="form-control" rows="5" placeholder="Please describe your requirements, challenges, or questions..." required></textarea>
+            <div class="contact-field">
+              <label class="contact-label" for="message">Your Message <span class="contact-req" aria-hidden="true">*</span></label>
+              <textarea id="message" name="message" class="contact-input contact-textarea" rows="5" placeholder="Please describe your requirements, challenges, or questions..." required></textarea>
             </div>
 
-            <button type="submit" class="btn btn-gold btn-lg" style="width:100%;justify-content:center;">
-              <i class="fas fa-paper-plane"></i> Send Message
+            <button type="submit" class="btn btn-gold btn-lg contact-submit">
+              <i class="fas fa-paper-plane" aria-hidden="true"></i> Send Message
             </button>
 
-            <div class="form-status" role="alert" aria-live="polite"></div>
+            <p class="contact-form__assure"><i class="fas fa-lock" aria-hidden="true"></i> Your details stay private. No spam, ever — you'll hear from Ansar directly.</p>
+
+            <div class="form-status contact-status" role="alert" aria-live="polite"></div>
           </form>
         </div>
 
-        <!-- Contact Info -->
-        <div class="reveal reveal--right">
-          <h2 style="margin-bottom:8px;">Get in Touch Directly</h2>
-          <p style="margin-bottom:32px;">Prefer a more direct approach? Use any of the channels below. Ansar responds to all enquiries personally.</p>
+        <!-- ============ WAYS TO REACH (right) ============ -->
+        <aside class="contact-side" aria-label="Other ways to reach Ansar">
 
-          <div class="contact-info-item">
-            <div class="contact-info-icon"><i class="fas fa-envelope"></i></div>
-            <div>
-              <div class="contact-info-item__label">Primary Email</div>
-              <div class="contact-info-item__value"><a href="mailto:info@ansarmahmood.org">info@ansarmahmood.org</a></div>
+          <div class="contact-side__head">
+            <h2 class="contact-side__title">Other ways to reach me</h2>
+            <p class="contact-side__lead">Prefer something more direct? Pick whichever channel suits you — every message reaches me personally.</p>
+          </div>
+
+          <a class="contact-card" href="mailto:info@ansarmahmood.org">
+            <span class="contact-card__icon"><i class="fas fa-envelope" aria-hidden="true"></i></span>
+            <span class="contact-card__body">
+              <span class="contact-card__label">Email</span>
+              <span class="contact-card__value">info@ansarmahmood.org</span>
+            </span>
+            <i class="fas fa-arrow-right contact-card__go" aria-hidden="true"></i>
+          </a>
+
+          <a class="contact-card contact-card--accent" href="https://wa.me/966534852341?text=Hello%20Ansar%2C%20I%27d%20like%20to%20discuss%20a%20project" target="_blank" rel="noopener">
+            <span class="contact-card__icon"><i class="fab fa-whatsapp" aria-hidden="true"></i></span>
+            <span class="contact-card__body">
+              <span class="contact-card__label">WhatsApp / Phone</span>
+              <span class="contact-card__value">+966 53 485 2341 — fastest for urgent matters</span>
+            </span>
+            <i class="fas fa-arrow-right contact-card__go" aria-hidden="true"></i>
+          </a>
+
+          <a class="contact-card" href="book-consultation.html">
+            <span class="contact-card__icon"><i class="fas fa-calendar-check" aria-hidden="true"></i></span>
+            <span class="contact-card__body">
+              <span class="contact-card__label">Book a 30-min call</span>
+              <span class="contact-card__value">Free, no-obligation — straight into my calendar</span>
+            </span>
+            <i class="fas fa-arrow-right contact-card__go" aria-hidden="true"></i>
+          </a>
+
+          <a class="contact-card" href="https://www.linkedin.com/in/ansar-mahmood" target="_blank" rel="noopener">
+            <span class="contact-card__icon"><i class="fab fa-linkedin-in" aria-hidden="true"></i></span>
+            <span class="contact-card__body">
+              <span class="contact-card__label">LinkedIn</span>
+              <span class="contact-card__value">Connect &amp; message on LinkedIn</span>
+            </span>
+            <i class="fas fa-arrow-right contact-card__go" aria-hidden="true"></i>
+          </a>
+
+          <div class="contact-meta">
+            <div class="contact-meta__item">
+              <i class="fas fa-location-dot" aria-hidden="true"></i>
+              <div><b>Based across KSA &amp; Pakistan</b><span>Available globally — remote &amp; on-site worldwide</span></div>
+            </div>
+            <div class="contact-meta__item">
+              <i class="fas fa-clock" aria-hidden="true"></i>
+              <div><b>Response within 1 business day</b><span>A personal reply from Ansar — never an autoresponder</span></div>
             </div>
           </div>
 
-          <div class="contact-info-item">
-            <div class="contact-info-icon contact-info-icon--gold"><i class="fas fa-envelope-open"></i></div>
-            <div>
-              <div class="contact-info-item__label">Personal Email</div>
-              <div class="contact-info-item__value"><a href="mailto:mransarmahmood@gmail.com">mransarmahmood@gmail.com</a></div>
-            </div>
+          <div class="contact-steps">
+            <h3 class="contact-steps__title">What happens next</h3>
+            <ol class="contact-steps__list">
+              <li><span class="contact-steps__n">1</span><span>I read your message personally and reply within a business day.</span></li>
+              <li><span class="contact-steps__n">2</span><span>We schedule a short call to understand your goals — no obligation.</span></li>
+              <li><span class="contact-steps__n">3</span><span>You get a clear, practical proposal and next steps.</span></li>
+            </ol>
           </div>
+        </aside>
+      </div>
 
-          <div class="contact-info-item">
-            <div class="contact-info-icon contact-info-icon--gold"><i class="fab fa-whatsapp"></i></div>
-            <div>
-              <div class="contact-info-item__label">WhatsApp</div>
-              <div class="contact-info-item__value"><a href="https://wa.me/966534852341?text=Hello%20Ansar%2C%20I%27d%20like%20to%20discuss%20a%20project">Chat on WhatsApp</a></div>
-            </div>
-          </div>
-
-          <div class="contact-info-item">
-            <div class="contact-info-icon"><i class="fas fa-phone"></i></div>
-            <div>
-              <div class="contact-info-item__label">Phone (Pakistan)</div>
-              <div class="contact-info-item__value"><a href="tel:">+92 333 928 4928</a></div>
-            </div>
-          </div>
-
-          <div class="contact-info-item">
-            <div class="contact-info-icon"><i class="fas fa-phone-alt"></i></div>
-            <div>
-              <div class="contact-info-item__label">Phone (Saudi Arabia)</div>
-              <div class="contact-info-item__value"><a href="tel:">+966 53 485 2341</a></div>
-            </div>
-          </div>
-
-          <div class="contact-info-item">
-            <div class="contact-info-icon contact-info-icon--gold"><i class="fab fa-linkedin-in"></i></div>
-            <div>
-              <div class="contact-info-item__label">LinkedIn</div>
-              <div class="contact-info-item__value"><a href="https://www.linkedin.com/in/ansar-mahmood" target="_blank" rel="noopener">LinkedIn Profile</a></div>
-            </div>
-          </div>
-
-          <div class="contact-info-item">
-            <div class="contact-info-icon"><i class="fas fa-globe"></i></div>
-            <div>
-              <div class="contact-info-item__label">Availability</div>
-              <div class="contact-info-item__value">Available Globally — Remote &amp; On-site Worldwide</div>
-            </div>
-          </div>
-
-          <!-- Response Promise -->
-          <div class="alert alert-gold" style="margin-top:32px;">
-            <i class="fas fa-clock"></i>
-            <div>
-              <strong>Response Commitment</strong><br>
-              <span style="font-size:.9rem;">All enquiries receive a personal response from Ansar within 24 business hours. For urgent matters, WhatsApp is the fastest channel.</span>
-            </div>
-          </div>
-
-          <!-- Quick CTA -->
-          <div style="background:var(--navy);border-radius:var(--radius);padding:28px;margin-top:28px;text-align:center;">
-            <h4 style="color:var(--white);margin-bottom:10px;">Prefer to Just Talk?</h4>
-            <p style="color:rgba(255,255,255,.65);font-size:.9rem;margin-bottom:20px;">Book a free 30-minute call directly in Ansar's calendar — no forms, no gatekeepers.</p>
-            <a href="book-consultation.html" class="btn btn-gold" style="width:100%;justify-content:center;">
-              <i class="fas fa-calendar-check"></i> Book a Free Call
-            </a>
-          </div>
-        </div>
+      <!-- ============ Trust / reassurance strip ============ -->
+      <div class="contact-trust">
+        <div class="contact-trust__item"><i class="fas fa-user-shield" aria-hidden="true"></i><b>You talk to Ansar directly</b><span>Not a sales team or a gatekeeper.</span></div>
+        <div class="contact-trust__item"><i class="fas fa-shield-halved" aria-hidden="true"></i><b>Confidential by default</b><span>Your information is never shared or sold.</span></div>
+        <div class="contact-trust__item"><i class="fas fa-ban" aria-hidden="true"></i><b>No spam, no pressure</b><span>One thoughtful reply — that's it.</span></div>
+        <div class="contact-trust__item"><i class="fas fa-earth-americas" aria-hidden="true"></i><b>Global delivery</b><span>Trusted on giga-projects across 10+ countries.</span></div>
       </div>
     </div>
   </section>
@@ -202,7 +201,7 @@ const HTML = `
 
 export default function Contact() {
   useEffect(() => {
-    document.title = "Contact Ansar Mahmood | HSE Consulting Enquiries";
+    document.title = "Contact Ansar Mahmood | HSE Consulting, Training & Digital Solutions";
   }, []);
   return <PageHtml html={HTML} />;
 }

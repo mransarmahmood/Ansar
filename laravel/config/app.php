@@ -54,6 +54,9 @@ return [
 
     'url' => env('APP_URL', 'http://localhost'),
 
+    // Public site (React SPA) URL — used for post-verification redirects, etc.
+    'frontend_url' => env('FRONTEND_URL', 'http://localhost/Ansar'),
+
     /*
     |--------------------------------------------------------------------------
     | Application Timezone

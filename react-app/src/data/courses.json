@@ -21,7 +21,7 @@
     "seats_total": 15,
     "seats_available": 4,
     "description": "Ideal for managers and supervisors who need practical safety knowledge. Covers risk assessment, incident investigation, and legal responsibilities in a highly interactive format.",
-    "badge_color": "#16A34A",
+    "badge_color": "#2456C7",
     "order": 10,
     "published": true
   },
@@ -47,7 +47,7 @@
     "seats_total": 25,
     "seats_available": 18,
     "description": "A one-day introduction to safety for anyone, in any sector. Builds essential awareness of hazards, risks, and personal responsibility for safety in the workplace.",
-    "badge_color": "#16A34A",
+    "badge_color": "#2456C7",
     "order": 11,
     "published": true
   },
@@ -73,7 +73,7 @@
     "seats_total": 30,
     "seats_available": 21,
     "description": "The widely-requested OSHA 30 card for supervisors and workers. In-depth coverage of hazard recognition, avoidance, and OSHA standards across general industry workplaces.",
-    "badge_color": "#16A34A",
+    "badge_color": "#2456C7",
     "order": 12,
     "published": true
   },
@@ -99,7 +99,7 @@
     "seats_total": 20,
     "seats_available": 14,
     "description": "Hands-on first aid training equipping designated workplace first-aiders to assess and respond to emergencies confidently and in line with regulations.",
-    "badge_color": "#16A34A",
+    "badge_color": "#2456C7",
     "order": 13,
     "published": true
   },
@@ -125,7 +125,7 @@
     "seats_total": 20,
     "seats_available": 16,
     "description": "Practical fire-safety awareness covering fire prevention, the chemistry of fire, evacuation procedures, and the role of the workplace fire marshal.",
-    "badge_color": "#16A34A",
+    "badge_color": "#2456C7",
     "order": 14,
     "published": true
   },
@@ -151,7 +151,7 @@
     "seats_total": 25,
     "seats_available": 20,
     "description": "Learn the five-step risk-assessment process: identifying hazards, evaluating risk, applying controls, recording findings, and reviewing — the backbone of every safety system.",
-    "badge_color": "#16A34A",
+    "badge_color": "#2456C7",
     "order": 15,
     "published": true
   },
@@ -177,7 +177,7 @@
     "seats_total": 20,
     "seats_available": 15,
     "description": "Emergency first aid with a strong focus on cardiopulmonary resuscitation (CPR) — giving responders the skills to act decisively in the critical first minutes.",
-    "badge_color": "#16A34A",
+    "badge_color": "#2456C7",
     "order": 16,
     "published": true
   },
@@ -203,7 +203,7 @@
     "seats_total": 20,
     "seats_available": 17,
     "description": "Basic Life Support and Automated External Defibrillator training — certifying responders to manage cardiac emergencies and operate an AED safely and effectively.",
-    "badge_color": "#16A34A",
+    "badge_color": "#2456C7",
     "order": 17,
     "published": true
   },
@@ -229,7 +229,7 @@
     "seats_total": 18,
     "seats_available": 12,
     "description": "An Ofqual-regulated stepping-stone qualification in Occupational Safety & Health — building solid foundations in workplace risk and a recognised pathway toward diploma-level study.",
-    "badge_color": "#D97706",
+    "badge_color": "#1E8A3C",
     "order": 20,
     "published": true
   },
@@ -255,7 +255,7 @@
     "seats_total": 20,
     "seats_available": 13,
     "description": "Control of Substances Hazardous to Health — assessing exposure to chemical and biological agents, selecting controls, and meeting COSHH regulatory duties.",
-    "badge_color": "#D97706",
+    "badge_color": "#1E8A3C",
     "order": 21,
     "published": true
   },
@@ -281,7 +281,7 @@
     "seats_total": 20,
     "seats_available": 12,
     "description": "Practical AI literacy for safety professionals — no coding required. Use AI tools for incident analysis, document review, risk assessment, and safety reporting, with a hands-on workshop on real AI platforms.",
-    "badge_color": "#7C3AED",
+    "badge_color": "#1E8A3C",
     "order": 22,
     "published": true
   },
@@ -307,7 +307,7 @@
     "seats_total": 15,
     "seats_available": 10,
     "description": "Build professional HSE dashboards in Microsoft Power BI from scratch — data modelling, DAX measures, KPI visuals, incident tracking, and executive reporting. No prior Power BI experience required.",
-    "badge_color": "#7C3AED",
+    "badge_color": "#1E8A3C",
     "order": 23,
     "published": true
   },
@@ -333,7 +333,7 @@
     "seats_total": 15,
     "seats_available": 11,
     "description": "Equips participants to plan and conduct internal audits of an ISO 45001 OH&S Management System — audit principles, checklist development, non-conformance reporting, and corrective-action follow-up.",
-    "badge_color": "#D97706",
+    "badge_color": "#1E8A3C",
     "order": 24,
     "published": true
   },
@@ -359,7 +359,7 @@
     "seats_total": 12,
     "seats_available": 8,
     "description": "Become a certified ISO 45001 Lead Auditor. Covers the full audit lifecycle — planning, executing, reporting, and follow-up — aligned with ISO 19011 guidelines.",
-    "badge_color": "#1E6FD9",
+    "badge_color": "#15265E",
     "order": 31,
     "published": true
   },
@@ -385,7 +385,7 @@
     "seats_total": 12,
     "seats_available": 9,
     "description": "A degree-equivalent, Ofqual-regulated diploma for senior safety practitioners — recognised toward Graduate IOSH (GradIOSH) membership and chartered pathways.",
-    "badge_color": "#131235",
+    "badge_color": "#15265E",
     "order": 34,
     "published": true
   },
@@ -411,7 +411,7 @@
     "seats_total": 10,
     "seats_available": 7,
     "description": "A competence-based, work-based diploma proving real safety capability on the job — a direct route to Graduate IOSH membership without a written exam.",
-    "badge_color": "#131235",
+    "badge_color": "#15265E",
     "order": 35,
     "published": true
   },
@@ -437,7 +437,7 @@
     "seats_total": 12,
     "seats_available": 8,
     "description": "Structured, domain-by-domain coaching for the BCSP Associate Safety Professional exam — with mock exams and full blueprint coverage. 97%+ first-attempt pass rate.",
-    "badge_color": "#1E6FD9",
+    "badge_color": "#15265E",
     "order": 36,
     "published": true
   },
@@ -463,7 +463,7 @@
     "seats_total": 12,
     "seats_available": 6,
     "description": "The gold-standard BCSP credential. Intensive coaching across all CSP domains with practice exams, study planning, and post-exam mentoring until you pass.",
-    "badge_color": "#1E6FD9",
+    "badge_color": "#15265E",
     "order": 37,
     "published": true
   },
@@ -489,7 +489,7 @@
     "seats_total": 12,
     "seats_available": 9,
     "description": "Specialist preparation for the NFPA Certified Fire Protection Specialist exam — fire science, hazard identification, protection systems, and life-safety code application.",
-    "badge_color": "#1E6FD9",
+    "badge_color": "#15265E",
     "order": 38,
     "published": true
   },
@@ -515,7 +515,7 @@
     "seats_total": 18,
     "seats_available": 12,
     "description": "PMI-aligned coaching covering the full PMP exam content outline — predictive, agile, and hybrid delivery — including the 35 contact hours required to sit the exam.",
-    "badge_color": "#131235",
+    "badge_color": "#15265E",
     "order": 39,
     "published": true
   },
@@ -541,7 +541,7 @@
     "seats_total": 16,
     "seats_available": 12,
     "description": "NFPA 70E electrical-safety standard for qualified workers and supervisors — arc-flash and shock risk assessment, boundaries, PPE category selection, energized-work permits, and lockout/tagout.",
-    "badge_color": "#D97706",
+    "badge_color": "#1E8A3C",
     "order": 25,
     "published": true
   },
@@ -567,7 +567,7 @@
     "seats_total": 16,
     "seats_available": 13,
     "description": "Building an electrical preventive-maintenance program to NFPA 70B — condition-based maintenance, inspection intervals, testing, and reliability practices that reduce failures and electrical incidents.",
-    "badge_color": "#D97706",
+    "badge_color": "#1E8A3C",
     "order": 26,
     "published": true
   },
@@ -593,7 +593,7 @@
     "seats_total": 16,
     "seats_available": 11,
     "description": "Inspection, Testing & Maintenance of water-based fire-protection systems to NFPA 25 — sprinklers, standpipes, pumps, and valves — covering frequencies, acceptance criteria, and deficiency reporting.",
-    "badge_color": "#D97706",
+    "badge_color": "#1E8A3C",
     "order": 27,
     "published": true
   },
@@ -619,7 +619,7 @@
     "seats_total": 18,
     "seats_available": 14,
     "description": "DMAIC process-improvement methodology for safety, quality, and operations — define, measure, analyse, improve, control — with statistical tools, a live project, and Green Belt certification.",
-    "badge_color": "#D97706",
+    "badge_color": "#1E8A3C",
     "order": 28,
     "published": true
   },
@@ -645,7 +645,7 @@
     "seats_total": 12,
     "seats_available": 8,
     "description": "Lead-auditor training for ISO 9001 Quality Management Systems — the full audit lifecycle to ISO 19011, audit planning, evidence gathering, non-conformity grading, and reporting.",
-    "badge_color": "#1E6FD9",
+    "badge_color": "#15265E",
     "order": 40,
     "published": true
   },
@@ -671,7 +671,7 @@
     "seats_total": 12,
     "seats_available": 9,
     "description": "Lead-auditor training for ISO 14001 Environmental Management Systems — auditing environmental aspects and impacts, legal compliance, lifecycle thinking, and continual improvement.",
-    "badge_color": "#1E6FD9",
+    "badge_color": "#15265E",
     "order": 41,
     "published": true
   },
@@ -697,7 +697,7 @@
     "seats_total": 12,
     "seats_available": 10,
     "description": "Lead-auditor training for ISO 27001 Information Security Management Systems — auditing Annex A controls, risk treatment, statement of applicability, and the ISMS against ISO 19011.",
-    "badge_color": "#1E6FD9",
+    "badge_color": "#15265E",
     "order": 42,
     "published": true
   },
@@ -723,7 +723,7 @@
     "seats_total": 8,
     "seats_available": 6,
     "description": "A master's-level, Ofqual-regulated qualification for senior HSE leaders — strategic risk governance, safety culture, and board-level leadership. The top tier of the work-based OHS pathway.",
-    "badge_color": "#131235",
+    "badge_color": "#15265E",
     "order": 43,
     "published": true
   }

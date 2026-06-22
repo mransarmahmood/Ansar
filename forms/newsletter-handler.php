@@ -52,7 +52,7 @@ if ($fp) {
 // ── Notify owner ─────────────────────────────────────────────
 $notifyHeaders  = "From: noreply@ansarmahmood.com\r\n";
 $notifyHeaders .= "Content-Type: text/plain; charset=UTF-8\r\n";
-mail(RECIPIENT_EMAIL, "New newsletter subscriber: {$email}", "Email: {$email}\nSource: {$source}\nTime: " . date('Y-m-d H:i:s T'), $notifyHeaders);
+@mail(RECIPIENT_EMAIL, "New newsletter subscriber: {$email}", "Email: {$email}\nSource: {$source}\nTime: " . date('Y-m-d H:i:s T'), $notifyHeaders);
 
 // ── Welcome email ────────────────────────────────────────────
 $welcome  = "Welcome to the Ansar Mahmood HSE Insights newsletter!\n\n";
@@ -66,6 +66,6 @@ $welcomeHeaders  = "From: Ansar Mahmood <" . RECIPIENT_EMAIL . ">\r\n";
 $welcomeHeaders .= "Reply-To: " . RECIPIENT_EMAIL . "\r\n";
 $welcomeHeaders .= "Content-Type: text/plain; charset=UTF-8\r\n";
 
-mail($email, 'Welcome to Ansar Mahmood HSE Insights', $welcome, $welcomeHeaders);
+@mail($email, 'Welcome to Ansar Mahmood HSE Insights', $welcome, $welcomeHeaders);
 
 echo json_encode(['success' => true, 'message' => 'Subscribed successfully.']);

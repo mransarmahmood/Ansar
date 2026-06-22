@@ -12,6 +12,7 @@ export default defineConfig(({ command }) => {
     server: {
       port: 5173,
       proxy: {
+        '/ansar-api':     { target: 'http://localhost', changeOrigin: true },
         '/Ansar/forms':   { target: 'http://localhost', changeOrigin: true },
         '/Ansar/data':    { target: 'http://localhost', changeOrigin: true },
         '/Ansar/exam-login.php':    { target: 'http://localhost', changeOrigin: true },

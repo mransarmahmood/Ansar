@@ -2,6 +2,7 @@
 import { useEffect } from 'react';
 import PageHtml from '../components/PageHtml';
 import ServiceEnhancements from '../components/ServiceEnhancements';
+import PageBanner from '../components/PageBanner';
 import { splitAtCtaBanner } from '../utils/splitHtml';
 
 const HTML = `
@@ -195,7 +196,8 @@ export default function CorporateSolutions() {
   const [pre, ctaPart] = splitAtCtaBanner(HTML);
   return (
     <>
-      <PageHtml html={pre} />
+      <PageBanner route="corporate-solutions" icon="fa-building" />
+      <PageHtml html={pre.slice(pre.indexOf('</section>') + 10)} />
       <ServiceEnhancements investment={INVESTMENT} comparison={COMPARISON} ctaLabel="Discuss enterprise partnership" />
       {ctaPart && <PageHtml html={ctaPart} />}
     </>

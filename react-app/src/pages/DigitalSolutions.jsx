@@ -2,6 +2,7 @@
 import { useEffect } from 'react';
 import PageHtml from '../components/PageHtml';
 import ServiceEnhancements from '../components/ServiceEnhancements';
+import PageBanner from '../components/PageBanner';
 import { splitAtCtaBanner } from '../utils/splitHtml';
 
 const HTML = `
@@ -144,7 +145,8 @@ export default function DigitalSolutions() {
   const [pre, ctaPart] = splitAtCtaBanner(HTML);
   return (
     <>
-      <PageHtml html={pre} />
+      <PageBanner route="digital-solutions" icon="fa-laptop-code" />
+      <PageHtml html={pre.slice(pre.indexOf('</section>') + 10)} />
       <ServiceEnhancements investment={INVESTMENT} ctaLabel="Free digital-readiness audit" />
       {ctaPart && <PageHtml html={ctaPart} />}
     </>

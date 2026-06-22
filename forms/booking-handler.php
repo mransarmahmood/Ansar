@@ -77,7 +77,7 @@ $headers .= "Cc: " . RECIPIENT_CC . "\r\n";
 $headers .= "MIME-Version: 1.0\r\n";
 $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
 
-$sent = mail(RECIPIENT_EMAIL, "[Booking Request] {$name} — {$service}", $body, $headers);
+$sent = @mail(RECIPIENT_EMAIL, "[Booking Request] {$name} — {$service}", $body, $headers);
 
 if ($sent) {
     $autoBody  = "Dear {$name},\n\n";
@@ -94,10 +94,12 @@ if ($sent) {
     $autoHeaders .= "Reply-To: " . RECIPIENT_EMAIL . "\r\n";
     $autoHeaders .= "Content-Type: text/plain; charset=UTF-8\r\n";
 
-    mail($email, 'Booking Confirmed — Ansar Mahmood', $autoBody, $autoHeaders);
+    @mail($email, 'Booking Confirmed — Ansar Mahmood', $autoBody, $autoHeaders);
 }
 
+// Booking is already saved to CSV above — email is best-effort; don't fail
+// the user if outbound mail is unavailable.
 echo json_encode([
-    'success' => $sent,
-    'message' => $sent ? 'Booking request received.' : 'Failed to send. Please email us directly.'
+    'success' => true,
+    'message' => 'Thank you — your booking request has been received. We\'ll confirm shortly.'
 ]);

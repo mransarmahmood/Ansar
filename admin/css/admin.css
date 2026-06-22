@@ -8,16 +8,16 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --navy:       #0B1429;
-  --navy-mid:   #132046;
-  --navy-light: #1E2F63;
-  --teal:       #3B82F6;
-  --teal-dark:  #1D4ED8;
-  --teal-light: #7FA8F5;
-  --teal-xlight:#EFF5FF;
-  --gold:       #D4A63E;
-  --gold-light: #E6C878;
-  --gold-xlight:#FAF3DF;
+  --navy:       #0C1E3E;
+  --navy-mid:   #122A4F;
+  --navy-light: #1B3E72;
+  --teal:       #1C5BA8;
+  --teal-dark:  #154A8C;
+  --teal-light: #5B86C9;
+  --teal-xlight:#E8F0FA;
+  --gold:       #C49A3C;
+  --gold-light: #E2BC63;
+  --gold-xlight:#FBF4E2;
   --white:      #ffffff;
   --bg:         #F3F5FA;
   --surface:    #ffffff;
@@ -28,7 +28,7 @@
   --success:    #10B981;
   --warning:    #F59E0B;
   --danger:     #EF4444;
-  --info:       #3B82F6;
+  --info:       #1C5BA8;
   --radius:     12px;
   --radius-sm:  8px;
   --radius-lg:  18px;
@@ -38,8 +38,8 @@
   --sidebar-w:  260px;
   --header-h:   64px;
   --transition: all .22s cubic-bezier(.22,.61,.36,1);
-  --grad-navy:      linear-gradient(180deg, #0B1429 0%, #132046 100%);
-  --grad-sapphire:  linear-gradient(135deg, #3B82F6 0%, #1D4ED8 100%);
+  --grad-navy:      linear-gradient(180deg, #0C1E3E 0%, #122A4F 100%);
+  --grad-sapphire:  linear-gradient(135deg, #1C5BA8 0%, #154A8C 100%);
 }
 
 html, body {
@@ -512,7 +512,7 @@ tbody tr:hover td { background: #FAFBFE; }
 .form-control:focus {
   outline: none;
   border-color: var(--teal);
-  box-shadow: 0 0 0 3px rgba(8,145,178,.1);
+  box-shadow: 0 0 0 3px rgba(28,91,168,.1);
 }
 
 textarea.form-control { resize: vertical; min-height: 100px; }
@@ -600,8 +600,8 @@ textarea.form-control { resize: vertical; min-height: 100px; }
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse 60% 50% at 30% 50%, rgba(8,145,178,.15) 0%, transparent 60%),
-    radial-gradient(ellipse 40% 60% at 80% 30%, rgba(184,126,24,.08) 0%, transparent 50%);
+    radial-gradient(ellipse 60% 50% at 30% 50%, rgba(28,91,168,.15) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 60% at 80% 30%, rgba(196,154,60,.08) 0%, transparent 50%);
 }
 
 .login-box {

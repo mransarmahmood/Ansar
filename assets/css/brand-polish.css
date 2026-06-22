@@ -1,0 +1,144 @@
+/* =================================================================
+   brand-polish.css — ADDITIVE GLOBAL POLISH + ACCESSIBILITY LAYER
+   -----------------------------------------------------------------
+   Loaded LAST in index.html. This file ONLY adds finishing polish:
+   focus-visible rings, ::selection colours, smooth scrolling,
+   refined hover micro-interactions and shadows. It NEVER changes
+   layout (no display / grid / flex / size / position / font-family).
+   Design tokens (from style.css :root):
+     --navy #15265E · --gold #1E8A3C (green) · --blue #2456C7 · --text
+   Forbidden/fine-tuned classes are intentionally NOT targeted here.
+   ================================================================= */
+
+/* ── Document-level rendering polish ────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+}
+body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+img {
+  image-rendering: auto;
+}
+
+/* ── Text selection ─────────────────────────────────────────────── */
+::selection {
+  background: var(--navy, #15265E);
+  color: #ffffff;
+}
+::-moz-selection {
+  background: var(--navy, #15265E);
+  color: #ffffff;
+}
+
+/* ── Accessibility: visible keyboard focus (site-wide) ──────────────
+   Green ring + offset. !important kept ONLY here so the focus ring is
+   never suppressed by component-level outline:none resets. */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible,
+summary:focus-visible {
+  outline: 2px solid var(--gold, #1E8A3C) !important;
+  outline-offset: 2px !important;
+  border-radius: 4px;
+}
+
+/* ── Buttons: smooth transition + subtle hover lift ─────────────────
+   Only background / box-shadow / transform are touched (no sizing). */
+.btn {
+  transition: background-color .2s ease, color .2s ease,
+              box-shadow .2s ease, transform .2s ease;
+}
+@media (hover: hover) {
+  .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(21, 38, 94, .18);
+  }
+}
+.btn:active {
+  transform: translateY(0);
+}
+
+/* ── Generic cards: consistent hover lift + shadow ──────────────────
+   Additive only — these already have their own base styles. */
+.feature-card,
+.industry-card,
+.resource-card {
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+@media (hover: hover) {
+  .feature-card:hover,
+  .industry-card:hover,
+  .resource-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 34px rgba(21, 38, 94, .12);
+  }
+}
+
+/* ── Page hero: very subtle depth via low-opacity overlay ───────────
+   Pseudo-element does not affect flow (absolute, behind content). */
+.page-hero {
+  position: relative;
+}
+.page-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(120% 90% at 50% 0%,
+              rgba(36, 86, 199, .06) 0%, transparent 60%);
+  z-index: 0;
+}
+/* Lift real content above the ::after overlay — but NOT the decorative
+   absolute children (icon watermark / pattern), which must stay absolute. */
+.page-hero > *:not(.page-hero__icon-bg):not(.page-hero__pattern) {
+  position: relative;
+  z-index: 1;
+}
+.page-hero__icon-bg,
+.page-hero__pattern { position: absolute !important; }
+
+/* ── Eyebrow + section header: gentle link/anchor polish ────────────
+   Refine transitions only; colour values come from tokens already. */
+.section-header a,
+.eyebrow a {
+  transition: color .15s ease, opacity .15s ease;
+}
+
+/* ── Generic inline links: smooth colour transition ─────────────── */
+a {
+  transition: color .15s ease;
+}
+
+/* ── Form controls: smooth focus transition ─────────────────────── */
+input,
+select,
+textarea {
+  transition: border-color .15s ease, box-shadow .15s ease;
+}
+
+/* ── Respect reduced-motion: disable all motion polish ──────────── */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    transition-duration: .001ms !important;
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+  .btn:hover,
+  .feature-card:hover,
+  .industry-card:hover,
+  .resource-card:hover {
+    transform: none;
+  }
+}

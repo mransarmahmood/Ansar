@@ -1,6 +1,7 @@
 // Auto-generated from pages/free-tools.html. Edit freely — this file is the source of truth now.
 import { useEffect } from 'react';
 import PageHtml from '../components/PageHtml';
+import PageBanner from '../components/PageBanner';
 
 const HTML = `
 
@@ -10,15 +11,90 @@ const HTML = `
     <div class="container">
       <nav class="breadcrumb" aria-label="Breadcrumb"><a href="../index.html">Home</a><span class="breadcrumb__sep"><i class="fas fa-chevron-right"></i></span><span class="breadcrumb__current">Free Tools</span></nav>
       <div class="page-hero__content">
-        <span class="eyebrow eyebrow--white">100% Free Online</span>
-        <h1>HSE Tools & Calculators</h1>
-        <p>Practical, browser-based safety tools built for professionals. Calculate incident rates, assess risk, estimate noise exposure, generate checklists — no software or login required.</p>
+        <span class="eyebrow eyebrow--white">100% Free · No Login Required</span>
+        <h1>Free HSE Resources &amp; Tools</h1>
+        <p>Interview questions, exam guidelines, key topics, ready-to-use calculators and templates — a complete free library for HSE professionals and certification candidates.</p>
       </div>
     </div>
   </section>
 
-  <section class="section section-white">
+  <!-- ── Category Hub ─────────────────────────────────────────── -->
+  <section class="section section-gray ft-hub">
     <div class="container">
+      <div class="section-header reveal">
+        <span class="eyebrow eyebrow--center">Free Resource Library</span>
+        <h2>Everything you need — <em class="em">100% free.</em></h2>
+        <p>Pick a category below. No login, no cost — built to help you learn, prepare and pass.</p>
+      </div>
+
+      <div class="ft-cats">
+        <a class="ft-cat ft-cat--gold reveal" href="certification-coaching.html">
+          <span class="ft-cat__ic"><i class="fas fa-comments"></i></span>
+          <span class="ft-cat__tag">Career</span>
+          <h3>Free Interview Questions</h3>
+          <p>Real HSE &amp; safety-officer interview questions with model answers to help you walk in confident.</p>
+          <span class="ft-cat__link">Browse questions <i class="fas fa-arrow-right"></i></span>
+        </a>
+        <a class="ft-cat ft-cat--navy reveal" href="certification-coaching.html">
+          <span class="ft-cat__ic"><i class="fas fa-clipboard-list"></i></span>
+          <span class="ft-cat__tag">Certification</span>
+          <h3>Exam Guidelines</h3>
+          <p>Blueprints, pass marks, eligibility and study roadmaps for CSP, ASP, CRSP, PMP and more.</p>
+          <span class="ft-cat__link">View guidelines <i class="fas fa-arrow-right"></i></span>
+        </a>
+        <a class="ft-cat ft-cat--blue reveal" href="resources.html">
+          <span class="ft-cat__ic"><i class="fas fa-book-open"></i></span>
+          <span class="ft-cat__tag">Knowledge</span>
+          <h3>Important Topics</h3>
+          <p>Core HSE topics made simple — risk assessment, permits, ISO, incident investigation and more.</p>
+          <span class="ft-cat__link">Explore topics <i class="fas fa-arrow-right"></i></span>
+        </a>
+        <a class="ft-cat ft-cat--gold reveal" href="#tools">
+          <span class="ft-cat__ic"><i class="fas fa-calculator"></i></span>
+          <span class="ft-cat__tag">Interactive</span>
+          <h3>Tools &amp; Calculators</h3>
+          <p>LTIFR, TRIFR, 5×5 risk matrix, noise exposure and live checklists — calculate right in your browser.</p>
+          <span class="ft-cat__link">Open tools <i class="fas fa-arrow-right"></i></span>
+        </a>
+        <a class="ft-cat ft-cat--navy reveal" href="resources.html">
+          <span class="ft-cat__ic"><i class="fas fa-file-download"></i></span>
+          <span class="ft-cat__tag">Downloads</span>
+          <h3>Templates &amp; Downloads</h3>
+          <p>Ready-to-use checklists, RAMS, permits, registers and report templates for the field.</p>
+          <span class="ft-cat__link">Get templates <i class="fas fa-arrow-right"></i></span>
+        </a>
+        <a class="ft-cat ft-cat--blue reveal" href="books.html">
+          <span class="ft-cat__ic"><i class="fas fa-book-reader"></i></span>
+          <span class="ft-cat__tag">Study</span>
+          <h3>Study Guides &amp; Books</h3>
+          <p>Curated HSE books, study material and reading lists to build deep, lasting expertise.</p>
+          <span class="ft-cat__link">Browse books <i class="fas fa-arrow-right"></i></span>
+        </a>
+        <a class="ft-cat ft-cat--gold reveal" href="blog.html">
+          <span class="ft-cat__ic"><i class="fas fa-rss"></i></span>
+          <span class="ft-cat__tag">Insights</span>
+          <h3>Blog &amp; Insights</h3>
+          <p>Practical articles on HSE leadership, AI in safety, data analytics and career growth.</p>
+          <span class="ft-cat__link">Read articles <i class="fas fa-arrow-right"></i></span>
+        </a>
+        <a class="ft-cat ft-cat--navy reveal" href="faqs.html">
+          <span class="ft-cat__ic"><i class="fas fa-circle-question"></i></span>
+          <span class="ft-cat__tag">Help</span>
+          <h3>FAQs</h3>
+          <p>Quick answers to the most common HSE training, certification and career questions.</p>
+          <span class="ft-cat__link">See answers <i class="fas fa-arrow-right"></i></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-white" id="tools">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="eyebrow eyebrow--center">Interactive</span>
+        <h2>HSE Tools &amp; <em class="em">Calculators</em></h2>
+        <p>Practical, browser-based safety tools — calculate incident rates, assess risk, estimate noise exposure and run live checklists. No software or login required.</p>
+      </div>
 
       <!-- Filter Tabs -->
       <div class="tool-tabs">
@@ -300,5 +376,11 @@ export default function FreeTools() {
   useEffect(() => {
     document.title = "Free HSE Tools & Calculators — Risk, Incident Rate & Safety Metrics | Ansar Mahmood";
   }, []);
-  return <PageHtml html={HTML} />;
+  const heroEnd = HTML.indexOf('</section>') + 10;
+  return (
+    <>
+      <PageBanner route="free-tools" icon="fa-toolbox" />
+      <PageHtml html={HTML.slice(heroEnd)} />
+    </>
+  );
 }

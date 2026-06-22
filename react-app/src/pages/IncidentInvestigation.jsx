@@ -2,6 +2,7 @@
 import { useEffect } from 'react';
 import PageHtml from '../components/PageHtml';
 import ServiceEnhancements from '../components/ServiceEnhancements';
+import PageBanner from '../components/PageBanner';
 import { splitAtCtaBanner } from '../utils/splitHtml';
 
 const HTML = `
@@ -115,7 +116,8 @@ export default function IncidentInvestigation() {
   const [pre, ctaPart] = splitAtCtaBanner(HTML);
   return (
     <>
-      <PageHtml html={pre} />
+      <PageBanner route="incident-investigation" icon="fa-magnifying-glass" />
+      <PageHtml html={pre.slice(pre.indexOf('</section>') + 10)} />
       <ServiceEnhancements investment={INVESTMENT} ctaLabel="Request rapid-response deployment" />
       {ctaPart && <PageHtml html={ctaPart} />}
     </>

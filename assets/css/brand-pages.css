@@ -1,0 +1,354 @@
+/* ================================================================
+   ANSAR MAHMOOD — Brand Pages Layer  ("Navy + Gold" premium polish)
+   Loaded AFTER style.css / pages.css / certhero.css so these rules win.
+   Scope: site shell (header/footer), inner-page heroes, shared service
+   components, FAQ accordion, and inner-page sections.
+   Uses brand tokens only:
+     navy  var(--navy)/(--navy-mid)/(--navy-light)/(--navy-xlight)
+     blue  var(--blue)/(--blue-dark)
+     gold  var(--gold)/(--gold-dark)/(--gold-light)/(--gold-xlight)
+   Gold buttons keep DARK text (#ffffff) per brand convention.
+   ================================================================ */
+
+/* ── Gold button text guard ───────────────────────────────────── */
+.btn-gold,
+.btn.btn-gold {
+  color: #ffffff !important;
+}
+.btn-gold:hover { color: #ffffff !important; }
+
+/* ════════════════════════════════════════════════════════════════
+   1. SITE SHELL — trust pill bar + top bar (navy / gold)
+   ════════════════════════════════════════════════════════════════ */
+.trust-pill-bar {
+  background: linear-gradient(90deg, var(--navy), var(--navy-mid));
+  border-bottom: 1px solid rgba(30,138,60,.18);
+}
+.trust-pill-bar__item {
+  color: rgba(255,255,255,.78);
+}
+.trust-pill-bar__item i {
+  color: var(--gold-light);
+}
+
+.top-bar {
+  background: var(--navy);
+  border-bottom: 1px solid rgba(255,255,255,.06);
+}
+.top-bar a,
+.top-bar span { color: rgba(255,255,255,.75); }
+.top-bar a:hover { color: var(--gold-light); }
+.top-bar a i,
+.top-bar span i { color: var(--gold); }
+
+.top-bar__cta {
+  background: var(--gold);
+  color: #ffffff !important;
+  border-radius: var(--radius-full);
+  font-weight: 700;
+  transition: background .25s var(--ease-out), transform .25s var(--ease-out);
+}
+.top-bar__cta:hover {
+  background: var(--gold-light);
+  transform: translateY(-1px);
+}
+.top-bar__cta i { color: #ffffff !important; }
+
+/* ── Header nav hover / active (gold accent) ──────────────────── */
+.nav-link:hover { color: var(--gold) !important; }
+.has-light-hero .nav-link:hover { color: var(--gold-dark) !important; }
+
+/* gold underline grow on hover (keeps existing active underline) */
+.nav .nav-link { position: relative; }
+.nav > .nav-link::after,
+.nav .nav-item > .nav-link::after {
+  background: var(--gold);
+}
+
+/* ── Mega-menu cards (navy / gold) ────────────────────────────── */
+.dropdown--mega { border-top: 3px solid var(--gold); }
+.mega-col__heading {
+  color: var(--navy);
+  border-bottom: 1px solid var(--gold-xlight);
+}
+.mega-col a:hover {
+  color: var(--blue);
+  background: var(--navy-xlight);
+}
+.mega-col a:hover i { color: var(--gold-dark); }
+.mega-col a i { color: var(--blue); }
+
+.mega-cta-card {
+  background: linear-gradient(150deg, var(--navy), var(--navy-light));
+  border: 1px solid rgba(30,138,60,.25);
+}
+.mega-cta-card h5 { color: var(--white); }
+.mega-cta-card p { color: rgba(255,255,255,.72); }
+
+/* ── Logo wordmark fallback dot ───────────────────────────────── */
+.logo-text span { color: var(--gold); }
+
+/* ════════════════════════════════════════════════════════════════
+   2. FOOTER — navy bg, gold hovers + accent line
+   ════════════════════════════════════════════════════════════════ */
+.footer { background: var(--navy); }
+.footer__main {
+  position: relative;
+  background: linear-gradient(180deg, var(--navy), var(--navy-mid));
+}
+.footer__main::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold-dark), var(--gold), var(--gold-light));
+}
+.footer__logo span { color: var(--gold); }
+.footer__col h5 {
+  color: var(--white);
+  position: relative;
+  padding-bottom: 10px;
+}
+.footer__col h5::after {
+  content: '';
+  position: absolute;
+  left: 0; bottom: 0;
+  width: 28px; height: 2px;
+  background: var(--gold);
+  border-radius: 2px;
+}
+.footer__col ul a,
+.footer__col p { color: rgba(255,255,255,.62); }
+.footer__col ul a { transition: color .2s var(--ease-out), padding-left .2s var(--ease-out); }
+.footer__col ul a:hover {
+  color: var(--gold-light);
+  padding-left: 4px;
+}
+.footer__contact-item i { color: var(--gold); }
+.footer__contact-item a:hover { color: var(--gold-light); }
+
+.footer__social a {
+  width: 40px; height: 40px;
+  display: inline-flex; align-items: center; justify-content: center;
+  border-radius: 50%;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.1);
+  color: rgba(255,255,255,.7);
+  transition: all .25s var(--ease-out);
+}
+.footer__social a:hover {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.footer__cred-pill {
+  background: rgba(30,138,60,.08);
+  border: 1px solid rgba(30,138,60,.28);
+  color: var(--gold-light);
+  font-size: .74rem;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 100px;
+  white-space: nowrap;
+  letter-spacing: .05em;
+  transition: background .2s var(--ease-out), color .2s var(--ease-out);
+}
+.footer__cred-pill:hover {
+  background: var(--gold);
+  color: #ffffff;
+}
+
+.footer__bottom {
+  background: var(--navy);
+  border-top: 1px solid rgba(30,138,60,.15);
+}
+.footer__bottom p { color: rgba(255,255,255,.55); }
+.footer__legal a { color: rgba(255,255,255,.55); }
+.footer__legal a:hover { color: var(--gold-light); }
+
+/* ════════════════════════════════════════════════════════════════
+   3. PAGE HEROES — consistent premium navy + gold
+   ════════════════════════════════════════════════════════════════ */
+.page-hero,
+.page-hero--gradient {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 55%, var(--navy-light) 100%);
+}
+.page-hero::before {
+  background:
+    radial-gradient(ellipse 70% 60% at 82% 40%, rgba(36,86,199,.28) 0%, transparent 60%),
+    radial-gradient(ellipse 46% 34% at 8% 85%, rgba(30,138,60,.16) 0%, transparent 55%);
+}
+.page-hero__icon-bg { color: rgba(30,138,60,.05); }
+.page-hero__content h1 .em,
+.page-hero__content h1 em,
+.page-hero__content h1 .text-gold { color: var(--gold-light); font-style: normal; }
+.breadcrumb a:hover,
+.breadcrumb__current { color: var(--gold-light); }
+.page-hero-stat__num { color: var(--gold-light); }
+.page-hero-stat {
+  border-color: rgba(30,138,60,.2);
+}
+
+/* eyebrow on dark heroes (page-hero scope only; home agent owns global) */
+.page-hero .eyebrow,
+.page-hero .eyebrow--white { color: var(--gold-light); }
+
+/* ════════════════════════════════════════════════════════════════
+   4. SHARED SERVICE COMPONENTS — navy + gold refinements
+   ════════════════════════════════════════════════════════════════ */
+
+/* Investment card already navy/gold — deepen gold glow + entry chip */
+.investment-card::after {
+  background: radial-gradient(circle, rgba(30,138,60,.22), transparent 62%);
+}
+.investment-card__entry {
+  border-color: rgba(30,138,60,.45);
+  background: rgba(30,138,60,.1);
+  color: var(--gold-light);
+}
+
+/* Process steps — gold number ring on hover */
+.process-step__num {
+  background: var(--navy-xlight);
+  color: var(--navy);
+  border: 2px solid transparent;
+}
+.process-step:hover .process-step__num {
+  background: var(--navy);
+  color: var(--gold-light);
+  border-color: var(--gold);
+}
+.process-step__outcome { color: var(--blue-dark); }
+.process-steps::before {
+  background: linear-gradient(90deg, var(--navy-xlight), var(--gold-xlight), var(--navy-xlight));
+}
+
+/* Deliverables grid — gold check, navy heading */
+.deliverable-item {
+  border: 1px solid var(--gray-200);
+  transition: border-color .25s var(--ease-out), transform .25s var(--ease-out), box-shadow .25s var(--ease-out);
+}
+.deliverable-item:hover {
+  border-color: var(--gold);
+  box-shadow: var(--shadow-gold, 0 10px 30px -12px rgba(30,138,60,.35));
+}
+.deliverable-item__check {
+  background: var(--navy);
+  color: var(--gold-light);
+}
+.deliverable-item:hover .deliverable-item__check {
+  background: var(--gold);
+  color: var(--navy);
+}
+.deliverable-item__body h4 { color: var(--navy); }
+
+/* Fitness card — navy title, gold bullets */
+.fitness-card {
+  border: 1px solid var(--navy-xlight);
+  border-top: 3px solid var(--gold);
+}
+.fitness-card__title { color: var(--navy); }
+.fitness-card__list li::before { color: var(--gold-dark); }
+
+/* Comparison table — gold winner accents (most already navy/gold) */
+.compare-table thead th.compare-table__winner::after {
+  background: var(--gold);
+  color: var(--navy);
+}
+.compare-table tbody td.compare-table__winner { background: rgba(30,138,60,.07); }
+
+/* Risk reversal block */
+.risk-reversal {
+  border: 1px solid var(--navy-xlight);
+  border-left: 4px solid var(--gold);
+}
+.risk-reversal__icon {
+  background: linear-gradient(135deg, var(--navy), var(--navy-light));
+  color: var(--gold-light);
+}
+.risk-reversal__title { color: var(--navy); }
+
+/* ServiceEnhancements section eyebrow / accents */
+.enhance-grid .eyebrow,
+.section-header .eyebrow { color: var(--gold-dark); }
+.section-header .em,
+.section-header em { color: var(--gold-dark); font-style: normal; }
+
+/* ════════════════════════════════════════════════════════════════
+   5. FAQ ACCORDION — navy questions, gold expand markers
+   ════════════════════════════════════════════════════════════════ */
+.faq-item.open {
+  border-color: var(--gold);
+  box-shadow: 0 8px 24px -14px rgba(30,138,60,.4);
+}
+.faq-item.open .faq-question { background: var(--navy-xlight); }
+.faq-question__text { color: var(--navy); }
+.faq-item.open .faq-question__text { color: var(--navy); }
+.faq-icon {
+  background: var(--navy-xlight);
+  color: var(--navy);
+}
+.faq-question:hover .faq-icon {
+  background: var(--gold-xlight);
+  color: var(--gold-dark);
+}
+.faq-item.open .faq-icon {
+  background: var(--gold);
+  color: var(--navy);
+}
+
+/* ════════════════════════════════════════════════════════════════
+   6. INNER PAGE SECTIONS — generic-card → navy/gold consistency
+   (About / Contact / CourseCalendar / Books / Resources /
+    Testimonials / CaseStudies / Industries)
+   ════════════════════════════════════════════════════════════════ */
+
+/* Generic section eyebrow across inner pages */
+.section .eyebrow { color: var(--gold-dark); }
+
+/* Contact — form focus + WhatsApp/linked icon hover */
+.form-control:focus {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgba(36,86,199,.14);
+}
+.contact-info-item__value a:hover { color: var(--blue-dark); }
+
+/* About — quote + stat accents */
+.about-quote {
+  border-left: 4px solid var(--gold);
+  color: var(--navy);
+}
+.about-cred:hover { border-color: var(--gold); }
+
+/* Books — card hover gold border, level/stars gold */
+.book-card:hover { border-color: var(--gold); }
+.book-stars i,
+.book-card__cat { color: var(--gold-dark); }
+
+/* Resources cards — gold icon + hover border */
+.resource-card:hover { border-color: var(--gold); }
+
+/* Testimonials — gold quote mark + stars */
+.testimonial-card-full__quote::before { color: var(--gold); }
+.testimonial-card-full__stars i { color: var(--gold); }
+.testimonial-card-full:hover { border-color: var(--gold); }
+
+/* Industries — full-card variant accent (home agent owns .industry-card) */
+.industry-card-full__icon { color: var(--gold-dark); }
+.industry-card-full:hover { border-color: var(--gold); }
+
+/* Case studies — teaser metric numbers gold/blue */
+.case-metric__value { color: var(--gold-light); }
+.case-teaser__label { color: var(--gold-light); }
+
+/* ════════════════════════════════════════════════════════════════
+   7. MOTION SAFETY
+   ════════════════════════════════════════════════════════════════ */
+@media (prefers-reduced-motion: reduce) {
+  .top-bar__cta:hover,
+  .footer__social a:hover,
+  .footer__col ul a:hover,
+  .deliverable-item:hover { transform: none; }
+}

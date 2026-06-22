@@ -16,8 +16,8 @@
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse 70% 60% at 80% 50%, rgba(79,70,229,.22) 0%, transparent 60%),
-    radial-gradient(ellipse 40% 30% at 10% 80%, rgba(124,58,237,.12) 0%, transparent 50%);
+    radial-gradient(ellipse 70% 60% at 80% 50%, rgba(36,86,199,.22) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 30% at 10% 80%, rgba(30,138,60,.12) 0%, transparent 50%);
 }
 
 .page-hero__pattern {
@@ -993,7 +993,7 @@
 
 .alert-info {
   background: var(--blue-xlight);
-  border: 1px solid rgba(79,70,229,.2);
+  border: 1px solid rgba(36,86,199,.2);
   color: var(--blue-dark);
 }
 

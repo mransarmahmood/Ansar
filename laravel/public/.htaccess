@@ -5,6 +5,9 @@
 
     RewriteEngine On
 
+    # Served under the /ansar-api Apache alias
+    RewriteBase /ansar-api/
+
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .
     RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]

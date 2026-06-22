@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 64" fill="none" role="img" aria-label="Northgate Energy">
+  <g fill="#5C6B82">
+    <path d="M16 14 L30 14 L30 50 L24 50 L24 26 L22 50 L16 50 Z"/>
+    <path d="M30 14 L44 14 L44 50 L38 50 L38 38 L36 38 L36 50 L30 50 Z" opacity=".55"/>
+  </g>
+  <g fill="#5C6B82" font-family="'Playfair Display',Georgia,serif">
+    <text x="58" y="30" font-size="17" font-weight="700" letter-spacing="1">NORTHGATE</text>
+  </g>
+  <text x="58" y="46" fill="#5C6B82" font-family="Arial,Helvetica,sans-serif" font-size="9" letter-spacing="5" opacity=".75">ENERGY</text>
+</svg>

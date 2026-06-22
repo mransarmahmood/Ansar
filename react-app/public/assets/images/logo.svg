@@ -1,11 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 64" fill="none" role="img" aria-label="Ansar Mahmood">
-  <!-- AM monogram in ring (steel blue + cyan) -->
-  <circle cx="32" cy="32" r="28" fill="#ffffff" stroke="#4F46E5" stroke-width="4"/>
-  <text x="32" y="43.5" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="800" font-size="30" letter-spacing="-1.5"><tspan fill="#4F46E5">A</tspan><tspan fill="#22D3EE">M</tspan></text>
+  <!-- AM monogram in ring (navy + gold) -->
+  <circle cx="32" cy="32" r="28" fill="#ffffff" stroke="#0C1E3E" stroke-width="4"/>
+  <text x="32" y="43.5" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="800" font-size="30" letter-spacing="-1.5"><tspan fill="#0C1E3E">A</tspan><tspan fill="#C49A3C">M</tspan></text>
 
   <!-- Separator -->
   <line x1="74" y1="17" x2="74" y2="47" stroke="#C7CDD4" stroke-width="1.5" stroke-linecap="round"/>
 
-  <!-- Wordmark: ANSAR (blue) MAHMOOD (grey) -->
-  <text x="86" y="40" font-family="Arial, Helvetica, sans-serif" font-weight="800" font-size="23" letter-spacing="0.4"><tspan fill="#4F46E5">ANSAR </tspan><tspan fill="#6D6E71">MAHMOOD</tspan></text>
+  <!-- Wordmark: ANSAR (navy) MAHMOOD (grey) -->
+  <text x="86" y="40" font-family="Arial, Helvetica, sans-serif" font-weight="800" font-size="23" letter-spacing="0.4"><tspan fill="#0C1E3E">ANSAR </tspan><tspan fill="#6D6E71">MAHMOOD</tspan></text>
 </svg>

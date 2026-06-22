@@ -1,7 +1,9 @@
 // Auto-generated from pages/management-systems.html. Edit freely — this file is the source of truth now.
 import { useEffect } from 'react';
+import PageBanner from '../components/PageBanner';
 import PageHtml from '../components/PageHtml';
 import ServiceEnhancements from '../components/ServiceEnhancements';
+import ServicePoster from '../components/ServicePoster';
 import { splitAtCtaBanner } from '../utils/splitHtml';
 
 const HTML = `
@@ -113,7 +115,9 @@ export default function ManagementSystems() {
   const [pre, ctaPart] = splitAtCtaBanner(HTML);
   return (
     <>
-      <PageHtml html={pre} />
+      <PageBanner route="management-systems" icon="fa-sitemap" />
+      <ServicePoster src="assets/images/poster-management-systems.png" alt="Safety Management Systems by Ansar Mahmood" />
+      <PageHtml html={pre.slice(pre.indexOf('</section>') + 10)} />
       <ServiceEnhancements investment={INVESTMENT} comparison={COMPARISON} ctaLabel="ISO readiness conversation" />
       {ctaPart && <PageHtml html={ctaPart} />}
     </>

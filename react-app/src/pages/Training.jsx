@@ -1,7 +1,9 @@
 // Auto-generated from pages/training.html. Edit freely — this file is the source of truth now.
 import { useEffect } from 'react';
+import PageBanner from '../components/PageBanner';
 import PageHtml from '../components/PageHtml';
 import ServiceEnhancements from '../components/ServiceEnhancements';
+import ServicePoster from '../components/ServicePoster';
 import { splitAtCtaBanner } from '../utils/splitHtml';
 
 const HTML = `
@@ -181,7 +183,9 @@ export default function Training() {
   const [pre, ctaPart] = splitAtCtaBanner(HTML.replace('{%topics%}', TOPIC_CHIPS));
   return (
     <>
-      <PageHtml html={pre} />
+      <PageBanner route="training" icon="fa-graduation-cap" />
+      <ServicePoster src="assets/images/poster-training.png" alt="Training Services by Ansar Mahmood" />
+      <PageHtml html={pre.slice(pre.indexOf('</section>') + 10)} />
       <ServiceEnhancements investment={INVESTMENT} comparison={COMPARISON} ctaLabel="Free training-needs call" />
       {ctaPart && <PageHtml html={ctaPart} />}
     </>

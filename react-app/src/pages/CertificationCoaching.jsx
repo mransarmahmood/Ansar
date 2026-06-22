@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import servicePages from '../data/service-pages.json';
 import { asset } from '../utils/asset';
 import StickyMobileCTA from '../components/StickyMobileCTA';
+import PageBanner from '../components/PageBanner';
+import ServicePoster from '../components/ServicePoster';
 
 const PROGRAMS = [
   {
@@ -57,29 +59,9 @@ export default function CertificationCoaching() {
 
   return (
     <>
-      <section className="page-hero page-hero--gradient">
-        <div className="container">
-          <div className="breadcrumb">
-            <Link to="/">Home</Link>
-            <i className="fas fa-chevron-right"></i>
-            <Link to="/services">Services</Link>
-            <i className="fas fa-chevron-right"></i>
-            <span>Certification Coaching</span>
-          </div>
-          <span className="eyebrow eyebrow--white">{cms.hero_eyebrow || 'Professional Certification'}</span>
-          <h1>{cms.hero_headline || 'Pass Your Safety Certification — First Time, Every Time'}</h1>
-          <p>{cms.hero_description || "Expert 1:1 and group coaching for IOSH, ASP/CSP, CRSP, ISO Lead Auditor, PMP, and more. With Ansar's proven coaching methodology and 97%+ first-attempt pass rate, your certification success is the only acceptable outcome."}</p>
+      <PageBanner route="certification-coaching" icon="fa-award" />
 
-          <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap', marginTop: 28 }}>
-            <Link to="/book-consultation" className="btn btn-gold btn-lg">
-              <i className="fas fa-calendar-check"></i> {cms.hero_cta_primary?.text || 'Start Your Coaching'}
-            </Link>
-            <Link to="/course-calendar" className="btn btn-outline-white btn-lg">
-              <i className="fas fa-calendar-alt"></i> See Upcoming Dates
-            </Link>
-          </div>
-        </div>
-      </section>
+      <ServicePoster src="assets/images/poster-certification.png" alt="Certification Services by Ansar Mahmood" />
 
       <section className="stats-strip section-sm">
         <div className="container">

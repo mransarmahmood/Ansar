@@ -6,12 +6,24 @@
     "industry": "Oil & Gas · UAE",
     "category": "consulting",
     "icon": "fa-oil-can",
-    "icon_bg": "linear-gradient(135deg,var(--navy),var(--navy-mid))",
+    "icon_bg": "linear-gradient(135deg,#0C1E3E,#122A4F)",
     "description": "A major offshore operator was experiencing a rising TRIFR and repeated regulatory notices. Deployed full HSE consulting engagement: cultural assessment, revised safety management system, leadership coaching, and contractor management overhaul.",
     "metrics": [
-      { "value": "67%", "label": "TRIFR Reduction", "color": "var(--gold)" },
-      { "value": "18mo", "label": "LTI-Free Period", "color": "var(--blue)" },
-      { "value": "0", "label": "Regulatory Notices", "color": "var(--navy)" }
+      {
+        "value": "67%",
+        "label": "TRIFR Reduction",
+        "color": "var(--gold)"
+      },
+      {
+        "value": "18mo",
+        "label": "LTI-Free Period",
+        "color": "var(--blue)"
+      },
+      {
+        "value": "0",
+        "label": "Regulatory Notices",
+        "color": "var(--navy)"
+      }
     ],
     "tag": "HSE Consulting",
     "order": 1,
@@ -24,12 +36,24 @@
     "industry": "Manufacturing · Saudi Arabia",
     "category": "systems",
     "icon": "fa-certificate",
-    "icon_bg": "linear-gradient(135deg,#0F4C3A,#1A6B50)",
+    "icon_bg": "linear-gradient(135deg,#1C5BA8,#154A8C)",
     "description": "A 600-person manufacturing facility needed ISO 45001, ISO 14001, and ISO 9001 certification to secure a major client contract. Started from no formal management system. Delivered full IMS implementation, documentation, gap analysis, internal audits, and Stage 2 certification — zero non-conformances.",
     "metrics": [
-      { "value": "3", "label": "ISO Standards", "color": "var(--gold)" },
-      { "value": "11mo", "label": "To Certification", "color": "var(--blue)" },
-      { "value": "0", "label": "Non-Conformances", "color": "#16A34A" }
+      {
+        "value": "3",
+        "label": "ISO Standards",
+        "color": "var(--gold)"
+      },
+      {
+        "value": "11mo",
+        "label": "To Certification",
+        "color": "var(--blue)"
+      },
+      {
+        "value": "0",
+        "label": "Non-Conformances",
+        "color": "#C49A3C"
+      }
     ],
     "tag": "ISO Implementation",
     "order": 2,
@@ -42,12 +66,24 @@
     "industry": "Construction · Multiple Sites",
     "category": "training",
     "icon": "fa-graduation-cap",
-    "icon_bg": "linear-gradient(135deg,#1A0E3A,#3D1A7A)",
+    "icon_bg": "linear-gradient(135deg,#C49A3C,#9C7421)",
     "description": "A major construction group engaged Ansar to deliver  IGC coaching for 84 safety managers across 6 countries. Programme included customised study materials, weekly coaching sessions, mock exams, and tailored feedback. Delivered fully online over 12 weeks.",
     "metrics": [
-      { "value": "84", "label": "Delegates Trained", "color": "var(--gold)" },
-      { "value": "97%", "label": "First-Attempt Pass", "color": "#16A34A" },
-      { "value": "6", "label": "Countries", "color": "var(--blue)" }
+      {
+        "value": "84",
+        "label": "Delegates Trained",
+        "color": "var(--gold)"
+      },
+      {
+        "value": "97%",
+        "label": "First-Attempt Pass",
+        "color": "#C49A3C"
+      },
+      {
+        "value": "6",
+        "label": "Countries",
+        "color": "var(--blue)"
+      }
     ],
     "tag": "Training & Coaching",
     "order": 3,
@@ -60,12 +96,24 @@
     "industry": "Construction · Australia",
     "category": "digital",
     "icon": "fa-chart-bar",
-    "icon_bg": "linear-gradient(135deg,#0A2020,#155A5A)",
+    "icon_bg": "linear-gradient(135deg,#122A4F,#0C1E3E)",
     "description": "An Australian construction group had safety data scattered across 14 project sites in Excel, SharePoint, and three different contractor systems. Designed and built a Power BI enterprise safety dashboard consolidating all sources — live incident tracking, near-miss trends, training compliance, and contractor performance.",
     "metrics": [
-      { "value": "14", "label": "Sites Connected", "color": "var(--gold)" },
-      { "value": "3wk", "label": "Build Time", "color": "var(--blue)" },
-      { "value": "100%", "label": "Board Adoption", "color": "#16A34A" }
+      {
+        "value": "14",
+        "label": "Sites Connected",
+        "color": "var(--gold)"
+      },
+      {
+        "value": "3wk",
+        "label": "Build Time",
+        "color": "var(--blue)"
+      },
+      {
+        "value": "100%",
+        "label": "Board Adoption",
+        "color": "#C49A3C"
+      }
     ],
     "tag": "Power BI · Digital",
     "order": 4,
@@ -78,12 +126,24 @@
     "industry": "Logistics · Germany",
     "category": "digital",
     "icon": "fa-robot",
-    "icon_bg": "linear-gradient(135deg,#0B2235,#1A3D6E)",
+    "icon_bg": "linear-gradient(135deg,#0C1E3E,#122A4F)",
     "description": "A European logistics corporation had 5 years of incident data in disparate spreadsheets — never systematically analysed. Built a custom AI tool combining NLP and pattern recognition to categorise incidents, identify root cause trends, predict high-risk periods, and auto-generate executive reports.",
     "metrics": [
-      { "value": "5yr", "label": "Data Analysed", "color": "var(--gold)" },
-      { "value": "23", "label": "Pattern Insights", "color": "var(--blue)" },
-      { "value": "40%", "label": "Report Time Saved", "color": "#16A34A" }
+      {
+        "value": "5yr",
+        "label": "Data Analysed",
+        "color": "var(--gold)"
+      },
+      {
+        "value": "23",
+        "label": "Pattern Insights",
+        "color": "var(--blue)"
+      },
+      {
+        "value": "40%",
+        "label": "Report Time Saved",
+        "color": "#C49A3C"
+      }
     ],
     "tag": "AI Solutions",
     "order": 5,
@@ -96,12 +156,24 @@
     "industry": "Manufacturing · Singapore",
     "category": "consulting",
     "icon": "fa-search",
-    "icon_bg": "linear-gradient(135deg,#1A0A00,#4A2200)",
+    "icon_bg": "linear-gradient(135deg,#1C5BA8,#154A8C)",
     "description": "Following a lost-time injury at a Singapore manufacturing plant, deployed on-site within 24 hours. Conducted full ICAM investigation: evidence gathering, witness interviews, timeline reconstruction, systemic cause analysis, and CAPA plan. Report delivered in 72 hours; regulatory notification prepared and submitted.",
     "metrics": [
-      { "value": "72h", "label": "Report Delivered", "color": "var(--gold)" },
-      { "value": "12", "label": "Corrective Actions", "color": "var(--blue)" },
-      { "value": "100%", "label": "CAPA Closed On-Time", "color": "#16A34A" }
+      {
+        "value": "72h",
+        "label": "Report Delivered",
+        "color": "var(--gold)"
+      },
+      {
+        "value": "12",
+        "label": "Corrective Actions",
+        "color": "var(--blue)"
+      },
+      {
+        "value": "100%",
+        "label": "CAPA Closed On-Time",
+        "color": "#C49A3C"
+      }
     ],
     "tag": "Incident Investigation",
     "order": 6,

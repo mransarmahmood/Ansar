@@ -2,6 +2,7 @@
 import { useEffect } from 'react';
 import PageHtml from '../components/PageHtml';
 import ServiceEnhancements from '../components/ServiceEnhancements';
+import ServicePoster from '../components/ServicePoster';
 import { splitAtCtaBanner } from '../utils/splitHtml';
 
 const HTML = `
@@ -186,7 +187,9 @@ export default function Consulting() {
   const [pre, ctaPart] = splitAtCtaBanner(HTML);
   return (
     <>
-      <PageHtml html={pre} />
+      <PageHtml html={pre.slice(0, pre.indexOf('</section>') + 10)} />
+      <ServicePoster src="assets/images/poster-consultancy.png" alt="Consultancy Services by Ansar Mahmood" />
+      <PageHtml html={pre.slice(pre.indexOf('</section>') + 10)} />
       <ServiceEnhancements investment={INVESTMENT} comparison={COMPARISON} ctaLabel="Free HSE diagnostic call" />
       {ctaPart && <PageHtml html={ctaPart} />}
     </>

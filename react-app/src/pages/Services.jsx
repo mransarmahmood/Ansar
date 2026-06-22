@@ -1,6 +1,7 @@
 // Auto-generated from pages/services.html. Edit freely — this file is the source of truth now.
 import { useEffect } from 'react';
 import PageHtml from '../components/PageHtml';
+import ServicePosterGallery from '../components/ServicePosterGallery';
 
 const HTML = `
 
@@ -78,5 +79,12 @@ export default function Services() {
   useEffect(() => {
     document.title = "HSE Services | Ansar Mahmood — Consulting, Training, AI & Digital Solutions";
   }, []);
-  return <PageHtml html={HTML} />;
+  const heroEnd = HTML.indexOf('</section>') + 10;
+  return (
+    <>
+      <PageHtml html={HTML.slice(0, heroEnd)} />
+      <ServicePosterGallery />
+      <PageHtml html={HTML.slice(heroEnd)} />
+    </>
+  );
 }

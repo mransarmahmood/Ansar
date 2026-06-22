@@ -1,0 +1,89 @@
+/* ClientLogos — "Trusted by" client-logo strip.
+   NOTE: the logos in assets/images/clients/ are PLACEHOLDER / dummy wordmarks
+   for fictional companies. Swap them for the real client logos when available. */
+
+.client-logos {
+  padding: 64px 0;
+  background: #fff;
+}
+
+.client-logos__head {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.client-logos__eyebrow {
+  display: inline-block;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #1E8A3C;
+}
+
+.client-logos__sub {
+  margin: 12px auto 0;
+  max-width: 540px;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 19px;
+  line-height: 1.45;
+  color: #15265E;
+}
+
+.client-logos__grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px 24px;
+  align-items: center;
+  justify-items: center;
+}
+
+.client-logos__item {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.client-logos__logo {
+  width: 100%;
+  max-width: 180px;
+  height: auto;
+  filter: grayscale(100%);
+  opacity: 0.6;
+  transition: opacity 0.2s ease, filter 0.2s ease;
+  cursor: default;
+}
+
+.client-logos__logo:hover {
+  filter: grayscale(0%);
+  opacity: 1;
+}
+
+@media (max-width: 860px) {
+  .client-logos__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .client-logos {
+    padding: 48px 0;
+  }
+  .client-logos__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px 18px;
+  }
+  .client-logos__sub {
+    font-size: 17px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .client-logos__logo {
+    transition: none;
+  }
+}

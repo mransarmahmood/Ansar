@@ -35,9 +35,12 @@ export default function UpcomingSessions({ limit = 6 }) {
 
   return (
     <section className="uc-section" id="upcoming-sessions" aria-labelledby="uc-title">
-      <div className="uc-head">
-        <div className="uc-head__inner">
-          <h2 id="uc-title" className="uc-title">Upcoming Professional Courses</h2>
+      <div className="container">
+        <div className="uc-head2">
+          <span className="uc-head2__cal"><i className="fas fa-calendar-alt"></i></span>
+          <h2 id="uc-title" className="uc-title2">Upcoming Training Programs</h2>
+          <p className="uc-sub2">Live online certifications and professional courses</p>
+          <span className="uc-divider"><i></i><b></b><i></i></span>
         </div>
       </div>
 
@@ -49,39 +52,37 @@ export default function UpcomingSessions({ limit = 6 }) {
               const featured = c.id === featuredId;
               return (
                 <article key={c.id} className={`uc-card reveal${featured ? ' uc-card--featured' : ''}`}>
-                  <div className="uc-date">
-                    <span className="uc-date__day">{c.day}</span>
-                    <span className="uc-date__mon">{c.month}</span>
-                    <span className="uc-date__line"></span>
-                    <span className="uc-date__yr">{c.year}</span>
-                    <span className="uc-date__cal"><i className="fas fa-calendar-alt"></i></span>
+                  {featured && <span className="uc-flag"><i className="fas fa-star"></i> Most Popular</span>}
+
+                  <div className="uc-top">
+                    <div className="uc-datechip" aria-hidden="true">
+                      <span className="uc-datechip__day">{c.day}</span>
+                      <span className="uc-datechip__mon">{c.month}</span>
+                    </div>
+                    <div className="uc-tags">
+                      <span className={`uc-level uc-level--${c.level}`}>{(c.level_label || c.level || '').toUpperCase()}</span>
+                      <span className="uc-accr">{c.accreditor} · {c.year}</span>
+                    </div>
                   </div>
 
-                  <div className="uc-body">
-                    <div className="uc-row-top">
-                      <span className={`uc-level uc-level--${c.level}`}>{(c.level_label || c.level || '').toUpperCase()}</span>
-                      <span className="uc-accr">{c.accreditor}</span>
-                    </div>
+                  <h3 className="uc-name">{c.title.trim()}</h3>
 
-                    <h3 className="uc-name">{c.title.trim()}</h3>
+                  <div className="uc-facts">
+                    <span><i className="fas fa-clock"></i>{c.duration}</span>
+                    <span><i className={`fas ${MODE_ICON[c.mode_slug] || 'fa-desktop'}`}></i>{MODE_LABELS[c.mode_slug] || c.mode}</span>
+                  </div>
 
-                    <div className="uc-facts">
-                      <span><i className="fas fa-clock"></i>{c.duration}</span>
-                      <span className="uc-facts__sep"></span>
-                      <span><i className={`fas ${MODE_ICON[c.mode_slug] || 'fa-desktop'}`}></i>{MODE_LABELS[c.mode_slug] || c.mode}</span>
-                    </div>
-
+                  <div className="uc-foot">
                     <div className="uc-pricerow">
                       <span className="uc-price">{c.price}</span>
                       <span className={`uc-seats uc-seats--${s.cls}`}><i className="fas fa-user-group"></i>{s.label}</span>
                     </div>
-
                     <div className="uc-actions">
                       <Link to="/course-admission" className="uc-btn uc-btn--enrol">
-                        Enroll Now <i className="fas fa-arrow-right"></i>
+                        <span>Enroll Now</span> <i className="fas fa-arrow-right"></i>
                       </Link>
                       <Link to="/course-calendar" className="uc-btn uc-btn--ghost">
-                        View Details <i className="fas fa-chevron-right"></i>
+                        <span>View Details</span> <i className="fas fa-chevron-right"></i>
                       </Link>
                     </div>
                   </div>
@@ -91,9 +92,8 @@ export default function UpcomingSessions({ limit = 6 }) {
           </div>
 
           <div className="uc-trust">
-            <span><i className="fas fa-user-shield"></i> Expert Instructors</span>
-            <span><i className="fas fa-globe"></i> Globally Recognized</span>
-            <span><i className="fas fa-arrow-trend-up"></i> Career Advancing</span>
+            <i className="fas fa-shield-halved"></i>
+            <span>Expert-led. Industry-recognized. <b>Career-focused.</b></span>
           </div>
         </div>
       </div>

@@ -1,3 +1,6 @@
 name,email,phone,company,service,budget,message,submitted_at,ip
 "Test User",test@example.com,+923339284928,,,,"This is a test submission to verify the contact form works after the update.","2026-04-16 19:23:00",::1
 Test,a@b.com,,,,,"Hello world test deploy verify","2026-04-24 17:22:20",::1
+RebrandTest,test1782080368@example.com,,,,,"This is an end to end rebrand verification message.","2026-06-22 00:19:28",::1
+Verify2,c1782080502@example.com,,,,,"Second pass verifying clean JSON output now.","2026-06-22 00:21:42",::1
+"QA Tester",qa@example.com,123,"QA Co","HSE Consulting &amp; Advisory",,"Automated wiring test — please ignore.","2026-06-22 14:25:02",::1

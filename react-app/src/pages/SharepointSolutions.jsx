@@ -2,6 +2,7 @@
 import { useEffect } from 'react';
 import PageHtml from '../components/PageHtml';
 import ServiceEnhancements from '../components/ServiceEnhancements';
+import PageBanner from '../components/PageBanner';
 import { splitAtCtaBanner } from '../utils/splitHtml';
 
 const HTML = `
@@ -109,7 +110,8 @@ export default function SharepointSolutions() {
   const [pre, ctaPart] = splitAtCtaBanner(HTML);
   return (
     <>
-      <PageHtml html={pre} />
+      <PageBanner route="sharepoint-solutions" icon="fa-folder-tree" />
+      <PageHtml html={pre.slice(pre.indexOf('</section>') + 10)} />
       <ServiceEnhancements investment={INVESTMENT} ctaLabel="Free portal-architecture call" />
       {ctaPart && <PageHtml html={ctaPart} />}
     </>

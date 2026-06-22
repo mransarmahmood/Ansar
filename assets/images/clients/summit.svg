@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 64" fill="none" role="img" aria-label="Summit Facilities">
+  <g fill="#5C6B82">
+    <path d="M12 50 L24 22 L32 38 L40 14 L52 50 Z"/>
+  </g>
+  <text x="60" y="30" fill="#5C6B82" font-family="'Playfair Display',Georgia,serif" font-size="17" font-weight="700" letter-spacing=".5">SUMMIT</text>
+  <text x="61" y="46" fill="#5C6B82" font-family="Arial,Helvetica,sans-serif" font-size="8" letter-spacing="3.5" opacity=".75">FACILITIES</text>
+</svg>

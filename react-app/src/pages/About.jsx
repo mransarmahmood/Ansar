@@ -1,155 +1,243 @@
 import { useEffect } from 'react';
-import PageHtml from '../components/PageHtml';
+import { Link } from 'react-router-dom';
+import { asset } from '../utils/asset';
 
-const HTML = `
+const TIMELINE = [
+  {
+    year: 'The Frontline',
+    title: 'Two decades on real sites',
+    body: 'I started where safety actually happens — on oil & gas, construction, and infrastructure sites across 10+ countries. Mud, scaffolding, permits, toolbox talks. That field experience is the foundation everything else is built on.',
+  },
+  {
+    year: 'The Trainer',
+    title: 'Coaching thousands to certification',
+    body: 'I became an internationally certified trainer and ISO 45001 Lead Auditor, helping over 10,000 professionals earn IOSH, OSHA, NEBOSH and Lead Auditor credentials — with a near-perfect first-attempt pass rate.',
+  },
+  {
+    year: 'The Digital Shift',
+    title: 'Bringing AI & analytics to HSE',
+    body: 'Today I fuse hands-on consulting with Power BI dashboards, safety AI agents, and digital HSE systems — turning compliance paperwork into live, decision-grade intelligence that leaders actually use.',
+  },
+];
 
-  <!-- Page Hero -->
-  <section class="page-hero page-hero--gradient" aria-labelledby="about-hero-heading">
-    <div class="page-hero__pattern" aria-hidden="true"></div>
-    <i class="page-hero__icon-bg fas fa-user-tie" aria-hidden="true"></i>
-    <div class="container">
-      <nav class="breadcrumb" aria-label="Breadcrumb">
-        <a href="index.html">Home</a>
-        <span class="breadcrumb__sep"><i class="fas fa-chevron-right"></i></span>
-        <span class="breadcrumb__current">About</span>
-      </nav>
-      <div class="page-hero__content">
-        <span class="eyebrow eyebrow--white">Chartered HSE Professional</span>
-        <h1 id="about-hero-heading">Meet Ansar Mahmood</h1>
-        <p>Chartered safety leader, certified trainer, and digital transformation specialist — 20 years protecting people and elevating safety performance across 10+ countries.</p>
-        <div class="about-creds">
-          <span class="about-cred">CMIOSH&reg;</span>
-          <span class="about-cred">CSP&reg;</span>
-          <span class="about-cred">CRSP&reg;</span>
-          <span class="about-cred">PMP&reg;</span>
-          <span class="about-cred">PRINCE2&reg;</span>
-          <span class="about-cred">CSM&reg;</span>
-          <span class="about-cred">PhD Scholar</span>
-        </div>
-        <div class="page-hero__actions">
-          <a href="pages/book-consultation.html" class="btn btn-gold btn-lg"><i class="fas fa-calendar-check"></i> Book a Consultation</a>
-          <a href="pages/contact.html" class="btn btn-outline-white btn-lg">Get in Touch</a>
-        </div>
-      </div>
-    </div>
-  </section>
+const CREDS = [
+  { icon: 'fa-award', label: 'CMIOSH', sub: 'Chartered Member, IOSH' },
+  { icon: 'fa-clipboard-check', label: 'ISO 45001 Lead Auditor', sub: '45001 / 14001 / 9001' },
+  { icon: 'fa-helmet-safety', label: 'OSHA Professional', sub: 'US & international' },
+  { icon: 'fa-graduation-cap', label: 'NEBOSH / IOSH', sub: 'Accredited training' },
+  { icon: 'fa-chart-column', label: 'Microsoft Power BI', sub: 'HSE analytics' },
+  { icon: 'fa-robot', label: 'Safety AI Specialist', sub: 'Automation & agents' },
+  { icon: 'fa-earth-americas', label: '10+ Countries', sub: 'Global delivery' },
+  { icon: 'fa-users', label: '10,000+ Trained', sub: 'Professionals coached' },
+];
 
-  <!-- Bio Section -->
-  <section class="section section-white">
-    <div class="container">
-      <div class="about-bio">
-        <!-- Profile Photo -->
-        <div class="reveal reveal--left about-bio__media">
-          <div class="about-photo">
-            <img src="/assets/images/ansar-17.jpeg" alt="Ansar Mahmood — Chartered HSE Consultant" />
-          </div>
-          <div class="about-stats">
-            <div class="about-stat"><strong>20</strong><span>Years Experience</span></div>
-            <div class="about-stat"><strong>10+</strong><span>Countries</span></div>
-            <div class="about-stat"><strong>500+</strong><span>Projects</span></div>
-            <div class="about-stat"><strong>10K+</strong><span>Professionals Trained</span></div>
-          </div>
-        </div>
+const NUMBERS = [
+  { n: '20', s: 'yrs', l: 'On the front line' },
+  { n: '10+', s: '', l: 'Countries delivered' },
+  { n: '500+', s: '', l: 'Projects supported' },
+  { n: '10k+', s: '', l: 'Professionals trained' },
+  { n: '97%', s: '+', l: 'First-attempt pass rate' },
+];
 
-        <!-- Bio Content -->
-        <div class="reveal reveal--right">
-          <span class="eyebrow">The Professional Story</span>
-          <h2 style="margin-bottom:22px;">Trusted by corporations. Respected by professionals. <em class="em">Driven by purpose.</em></h2>
-
-          <p>Ansar Mahmood is a globally recognised Health, Safety &amp; Environment (HSE) leader, trainer, and digital-transformation specialist with two decades of frontline experience across oil &amp; gas, construction, manufacturing, and major infrastructure in more than ten countries.</p>
-
-          <p>A <strong>Chartered Member of IOSH (CMIOSH)</strong> who also holds the <strong>CSP</strong>, <strong>CRSP</strong>, <strong>PMP</strong>, <strong>PRINCE2</strong> and <strong>CSM</strong> credentials — backed by an <strong>MBA</strong>, an <strong>MSc in Environment</strong>, an <strong>MPhil in EHS</strong> and ongoing <strong>PhD research</strong> — Ansar pairs deep regulatory and operational expertise with modern project management and technology. He has led safety programmes on megaprojects — including milestones such as one million LTI-free hours — implemented ISO management systems end to end, and coached thousands of professionals to certification with a near-perfect first-attempt success rate.</p>
-
-          <p style="margin-bottom:30px;">Today he helps organisations turn safety from a compliance burden into a strategic advantage — combining hands-on HSE consulting and training with AI automation, Power BI dashboards, and digital HSE systems built for the realities of the field. He delivers live weekend mentoring to busy professionals worldwide, from Saudi Arabia to the rest of the globe.</p>
-
-          <blockquote class="about-quote">
-            <p>&ldquo;Empowering future leaders through knowledge, guidance, and real-world expertise in HSE, sustainability, and professional growth.&rdquo;</p>
-            <cite>&mdash; Ansar Mahmood, CMIOSH&reg;</cite>
-          </blockquote>
-
-          <div style="display:flex;gap:14px;flex-wrap:wrap;">
-            <a href="pages/consulting.html" class="btn btn-primary btn-lg">View Services</a>
-            <a href="pages/book-consultation.html" class="btn btn-gold btn-lg">Book a Call</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Credentials -->
-  <section class="section section-gray" aria-labelledby="certs-heading">
-    <div class="container">
-      <div class="section-header">
-        <span class="eyebrow">Professional Credentials</span>
-        <h2 id="certs-heading">Globally recognised <em class="em">qualifications.</em></h2>
-        <p>A rare combination of chartered safety status, international certifications, and project &amp; technology credentials.</p>
-      </div>
-      <div class="grid grid-3" style="gap:24px;">
-        <div class="feature-card reveal"><div class="feature-card__icon"><i class="fas fa-award"></i></div><h4 class="feature-card__title">CMIOSH&reg;</h4><p class="feature-card__desc">Chartered Member of the Institution of Occupational Safety &amp; Health — the highest professional grade in occupational safety &amp; health.</p></div>
-        <div class="feature-card reveal"><div class="feature-card__icon"><i class="fas fa-star"></i></div><h4 class="feature-card__title">CSP&reg;</h4><p class="feature-card__desc">Certified Safety Professional, awarded by the Board of Certified Safety Professionals (BCSP), USA — a gold-standard global safety credential.</p></div>
-        <div class="feature-card reveal"><div class="feature-card__icon"><i class="fas fa-leaf"></i></div><h4 class="feature-card__title">CRSP&reg;</h4><p class="feature-card__desc">Canadian Registered Safety Professional — recognising advanced competence in occupational health &amp; safety practice.</p></div>
-        <div class="feature-card reveal"><div class="feature-card__icon"><i class="fas fa-diagram-project"></i></div><h4 class="feature-card__title">PMP&reg;</h4><p class="feature-card__desc">Project Management Professional (PMI) — disciplined delivery of complex safety and transformation programmes, on time and on budget.</p></div>
-        <div class="feature-card reveal"><div class="feature-card__icon"><i class="fas fa-people-group"></i></div><h4 class="feature-card__title">CSM&reg;</h4><p class="feature-card__desc">Certified ScrumMaster — agile delivery of digital and continuous-improvement initiatives across HSE and technology teams.</p></div>
-        <div class="feature-card reveal"><div class="feature-card__icon"><i class="fas fa-clipboard-check"></i></div><h4 class="feature-card__title">ISO 45001 Lead Auditor</h4><p class="feature-card__desc">Lead Auditor for ISO 45001 / 14001 / 9001 management systems — from gap analysis through to certification readiness.</p></div>
-        <div class="feature-card reveal"><div class="feature-card__icon"><i class="fas fa-sitemap"></i></div><h4 class="feature-card__title">PRINCE2&reg;</h4><p class="feature-card__desc">PRINCE2 Practitioner — controlled, stage-gated delivery of projects and organisational change programmes.</p></div>
-        <div class="feature-card reveal"><div class="feature-card__icon"><i class="fas fa-user-graduate"></i></div><h4 class="feature-card__title">Academic Foundation</h4><p class="feature-card__desc">MBA &middot; MSc Environment &middot; MPhil EHS &middot; PhD Scholar (research in progress) — practice grounded in rigorous academic study.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Areas of Expertise -->
-  <section class="section section-white" aria-labelledby="expertise-heading">
-    <div class="container">
-      <div class="section-header">
-        <span class="eyebrow">What Ansar Does</span>
-        <h2 id="expertise-heading">Three disciplines, <em class="em">one trusted advisor.</em></h2>
-        <p>Most consultants do one thing. Ansar brings consulting, training, and technology together so they reinforce each other.</p>
-      </div>
-      <div class="grid grid-3" style="gap:24px;">
-        <div class="feature-card reveal"><div class="feature-card__icon"><i class="fas fa-shield-halved"></i></div><h4 class="feature-card__title">HSE Consulting &amp; Auditing</h4><p class="feature-card__desc">Strategic advisory, ISO 45001/14001/9001 implementation, compliance &amp; gap audits, and incident investigation led by a Lead Auditor.</p></div>
-        <div class="feature-card reveal"><div class="feature-card__icon"><i class="fas fa-graduation-cap"></i></div><h4 class="feature-card__title">Training &amp; Certification Coaching</h4><p class="feature-card__desc">IOSH, OSHA, ISO Lead Auditor, ASP/CSP, NFPA and more — live, online, and corporate cohorts with a 97%+ first-attempt pass rate.</p></div>
-        <div class="feature-card reveal"><div class="feature-card__icon"><i class="fas fa-microchip"></i></div><h4 class="feature-card__title">Digital &amp; AI Solutions</h4><p class="feature-card__desc">Custom AI agents, Power BI dashboards, SharePoint portals and safety apps that connect HSE to the modern enterprise.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Photo Gallery -->
-  <section class="section section-gray">
-    <div class="container">
-      <div class="section-header">
-        <span class="eyebrow">In the Field &amp; Beyond</span>
-        <h2>A career built on <em class="em">real-world experience.</em></h2>
-        <p>From megaproject sites to international conferences — 20 years of global HSE leadership, training, and impact.</p>
-      </div>
-      <div class="about-gallery">
-        <div class="reveal about-gallery__item"><img src="/assets/images/ansar-4.jpeg" alt="Ansar Mahmood on site — HSE field work" /></div>
-        <div class="reveal about-gallery__item"><img src="/assets/images/ansar-8.jpeg" alt="Ansar Mahmood — one million LTI-free hours milestone" /></div>
-        <div class="reveal about-gallery__item"><img src="/assets/images/ansar-10.jpeg" alt="Ansar Mahmood speaking at a safety conference" /></div>
-        <div class="reveal about-gallery__item"><img src="/assets/images/ansar-2.jpeg" alt="Ansar Mahmood delivering HSE training" /></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section class="cta-banner section" aria-label="Call to action">
-    <div class="container">
-      <div class="cta-banner__content">
-        <span class="eyebrow eyebrow--white">Let's Connect</span>
-        <h2>Ready to work with a <em class="em">globally trusted</em> HSE expert?</h2>
-        <p>Book a free 30-minute consultation and let's discuss how Ansar can support your organisation's safety, training, and digital transformation goals.</p>
-        <div class="cta-banner__actions">
-          <a href="pages/book-consultation.html" class="btn btn-gold btn-xl"><i class="fas fa-calendar-check"></i> Book Free Consultation</a>
-          <a href="pages/contact.html" class="btn btn-outline-white btn-xl">Send a Message</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-`;
+const VALUES = [
+  {
+    icon: 'fa-bullseye',
+    title: 'Outcomes over compliance',
+    body: 'A binder of policies never prevented an injury. I build systems that change behaviour and protect people — compliance follows naturally.',
+  },
+  {
+    icon: 'fa-helmet-safety',
+    title: 'Field-tested, not theoretical',
+    body: 'Every recommendation is shaped by twenty years of standing on real sites. If it can’t survive a 6am shift handover, it isn’t advice worth giving.',
+  },
+  {
+    icon: 'fa-microchip',
+    title: 'Tech-forward by default',
+    body: 'AI, dashboards and automation aren’t buzzwords — they’re how I turn safety data into faster, better, cheaper decisions for your business.',
+  },
+  {
+    icon: 'fa-handshake',
+    title: 'A long-term partner',
+    body: 'I’m not here for a one-off audit. I invest in your team’s capability so safety performance keeps improving long after I’ve gone.',
+  },
+];
 
 export default function About() {
   useEffect(() => {
-    document.title = "About Ansar Mahmood | Chartered HSE Consultant, Trainer & AI Solutions Specialist";
+    document.title = 'About Ansar Mahmood | HSE Consultant, Trainer & Digital Solutions Specialist';
   }, []);
-  return <PageHtml html={HTML} />;
+
+  return (
+    <main className="about">
+      {/* 1. HERO */}
+      <section className="about-hero" aria-labelledby="about-hero-heading">
+        <div className="container about-hero__inner">
+          <div className="about-hero__copy">
+            <span className="about-eyebrow">The Person Behind the Practice</span>
+            <h1 id="about-hero-heading" className="about-hero__title">
+              Two decades turning safety into a <em>competitive advantage.</em>
+            </h1>
+            <p className="about-hero__lead">
+              I&rsquo;m <b>Ansar Mahmood</b> — a Chartered HSE consultant, internationally certified trainer, and
+              digital-solutions specialist. For twenty years I&rsquo;ve protected people on real sites and helped
+              organisations make safety a source of strength, not a cost centre.
+            </p>
+            <div className="about-hero__cta">
+              <Link to="/book-consultation" className="btn btn-gold btn-lg">
+                <i className="fas fa-calendar-check" aria-hidden="true" /> Book a 30-min call
+              </Link>
+              <Link to="/contact" className="btn btn-outline-navy btn-lg">Get in touch</Link>
+            </div>
+          </div>
+
+          <div className="about-hero__media">
+            <div className="about-hero__frame">
+              <img
+                src={asset('assets/images/ansar-portrait.svg')}
+                alt="Portrait of Ansar Mahmood, Chartered HSE consultant"
+                className="about-hero__portrait"
+                decoding="async"
+              />
+            </div>
+            <div className="about-hero__chip">
+              <b>CMIOSH</b>
+              <span>Chartered safety professional</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 2. STORY / JOURNEY */}
+      <section className="about-story" aria-labelledby="about-story-heading">
+        <div className="container about-story__inner">
+          <div className="about-story__media">
+            <figure className="about-story__figure">
+              <img
+                src={asset('assets/images/ansar-onsite.jpg')}
+                alt="Ansar Mahmood in PPE on the Red Sea Global giga-project site"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption>
+                On site at Red Sea Global — part of delivering <b>11M+ LTI-free man-hours</b> across giga-projects.
+              </figcaption>
+            </figure>
+          </div>
+
+          <div className="about-story__body">
+            <span className="about-eyebrow">My journey</span>
+            <h2 id="about-story-heading" className="about-h2">
+              From the scaffolding to the boardroom — and now the algorithm.
+            </h2>
+            <p>
+              My career didn&rsquo;t start behind a desk. It started on construction and oil &amp; gas sites, learning
+              the hard way that safety is won or lost in the small moments — a permit checked, a hazard called out, a
+              crew that trusts the person in the hi-vis. That frontline credibility is something no certificate can give
+              you.
+            </p>
+            <p>
+              As I moved up, I formalised that experience: chartered membership of IOSH, Lead Auditor status for ISO
+              45001, and a passion for teaching. I&rsquo;ve since coached more than ten thousand professionals to
+              certification and led HSE programmes on some of the world&rsquo;s largest giga-projects, including
+              milestones measured in millions of injury-free hours.
+            </p>
+            <p>
+              Then the world changed. Data, AI and automation became too powerful to ignore. So I taught myself Power BI,
+              built safety AI agents, and started helping organisations turn mountains of HSE data into clear, live
+              decisions. Today I sit at the rare intersection of the field, the classroom, and the technology.
+            </p>
+
+            <ol className="about-timeline" aria-label="Career journey">
+              {TIMELINE.map((t) => (
+                <li className="about-timeline__item" key={t.year}>
+                  <span className="about-timeline__dot" aria-hidden="true" />
+                  <span className="about-timeline__year">{t.year}</span>
+                  <h3 className="about-timeline__title">{t.title}</h3>
+                  <p className="about-timeline__body">{t.body}</p>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      {/* 3. CREDENTIALS */}
+      <section className="about-creds-sec" aria-labelledby="about-creds-heading">
+        <div className="container">
+          <div className="about-head">
+            <span className="about-eyebrow">Credentials &amp; expertise</span>
+            <h2 id="about-creds-heading" className="about-h2">A rare combination of qualifications.</h2>
+            <p className="about-head__lead">
+              Chartered safety status, accredited training authority, and modern data &amp; AI skills — under one roof.
+            </p>
+          </div>
+          <ul className="about-creds-grid">
+            {CREDS.map((c) => (
+              <li className="about-cred-card" key={c.label}>
+                <span className="about-cred-card__icon" aria-hidden="true">
+                  <i className={`fas ${c.icon}`} />
+                </span>
+                <span className="about-cred-card__label">{c.label}</span>
+                <span className="about-cred-card__sub">{c.sub}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* 4. NUMBERS BAND */}
+      <section className="about-numbers" aria-label="Track record by the numbers">
+        <div className="container about-numbers__inner">
+          {NUMBERS.map((p) => (
+            <div className="about-numbers__item" key={p.l}>
+              <b className="about-numbers__n">{p.n}<i>{p.s}</i></b>
+              <span className="about-numbers__l">{p.l}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* 5. PHILOSOPHY / VALUES */}
+      <section className="about-values" aria-labelledby="about-values-heading">
+        <div className="container">
+          <div className="about-head">
+            <span className="about-eyebrow">How I work</span>
+            <h2 id="about-values-heading" className="about-h2">The principles behind every engagement.</h2>
+          </div>
+          <ul className="about-values-grid">
+            {VALUES.map((v) => (
+              <li className="about-value-card" key={v.title}>
+                <span className="about-value-card__icon" aria-hidden="true">
+                  <i className={`fas ${v.icon}`} />
+                </span>
+                <h3 className="about-value-card__title">{v.title}</h3>
+                <p className="about-value-card__body">{v.body}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* 6. CTA BAND */}
+      <section className="about-cta" aria-labelledby="about-cta-heading">
+        <div className="container about-cta__inner">
+          <span className="about-eyebrow about-eyebrow--light">Let&rsquo;s work together</span>
+          <h2 id="about-cta-heading" className="about-cta__title">
+            Ready to make safety your competitive advantage?
+          </h2>
+          <p className="about-cta__lead">
+            Book a free 30-minute consultation and let&rsquo;s talk about your safety, training, and digital
+            transformation goals.
+          </p>
+          <div className="about-cta__actions">
+            <Link to="/book-consultation" className="btn btn-gold btn-lg">
+              <i className="fas fa-calendar-check" aria-hidden="true" /> Book a 30-min call
+            </Link>
+            <Link to="/contact" className="btn btn-outline-navy btn-lg about-cta__alt">Send a message</Link>
+          </div>
+          <span className="about-cta__sign">Ansar Mahmood</span>
+        </div>
+      </section>
+    </main>
+  );
 }

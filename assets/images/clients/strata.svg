@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 64" fill="none" role="img" aria-label="Strata Industries">
+  <g fill="#5C6B82">
+    <rect x="12" y="16" width="32" height="5"/>
+    <rect x="12" y="26" width="32" height="5" opacity=".7"/>
+    <rect x="12" y="36" width="32" height="5" opacity=".45"/>
+    <rect x="12" y="46" width="32" height="5" opacity=".25"/>
+  </g>
+  <text x="58" y="30" fill="#5C6B82" font-family="'Playfair Display',Georgia,serif" font-size="17" font-weight="700" letter-spacing="1">STRATA</text>
+  <text x="59" y="46" fill="#5C6B82" font-family="Arial,Helvetica,sans-serif" font-size="8" letter-spacing="3.5" opacity=".75">INDUSTRIES</text>
+</svg>

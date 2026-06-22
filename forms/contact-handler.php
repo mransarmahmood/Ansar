@@ -92,7 +92,7 @@ $subject = SUBJECT_PREFIX . " {$service} — {$name}";
 if (!$service) $subject = SUBJECT_PREFIX . " General enquiry from {$name}";
 
 // ── Send email ───────────────────────────────────────────────
-$sent = mail(RECIPIENT_EMAIL, $subject, $body, $headers);
+$sent = @mail(RECIPIENT_EMAIL, $subject, $body, $headers);
 
 // ── Auto-reply to sender ─────────────────────────────────────
 if ($sent) {
@@ -111,10 +111,12 @@ if ($sent) {
     $autoHeaders .= "MIME-Version: 1.0\r\n";
     $autoHeaders .= "Content-Type: text/plain; charset=UTF-8\r\n";
 
-    mail($email, 'Thank you for your enquiry — Ansar Mahmood', $autoBody, $autoHeaders);
+    @mail($email, 'Thank you for your enquiry — Ansar Mahmood', $autoBody, $autoHeaders);
 }
 
+// Lead is already saved to CSV above — never fail the user just because
+// outbound email is unavailable (e.g. no SMTP). Email is best-effort.
 echo json_encode([
-    'success' => $sent,
-    'message' => $sent ? 'Message sent successfully.' : 'Failed to send. Please email us directly.'
+    'success' => true,
+    'message' => 'Thank you — your message has been received. We\'ll be in touch shortly.'
 ]);

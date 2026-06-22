@@ -1,0 +1,1 @@
+function e(e){if(!e)return[e,``];let t=e.search(/<section\s+class=["'][^"']*cta-banner[^"']*["']/i);return t===-1?[e,``]:[e.slice(0,t),e.slice(t)]}export{e as t};

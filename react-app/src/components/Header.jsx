@@ -93,12 +93,13 @@ export default function Header() {
       <header className={`header${scrolled ? ' scrolled' : ''}`} id="site-header-elem" role="banner">
         <div className="container">
           <Link to="/" className="logo" aria-label="Ansar Mahmood Home">
-            <img src={asset('assets/images/logo.svg')} alt="Ansar Mahmood" className="logo-img" width="220" height="46" loading="eager"
+            <img src={asset('assets/images/logo.png')} alt="Ansar Mahmood" className="logo-img" width="56" height="56" loading="eager"
               onError={(e) => { e.currentTarget.style.display = 'none'; if (e.currentTarget.nextElementSibling) e.currentTarget.nextElementSibling.style.display = 'inline'; }} />
             <span className="logo-text" style={{ display: 'none' }}>Ansar<span>.</span>Mahmood</span>
           </Link>
 
           <nav className="nav" role="navigation" aria-label="Main navigation">
+            <NavLink to="/" end className="nav-link">Home</NavLink>
             <div className="nav-item has-dropdown">
               <NavLink to="/services" className="nav-link">
                 Services <i className="fas fa-chevron-down"></i>
@@ -127,7 +128,7 @@ export default function Header() {
                 </div>
               </div>
             </div>
-            <NavLink to="/industries" className="nav-link">Industries</NavLink>
+            <NavLink to="/pricing" className="nav-link">Pricing</NavLink>
             <NavLink to="/case-studies" className="nav-link">Case Studies</NavLink>
             <NavLink to="/about" className="nav-link">About</NavLink>
 
@@ -140,16 +141,16 @@ export default function Header() {
                   <div className="mega-col__heading">Courses</div>
                   <Link to="/course-calendar"><i className="fas fa-calendar-alt"></i>Course Calendar</Link>
                   <Link to="/course-admission"><i className="fas fa-user-graduate"></i>Course Admission</Link>
-                  <Link to="/training"><i className="fas fa-chalkboard-teacher"></i>All Training</Link>
+                  <Link to="/practice-exams"><i className="fas fa-clipboard-question"></i>Practice Exams</Link>
                   <Link to="/certification-coaching"><i className="fas fa-award"></i>Certification Coaching</Link>
                 </div>
                 <div className="mega-col">
                   <div className="mega-col__heading">Free Resources</div>
                   <Link to="/free-tools"><i className="fas fa-tools"></i>Free HSE Tools</Link>
-                  <Link to="/resources"><i className="fas fa-download"></i>Free Downloads</Link>
-                  <Link to="/books"><i className="fas fa-book-reader"></i>HSE Books</Link>
+                  <Link to="/hse-assessment"><i className="fas fa-gauge-high"></i>HSE Maturity Assessment</Link>
+                  <Link to="/roi-calculator"><i className="fas fa-coins"></i>HSE ROI Calculator</Link>
+                  <Link to="/resource-library"><i className="fas fa-folder-open"></i>Resource Library</Link>
                   <Link to="/blog"><i className="fas fa-rss"></i>Blog & Insights</Link>
-                  <Link to="/newsletter"><i className="fas fa-envelope-open-text"></i>Newsletter</Link>
                   <Link to="/faqs"><i className="fas fa-question-circle"></i>FAQs</Link>
                 </div>
                 <div className="mega-col mega-col--cta">
@@ -166,10 +167,11 @@ export default function Header() {
                 </div>
               </div>
             </div>
+            <NavLink to="/free-tools" className="nav-link">Free Resources</NavLink>
           </nav>
 
           <div className="nav-actions">
-            <NavLink to="/contact" className="nav-link">Contact</NavLink>
+            <NavLink to="/login" className="nav-link"><i className="fas fa-user-graduate"></i> Student Login</NavLink>
             <Link to="/book-consultation" className="btn btn-gold btn-sm">
               <i className="fas fa-calendar-check"></i> Book Free Consultation
             </Link>
@@ -195,13 +197,16 @@ export default function Header() {
 
       <nav className={`mobile-nav${mobileOpen ? ' open' : ''}`} id="mobile-nav" role="dialog" aria-label="Mobile navigation" aria-modal="true">
         <div className="mobile-nav__header">
-          <img src={asset('assets/images/logo.svg')} alt="Ansar Mahmood" className="logo-img" width="180" height="38"
+          <img src={asset('assets/images/logo.png')} alt="Ansar Mahmood" className="logo-img" width="48" height="48"
             onError={(e) => { e.currentTarget.style.display = 'none'; }} />
           <button className="mobile-close" aria-label="Close navigation" onClick={() => setMobileOpen(false)}>
             <i className="fas fa-times"></i>
           </button>
         </div>
         <div className="mobile-nav__links">
+          <div className="mobile-nav__section-title">Menu</div>
+          <Link to="/" className="mobile-nav__link"><i className="fas fa-home"></i>Home</Link>
+
           <div className="mobile-nav__section-title">Consulting</div>
           {consultingLinks.map(l => <Link key={l.to} to={l.to} className="mobile-nav__link"><i className={`fas ${l.icon}`}></i>{l.label}</Link>)}
 
@@ -211,15 +216,17 @@ export default function Header() {
           <div className="mobile-nav__section-title">Digital & AI</div>
           {digitalLinks.map(l => <Link key={l.to} to={l.to} className="mobile-nav__link"><i className={`fas ${l.icon}`}></i>{l.label}</Link>)}
 
-          <div className="mobile-nav__section-title">Courses</div>
+          <div className="mobile-nav__section-title">Courses & Pricing</div>
           <Link to="/course-calendar" className="mobile-nav__link"><i className="fas fa-calendar-alt"></i>Course Calendar</Link>
+          <Link to="/practice-exams" className="mobile-nav__link"><i className="fas fa-clipboard-question"></i>Practice Exams</Link>
+          <Link to="/pricing" className="mobile-nav__link"><i className="fas fa-tags"></i>Packages & Pricing</Link>
           <Link to="/course-admission" className="mobile-nav__link"><i className="fas fa-user-graduate"></i>Apply / Enrol</Link>
 
           <div className="mobile-nav__section-title">Free Resources</div>
           <Link to="/free-tools" className="mobile-nav__link"><i className="fas fa-tools"></i>Free HSE Tools</Link>
-          <Link to="/resources" className="mobile-nav__link"><i className="fas fa-download"></i>Free Downloads</Link>
-          <Link to="/books" className="mobile-nav__link"><i className="fas fa-book-reader"></i>HSE Books</Link>
-          <Link to="/newsletter" className="mobile-nav__link"><i className="fas fa-envelope-open-text"></i>Newsletter</Link>
+          <Link to="/hse-assessment" className="mobile-nav__link"><i className="fas fa-gauge-high"></i>HSE Maturity Assessment</Link>
+          <Link to="/roi-calculator" className="mobile-nav__link"><i className="fas fa-coins"></i>ROI Calculator</Link>
+          <Link to="/resource-library" className="mobile-nav__link"><i className="fas fa-folder-open"></i>Resource Library</Link>
           <Link to="/blog" className="mobile-nav__link"><i className="fas fa-rss"></i>Blog & Insights</Link>
 
           <div className="mobile-nav__section-title">Company</div>

@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import faqs from '../data/faqs.json';
+import PageBanner from '../components/PageBanner';
 
 function groupByCategory(items) {
   const groups = new Map();
@@ -35,20 +36,13 @@ export default function Faqs() {
 
   return (
     <>
-      <section className="page-hero page-hero--gradient">
-        <div className="container">
-          <div className="breadcrumb">
-            <Link to="/">Home</Link>
-            <i className="fas fa-chevron-right"></i>
-            <span>FAQs</span>
-          </div>
-          <span className="eyebrow eyebrow--white">Answers to Common Questions</span>
-          <h1>Frequently Asked Questions</h1>
-          <p>Clear answers to the questions clients most often ask about HSE consulting, training, certification coaching, AI safety solutions, and engagement models.</p>
+      <PageBanner route="faqs" icon="fa-circle-question" />
 
-          <div style={{ marginTop: 28, maxWidth: 520 }}>
+      <section className="section section-white">
+        <div className="container" style={{ maxWidth: 900 }}>
+          <div style={{ marginBottom: 36, maxWidth: 520 }}>
             <div style={{ position: 'relative' }}>
-              <i className="fas fa-search" style={{ position: 'absolute', left: 18, top: '50%', transform: 'translateY(-50%)', color: 'rgba(255,255,255,.6)' }}></i>
+              <i className="fas fa-search" style={{ position: 'absolute', left: 18, top: '50%', transform: 'translateY(-50%)', color: 'var(--text-muted)' }}></i>
               <input
                 type="search"
                 placeholder="Search FAQs..."
@@ -58,22 +52,17 @@ export default function Faqs() {
                 style={{
                   width: '100%',
                   padding: '14px 18px 14px 48px',
-                  border: '1px solid rgba(255,255,255,.2)',
+                  border: '1px solid var(--gray-200)',
                   borderRadius: 12,
-                  background: 'rgba(255,255,255,.08)',
-                  color: '#fff',
+                  background: '#fff',
+                  color: 'var(--navy)',
                   fontSize: '1rem',
                   outline: 'none',
-                  backdropFilter: 'blur(8px)',
                 }}
               />
             </div>
           </div>
-        </div>
-      </section>
 
-      <section className="section section-white">
-        <div className="container" style={{ maxWidth: 900 }}>
           {filtered.length === 0 ? (
             <div style={{ textAlign: 'center', padding: 60 }}>
               <i className="fas fa-search" style={{ fontSize: 40, color: 'var(--text-muted)', marginBottom: 16, display: 'block' }}></i>

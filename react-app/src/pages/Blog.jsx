@@ -1,6 +1,7 @@
 // Auto-generated from pages/blog.html. Edit freely — this file is the source of truth now.
 import { useEffect } from 'react';
 import PageHtml from '../components/PageHtml';
+import PageBanner from '../components/PageBanner';
 
 const HTML = `
 
@@ -79,5 +80,11 @@ export default function Blog() {
   useEffect(() => {
     document.title = "HSE Insights Blog — Safety, Digital & AI | Ansar Mahmood";
   }, []);
-  return <PageHtml html={HTML} />;
+  const heroEnd = HTML.indexOf('</section>') + 10;
+  return (
+    <>
+      <PageBanner route="blog" icon="fa-newspaper" />
+      <PageHtml html={HTML.slice(heroEnd)} />
+    </>
+  );
 }

@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import courses from '../data/courses.json';
 import courseContents from '../data/course-contents.json';
+import PageBanner from '../components/PageBanner';
 
 const MODE_LABELS = {
   'online': 'Online Live',
@@ -25,7 +26,7 @@ const LEVEL_META = {
   },
   advanced: {
     label: 'Advanced',
-    accent: '#4F46E5',
+    accent: '#2456C7',
     tagline: 'Degree-level diplomas and globally-recognised professional credentials.',
     icon: 'fa-trophy',
   },
@@ -60,7 +61,7 @@ function CourseCard({ c }) {
       <div
         style={{
           padding: '18px 24px',
-          background: `linear-gradient(135deg, ${c.badge_color || '#131235'}, ${(c.badge_color || '#1E1B4B') + 'cc'})`,
+          background: `linear-gradient(135deg, ${c.badge_color || '#15265E'}, ${(c.badge_color || '#1C2F6E') + 'cc'})`,
           color: '#fff',
           display: 'flex',
           justifyContent: 'space-between',
@@ -213,28 +214,7 @@ export default function CourseCalendar() {
 
   return (
     <>
-      <section className="page-hero page-hero--gradient">
-        <div className="container">
-          <div className="breadcrumb">
-            <Link to="/">Home</Link>
-            <i className="fas fa-chevron-right"></i>
-            <Link to="/training">Training</Link>
-            <i className="fas fa-chevron-right"></i>
-            <span>Course Calendar</span>
-          </div>
-          <span className="eyebrow eyebrow--white">Accredited Training Academy</span>
-          <h1>HSE Course Calendar — 2026</h1>
-          <p>{total}+ accredited courses across beginner, intermediate, and advanced levels — IOSH, OSHA, NFPA, HABC, OTHM, NVQ, BCSP, PMP, Six Sigma and ISO (9001 · 14001 · 45001 · 27001). Live online and in-person, taught by an internationally certified tutor with 20 years on the field.</p>
-          <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap', marginTop: 28 }}>
-            <Link to="/course-admission" className="btn btn-gold btn-lg">
-              <i className="fas fa-user-graduate"></i> Apply / Enrol
-            </Link>
-            <Link to="/book-consultation" className="btn btn-outline-white btn-lg">
-              <i className="fas fa-calendar-check"></i> Book Free Advice
-            </Link>
-          </div>
-        </div>
-      </section>
+      <PageBanner route="course-calendar" icon="fa-calendar-days" />
 
       {/* Level overview strip */}
       <section className="section-sm section-white" style={{ paddingTop: 40, paddingBottom: 8 }}>

@@ -1,7 +1,9 @@
 // Auto-generated from pages/ai-solutions.html. Edit freely — this file is the source of truth now.
 import { useEffect } from 'react';
+import PageBanner from '../components/PageBanner';
 import PageHtml from '../components/PageHtml';
 import ServiceEnhancements from '../components/ServiceEnhancements';
+import ServicePoster from '../components/ServicePoster';
 import { splitAtCtaBanner } from '../utils/splitHtml';
 
 const HTML = `
@@ -235,7 +237,9 @@ export default function AiSolutions() {
   const [pre, ctaPart] = splitAtCtaBanner(HTML);
   return (
     <>
-      <PageHtml html={pre} />
+      <PageBanner route="ai-solutions" icon="fa-robot" />
+      <ServicePoster src="assets/images/poster-ai.png" alt="AI Integration Services by Ansar Mahmood" />
+      <PageHtml html={pre.slice(pre.indexOf('</section>') + 10)} />
       <ServiceEnhancements investment={INVESTMENT} comparison={COMPARISON} ctaLabel="Free AI workflow audit" />
       {ctaPart && <PageHtml html={ctaPart} />}
     </>

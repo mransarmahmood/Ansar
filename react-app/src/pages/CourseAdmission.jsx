@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import courses from '../data/courses.json';
 import { API_BASE } from '../config';
+import PageBanner from '../components/PageBanner';
 
 const LEVEL_LABELS = { beginner: 'Beginner', intermediate: 'Intermediate', advanced: 'Advanced' };
 
@@ -168,18 +169,7 @@ export default function CourseAdmission() {
 
   return (
     <>
-      <section className="page-hero page-hero--gradient adm-hero">
-        <div className="container">
-          <div className="breadcrumb">
-            <Link to="/">Home</Link><i className="fas fa-chevron-right"></i>
-            <Link to="/course-calendar">Course Calendar</Link><i className="fas fa-chevron-right"></i>
-            <span>Apply</span>
-          </div>
-          <span className="eyebrow eyebrow--white">Enrolment Application</span>
-          <h1>Apply for your course</h1>
-          <p>A quick four-step application. Reviewed within 24 hours — you'll receive confirmation with payment details and course access.</p>
-        </div>
-      </section>
+      <PageBanner route="course-admission" icon="fa-user-plus" />
 
       <section className="section section-gray">
         <div className="container adm-wrap">

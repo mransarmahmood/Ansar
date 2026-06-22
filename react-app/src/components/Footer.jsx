@@ -78,11 +78,10 @@ export default function Footer() {
                 <li><Link to="/resources">Free Downloads</Link></li>
                 <li><Link to="/blog">Blog &amp; Insights</Link></li>
                 <li><Link to="/faqs">FAQs</Link></li>
-                <li>
-                  <a href="/Ansar/exam-login.php" style={{ color: 'rgba(255,255,255,.5)' }}>
-                    Exam Portal
-                  </a>
-                </li>
+                <li><Link to="/practice-exams">Practice Exams</Link></li>
+                <li><Link to="/login">Student Portal</Link></li>
+                <li><Link to="/verify">Verify a Certificate</Link></li>
+                <li><Link to="/request-quote">Request a Quote</Link></li>
               </ul>
             </div>
 
@@ -146,20 +145,7 @@ export default function Footer() {
               }}
             >
               {certs.map((c) => (
-                <span
-                  key={c}
-                  style={{
-                    background: 'rgba(255,255,255,.06)',
-                    border: '1px solid rgba(255,255,255,.1)',
-                    color: 'rgba(255,255,255,.7)',
-                    fontSize: '.74rem',
-                    fontWeight: 700,
-                    padding: '6px 14px',
-                    borderRadius: 100,
-                    whiteSpace: 'nowrap',
-                    letterSpacing: '.05em',
-                  }}
-                >{c}</span>
+                <span key={c} className="footer__cred-pill">{c}</span>
               ))}
             </div>
           </div>
